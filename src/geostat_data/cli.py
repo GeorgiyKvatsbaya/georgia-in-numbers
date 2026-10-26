@@ -4,8 +4,10 @@ import argparse
 import json
 from pathlib import Path
 
+from .checks import run_checks
 from .client import GeostatClient
 from .database import DEFAULT_DATABASE, database_overview, load_registry, sync_dataset
+from .export import DEFAULT_OUTPUT, export
 
 
 def parser() -> argparse.ArgumentParser:
@@ -36,6 +38,14 @@ def parser() -> argparse.ArgumentParser:
 
     overview = subparsers.add_parser("describe-db", help="Print LLM-friendly database context")
     overview.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
+
+    check = subparsers.add_parser("check", help="Run data-quality gates against the last export")
+    check.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
+    check.add_argument("--out", type=Path, default=DEFAULT_OUTPUT)
+
+    publish = subparsers.add_parser("export", help="Write Parquet, catalog and dashboard JSON")
+    publish.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
+    publish.add_argument("--out", type=Path, default=DEFAULT_OUTPUT)
     return result
 
 
@@ -68,6 +78,17 @@ def main() -> None:
             print(f"Synced {name}: {rows:,} rows -> {args.database}")
     elif args.command == "describe-db":
         print(database_overview(args.database))
+    elif args.command == "check":
+        failures = run_checks(args.database, args.out / "catalog.json")
+        for failure in failures:
+            print(f"FAIL {failure}")
+        if failures:
+            raise SystemExit(1)
+        print("All checks passed")
+    elif args.command == "export":
+        catalog = export(args.database, args.out)
+        size = sum(entry["bytes"] for entry in catalog["objects"])
+        print(f"Exported {len(catalog['objects'])} objects ({size / 1024:,.0f} KiB) -> {args.out}")
 
 
 if __name__ == "__main__":

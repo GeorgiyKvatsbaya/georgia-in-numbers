@@ -11,6 +11,9 @@ dependencies = [
   "requests>=2.32",
 ]
 
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
 [project.scripts]
 geostat = "geostat_data.cli:main"
 

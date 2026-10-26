@@ -9,126 +9,22 @@ import duckdb
 import pandas as pd
 
 from .client import GeostatClient
+from .views import refresh_views
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_REGISTRY = PROJECT_ROOT / "datasets.json"
 DEFAULT_DATABASE = PROJECT_ROOT / "data" / "geostat.duckdb"
 
-# Derived views over registered tables. Each is (re)built after every sync once all of
-# its source tables exist; the description is stored as the view's DuckDB comment.
-DERIVED_VIEWS: dict[str, dict[str, Any]] = {
-    "real_wages_quarterly": {
-        "requires": ["salaries_quarterly", "cpi_index_monthly"],
-        "description": (
-            "Average monthly salary deflated by the national CPI (2010=100). One row per "
-            "sex/sector × economic activity × year × period. period_type separates quarterly "
-            "rows from Geostat's annual rows, which use a different method (annual runs "
-            "3-5% below the mean of its quarters); never mix them. real_wage_index_2014 is "
-            "100 at the 2014 mean of the same period_type. YoY compares the same quarter "
-            "(or year) one year earlier. Real values are NULL until every CPI month of the "
-            "period is published."
-        ),
-        "sql": """
-            WITH month_numbers AS (
-                SELECT * FROM (VALUES
-                    ('I', 1), ('II', 2), ('III', 3), ('IV', 4), ('V', 5), ('VI', 6),
-                    ('VII', 7), ('VIII', 8), ('IX', 9), ('X', 10), ('XI', 11), ('XII', 12)
-                ) AS t(month, month_num)
-            ),
-            cpi_monthly AS (
-                SELECT c.year, m.month_num, c.value AS cpi
-                FROM cpi_index_monthly AS c
-                JOIN month_numbers AS m USING (month)
-                WHERE c.region = 'Georgia' AND c.value IS NOT NULL
-            ),
-            cpi_periods AS (
-                SELECT
-                    year,
-                    'quarter' AS period_type,
-                    (month_num + 2) // 3 AS quarter_num,
-                    CASE WHEN count(*) = 3 THEN avg(cpi) END AS cpi
-                FROM cpi_monthly
-                GROUP BY year, (month_num + 2) // 3
-                UNION ALL
-                SELECT year, 'annual', NULL, CASE WHEN count(*) = 12 THEN avg(cpi) END
-                FROM cpi_monthly
-                GROUP BY year
-            ),
-            salaries AS (
-                SELECT
-                    sex_sectors,
-                    economic_activity,
-                    year,
-                    quarter,
-                    CASE quarter WHEN 'annual' THEN 'annual' ELSE 'quarter' END AS period_type,
-                    CASE quarter WHEN 'I' THEN 1 WHEN 'II' THEN 2 WHEN 'III' THEN 3 WHEN 'IV' THEN 4
-                    END AS quarter_num,
-                    value AS nominal_salary_gel
-                FROM salaries_quarterly
-                WHERE value IS NOT NULL
-            ),
-            deflated AS (
-                SELECT
-                    s.*,
-                    p.cpi AS cpi_2010_100,
-                    s.nominal_salary_gel / (p.cpi / 100) AS real_salary_gel_2010
-                FROM salaries AS s
-                LEFT JOIN cpi_periods AS p
-                    ON p.year = s.year
-                    AND p.period_type = s.period_type
-                    AND p.quarter_num IS NOT DISTINCT FROM s.quarter_num
-            ),
-            with_history AS (
-                SELECT
-                    *,
-                    -- Base is the 2014 mean, only when every 2014 period of this type exists.
-                    CASE
-                        WHEN count(real_salary_gel_2010) FILTER (WHERE year = 2014) OVER series
-                            = CASE period_type WHEN 'quarter' THEN 4 ELSE 1 END
-                        THEN avg(real_salary_gel_2010) FILTER (WHERE year = 2014) OVER series
-                    END AS base_real_salary,
-                    lag(year) OVER same_period AS prior_year,
-                    lag(nominal_salary_gel) OVER same_period AS prior_nominal,
-                    lag(real_salary_gel_2010) OVER same_period AS prior_real,
-                    lag(cpi_2010_100) OVER same_period AS prior_cpi
-                FROM deflated
-                WINDOW
-                    series AS (PARTITION BY sex_sectors, economic_activity, period_type),
-                    same_period AS (
-                        PARTITION BY sex_sectors, economic_activity, period_type, quarter_num
-                        ORDER BY year
-                    )
-            )
-            SELECT
-                sex_sectors,
-                economic_activity,
-                year,
-                quarter,
-                quarter_num,
-                period_type,
-                make_date(year::INTEGER, coalesce(quarter_num * 3 - 2, 1)::INTEGER, 1)
-                    AS period_start,
-                nominal_salary_gel,
-                round(cpi_2010_100, 4) AS cpi_2010_100,
-                round(real_salary_gel_2010, 2) AS real_salary_gel_2010,
-                round(100 * real_salary_gel_2010 / base_real_salary, 4) AS real_wage_index_2014,
-                CASE WHEN prior_year = year - 1
-                    THEN round(100 * (nominal_salary_gel / prior_nominal - 1), 4)
-                END AS nominal_yoy_pct,
-                CASE WHEN prior_year = year - 1
-                    THEN round(100 * (real_salary_gel_2010 / prior_real - 1), 4)
-                END AS real_yoy_pct,
-                CASE WHEN prior_year = year - 1
-                    THEN round(100 * (cpi_2010_100 / prior_cpi - 1), 4)
-                END AS cpi_yoy_pct
-            FROM with_history
-        """,
-    },
-}
-
-
-def load_registry(path: Path = DEFAULT_REGISTRY) -> dict[str, dict[str, str]]:
+def load_registry(path: Path = DEFAULT_REGISTRY) -> dict[str, dict[str, Any]]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def localized(definition: dict[str, Any], key: str, language: str = "en") -> str | None:
+    """Registry text fields are either a plain string or a {language: text} mapping."""
+    value = definition.get(key)
+    if isinstance(value, dict):
+        return value.get(language) or value.get("en")
+    return value
 
 
 def sql_name(value: str) -> str:
@@ -136,17 +32,113 @@ def sql_name(value: str) -> str:
     aliases = {
         "years": "year",
         "quarters": "quarter",
+        "months": "month",
         "regions": "region",
         "groups": "consumption_group",
     }
     return aliases.get(value, value or "dimension")
 
 
-def prepare_frame(frame: pd.DataFrame, dataset: str) -> pd.DataFrame:
+ROMAN_NUMERALS = {
+    numeral: number
+    for number, numeral in enumerate(
+        ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"], start=1
+    )
+}
+MONTH_NAMES = {
+    name: number
+    for number, name in enumerate(
+        ["january", "february", "march", "april", "may", "june", "july", "august",
+         "september", "october", "november", "december"],
+        start=1,
+    )
+}
+ANNUAL_LABELS = {"annual", "total", "q i-iv", "i-iv"}
+# National-accounts periods: "I 26*", "II  23", "2025*" (asterisk = preliminary).
+ACCOUNTS_QUARTER = re.compile(r"^(I|II|III|IV)\s+(\d{2})(\*?)$")
+ACCOUNTS_YEAR = re.compile(r"^(\d{4})(\*?)$")
+PERIOD_COLUMNS = ["period_type", "period_start", "quarter_num", "month_num", "is_preliminary"]
+
+
+def parse_period(row: dict[str, Any]) -> tuple[Any, ...]:
+    """Return (year, period_type, quarter_num, month_num, is_preliminary) for one row."""
+    if row.get("period") is not None:
+        label = str(row["period"]).strip()
+        if match := ACCOUNTS_QUARTER.match(label):
+            return 2000 + int(match[2]), "quarter", ROMAN_NUMERALS[match[1]], None, bool(match[3])
+        if match := ACCOUNTS_YEAR.match(label):
+            return int(match[1]), "annual", None, None, bool(match[2])
+        return None, None, None, None, False
+    year = row.get("year")
+    if year is None or pd.isna(year):
+        return None, None, None, None, False
+    if row.get("month") is not None:
+        label = str(row["month"]).strip()
+        month = ROMAN_NUMERALS.get(label) or MONTH_NAMES.get(label.lower())
+        if month:
+            return int(year), "month", (month + 2) // 3, month, False
+        return int(year), ("annual" if label.lower() in ANNUAL_LABELS else None), None, None, False
+    if row.get("quarter") is not None:
+        label = re.sub(r"^Q\s*", "", str(row["quarter"]).strip())
+        if label in ROMAN_NUMERALS and ROMAN_NUMERALS[label] <= 4:
+            return int(year), "quarter", ROMAN_NUMERALS[label], None, False
+        if label.lower() in ANNUAL_LABELS or str(row["quarter"]).strip().lower() in ANNUAL_LABELS:
+            return int(year), "annual", None, None, False
+        return int(year), None, None, None, False
+    return int(year), "annual", None, None, False
+
+
+def add_period_columns(frame: pd.DataFrame) -> pd.DataFrame:
+    """Append uniform time columns so every table can be charted on one time axis."""
+    time_columns = [c for c in ["period", "year", "quarter", "month"] if c in frame]
+    if not time_columns:
+        return frame
+    keys = frame[time_columns].drop_duplicates()
+    parsed = pd.DataFrame(
+        [parse_period(row) for row in keys.to_dict("records")],
+        columns=["_year", "period_type", "quarter_num", "month_num", "is_preliminary"],
+        index=keys.index,
+    )
+    keys = pd.concat([keys, parsed], axis=1)
+    result = frame.merge(keys, on=time_columns, how="left")
+    if "year" not in result:
+        result["year"] = result["_year"]
+    result["year"] = pd.to_numeric(result["year"], errors="coerce").astype("Int64")
+    result = result.drop(columns="_year")
+    result["quarter_num"] = result["quarter_num"].astype("Int64")
+    result["month_num"] = result["month_num"].astype("Int64")
+    first_month = result["month_num"].fillna((result["quarter_num"] - 1) * 3 + 1).fillna(1)
+    result["period_start"] = pd.to_datetime(
+        {"year": result["year"], "month": first_month, "day": 1}, errors="coerce"
+    ).dt.date
+    result.loc[result["period_type"].isna(), "period_start"] = None
+    result["is_preliminary"] = result["is_preliminary"].fillna(False).astype(bool)
+    dimensions = [c for c in result.columns if c not in PERIOD_COLUMNS and c != "value"]
+    return result[dimensions + ["value"] + PERIOD_COLUMNS]
+
+
+def clean_label(value: Any) -> Any:
+    """Trim and collapse internal whitespace (Geostat labels contain stray double spaces)."""
+    if isinstance(value, pd.Series):
+        return value.str.replace(r"\s+", " ", regex=True).str.strip()
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def prepare_frame(
+    frame: pd.DataFrame, dataset: str, renames: dict[str, str] | None = None
+) -> pd.DataFrame:
     result = frame.rename(columns={column: sql_name(column) for column in frame.columns})
+    result = result.rename(columns=renames or {})
+    for column in result.columns:
+        if pd.api.types.is_string_dtype(result[column]):
+            result[column] = clean_label(result[column])
+    # Collapsing whitespace can turn a label duplicated in the source into an exact
+    # duplicate row (e.g. GDP at market prices on both sides of the use table).
+    result = result.drop_duplicates(ignore_index=True)
     result.insert(0, "dataset", dataset)
     if "year" in result:
         result["year"] = pd.to_numeric(result["year"], errors="coerce").astype("Int64")
+    result = add_period_columns(result)
     if dataset == "inflation":
         result["inflation_rate"] = (result["value"] - 100).round(4)
     return result
@@ -184,6 +176,27 @@ def initialize(connection: duckdb.DuckDBPyConnection) -> None:
         )
         """
     )
+    # Columns added after the first release; ALTER keeps older local databases usable.
+    connection.execute("ALTER TABLE metadata.datasets ADD COLUMN IF NOT EXISTS topic VARCHAR")
+    connection.execute("ALTER TABLE metadata.datasets ADD COLUMN IF NOT EXISTS title_ka VARCHAR")
+    connection.execute("ALTER TABLE metadata.dimensions ADD COLUMN IF NOT EXISTS language VARCHAR")
+
+
+def resolve_path(definition: dict[str, Any], client: GeostatClient) -> str:
+    """Use the fixed path, or find the table in `folder` whose id matches `match`.
+
+    Some Geostat tables are renamed every release (e.g. "..._(Quarter_II,_2026).px").
+    """
+    if "path" in definition:
+        return definition["path"]
+    pattern = re.compile(definition["match"])
+    matches = sorted(
+        item["id"] for item in client.catalog(definition["folder"])
+        if item.get("type") == "t" and pattern.search(item["id"])
+    )
+    if len(matches) != 1:
+        raise LookupError(f"Expected one table matching {pattern.pattern!r}, found {matches}")
+    return f"{definition['folder']}/{matches[0]}"
 
 
 def sync_dataset(
@@ -197,9 +210,12 @@ def sync_dataset(
         raise KeyError(f"Unknown dataset {dataset!r}. Choose from: {', '.join(registry)}")
     definition = registry[dataset]
     client = GeostatClient(language=language)
-    metadata = client.metadata(definition["path"])
-    frame, provenance = client.fetch(definition["path"])
-    frame = prepare_frame(frame, dataset)
+    path = resolve_path(definition, client)
+    metadata = client.metadata(path)
+    # Georgian labels share value IDs and dimension order with the English metadata.
+    metadata_ka = GeostatClient(language="ka").metadata(path)
+    frame, provenance = client.fetch(path)
+    frame = prepare_frame(frame, dataset, definition.get("rename"))
 
     database.parent.mkdir(parents=True, exist_ok=True)
     with duckdb.connect(str(database)) as connection:
@@ -209,62 +225,47 @@ def sync_dataset(
         connection.execute("DELETE FROM metadata.datasets WHERE dataset = ?", [dataset])
         connection.execute(
             """
-            INSERT INTO metadata.datasets VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO metadata.datasets (
+                dataset, table_name, title, description, grain, unit, source, source_url,
+                source_path, source_language, retrieved_at, row_count, topic, title_ka
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             [
                 dataset,
                 definition["table"],
                 metadata.get("title"),
-                definition["description"],
+                localized(definition, "description"),
                 definition["grain"],
-                definition["unit"],
+                localized(definition, "unit"),
                 provenance["source"],
                 provenance["source_url"],
-                definition["path"],
+                path,
                 language,
                 provenance["retrieved_at"],
                 len(frame),
+                definition.get("topic"),
+                metadata_ka.get("title"),
             ],
         )
         connection.execute("DELETE FROM metadata.dimensions WHERE dataset = ?", [dataset])
+        renames = definition.get("rename", {})
         dimension_rows: list[list[Any]] = []
-        for variable in metadata["variables"]:
-            for value_id, value_label in zip(variable["values"], variable["valueTexts"]):
-                dimension_rows.append(
-                    [
-                        dataset,
-                        variable["code"],
-                        sql_name(variable["code"]),
-                        variable["text"],
-                        value_id,
-                        value_label,
-                    ]
-                )
+        for variable, variable_ka in zip(metadata["variables"], metadata_ka["variables"]):
+            column = sql_name(variable["code"])
+            column = renames.get(column, column)
+            for source, lang in [(variable, "en"), (variable_ka, "ka")]:
+                for value_id, value_label in zip(source["values"], source["valueTexts"]):
+                    dimension_rows.append(
+                        [dataset, variable["code"], column, source["text"], value_id,
+                         clean_label(value_label), lang]
+                    )
         connection.executemany(
-            "INSERT INTO metadata.dimensions VALUES (?, ?, ?, ?, ?, ?)", dimension_rows
+            "INSERT INTO metadata.dimensions (dataset, source_code, column_name, label, value_id, "
+            "value_label, language) VALUES (?, ?, ?, ?, ?, ?, ?)",
+            dimension_rows,
         )
         refresh_views(connection)
     return len(frame)
-
-
-def refresh_views(connection: duckdb.DuckDBPyConnection) -> list[str]:
-    """Create or replace every derived view whose source tables are all present."""
-    tables = {
-        row[0]
-        for row in connection.execute(
-            "SELECT table_name FROM duckdb_tables() WHERE schema_name = 'main'"
-        ).fetchall()
-    }
-    built = []
-    for name, view in DERIVED_VIEWS.items():
-        if not set(view["requires"]) <= tables:
-            continue
-        connection.execute(f"CREATE OR REPLACE VIEW {name} AS {view['sql']}")
-        # COMMENT ON does not accept bind parameters.
-        comment = view["description"].replace("'", "''")
-        connection.execute(f"COMMENT ON VIEW {name} IS '{comment}'")
-        built.append(name)
-    return built
 
 
 def database_overview(database: Path = DEFAULT_DATABASE) -> str:

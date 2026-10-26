@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import quote
@@ -76,7 +76,7 @@ class GeostatClient:
             "table_path": table_path,
             "title": metadata.get("title", table_path),
             "language": self.language,
-            "retrieved_at": datetime.now(timezone.utc).isoformat(),
+            "retrieved_at": datetime.now(UTC).isoformat(),
             "selections": selections,
             "rows": len(frame),
         }

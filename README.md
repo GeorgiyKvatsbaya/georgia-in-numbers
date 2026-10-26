@@ -2,8 +2,9 @@
 
 This project builds a small, local [DuckDB](https://duckdb.org/) database from the
 [National Statistics Office of Georgia (Geostat)](https://www.geostat.ge/) PXWeb API.
-It currently registers four subjects: salaries, employment, inflation (year-over-year), and the
-CPI price level (2010=100), plus a derived real-wage view.
+It registers 14 Geostat tables (wages, labour force, prices, GDP, FDI, population, poverty)
+plus derived views such as inflation-adjusted wages, and publishes them as static files for
+the **Georgia in Numbers** web app (`web/`).
 
 No dataset is downloaded automatically. You choose exactly what to sync.
 
@@ -30,6 +31,16 @@ geostat sync all
 
 The result is `data/geostat.duckdb`. Re-running a sync atomically replaces only that
 dataset's table and refreshes its metadata.
+
+## Publish for the web app
+
+```bash
+geostat check    # data-quality gates vs the last export (row drops, stale periods, identities)
+geostat export   # Parquet + catalog.json + dashboards/*.json -> web/public/data/
+```
+
+Labels for the three UI languages come from Geostat (English, Georgian) and from
+`i18n/labels_ru.json`, `i18n/labels_ka.json` (overrides) and `i18n/columns.json`.
 
 ## Query with SQL
 

@@ -4,7 +4,8 @@ import duckdb
 import pandas as pd
 
 from geostat_data.client import GeostatClient, jsonstat_to_frame
-from geostat_data.database import prepare_frame, refresh_views, sql_name
+from geostat_data.database import parse_period, prepare_frame, resolve_path, sql_name
+from geostat_data.views import refresh_views
 
 ROMAN_MONTHS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"]
 
@@ -38,7 +39,11 @@ class JsonStatTests(unittest.TestCase):
     def test_sql_names_and_inflation_derivation(self) -> None:
         frame = pd.DataFrame({"Regions": ["Georgia"], "Years": [2025], "value": [105.82]})
         result = prepare_frame(frame, "inflation")
-        self.assertEqual(list(result.columns), ["dataset", "region", "year", "value", "inflation_rate"])
+        self.assertEqual(
+            list(result.columns),
+            ["dataset", "region", "year", "value", "period_type", "period_start", "quarter_num",
+             "month_num", "is_preliminary", "inflation_rate"],
+        )
         self.assertEqual(result.loc[0, "inflation_rate"], 5.82)
         self.assertEqual(sql_name("Sex, Sectors"), "sex_sectors")
 
@@ -46,6 +51,56 @@ class JsonStatTests(unittest.TestCase):
         client = GeostatClient()
         self.assertTrue(client._url("Social Statistics/Labour/Wages_Nace2.px").endswith(".px/"))
         self.assertTrue(client._url("Social Statistics/Labour").endswith("/Labour"))
+
+
+class PeriodTests(unittest.TestCase):
+    def test_parse_period_formats(self) -> None:
+        cases = [
+            ({"period": "I 26*"}, (2026, "quarter", 1, None, True)),
+            ({"period": "II  23"}, (2023, "quarter", 2, None, False)),
+            ({"period": "2025*"}, (2025, "annual", None, None, True)),
+            ({"year": 2024, "quarter": "Q III"}, (2024, "quarter", 3, None, False)),
+            ({"year": 2024, "quarter": "Q I-IV"}, (2024, "annual", None, None, False)),
+            ({"year": 2024, "quarter": "Annual"}, (2024, "annual", None, None, False)),
+            ({"year": 2024, "month": "XI"}, (2024, "month", 4, 11, False)),
+            ({"year": 2020, "month": "March"}, (2020, "month", 1, 3, False)),
+            ({"year": 2020, "month": "Total"}, (2020, "annual", None, None, False)),
+            ({"year": 2019}, (2019, "annual", None, None, False)),
+        ]
+        for row, expected in cases:
+            with self.subTest(row=row):
+                self.assertEqual(parse_period(row), expected)
+
+    def test_prepare_frame_adds_period_start_and_cleans_labels(self) -> None:
+        frame = pd.DataFrame(
+            {
+                "Indicator": ["B.1*g  (=) GDP", "B.1*g (=) GDP", "Exports"],
+                "Period": ["I 26*", "I 26*", "2025*"],
+                "value": [10.0, 10.0, 5.0],
+            }
+        ).astype({"Indicator": "string", "Period": "string"})
+        result = prepare_frame(frame, "gdp_use")
+        # The two labels differ only by whitespace and carry the same value: one row survives.
+        self.assertEqual(len(result), 2)
+        first = result.iloc[0]
+        self.assertEqual(first["indicator"], "B.1*g (=) GDP")
+        self.assertEqual(str(first["period_start"]), "2026-01-01")
+        self.assertTrue(first["is_preliminary"])
+        self.assertEqual(result.iloc[1]["period_type"], "annual")
+
+    def test_resolve_path_finds_renamed_table(self) -> None:
+        class FakeClient:
+            def catalog(self, path: str) -> list[dict]:
+                return [
+                    {"id": "LFS_by_regions.px", "type": "t"},
+                    {"id": "LFS_by_sex_and_urban_(Quarter_II,_2026).px", "type": "t"},
+                ]
+
+        definition = {"folder": "Social Statistics/Labour", "match": "^LFS_by_sex_and_urban_"}
+        self.assertEqual(
+            resolve_path(definition, FakeClient()),
+            "Social Statistics/Labour/LFS_by_sex_and_urban_(Quarter_II,_2026).px",
+        )
 
 
 class RealWageViewTests(unittest.TestCase):

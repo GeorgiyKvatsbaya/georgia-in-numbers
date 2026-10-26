@@ -1,0 +1,5506 @@
+{
+ "generated_at": "2026-10-26T14:25:09+00:00",
+ "source": {
+  "name": {
+   "en": "National Statistics Office of Georgia (Geostat)",
+   "ka": "საქართველოს სტატისტიკის ეროვნული სამსახური (საქსტატი)",
+   "ru": "Национальная служба статистики Грузии (Сакстат)"
+  },
+  "url": "https://www.geostat.ge/"
+ },
+ "languages": [
+  "en",
+  "ka",
+  "ru"
+ ],
+ "objects": [
+  {
+   "name": "salaries_quarterly",
+   "kind": "table",
+   "dataset": "salaries",
+   "topic": "wages",
+   "title": {
+    "en": "Average monthly salary by economic activity",
+    "ka": "საშუალო თვიური ხელფასი ეკონომიკური საქმიანობის სახეების მიხედვით",
+    "ru": "Средняя месячная зарплата по видам экономической деятельности"
+   },
+   "description": {
+    "en": "Average monthly nominal salary in GEL, by sex or sector, NACE Rev. 2 economic activity, year, and quarter. Includes annual observations.",
+    "ka": "დაქირავებით დასაქმებულთა საშუალო თვიური ნომინალური ხელფასი ლარში, სქესის ან სექტორის, ეკონომიკური საქმიანობის (NACE Rev. 2), წლისა და კვარტლის მიხედვით.",
+    "ru": "Средняя месячная номинальная зарплата наёмных работников в лари по полу или сектору, виду деятельности (NACE Rev. 2), году и кварталу. Включает годовые значения."
+   },
+   "unit": {
+    "en": "GEL per month",
+    "ka": "ლარი თვეში",
+    "ru": "лари в месяц"
+   },
+   "grain": "One row per sex/sector × economic activity × year × quarter",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/Wages_Nace2.px/",
+     "path": "Social Statistics/Labour/Wages_Nace2.px",
+     "retrieved_at": "2026-10-26T18:24:57.867061+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "sex_sectors",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Sex / sector",
+      "ka": "სქესი / სექტორი",
+      "ru": "Пол / сектор"
+     },
+     "values": [
+      {
+       "en": "Total in country",
+       "ka": "სულ ქვეყანაში",
+       "ru": "Всего по стране"
+      },
+      {
+       "en": "Female",
+       "ka": "ქალები",
+       "ru": "Женщины"
+      },
+      {
+       "en": "Male",
+       "ka": "მამაკაცები",
+       "ru": "Мужчины"
+      },
+      {
+       "en": "Business sector",
+       "ka": "სამეწარმეო სფერო",
+       "ru": "Бизнес-сектор"
+      },
+      {
+       "en": "Non-business sector",
+       "ka": "არასამეწარმეო სფერო",
+       "ru": "Небизнес-сектор"
+      },
+      {
+       "en": "Public sector",
+       "ka": "სახელმწიფო სექტორი",
+       "ru": "Государственный сектор"
+      },
+      {
+       "en": "Non-public sector",
+       "ka": "არასახელმწიფო სექტორი",
+       "ru": "Негосударственный сектор"
+      }
+     ]
+    },
+    {
+     "name": "economic_activity",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Economic activity",
+      "ka": "ეკონომიკური საქმიანობა",
+      "ru": "Вид деятельности"
+     },
+     "values": [
+      {
+       "en": "Total",
+       "ka": "სულ",
+       "ru": "Всего"
+      },
+      {
+       "en": "Agriculture, forestry and fishing",
+       "ka": "სოფლის, სატყეო და თევზის მეურნეობა",
+       "ru": "Сельское, лесное и рыбное хозяйство"
+      },
+      {
+       "en": "Mining and quarrying",
+       "ka": "სამთომოპოვებითი მრეწველობა და კარიერების დამუშავება",
+       "ru": "Добыча полезных ископаемых"
+      },
+      {
+       "en": "Manufacturing",
+       "ka": "დამამუშავებელი მრეწველობა",
+       "ru": "Обрабатывающая промышленность"
+      },
+      {
+       "en": "Electricity, gas, steam and air conditioning supply",
+       "ka": "ელექტროენერგიის, აირის, ორთქლის და კონდიცირებული ჰაერის მიწოდება",
+       "ru": "Электроэнергия, газ, пар и кондиционирование воздуха"
+      },
+      {
+       "en": "Water supply, sewerage, waste management and remediation activities",
+       "ka": "წყალმომარაგება; კანალიზაცია, ნარჩენების მართვა და დაბინძურებისაგან გასუფთავების საქმიანობები",
+       "ru": "Водоснабжение, канализация, утилизация отходов"
+      },
+      {
+       "en": "Construction",
+       "ka": "მშენებლობა",
+       "ru": "Строительство"
+      },
+      {
+       "en": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
+       "ka": "საბითუმო და საცალო ვაჭრობა; ავტომობილების და მოტოციკლების რემონტი",
+       "ru": "Оптовая и розничная торговля; ремонт автотранспорта"
+      },
+      {
+       "en": "Transportation and storage",
+       "ka": "ტრანსპორტირება და დასაწყობება",
+       "ru": "Транспорт и складирование"
+      },
+      {
+       "en": "Accommodation and food service activities",
+       "ka": "განთავსების საშუალებებით უზრუნველყოფის და საკვების მიწოდების საქმიანობები",
+       "ru": "Гостиницы и общественное питание"
+      },
+      {
+       "en": "Information and communication",
+       "ka": "ინფორმაცია და კომუნიკაცია",
+       "ru": "Информация и связь"
+      },
+      {
+       "en": "Financial and insurance activities",
+       "ka": "საფინანსო და სადაზღვევო საქმიანობები",
+       "ru": "Финансовая и страховая деятельность"
+      },
+      {
+       "en": "Real estate activities",
+       "ka": "უძრავ ქონებასთან დაკავშირებული საქმიანობები",
+       "ru": "Операции с недвижимостью"
+      },
+      {
+       "en": "Professional, scientific and technical activities",
+       "ka": "პროფესიული, სამეცნიერო და ტექნიკური საქმიანობები",
+       "ru": "Профессиональная, научная и техническая деятельность"
+      },
+      {
+       "en": "Administrative and support service activities",
+       "ka": "ადმინისტრაციული და დამხმარე მომსახურების საქმიანობები",
+       "ru": "Административная и вспомогательная деятельность"
+      },
+      {
+       "en": "Public administration and defence; compulsory social security",
+       "ka": "სახელმწიფო მმართველობა და თავდაცვა; სავალდებულო სოციალური უსაფრთხოება",
+       "ru": "Госуправление и оборона; обязательное соцобеспечение"
+      },
+      {
+       "en": "Education",
+       "ka": "განათლება",
+       "ru": "Образование"
+      },
+      {
+       "en": "Human health and social work activities",
+       "ka": "ჯანდაცვა და სოციალური მომსახურების საქმიანობები",
+       "ru": "Здравоохранение и социальные услуги"
+      },
+      {
+       "en": "Arts, entertainment and recreation",
+       "ka": "ხელოვნება, გართობა და დასვენება",
+       "ru": "Искусство, развлечения и отдых"
+      },
+      {
+       "en": "Other service activities",
+       "ka": "სხვა სახის მომსახურება",
+       "ru": "Прочие услуги"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "quarter",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Quarter",
+      "ka": "კვარტალი",
+      "ru": "Квартал"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 9100,
+   "value_count": 5950,
+   "first_period": "2014-01-01",
+   "last_period": "2026-04-01",
+   "file": "salaries_quarterly.parquet",
+   "bytes": 20324
+  },
+  {
+   "name": "salaries_regional",
+   "kind": "table",
+   "dataset": "salaries_region",
+   "topic": "wages",
+   "title": {
+    "en": "Average monthly salary by region",
+    "ka": "საშუალო თვიური ხელფასი რეგიონების მიხედვით",
+    "ru": "Средняя месячная зарплата по регионам"
+   },
+   "description": {
+    "en": "Average monthly nominal salary of employees in GEL by region, year, and quarter. 'Total' is the country figure; 'Annual' rows are compiled separately from the quarters.",
+    "ka": "დაქირავებით დასაქმებულთა საშუალო თვიური ნომინალური ხელფასი ლარში რეგიონის, წლისა და კვარტლის მიხედვით.",
+    "ru": "Средняя месячная номинальная зарплата наёмных работников в лари по регионам, годам и кварталам. «Total» — показатель по стране."
+   },
+   "unit": {
+    "en": "GEL per month",
+    "ka": "ლარი თვეში",
+    "ru": "лари в месяц"
+   },
+   "grain": "One row per region × year × quarter",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/Wages_Region.px/",
+     "path": "Social Statistics/Labour/Wages_Region.px",
+     "retrieved_at": "2026-10-26T18:24:58.505322+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "region",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region",
+      "ka": "რეგიონი",
+      "ru": "Регион"
+     },
+     "values": [
+      {
+       "en": "Total",
+       "ka": "სულ",
+       "ru": "Всего"
+      },
+      {
+       "en": "Tbilisi",
+       "ka": "ქ. თბილისი",
+       "ru": "Тбилиси"
+      },
+      {
+       "en": "Adjara A.R.",
+       "ka": "აჭარის ა.რ.",
+       "ru": "Аджарская АР"
+      },
+      {
+       "en": "Guria",
+       "ka": "გურია",
+       "ru": "Гурия"
+      },
+      {
+       "en": "Imereti",
+       "ka": "იმერეთი",
+       "ru": "Имеретия"
+      },
+      {
+       "en": "Kakheti",
+       "ka": "კახეთი",
+       "ru": "Кахетия"
+      },
+      {
+       "en": "Mtskheta-Mtianeti",
+       "ka": "მცხეთა-მთიანეთი",
+       "ru": "Мцхета-Мтианети"
+      },
+      {
+       "en": "Racha-Lechkhumi and Kvemo Svaneti",
+       "ka": "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+       "ru": "Рача-Лечхуми и Квемо Сванети"
+      },
+      {
+       "en": "Samegrelo-Zemo Svaneti",
+       "ka": "სამეგრელო-ზემო სვანეთი",
+       "ru": "Самегрело-Земо Сванети"
+      },
+      {
+       "en": "Samtskhe-Javakheti",
+       "ka": "სამცხე-ჯავახეთი",
+       "ru": "Самцхе-Джавахети"
+      },
+      {
+       "en": "Kvemo Kartli",
+       "ka": "ქვემო ქართლი",
+       "ru": "Квемо Картли"
+      },
+      {
+       "en": "Shida Kartli",
+       "ka": "შიდა ქართლი",
+       "ru": "Шида Картли"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "quarter",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Quarter",
+      "ka": "კვარტალი",
+      "ru": "Квартал"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 1020,
+   "value_count": 984,
+   "first_period": "2010-01-01",
+   "last_period": "2026-04-01",
+   "file": "salaries_regional.parquet",
+   "bytes": 5996
+  },
+  {
+   "name": "employment_regional",
+   "kind": "table",
+   "dataset": "employment",
+   "topic": "labour",
+   "title": {
+    "en": "Labour force indicators by region",
+    "ka": "სამუშაო ძალის მაჩვენებლები რეგიონების მიხედვით",
+    "ru": "Показатели рабочей силы по регионам"
+   },
+   "description": {
+    "en": "Labour-force levels and rates by economic status, year, and region (annual Labour Force Survey).",
+    "ka": "სამუშაო ძალის რაოდენობრივი მაჩვენებლები და დონეები ეკონომიკური სტატუსის, წლისა და რეგიონის მიხედვით.",
+    "ru": "Численность и уровни рабочей силы по экономическому статусу, году и региону (годовое обследование рабочей силы)."
+   },
+   "unit": {
+    "en": "Thousand persons for levels; percent for rates",
+    "ka": "ათასი კაცი (რაოდენობა); პროცენტი (დონე)",
+    "ru": "Тыс. человек для численности; проценты для уровней"
+   },
+   "grain": "One row per economic status × year × region",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/LFS_by_regions.px/",
+     "path": "Social Statistics/Labour/LFS_by_regions.px",
+     "retrieved_at": "2026-10-26T18:24:59.111260+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "economic_status",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Economic status",
+      "ka": "ეკონომიკური სტატუსი",
+      "ru": "Экономический статус"
+     },
+     "values": [
+      {
+       "en": "Total 15 + population",
+       "ka": "სულ 15+ მოსახლეობა",
+       "ru": "Население 15+ лет"
+      },
+      {
+       "en": "Labour force, total",
+       "ka": "სამუშაო ძალა",
+       "ru": "Рабочая сила, всего"
+      },
+      {
+       "en": "Employed",
+       "ka": "დასაქმებული",
+       "ru": "Занятые"
+      },
+      {
+       "en": "Hired",
+       "ka": "დაქირავებული",
+       "ru": "Наёмные работники"
+      },
+      {
+       "en": "Self-employed",
+       "ka": "თვითდასაქმებული",
+       "ru": "Самозанятые"
+      },
+      {
+       "en": "Not-identified worker",
+       "ka": "გაურკვეველი",
+       "ru": "Неопределённый статус"
+      },
+      {
+       "en": "Unemployed",
+       "ka": "უმუშევარი",
+       "ru": "Безработные"
+      },
+      {
+       "en": "Population outside labor force",
+       "ka": "მოსახლეობა სამუშაო ძალის გარეთ",
+       "ru": "Вне рабочей силы"
+      },
+      {
+       "en": "Unemployment rate, percentage",
+       "ka": "უმუშევრობის დონე, პროცენტი",
+       "ru": "Уровень безработицы, %"
+      },
+      {
+       "en": "Labour force participation rate, percentage",
+       "ka": "სამუშაო ძალის მონაწილეობის დონე, პროცენტი",
+       "ru": "Уровень участия в рабочей силе, %"
+      },
+      {
+       "en": "Employment rate, percentage",
+       "ka": "დასაქმების დონე, პროცენტი",
+       "ru": "Уровень занятости, %"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "region",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region",
+      "ka": "რეგიონი",
+      "ru": "Регион"
+     },
+     "values": [
+      {
+       "en": "Kakheti",
+       "ka": "კახეთი",
+       "ru": "Кахетия"
+      },
+      {
+       "en": "Tbilisi",
+       "ka": "ქ. თბილისი",
+       "ru": "Тбилиси"
+      },
+      {
+       "en": "Shida Kartli",
+       "ka": "შიდა ქართლი",
+       "ru": "Шида Картли"
+      },
+      {
+       "en": "Kvemo Kartli",
+       "ka": "ქვემო ქართლი",
+       "ru": "Квемо Картли"
+      },
+      {
+       "en": "Adjara AR",
+       "ka": "აჭარის არ",
+       "ru": "Аджарская АР"
+      },
+      {
+       "en": "Samegrelo-Zemo Svaneti",
+       "ka": "სამეგრელო-ზემო სვანეთი",
+       "ru": "Самегрело-Земо Сванети"
+      },
+      {
+       "en": "Imereti",
+       "ka": "იმერეთი",
+       "ru": "Имеретия"
+      },
+      {
+       "en": "The remaining regions",
+       "ka": "დანარჩენი რეგიონები",
+       "ru": "Остальные регионы"
+      },
+      {
+       "en": "Samtskhe-Javakheti",
+       "ka": "სამცხე-ჯავახეთი",
+       "ru": "Самцхе-Джавахети"
+      },
+      {
+       "en": "Guria",
+       "ka": "გურია",
+       "ru": "Гурия"
+      },
+      {
+       "en": "Mtskheta-Mtianeti",
+       "ka": "მცხეთა-მთიანეთი",
+       "ru": "Мцхета-Мтианети"
+      },
+      {
+       "en": "Racha-Lechkhumi and Kvemo-Svaneti",
+       "ka": "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+       "ru": "Рача-Лечхуми и Квемо Сванети"
+      },
+      {
+       "en": "Georgia",
+       "ka": "საქართველო",
+       "ru": "Грузия"
+      }
+     ]
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 3289,
+   "value_count": 2629,
+   "first_period": "2003-01-01",
+   "last_period": "2025-01-01",
+   "file": "employment_regional.parquet",
+   "bytes": 9381
+  },
+  {
+   "name": "labour_force_quarterly",
+   "kind": "table",
+   "dataset": "employment_quarterly",
+   "topic": "labour",
+   "title": {
+    "en": "Labour force indicators by sex and urban/rural area, quarterly",
+    "ka": "სამუშაო ძალის მაჩვენებლები სქესისა და დასახლების ტიპის მიხედვით, კვარტალური",
+    "ru": "Показатели рабочей силы по полу и типу поселения, ежеквартально"
+   },
+   "description": {
+    "en": "Quarterly Labour Force Survey: employment, unemployment and activity levels and rates by sex and urban/rural area. The source table is renamed every quarter; the sync finds the current one.",
+    "ka": "სამუშაო ძალის კვარტალური გამოკვლევა: დასაქმება, უმუშევრობა და აქტიურობა სქესისა და დასახლების ტიპის მიხედვით.",
+    "ru": "Квартальное обследование рабочей силы: занятость, безработица и активность по полу и типу поселения."
+   },
+   "unit": {
+    "en": "Thousand persons for levels; percent for rates",
+    "ka": "ათასი კაცი (რაოდენობა); პროცენტი (დონე)",
+    "ru": "Тыс. человек для численности; проценты для уровней"
+   },
+   "grain": "One row per indicator × sex/area × year × quarter",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/LFS_by_sex_and_urban_%28Quarter_II%2C_2026%29.px/",
+     "path": "Social Statistics/Labour/LFS_by_sex_and_urban_(Quarter_II,_2026).px",
+     "retrieved_at": "2026-10-26T18:24:59.866470+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "sex_urban_rural_areas",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Sex / urban–rural",
+      "ka": "სქესი / ქალაქი–სოფელი",
+      "ru": "Пол / город–село"
+     },
+     "values": [
+      {
+       "en": "Total",
+       "ka": "სულ",
+       "ru": "Всего"
+      },
+      {
+       "en": "Female",
+       "ka": "ქალები",
+       "ru": "Женщины"
+      },
+      {
+       "en": "Male",
+       "ka": "მამაკაცები",
+       "ru": "Мужчины"
+      },
+      {
+       "en": "Urban",
+       "ka": "ქალაქი",
+       "ru": "Город"
+      },
+      {
+       "en": "Rural",
+       "ka": "სოფელი",
+       "ru": "Село"
+      }
+     ]
+    },
+    {
+     "name": "economic_status",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Economic status",
+      "ka": "ეკონომიკური სტატუსი",
+      "ru": "Экономический статус"
+     },
+     "values": [
+      {
+       "en": "Total 15 + population",
+       "ka": "სულ 15+ მოსახლეობა",
+       "ru": "Население 15+ лет"
+      },
+      {
+       "en": "Labour force, total",
+       "ka": "სამუშაო ძალა",
+       "ru": "Рабочая сила, всего"
+      },
+      {
+       "en": "Employed",
+       "ka": "დასაქმებული",
+       "ru": "Занятые"
+      },
+      {
+       "en": "Hired",
+       "ka": "დაქირავებული",
+       "ru": "Наёмные работники"
+      },
+      {
+       "en": "Self-employed",
+       "ka": "თვითდასაქმებული",
+       "ru": "Самозанятые"
+      },
+      {
+       "en": "Not-identified worker",
+       "ka": "გაურკვეველი",
+       "ru": "Неопределённый статус"
+      },
+      {
+       "en": "Unemployed",
+       "ka": "უმუშევარი",
+       "ru": "Безработные"
+      },
+      {
+       "en": "Population outside labor force",
+       "ka": "მოსახლეობა სამუშაო ძალის გარეთ",
+       "ru": "Вне рабочей силы"
+      },
+      {
+       "en": "Unemployment rate, percentage",
+       "ka": "უმუშევრობის დონე, პროცენტი",
+       "ru": "Уровень безработицы, %"
+      },
+      {
+       "en": "Labour force participation rate, percentage",
+       "ka": "სამუშაო ძალის მონაწილეობის დონე, პროცენტი",
+       "ru": "Уровень участия в рабочей силе, %"
+      },
+      {
+       "en": "Employment rate, percentage",
+       "ka": "დასაქმების დონე, პროცენტი",
+       "ru": "Уровень занятости, %"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "quarter",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Quarter",
+      "ka": "კვარტალი",
+      "ru": "Квартал"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 7975,
+   "value_count": 3410,
+   "first_period": "1998-01-01",
+   "last_period": "2026-04-01",
+   "file": "labour_force_quarterly.parquet",
+   "bytes": 13462
+  },
+  {
+   "name": "inflation_yoy_monthly",
+   "kind": "table",
+   "dataset": "inflation",
+   "topic": "prices",
+   "title": {
+    "en": "Annual inflation by consumption group",
+    "ka": "წლიური ინფლაცია მოხმარების ჯგუფების მიხედვით",
+    "ru": "Годовая инфляция по группам потребления"
+   },
+   "description": {
+    "en": "Consumer price index with the same month of the previous year equal to 100, by region, COICOP group, year, and month.",
+    "ka": "სამომხმარებლო ფასების ინდექსი (წინა წლის შესაბამისი თვე = 100) რეგიონის, COICOP ჯგუფის, წლისა და თვის მიხედვით.",
+    "ru": "Индекс потребительских цен (тот же месяц прошлого года = 100) по регионам, группам COICOP, годам и месяцам."
+   },
+   "unit": {
+    "en": "Index (same month of previous year = 100); year-over-year inflation rate is value - 100",
+    "ka": "ინდექსი (წინა წლის შესაბამისი თვე = 100)",
+    "ru": "Индекс (тот же месяц прошлого года = 100); годовая инфляция = value − 100"
+   },
+   "grain": "One row per region × consumption group × year × month",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia%28same_month_of_the_previous_year%3D100_orenovani2.px/",
+     "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia(same_month_of_the_previous_year=100_orenovani2.px",
+     "retrieved_at": "2026-10-26T18:25:00.700672+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "region",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region",
+      "ka": "რეგიონი",
+      "ru": "Регион"
+     },
+     "values": [
+      {
+       "en": "Georgia",
+       "ka": "საქართველო",
+       "ru": "Грузия"
+      },
+      {
+       "en": "Tbilisi",
+       "ka": "ქ. თბილისი",
+       "ru": "Тбилиси"
+      },
+      {
+       "en": "Kutaisi",
+       "ka": "ქუთაისი",
+       "ru": "Кутаиси"
+      },
+      {
+       "en": "Batumi",
+       "ka": "ბათუმი",
+       "ru": "Батуми"
+      },
+      {
+       "en": "Gori",
+       "ka": "გორი",
+       "ru": "Гори"
+      },
+      {
+       "en": "Telavi",
+       "ka": "თელავი",
+       "ru": "Телави"
+      },
+      {
+       "en": "Zugdidi",
+       "ka": "ზუგდიდი",
+       "ru": "Зугдиди"
+      }
+     ]
+    },
+    {
+     "name": "consumption_group",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Consumption group",
+      "ka": "მოხმარების ჯგუფი",
+      "ru": "Группа потребления"
+     },
+     "values": [
+      {
+       "en": "Total",
+       "ka": "სულ",
+       "ru": "Всего"
+      },
+      {
+       "en": "Food and non-alcoholic beverages",
+       "ka": "სურსათი და უალკოჰოლო სასმელები",
+       "ru": "Продукты питания и безалкогольные напитки"
+      },
+      {
+       "en": "Alcoholic beverages and tobacco",
+       "ka": "ალკოჰოლური სასმელები და თამბაქო",
+       "ru": "Алкогольные напитки и табак"
+      },
+      {
+       "en": "Clothing and footwear",
+       "ka": "ტანსაცმელი და ფეხსაცმელი",
+       "ru": "Одежда и обувь"
+      },
+      {
+       "en": "Housing, water, electricity, gas and other fuels",
+       "ka": "საცხოვრებელი სახლი, წყალი, ელექტროენერგია, აირი და სათბობის სხვა სახეები",
+       "ru": "Жильё, вода, электроэнергия, газ и топливо"
+      },
+      {
+       "en": "Furnishings, household equipment and routine maintenance of the house",
+       "ka": "ავეჯი, საოჯახო ნივთები და მორთულობა, სახლის მოვლა-შეკეთება",
+       "ru": "Мебель, бытовая техника и уход за домом"
+      },
+      {
+       "en": "Health",
+       "ka": "ჯანმრთელობის დაცვა",
+       "ru": "Здравоохранение"
+      },
+      {
+       "en": "Transport",
+       "ka": "ტრანსპორტი",
+       "ru": "Транспорт"
+      },
+      {
+       "en": "Communication",
+       "ka": "კავშირგაბმულობა",
+       "ru": "Связь"
+      },
+      {
+       "en": "Recreation and culture",
+       "ka": "დასვენება, გართობა და კულტურა",
+       "ru": "Отдых и культура"
+      },
+      {
+       "en": "Education",
+       "ka": "განათლება",
+       "ru": "Образование"
+      },
+      {
+       "en": "Restaurants and hotels",
+       "ka": "სასტუმროები, კაფეები და რესტორნები",
+       "ru": "Рестораны и гостиницы"
+      },
+      {
+       "en": "Miscellaneous goods and services",
+       "ka": "სხვადასხვა საქონელი და მომსახურება",
+       "ru": "Прочие товары и услуги"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "month",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Month",
+      "ka": "თვე",
+      "ru": "Месяц"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    },
+    {
+     "name": "inflation_rate",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Annual inflation, %",
+      "ka": "წლიური ინფლაცია, %",
+      "ru": "Годовая инфляция, %"
+     }
+    }
+   ],
+   "row_count": 25116,
+   "value_count": 21964,
+   "first_period": "2004-01-01",
+   "last_period": "2026-09-01",
+   "file": "inflation_yoy_monthly.parquet",
+   "bytes": 155837
+  },
+  {
+   "name": "cpi_index_monthly",
+   "kind": "table",
+   "dataset": "cpi",
+   "topic": "prices",
+   "title": {
+    "en": "Consumer price index (2010 = 100)",
+    "ka": "სამომხმარებლო ფასების ინდექსი (2010 = 100)",
+    "ru": "Индекс потребительских цен (2010 = 100)"
+   },
+   "description": {
+    "en": "Consumer price index level with the 2010 average equal to 100, by region, year, and month. Use for deflating nominal values to constant prices.",
+    "ka": "სამომხმარებლო ფასების ინდექსის დონე (2010 წლის საშუალო = 100) რეგიონის, წლისა და თვის მიხედვით.",
+    "ru": "Уровень индекса потребительских цен (среднее за 2010 год = 100) по регионам, годам и месяцам. Используется для пересчёта в постоянные цены."
+   },
+   "unit": {
+    "en": "Index (2010 = 100)",
+    "ka": "ინდექსი (2010 = 100)",
+    "ru": "Индекс (2010 = 100)"
+   },
+   "grain": "One row per region × year × month",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia_%282010%3D100%29_orenovani2.px/",
+     "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia_(2010=100)_orenovani2.px",
+     "retrieved_at": "2026-10-26T18:25:01.849810+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "region",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region",
+      "ka": "რეგიონი",
+      "ru": "Регион"
+     },
+     "values": [
+      {
+       "en": "Georgia",
+       "ka": "საქართველო",
+       "ru": "Грузия"
+      },
+      {
+       "en": "Tbilisi",
+       "ka": "ქ. თბილისი",
+       "ru": "Тбилиси"
+      },
+      {
+       "en": "Kutaisi",
+       "ka": "ქუთაისი",
+       "ru": "Кутаиси"
+      },
+      {
+       "en": "Batumi",
+       "ka": "ბათუმი",
+       "ru": "Батуми"
+      },
+      {
+       "en": "Gori",
+       "ka": "გორი",
+       "ru": "Гори"
+      },
+      {
+       "en": "Telavi",
+       "ka": "თელავი",
+       "ru": "Телави"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "month",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Month",
+      "ka": "თვე",
+      "ru": "Месяц"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 1944,
+   "value_count": 1926,
+   "first_period": "2000-01-01",
+   "last_period": "2026-09-01",
+   "file": "cpi_index_monthly.parquet",
+   "bytes": 12977
+  },
+  {
+   "name": "property_prices_quarterly",
+   "kind": "table",
+   "dataset": "rppi",
+   "topic": "prices",
+   "title": {
+    "en": "Residential property price index (2020 = 100)",
+    "ka": "საცხოვრებელი უძრავი ქონების ფასების ინდექსი (2020 = 100)",
+    "ru": "Индекс цен на жилую недвижимость (2020 = 100)"
+   },
+   "description": {
+    "en": "Residential property price index with the 2020 average equal to 100, for all dwellings, flats, and detached houses, by year and quarter.",
+    "ka": "საცხოვრებელი უძრავი ქონების ფასების ინდექსი (2020 წლის საშუალო = 100) — ყველა საცხოვრებელი, ბინები და ინდივიდუალური სახლები.",
+    "ru": "Индекс цен на жильё (среднее за 2020 год = 100): всё жильё, квартиры и частные дома, по годам и кварталам."
+   },
+   "unit": {
+    "en": "Index (2020 = 100)",
+    "ka": "ინდექსი (2020 = 100)",
+    "ru": "Индекс (2020 = 100)"
+   },
+   "grain": "One row per dwelling group × year × quarter",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/Residential%20Property%20Price%20Index/RPPI_2020_average%3D100.px/",
+     "path": "Price Statistics/Residential Property Price Index/RPPI_2020_average=100.px",
+     "retrieved_at": "2026-10-26T18:25:03.165676+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "dwelling_type",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Dwelling type",
+      "ka": "საცხოვრებლის ტიპი",
+      "ru": "Тип жилья"
+     },
+     "values": [
+      {
+       "en": "Total",
+       "ka": "სულ",
+       "ru": "Всего"
+      },
+      {
+       "en": "Flats",
+       "ka": "Flats",
+       "ru": "Квартиры"
+      },
+      {
+       "en": "Detached houses",
+       "ka": "Detached houses",
+       "ru": "Частные дома"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "quarter",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Quarter",
+      "ka": "კვარტალი",
+      "ru": "Квартал"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 84,
+   "value_count": 81,
+   "first_period": "2020-01-01",
+   "last_period": "2026-07-01",
+   "file": "property_prices_quarterly.parquet",
+   "bytes": 2227
+  },
+  {
+   "name": "gdp_current_prices",
+   "kind": "table",
+   "dataset": "gdp",
+   "topic": "economy",
+   "title": {
+    "en": "GDP at current prices by economic activity",
+    "ka": "მშპ მიმდინარე ფასებში ეკონომიკური საქმიანობის სახეების მიხედვით",
+    "ru": "ВВП в текущих ценах по видам деятельности"
+   },
+   "description": {
+    "en": "Gross value added by NACE section and GDP at current prices, quarterly and annual. Also includes GDP per capita (GEL, USD), GDP in USD, and the average USD/GEL exchange rate. Periods marked preliminary may be revised.",
+    "ka": "მთლიანი დამატებული ღირებულება და მშპ მიმდინარე ფასებში, კვარტალური და წლიური; ასევე მშპ ერთ სულზე, მშპ აშშ დოლარში და ლარის საშუალო გაცვლითი კურსი.",
+    "ru": "Валовая добавленная стоимость по разделам NACE и ВВП в текущих ценах, поквартально и за год. Также ВВП на душу населения (лари, долл.), ВВП в долларах и средний курс USD/GEL."
+   },
+   "unit": {
+    "en": "Million GEL; per-capita rows in GEL or USD; exchange rate in GEL per USD",
+    "ka": "მილიონი ლარი; ერთ სულზე — ლარი ან აშშ დოლარი; კურსი — ლარი 1 დოლარზე",
+    "ru": "Млн лари; на душу населения — лари или доллары; курс — лари за доллар"
+   },
+   "grain": "One row per activity or indicator × period",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/03_GDP_at_current_prices.px/",
+     "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/03_GDP_at_current_prices.px",
+     "retrieved_at": "2026-10-26T18:25:03.809699+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "activity",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Economic activity",
+      "ka": "ეკონომიკური საქმიანობა",
+      "ru": "Вид деятельности"
+     },
+     "values": [
+      {
+       "en": "A Agriculture, forestry and fishing",
+       "ka": "A სოფლის, სატყეო და თევზის მეურნეობა",
+       "ru": "A Сельское, лесное и рыбное хозяйство"
+      },
+      {
+       "en": "B Mining and quarrying",
+       "ka": "B სამთომოპოვებითი მრეწველობა და კარიერების დამუშავება",
+       "ru": "B Добыча полезных ископаемых"
+      },
+      {
+       "en": "C Manufacturing",
+       "ka": "C დამამუშავებელი მრეწველობა",
+       "ru": "C Обрабатывающая промышленность"
+      },
+      {
+       "en": "D Electricity, gas, steam and air conditioning supply",
+       "ka": "D ელექტროენერგიის, აირის, ორთქლის და კონდიცირებული ჰაერის მიწოდება",
+       "ru": "D Электроэнергия, газ, пар и кондиционирование воздуха"
+      },
+      {
+       "en": "E Water supply; sewerage, waste management and remediation activities",
+       "ka": "E წყალმომარაგება; კანალიზაცია, ნარჩენების მართვა და დაბინძურებისაგან გასუფთავების საქმიანობები",
+       "ru": "E Водоснабжение, канализация, утилизация отходов"
+      },
+      {
+       "en": "F Construction",
+       "ka": "F მშენებლობა",
+       "ru": "F Строительство"
+      },
+      {
+       "en": "G Wholesale and retail trade; repair of motor vehicles and motorcycles",
+       "ka": "G საბითუმო და საცალო ვაჭრობა; ავტომობილების და მოტოციკლების რემონტი",
+       "ru": "G Оптовая и розничная торговля; ремонт автотранспорта"
+      },
+      {
+       "en": "H Transportation and storage",
+       "ka": "H ტრანსპორტი და დასაწყობება",
+       "ru": "H Транспорт и складирование"
+      },
+      {
+       "en": "I Accommodation and food service activities",
+       "ka": "I განთავსების საშუალებებით უზრუნველყოფის და საკვების მიწოდების საქმიანობები",
+       "ru": "I Гостиницы и общественное питание"
+      },
+      {
+       "en": "J Information and communication",
+       "ka": "J ინფორმაცია და კომუნიკაცია",
+       "ru": "J Информация и связь"
+      },
+      {
+       "en": "K Financial and insurance activities",
+       "ka": "K საფინანსო და სადაზღვევო საქმიანობები",
+       "ru": "K Финансовая и страховая деятельность"
+      },
+      {
+       "en": "L Real estate activities",
+       "ka": "L უძრავ ქონებასთან დაკავშირებული საქმიანობები",
+       "ru": "L Операции с недвижимостью"
+      },
+      {
+       "en": "M Professional, scientific and technical activities",
+       "ka": "M პროფესიული, სამეცნიერო და ტექნიკური საქმიანობები",
+       "ru": "M Профессиональная, научная и техническая деятельность"
+      },
+      {
+       "en": "N Administrative and support service activities",
+       "ka": "N ადმინისტრაციული და დამხმარე მომსახურების საქმიანობები",
+       "ru": "N Административная и вспомогательная деятельность"
+      },
+      {
+       "en": "O Public administration and defence; compulsory social security",
+       "ka": "O სახელმწიფო მმართველობა და თავდაცვა; სავალდებულო სოციალური უსაფრთხოება",
+       "ru": "O Госуправление и оборона; обязательное соцобеспечение"
+      },
+      {
+       "en": "P Education",
+       "ka": "P განათლება",
+       "ru": "P Образование"
+      },
+      {
+       "en": "Q Human health and social work activities",
+       "ka": "Q ჯანდაცვა და სოციალური მომსახურების საქმიანობები",
+       "ru": "Q Здравоохранение и социальные услуги"
+      },
+      {
+       "en": "R Arts, entertainment and recreation",
+       "ka": "R ხელოვნება, გართობა და დასვენება",
+       "ru": "R Искусство, развлечения и отдых"
+      },
+      {
+       "en": "S Other service activities",
+       "ka": "S სხვა სახის მომსახურება",
+       "ru": "S Прочие услуги"
+      },
+      {
+       "en": "T Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
+       "ka": "T შინამეურნეობების, როგორც დამქირავებლის, საქმიანობები; არადიფერენცირებული საქონლის და მომსახურების წარმოება შინამეურნეობების მიერ საკუთარი მოხმარებისათვის",
+       "ru": "T Деятельность домохозяйств как работодателей и для собственного потребления"
+      },
+      {
+       "en": "(=) GDP at basic prices",
+       "ka": "(=) მშპ საბაზისო ფასებში",
+       "ru": "(=) ВВП в базовых ценах"
+      },
+      {
+       "en": "(+) Taxes on products",
+       "ka": "(+) გადასახადები პროდუქციაზე",
+       "ru": "(+) Налоги на продукты"
+      },
+      {
+       "en": "(-) Subsidies on products",
+       "ka": "(-) სუბსიდიები პროდუქციაზე",
+       "ru": "(−) Субсидии на продукты"
+      },
+      {
+       "en": "(=) GDP at market prices",
+       "ka": "(=) მშპ საბაზრო ფასებში",
+       "ru": "(=) ВВП в рыночных ценах"
+      },
+      {
+       "en": "GDP per capita in GEL",
+       "ka": "მშპ ერთ სულზე, ლარი**",
+       "ru": "ВВП на душу населения, лари"
+      },
+      {
+       "en": "GDP per capita, USD",
+       "ka": "მშპ ერთ სულზე, აშშ დოლარი**",
+       "ru": "ВВП на душу населения, долл. США"
+      },
+      {
+       "en": "GDP in mil. USD",
+       "ka": "მშპ, მლნ. აშშ დოლარი",
+       "ru": "ВВП, млн долл. США"
+      },
+      {
+       "en": "Exchange rate, USD/GEL, average of the same period",
+       "ka": "გაცვლითი კურსი, აშშ დოლარი/ლარი, პერიოდის საშუალო",
+       "ru": "Курс лари к доллару США, среднее за период"
+      }
+     ]
+    },
+    {
+     "name": "period",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period",
+      "ka": "პერიოდი",
+      "ru": "Период"
+     }
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 2296,
+   "value_count": 2296,
+   "first_period": "2010-01-01",
+   "last_period": "2026-04-01",
+   "file": "gdp_current_prices.parquet",
+   "bytes": 22065
+  },
+  {
+   "name": "gdp_real_growth",
+   "kind": "table",
+   "dataset": "gdp_growth",
+   "topic": "economy",
+   "title": {
+    "en": "Real GDP growth by economic activity",
+    "ka": "რეალური მშპ-ის ზრდა ეკონომიკური საქმიანობის სახეების მიხედვით",
+    "ru": "Реальный рост ВВП по видам деятельности"
+   },
+   "description": {
+    "en": "Real growth of gross value added by NACE section and of GDP, compared with the same period of the previous year, plus the GDP deflator. Quarterly and annual.",
+    "ka": "დამატებული ღირებულებისა და მშპ-ის რეალური ზრდა წინა წლის შესაბამის პერიოდთან შედარებით, ასევე მშპ-ის დეფლატორი.",
+    "ru": "Реальный рост добавленной стоимости по разделам NACE и ВВП к соответствующему периоду прошлого года, а также дефлятор ВВП."
+   },
+   "unit": {
+    "en": "Index (same period of previous year = 100); real growth rate is value - 100",
+    "ka": "ინდექსი (წინა წლის შესაბამისი პერიოდი = 100); რეალური ზრდა = value − 100",
+    "ru": "Индекс (тот же период прошлого года = 100); реальный рост = value − 100"
+   },
+   "grain": "One row per activity × period",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/06_Real_Growth.px/",
+     "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/06_Real_Growth.px",
+     "retrieved_at": "2026-10-26T18:25:04.748310+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "activity",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Economic activity",
+      "ka": "ეკონომიკური საქმიანობა",
+      "ru": "Вид деятельности"
+     },
+     "values": [
+      {
+       "en": "A Agriculture, forestry and fishing",
+       "ka": "A სოფლის, სატყეო და თევზის მეურნეობა",
+       "ru": "A Сельское, лесное и рыбное хозяйство"
+      },
+      {
+       "en": "B Mining and quarrying",
+       "ka": "B სამთომოპოვებითი მრეწველობა და კარიერების დამუშავება",
+       "ru": "B Добыча полезных ископаемых"
+      },
+      {
+       "en": "C Manufacturing",
+       "ka": "C დამამუშავებელი მრეწველობა",
+       "ru": "C Обрабатывающая промышленность"
+      },
+      {
+       "en": "D Electricity, gas, steam and air conditioning supply",
+       "ka": "D ელექტროენერგიის, აირის, ორთქლის და კონდიცირებული ჰაერის მიწოდება",
+       "ru": "D Электроэнергия, газ, пар и кондиционирование воздуха"
+      },
+      {
+       "en": "E Water supply; sewerage, waste management and remediation activities",
+       "ka": "E წყალმომარაგება; კანალიზაცია, ნარჩენების მართვა და დაბინძურებისაგან გასუფთავების საქმიანობები",
+       "ru": "E Водоснабжение, канализация, утилизация отходов"
+      },
+      {
+       "en": "F Construction",
+       "ka": "F მშენებლობა",
+       "ru": "F Строительство"
+      },
+      {
+       "en": "G Wholesale and retail trade; repair of motor vehicles and motorcycles",
+       "ka": "G საბითუმო და საცალო ვაჭრობა; ავტომობილების და მოტოციკლების რემონტი",
+       "ru": "G Оптовая и розничная торговля; ремонт автотранспорта"
+      },
+      {
+       "en": "H Transportation and storage",
+       "ka": "H ტრანსპორტი და დასაწყობება",
+       "ru": "H Транспорт и складирование"
+      },
+      {
+       "en": "I Accommodation and food service activities",
+       "ka": "I განთავსების საშუალებებით უზრუნველყოფის და საკვების მიწოდების საქმიანობები",
+       "ru": "I Гостиницы и общественное питание"
+      },
+      {
+       "en": "J Information and communication",
+       "ka": "J ინფორმაცია და კომუნიკაცია",
+       "ru": "J Информация и связь"
+      },
+      {
+       "en": "K Financial and insurance activities",
+       "ka": "K საფინანსო და სადაზღვევო საქმიანობები",
+       "ru": "K Финансовая и страховая деятельность"
+      },
+      {
+       "en": "L Real estate activities",
+       "ka": "L უძრავ ქონებასთან დაკავშირებული საქმიანობები",
+       "ru": "L Операции с недвижимостью"
+      },
+      {
+       "en": "M Professional, scientific and technical activities",
+       "ka": "M პროფესიული, სამეცნიერო და ტექნიკური საქმიანობები",
+       "ru": "M Профессиональная, научная и техническая деятельность"
+      },
+      {
+       "en": "N Administrative and support service activities",
+       "ka": "N ადმინისტრაციული და დამხმარე მომსახურების საქმიანობები",
+       "ru": "N Административная и вспомогательная деятельность"
+      },
+      {
+       "en": "O Public administration and defence; compulsory social security",
+       "ka": "O სახელმწიფო მმართველობა და თავდაცვა; სავალდებულო სოციალური უსაფრთხოება",
+       "ru": "O Госуправление и оборона; обязательное соцобеспечение"
+      },
+      {
+       "en": "P Education",
+       "ka": "P განათლება",
+       "ru": "P Образование"
+      },
+      {
+       "en": "Q Human health and social work activities",
+       "ka": "Q ჯანდაცვა და სოციალური მომსახურების საქმიანობები",
+       "ru": "Q Здравоохранение и социальные услуги"
+      },
+      {
+       "en": "R Arts, entertainment and recreation",
+       "ka": "R ხელოვნება, გართობა და დასვენება",
+       "ru": "R Искусство, развлечения и отдых"
+      },
+      {
+       "en": "S Other service activities",
+       "ka": "S სხვა სახის მომსახურება",
+       "ru": "S Прочие услуги"
+      },
+      {
+       "en": "T Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
+       "ka": "T შინამეურნეობების, როგორც დამქირავებლის, საქმიანობები; არადიფერენცირებული საქონლის და მომსახურების წარმოება შინამეურნეობების მიერ საკუთარი მოხმარებისათვის",
+       "ru": "T Деятельность домохозяйств как работодателей и для собственного потребления"
+      },
+      {
+       "en": "(=) GDP at basic prices",
+       "ka": "(=) მშპ საბაზისო ფასებში",
+       "ru": "(=) ВВП в базовых ценах"
+      },
+      {
+       "en": "(+) Taxes on products",
+       "ka": "(+) გადასახადები პროდუქციაზე",
+       "ru": "(+) Налоги на продукты"
+      },
+      {
+       "en": "(-) Subsidies on products",
+       "ka": "(-) სუბსიდიები პროდუქციაზე",
+       "ru": "(−) Субсидии на продукты"
+      },
+      {
+       "en": "(=) GDP at market prices",
+       "ka": "(=) მშპ საბაზრო ფასებში",
+       "ru": "(=) ВВП в рыночных ценах"
+      },
+      {
+       "en": "GDP deflator",
+       "ka": "მშპ დეფლატორი",
+       "ru": "Дефлятор ВВП"
+      }
+     ]
+    },
+    {
+     "name": "period",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period",
+      "ka": "პერიოდი",
+      "ru": "Период"
+     }
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 1925,
+   "value_count": 1925,
+   "first_period": "2011-01-01",
+   "last_period": "2026-04-01",
+   "file": "gdp_real_growth.parquet",
+   "bytes": 19131
+  },
+  {
+   "name": "gdp_by_use",
+   "kind": "table",
+   "dataset": "gdp_use",
+   "topic": "economy",
+   "title": {
+    "en": "GDP by expenditure, including exports and imports",
+    "ka": "მშპ გამოყენების კატეგორიების მიხედვით, მათ შორის ექსპორტი და იმპორტი",
+    "ru": "ВВП по направлениям использования, включая экспорт и импорт"
+   },
+   "description": {
+    "en": "GDP at current prices by category of use: final consumption, capital formation, and exports and imports of goods and services. Quarterly and annual. GDP at market prices appears in the source on both the production and use sides; identical duplicate rows are dropped.",
+    "ka": "მშპ მიმდინარე ფასებში გამოყენების კატეგორიების მიხედვით: საბოლოო მოხმარება, კაპიტალის ფორმირება, საქონლისა და მომსახურების ექსპორტი და იმპორტი.",
+    "ru": "ВВП в текущих ценах по направлениям использования: конечное потребление, накопление капитала, экспорт и импорт товаров и услуг."
+   },
+   "unit": {
+    "en": "Million GEL",
+    "ka": "მილიონი ლარი",
+    "ru": "Млн лари"
+   },
+   "grain": "One row per indicator × period",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/09_GDP_by_categories_of_use.px/",
+     "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/09_GDP_by_categories_of_use.px",
+     "retrieved_at": "2026-10-26T18:25:05.396394+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "indicator",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Indicator",
+      "ka": "მაჩვენებელი",
+      "ru": "Показатель"
+     },
+     "values": [
+      {
+       "en": "Gross Domestic Product",
+       "ka": "მთლიანი შიდა პროდუქტი",
+       "ru": "Валовой внутренний продукт"
+      },
+      {
+       "en": "B.1g GDP at basic prices",
+       "ka": "B.1g მთლიანი შიდა პროდუქტი საბაზისო ფასებში",
+       "ru": "B.1g ВВП в базовых ценах"
+      },
+      {
+       "en": "D.21 (+) Taxes on Products",
+       "ka": "D.21 (+) გადასახადები პროდუქტებზე",
+       "ru": "D.21 (+) Налоги на продукты"
+      },
+      {
+       "en": "D.31 (-) Subsidies on Products",
+       "ka": "D.31 (-) სუბსიდიები პროდუქტებზე",
+       "ru": "D.31 (−) Субсидии на продукты"
+      },
+      {
+       "en": "B.1*g (=) GDP at market prices",
+       "ka": "B.1*g (=) მთლიანი შიდა პროდუქტი საბაზრო ფასებში",
+       "ru": "B.1*g (=) ВВП в рыночных ценах"
+      },
+      {
+       "en": "Use of Gross domestic product",
+       "ka": "მთლიანი შიდა პროდუქტის გამოყენება",
+       "ru": "Использование ВВП"
+      },
+      {
+       "en": "P.3 Final Consumption Expenditures",
+       "ka": "P.3 ხარჯები საბოლოო მოხმარებაზე",
+       "ru": "P.3 Расходы на конечное потребление"
+      },
+      {
+       "en": "P.3 Households",
+       "ka": "P.3 შინამეურნეობები",
+       "ru": "P.3 Домашние хозяйства"
+      },
+      {
+       "en": "P.3 NPISH",
+       "ka": "P.3 შმაკო (შინამეურნეობების მომსახურე არაკომერციული ორგანიზაციები)",
+       "ru": "P.3 НКОДХ"
+      },
+      {
+       "en": "P.3 General government",
+       "ka": "P.3 სახელმწიფო მართვის ორგანოები",
+       "ru": "P.3 Государственное управление"
+      },
+      {
+       "en": "P.31 Individual Goods and Services",
+       "ka": "P.31 ინდივიდუალური საქონელი და მომსახურება",
+       "ru": "P.31 Индивидуальные товары и услуги"
+      },
+      {
+       "en": "P.32 Collective Services",
+       "ka": "P.32 კოლექტიური მომსახურება",
+       "ru": "P.32 Коллективные услуги"
+      },
+      {
+       "en": "P.5 (+) Gross Capital Formation",
+       "ka": "P.5 (+) მთლიანი კაპიტალის ფორმირება",
+       "ru": "P.5 (+) Валовое накопление капитала"
+      },
+      {
+       "en": "P.51 Gross Fixed Capital Formation",
+       "ka": "P.51 ძირითადი კაპიტალის მთლიანი ფორმირება",
+       "ru": "P.51 Валовое накопление основного капитала"
+      },
+      {
+       "en": "P.52 Changes in Inventories",
+       "ka": "P.52 მარაგების ცვლილება",
+       "ru": "P.52 Изменение запасов"
+      },
+      {
+       "en": "P.53 Net Acquisition of Valuables",
+       "ka": "P.53 ფასეულობის შეძენა, წმინდა",
+       "ru": "P.53 Чистое приобретение ценностей"
+      },
+      {
+       "en": "P.6 (+) Exports of Goods and Services",
+       "ka": "P.6 (+) საქონლისა და მომსახურების ექსპორტი",
+       "ru": "P.6 (+) Экспорт товаров и услуг"
+      },
+      {
+       "en": "P.61 Exports of goods",
+       "ka": "P.61 საქონლის ექსპორტი",
+       "ru": "P.61 Экспорт товаров"
+      },
+      {
+       "en": "P.62 Exports of Services",
+       "ka": "P.62 მომსახურების ექსპორტი",
+       "ru": "P.62 Экспорт услуг"
+      },
+      {
+       "en": "P.7 (-) Imports of Goods and Services",
+       "ka": "P.7 (-) საქონლისა და მომსახურების იმპორტი",
+       "ru": "P.7 (−) Импорт товаров и услуг"
+      },
+      {
+       "en": "P.71 Imports of Goods",
+       "ka": "P.71 საქონლის იმპორტი",
+       "ru": "P.71 Импорт товаров"
+      },
+      {
+       "en": "P.72 Imports of Services",
+       "ka": "P.72 მომსახურების იმპორტი",
+       "ru": "P.72 Импорт услуг"
+      }
+     ]
+    },
+    {
+     "name": "period",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period",
+      "ka": "პერიოდი",
+      "ru": "Период"
+     }
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 1804,
+   "value_count": 1570,
+   "first_period": "2010-01-01",
+   "last_period": "2026-04-01",
+   "file": "gdp_by_use.parquet",
+   "bytes": 15934
+  },
+  {
+   "name": "fdi_quarterly",
+   "kind": "table",
+   "dataset": "fdi",
+   "topic": "economy",
+   "title": {
+    "en": "Foreign direct investment in Georgia",
+    "ka": "პირდაპირი უცხოური ინვესტიციები საქართველოში",
+    "ru": "Прямые иностранные инвестиции в Грузию"
+   },
+   "description": {
+    "en": "Foreign direct investment inflows by information source, year, and quarter. 'Total' is the headline figure.",
+    "ka": "პირდაპირი უცხოური ინვესტიციები ინფორმაციის წყაროების, წლებისა და კვარტლების მიხედვით.",
+    "ru": "Прямые иностранные инвестиции по источникам информации, годам и кварталам. «Total» — итоговый показатель."
+   },
+   "unit": {
+    "en": "USD",
+    "ka": "აშშ დოლარი",
+    "ru": "доллары США"
+   },
+   "grain": "One row per source × year × quarter",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/FDI/9..px/",
+     "path": "FDI/9..px",
+     "retrieved_at": "2026-10-26T18:25:06.008905+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "sources",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Source",
+      "ka": "წყარო",
+      "ru": "Источник"
+     },
+     "values": [
+      {
+       "en": "Total",
+       "ka": "სულ",
+       "ru": "Всего"
+      },
+      {
+       "en": "Survey on External Economic Activities of Enterprises",
+       "ka": "საწარმოთა საგარეო ეკონომიკური საქმიანობის გამოკვლევა",
+       "ru": "Обследование внешнеэкономической деятельности предприятий"
+      },
+      {
+       "en": "Privatization",
+       "ka": "პრივატიზაცია",
+       "ru": "Приватизация"
+      },
+      {
+       "en": "Financial sector",
+       "ka": "საფინანსო სექტორი",
+       "ru": "Финансовый сектор"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "quarter",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Quarter",
+      "ka": "კვარტალი",
+      "ru": "Квартал"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 400,
+   "value_count": 382,
+   "first_period": "2007-01-01",
+   "last_period": "2026-04-01",
+   "file": "fdi_quarterly.parquet",
+   "bytes": 5548
+  },
+  {
+   "name": "population_regional",
+   "kind": "table",
+   "dataset": "population",
+   "topic": "population",
+   "title": {
+    "en": "Population by region and municipality",
+    "ka": "მოსახლეობა რეგიონებისა და მუნიციპალიტეტების მიხედვით",
+    "ru": "Население по регионам и муниципалитетам"
+   },
+   "description": {
+    "en": "Population as of 1 January by region and self-governed unit. 'area' mixes the country total, regions and municipalities; do not sum across levels. Footnote rows from the source have no values.",
+    "ka": "მოსახლეობის რიცხოვნობა 1 იანვრის მდგომარეობით რეგიონებისა და თვითმმართველი ერთეულების მიხედვით.",
+    "ru": "Численность населения на 1 января по регионам и муниципалитетам. Колонка area смешивает страну, регионы и муниципалитеты — не суммируйте уровни."
+   },
+   "unit": {
+    "en": "Thousand persons",
+    "ka": "ათასი კაცი",
+    "ru": "Тыс. человек"
+   },
+   "grain": "One row per area × year",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Demography/Population/01-population-by-self-governed-unit.px/",
+     "path": "Demography/Population/01-population-by-self-governed-unit.px",
+     "retrieved_at": "2026-10-26T18:25:06.686455+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "area",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Area",
+      "ka": "ტერიტორია",
+      "ru": "Территория"
+     },
+     "values": [
+      {
+       "en": "Georgia",
+       "ka": "საქართველო",
+       "ru": "Грузия"
+      },
+      {
+       "en": "C. Tbilisi Municipality",
+       "ka": "ქ. თბილისი",
+       "ru": "г. Тбилиси"
+      },
+      {
+       "en": "Abkhazia A.R.",
+       "ka": "აფხაზეთის ა.რ.",
+       "ru": "Абхазская АР"
+      },
+      {
+       "en": "Ajara Municipality",
+       "ka": "აჟარის მუნიციპალიტეტი",
+       "ru": "Ажарский муниципалитет"
+      },
+      {
+       "en": "Adjara A.R.",
+       "ka": "აჭარის ა.რ.",
+       "ru": "Аджарская АР"
+      },
+      {
+       "en": "C. Batumi Municipality",
+       "ka": "ქ. ბათუმი",
+       "ru": "г. Батуми"
+      },
+      {
+       "en": "Keda Municipality",
+       "ka": "ქედის მუნიციპალიტეტი",
+       "ru": "Кедский муниципалитет"
+      },
+      {
+       "en": "Kobuleti Municipality",
+       "ka": "ქობულეთის მუნიციპალიტეტი",
+       "ru": "Кобулетский муниципалитет"
+      },
+      {
+       "en": "Shuakhevi Municipality",
+       "ka": "შუახევის მუნიციპალიტეტი",
+       "ru": "Шуахевский муниципалитет"
+      },
+      {
+       "en": "Khelvachauri Municipality",
+       "ka": "ხელვაჩაურის მუნიციპალიტეტი",
+       "ru": "Хелвачаурский муниципалитет"
+      },
+      {
+       "en": "Khulo Municipality",
+       "ka": "ხულოს მუნიციპალიტეტი",
+       "ru": "Хулойский муниципалитет"
+      },
+      {
+       "en": "Guria Region",
+       "ka": "გურია",
+       "ru": "Гурия (регион)"
+      },
+      {
+       "en": "C. Ozurgeti*",
+       "ka": "ქ. ოზურგეთი*",
+       "ru": "г. Озургети*"
+      },
+      {
+       "en": "Lanchkhuti Municipality",
+       "ka": "ლანჩხუთის მუნიციპალიტეტი",
+       "ru": "Ланчхутский муниципалитет"
+      },
+      {
+       "en": "Ozurgeti Municipality",
+       "ka": "ოზურგეთის მუნიციპალიტეტი",
+       "ru": "Озургетский муниципалитет"
+      },
+      {
+       "en": "Chokhatauri Municipality",
+       "ka": "ჩოხატაურის მუნიციპალიტეტი",
+       "ru": "Чохатаурский муниципалитет"
+      },
+      {
+       "en": "Imereti Region",
+       "ka": "იმერეთი",
+       "ru": "Имеретия (регион)"
+      },
+      {
+       "en": "C. Kutaisi Municipality",
+       "ka": "ქ. ქუთაისი",
+       "ru": "г. Кутаиси"
+      },
+      {
+       "en": "Baghdati Municipality",
+       "ka": "ბაღდათის მუნიციპალიტეტი",
+       "ru": "Багдатский муниципалитет"
+      },
+      {
+       "en": "Vani Municipality",
+       "ka": "ვანის მუნიციპალიტეტი",
+       "ru": "Ванский муниципалитет"
+      },
+      {
+       "en": "Zestaponi Municipality",
+       "ka": "ზესტაფონის მუნიციპალიტეტი",
+       "ru": "Зестафонский муниципалитет"
+      },
+      {
+       "en": "Terjola Municipality",
+       "ka": "თერჯოლის მუნიციპალიტეტი",
+       "ru": "Терджольский муниципалитет"
+      },
+      {
+       "en": "Samtredia Municipality",
+       "ka": "სამტრედიის მუნიციპალიტეტი",
+       "ru": "Самтредский муниципалитет"
+      },
+      {
+       "en": "Sachkhere Municipality",
+       "ka": "საჩხერის მუნიციპალიტეტი",
+       "ru": "Сачхерский муниципалитет"
+      },
+      {
+       "en": "Tqibuli Municipality",
+       "ka": "ტყიბულის მუნიციპალიტეტი",
+       "ru": "Ткибульский муниципалитет"
+      },
+      {
+       "en": "Tsqaltubo Municipality",
+       "ka": "წყალტუბოს მუნიციპალიტეტი",
+       "ru": "Цхалтубский муниципалитет"
+      },
+      {
+       "en": "Chiatura Municipality",
+       "ka": "ჭიათურის მუნიციპალიტეტი",
+       "ru": "Чиатурский муниципалитет"
+      },
+      {
+       "en": "Kharagauli Municipality",
+       "ka": "ხარაგაულის მუნიციპალიტეტი",
+       "ru": "Харагаульский муниципалитет"
+      },
+      {
+       "en": "Khoni Municipality",
+       "ka": "ხონის მუნიციპალიტეტი",
+       "ru": "Хонский муниципалитет"
+      },
+      {
+       "en": "Kakheti Region",
+       "ka": "კახეთი",
+       "ru": "Кахетия (регион)"
+      },
+      {
+       "en": "C. Telavi*",
+       "ka": "ქ. თელავი*",
+       "ru": "г. Телави*"
+      },
+      {
+       "en": "Akhmeta Municipality",
+       "ka": "ახმეტის მუნიციპალიტეტი",
+       "ru": "Ахметский муниципалитет"
+      },
+      {
+       "en": "Gurjaani Municipality",
+       "ka": "გურჯაანის მუნიციპალიტეტი",
+       "ru": "Гурджаанский муниципалитет"
+      },
+      {
+       "en": "Dedoplistsqaro Municipality",
+       "ka": "დედოფლისწყაროს მუნიციპალიტეტი",
+       "ru": "Дедоплисцкаройский муниципалитет"
+      },
+      {
+       "en": "Telavi Municipality",
+       "ka": "თელავის მუნიციპალიტეტი",
+       "ru": "Телавский муниципалитет"
+      },
+      {
+       "en": "Lagodekhi Municipality",
+       "ka": "ლაგოდეხის მუნიციპალიტეტი",
+       "ru": "Лагодехский муниципалитет"
+      },
+      {
+       "en": "Sagarejo Municipality",
+       "ka": "საგარეჯოს მუნიციპალიტეტი",
+       "ru": "Сагареджойский муниципалитет"
+      },
+      {
+       "en": "Sighnagi Municipality",
+       "ka": "სიღნაღის მუნიციპალიტეტი",
+       "ru": "Сигнахский муниципалитет"
+      },
+      {
+       "en": "Kvareli Municipality",
+       "ka": "ყვარლის მუნიციპალიტეტი",
+       "ru": "Кварельский муниципалитет"
+      },
+      {
+       "en": "Mtskheta-Mtianeti Region",
+       "ka": "მცხეთა-მთიანეთი",
+       "ru": "Мцхета-Мтианети (регион)"
+      },
+      {
+       "en": "C. Mtskheta*",
+       "ka": "ქ. მცხეთა*",
+       "ru": "г. Мцхета*"
+      },
+      {
+       "en": "Akhalgori Municipality",
+       "ka": "ახალგორის მუნიციპალიტეტი",
+       "ru": "Ахалгорский муниципалитет"
+      },
+      {
+       "en": "Dusheti Municipality",
+       "ka": "დუშეთის მუნიციპალიტეტი",
+       "ru": "Душетский муниципалитет"
+      },
+      {
+       "en": "Tianeti Municipality",
+       "ka": "თიანეთის მუნიციპალიტეტი",
+       "ru": "Тианетский муниципалитет"
+      },
+      {
+       "en": "Mtskheta Municipality",
+       "ka": "მცხეთის მუნიციპალიტეტი",
+       "ru": "Мцхетский муниципалитет"
+      },
+      {
+       "en": "Kazbegi Municipality",
+       "ka": "ყაზბეგის მუნიციპალიტეტი",
+       "ru": "Казбегский муниципалитет"
+      },
+      {
+       "en": "Racha-Lechkhumi and Kvemo Svaneti Region",
+       "ka": "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+       "ru": "Рача-Лечхуми и Квемо Сванети (регион)"
+      },
+      {
+       "en": "C. Ambrolauri*",
+       "ka": "ქ. ამბროლაური*",
+       "ru": "г. Амбролаури*"
+      },
+      {
+       "en": "Ambrolauri Municipality",
+       "ka": "ამბროლაურის მუნიციპალიტეტი",
+       "ru": "Амбролаурский муниципалитет"
+      },
+      {
+       "en": "Lentekhi Municipality",
+       "ka": "ლენტეხის მუნიციპალიტეტი",
+       "ru": "Лентехский муниципалитет"
+      },
+      {
+       "en": "Oni Municipality",
+       "ka": "ონის მუნიციპალიტეტი",
+       "ru": "Онский муниципалитет"
+      },
+      {
+       "en": "Tsageri Municipality",
+       "ka": "ცაგერის მუნიციპალიტეტი",
+       "ru": "Цагерский муниципалитет"
+      },
+      {
+       "en": "Samegrelo-Zemo Svaneti Region",
+       "ka": "სამეგრელო-ზემო სვანეთი",
+       "ru": "Самегрело-Земо Сванети (регион)"
+      },
+      {
+       "en": "C. Zugdidi*",
+       "ka": "ქ. ზუგდიდი*",
+       "ru": "г. Зугдиди*"
+      },
+      {
+       "en": "C. Poti Municipality",
+       "ka": "ქ. ფოთი",
+       "ru": "г. Поти"
+      },
+      {
+       "en": "Abasha Municipality",
+       "ka": "აბაშის მუნიციპალიტეტი",
+       "ru": "Абашский муниципалитет"
+      },
+      {
+       "en": "Zugdidi Municipality",
+       "ka": "ზუგდიდის მუნიციპალიტეტი",
+       "ru": "Зугдидский муниципалитет"
+      },
+      {
+       "en": "Martvili Municipality",
+       "ka": "მარტვილის მუნიციპალიტეტი",
+       "ru": "Мартвильский муниципалитет"
+      },
+      {
+       "en": "Mestia Municipality",
+       "ka": "მესტიის მუნიციპალიტეტი",
+       "ru": "Местийский муниципалитет"
+      },
+      {
+       "en": "Senaki Municipality",
+       "ka": "სენაკის მუნიციპალიტეტი",
+       "ru": "Сенакский муниципалитет"
+      },
+      {
+       "en": "Chkhorotsku Municipality",
+       "ka": "ჩხოროწყუს მუნიციპალიტეტი",
+       "ru": "Чхороцкуйский муниципалитет"
+      },
+      {
+       "en": "Tsalenjikha Municipality",
+       "ka": "წალენჯიხის მუნიციპალიტეტი",
+       "ru": "Цаленджихский муниципалитет"
+      },
+      {
+       "en": "Khobi Municipality",
+       "ka": "ხობის მუნიციპალიტეტი",
+       "ru": "Хобский муниципалитет"
+      },
+      {
+       "en": "Samtskhe-Javakheti Region",
+       "ka": "სამცხე-ჯავახეთი",
+       "ru": "Самцхе-Джавахети (регион)"
+      },
+      {
+       "en": "C. Akhaltsikhe*",
+       "ka": "ქ. ახალციხე*",
+       "ru": "г. Ахалцихе*"
+      },
+      {
+       "en": "Adigeni Municipality",
+       "ka": "ადიგენის მუნიციპალიტეტი",
+       "ru": "Адигенский муниципалитет"
+      },
+      {
+       "en": "Aspindza Municipality",
+       "ka": "ასპინძის მუნიციპალიტეტი",
+       "ru": "Аспиндзский муниципалитет"
+      },
+      {
+       "en": "Akhalkalaki Municipality",
+       "ka": "ახალქალაქის მუნიციპალიტეტი",
+       "ru": "Ахалкалакский муниципалитет"
+      },
+      {
+       "en": "Akhaltsikhe Municipality",
+       "ka": "ახალციხის მუნიციპალიტეტი",
+       "ru": "Ахалцихский муниципалитет"
+      },
+      {
+       "en": "Borjomi Municipality",
+       "ka": "ბორჯომის მუნიციპალიტეტი",
+       "ru": "Боржомский муниципалитет"
+      },
+      {
+       "en": "Ninotsminda Municipality",
+       "ka": "ნინოწმინდის მუნიციპალიტეტი",
+       "ru": "Ниноцминдский муниципалитет"
+      },
+      {
+       "en": "Kvemo Kartli Region",
+       "ka": "ქვემო ქართლი",
+       "ru": "Квемо Картли (регион)"
+      },
+      {
+       "en": "C. Rustavi Municipality",
+       "ka": "ქ. რუსთავი",
+       "ru": "г. Рустави"
+      },
+      {
+       "en": "Bolnisi Municipality",
+       "ka": "ბოლნისის მუნიციპალიტეტი",
+       "ru": "Болнисский муниципалитет"
+      },
+      {
+       "en": "Gardabani Municipality",
+       "ka": "გარდაბნის მუნიციპალიტეტი",
+       "ru": "Гардабанский муниципалитет"
+      },
+      {
+       "en": "Dmanisi Municipality",
+       "ka": "დმანისის მუნიციპალიტეტი",
+       "ru": "Дманисский муниципалитет"
+      },
+      {
+       "en": "Tetritsqaro Municipality",
+       "ka": "თეთრიწყაროს მუნიციპალიტეტი",
+       "ru": "Тетрицкаройский муниципалитет"
+      },
+      {
+       "en": "Marneuli Municipality",
+       "ka": "მარნეულის მუნიციპალიტეტი",
+       "ru": "Марнеульский муниципалитет"
+      },
+      {
+       "en": "Tsalka Municipality",
+       "ka": "წალკის მუნიციპალიტეტი",
+       "ru": "Цалкский муниципалитет"
+      },
+      {
+       "en": "Shida Kartli Region",
+       "ka": "შიდა ქართლი",
+       "ru": "Шида Картли (регион)"
+      },
+      {
+       "en": "C. Gori*",
+       "ka": "ქ. გორი*",
+       "ru": "г. Гори*"
+      },
+      {
+       "en": "Gori Municipality",
+       "ka": "გორის მუნიციპალიტეტი",
+       "ru": "Горийский муниципалитет"
+      },
+      {
+       "en": "Eredvi Municipality**",
+       "ka": "ერედვის მუნიციპალიტეტი**",
+       "ru": "Эредвийский муниципалитет**"
+      },
+      {
+       "en": "Tighva Municipality**",
+       "ka": "თიღვის მუნიციპალიტეტი**",
+       "ru": "Тигвский муниципалитет**"
+      },
+      {
+       "en": "Kaspi Municipality",
+       "ka": "კასპის მუნიციპალიტეტი",
+       "ru": "Каспский муниципалитет"
+      },
+      {
+       "en": "Kareli Municipality",
+       "ka": "ქარელის მუნიციპალიტეტი",
+       "ru": "Карельский муниципалитет"
+      },
+      {
+       "en": "Kurta Municipality**",
+       "ka": "ქურთის მუნიციპალიტეტი**",
+       "ru": "Куртский муниципалитет**"
+      },
+      {
+       "en": "Khashuri Municipality",
+       "ka": "ხაშურის მუნიციპალიტეტი",
+       "ru": "Хашурский муниципалитет"
+      },
+      {
+       "en": "- Occupied territories",
+       "ka": "- ოკუპირებული ტერიტორია",
+       "ru": "— Оккупированные территории"
+      },
+      {
+       "en": "* Data is included into the relevant municipalities before 2014 and starting from 2017",
+       "ka": "* მონაცემები 2014 წლამდე და 2017 წლიდან, შესულია შესაბამისი მუნიციპალიტეტების რაოდენობაში",
+       "ru": "* До 2014 года и начиная с 2017 года данные включены в соответствующие муниципалитеты"
+      },
+      {
+       "en": "** Data is included into the relevant municipalities before 2006",
+       "ka": "** მონაცემები 2006 წლამდე, შესულია შესაბამისი მუნიციპალიტეტების რაოდენობაში",
+       "ru": "** До 2006 года данные включены в соответствующие муниципалитеты"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 3003,
+   "value_count": 2550,
+   "first_period": "1994-01-01",
+   "last_period": "2026-01-01",
+   "file": "population_regional.parquet",
+   "bytes": 9363
+  },
+  {
+   "name": "population_age_sex",
+   "kind": "table",
+   "dataset": "population_age_sex",
+   "topic": "population",
+   "title": {
+    "en": "Population by age group and sex",
+    "ka": "მოსახლეობა ასაკობრივი ჯგუფებისა და სქესის მიხედვით",
+    "ru": "Население по возрастным группам и полу"
+   },
+   "description": {
+    "en": "Population as of 1 January by 5-year age group and sex.",
+    "ka": "მოსახლეობის რიცხოვნობა 1 იანვრის მდგომარეობით 5-წლიანი ასაკობრივი ჯგუფებისა და სქესის მიხედვით.",
+    "ru": "Численность населения на 1 января по пятилетним возрастным группам и полу."
+   },
+   "unit": {
+    "en": "Thousand persons",
+    "ka": "ათასი კაცი",
+    "ru": "Тыс. человек"
+   },
+   "grain": "One row per age group × year × sex",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Demography/Population/02-population-by-age-groups-and-sex.px/",
+     "path": "Demography/Population/02-population-by-age-groups-and-sex.px",
+     "retrieved_at": "2026-10-26T18:25:07.409800+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "age",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Age group",
+      "ka": "ასაკობრივი ჯგუფი",
+      "ru": "Возрастная группа"
+     },
+     "values": [
+      {
+       "en": "Total",
+       "ka": "სულ",
+       "ru": "Всего"
+      },
+      {
+       "en": "0",
+       "ka": "0",
+       "ru": "0"
+      },
+      {
+       "en": "1-4",
+       "ka": "1-4",
+       "ru": "1–4"
+      },
+      {
+       "en": "5-9",
+       "ka": "5-9",
+       "ru": "5–9"
+      },
+      {
+       "en": "10-14",
+       "ka": "10-14",
+       "ru": "10–14"
+      },
+      {
+       "en": "15-19",
+       "ka": "15-19",
+       "ru": "15–19"
+      },
+      {
+       "en": "20-24",
+       "ka": "20-24",
+       "ru": "20–24"
+      },
+      {
+       "en": "25-29",
+       "ka": "25-29",
+       "ru": "25–29"
+      },
+      {
+       "en": "30-34",
+       "ka": "30-34",
+       "ru": "30–34"
+      },
+      {
+       "en": "35-39",
+       "ka": "35-39",
+       "ru": "35–39"
+      },
+      {
+       "en": "40-44",
+       "ka": "40-44",
+       "ru": "40–44"
+      },
+      {
+       "en": "45-49",
+       "ka": "45-49",
+       "ru": "45–49"
+      },
+      {
+       "en": "50-54",
+       "ka": "50-54",
+       "ru": "50–54"
+      },
+      {
+       "en": "55-59",
+       "ka": "55-59",
+       "ru": "55–59"
+      },
+      {
+       "en": "60-64",
+       "ka": "60-64",
+       "ru": "60–64"
+      },
+      {
+       "en": "65-69",
+       "ka": "65-69",
+       "ru": "65–69"
+      },
+      {
+       "en": "70-74",
+       "ka": "70-74",
+       "ru": "70–74"
+      },
+      {
+       "en": "75-79",
+       "ka": "75-79",
+       "ru": "75–79"
+      },
+      {
+       "en": "80-84",
+       "ka": "80-84",
+       "ru": "80–84"
+      },
+      {
+       "en": "85+",
+       "ka": "85+",
+       "ru": "85+"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "sex",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Sex",
+      "ka": "სქესი",
+      "ru": "Пол"
+     },
+     "values": [
+      {
+       "en": "Both Sexes",
+       "ka": "ორივე სქესი",
+       "ru": "Оба пола"
+      },
+      {
+       "en": "Males",
+       "ka": "კაცი",
+       "ru": "Мужчины"
+      },
+      {
+       "en": "Females",
+       "ka": "ქალი",
+       "ru": "Женщины"
+      }
+     ]
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 1980,
+   "value_count": 1980,
+   "first_period": "1994-01-01",
+   "last_period": "2026-01-01",
+   "file": "population_age_sex.parquet",
+   "bytes": 8168
+  },
+  {
+   "name": "poverty_absolute",
+   "kind": "table",
+   "dataset": "poverty",
+   "topic": "population",
+   "title": {
+    "en": "Share of population below the absolute poverty line",
+    "ka": "სიღარიბის აბსოლუტურ ზღვარს ქვევით მყოფი მოსახლეობის წილი",
+    "ru": "Доля населения за чертой абсолютной бедности"
+   },
+   "description": {
+    "en": "Share of population below the absolute poverty line by year and population group (urban/rural, age group, sex, or the whole country).",
+    "ka": "სიღარიბის აბსოლუტურ ზღვარს ქვევით მყოფი მოსახლეობის წილი წლისა და მოსახლეობის ჯგუფის მიხედვით.",
+    "ru": "Доля населения за чертой абсолютной бедности по годам и группам населения (город/село, возраст, пол, страна в целом)."
+   },
+   "unit": {
+    "en": "Percent of population",
+    "ka": "მოსახლეობის პროცენტი",
+    "ru": "% населения"
+   },
+   "grain": "One row per population group × year",
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Living%20Conditions%2C%20Subsistence%20Minimum/Absolute_poverty.px/",
+     "path": "Social Statistics/Living Conditions, Subsistence Minimum/Absolute_poverty.px",
+     "retrieved_at": "2026-10-26T18:25:08.161601+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "population_group",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Population group",
+      "ka": "მოსახლეობის ჯგუფი",
+      "ru": "Группа населения"
+     },
+     "values": [
+      {
+       "en": "Urban",
+       "ka": "ქალაქი",
+       "ru": "Город"
+      },
+      {
+       "en": "Rural",
+       "ka": "სოფელი",
+       "ru": "Село"
+      },
+      {
+       "en": "0-17",
+       "ka": "0-17",
+       "ru": "0–17"
+      },
+      {
+       "en": "18-64",
+       "ka": "18-64",
+       "ru": "18–64"
+      },
+      {
+       "en": "65+",
+       "ka": "65+",
+       "ru": "65+"
+      },
+      {
+       "en": "Female",
+       "ka": "ქალები",
+       "ru": "Женщины"
+      },
+      {
+       "en": "Male",
+       "ka": "მამაკაცები",
+       "ru": "Мужчины"
+      },
+      {
+       "en": "Georgia",
+       "ka": "საქართველო",
+       "ru": "Грузия"
+      }
+     ]
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "row_count": 176,
+   "value_count": 176,
+   "first_period": "2004-01-01",
+   "last_period": "2025-01-01",
+   "file": "poverty_absolute.parquet",
+   "bytes": 2200
+  },
+  {
+   "name": "real_wages_quarterly",
+   "kind": "view",
+   "dataset": null,
+   "topic": "wages",
+   "title": {
+    "en": "Real wages (inflation-adjusted)",
+    "ka": "რეალური ხელფასი (ინფლაციის გათვალისწინებით)",
+    "ru": "Реальная зарплата (с учётом инфляции)"
+   },
+   "description": {
+    "en": "Average salary deflated by the national CPI, with a real wage index (2014 = 100) and year-over-year changes.",
+    "ka": "საშუალო ხელფასი სამომხმარებლო ფასების ინდექსით დეფლირებული, რეალური ხელფასის ინდექსით (2014 = 100) და წლიური ცვლილებებით.",
+    "ru": "Средняя зарплата, скорректированная на ИПЦ, с индексом реальной зарплаты (2014 = 100) и годовыми изменениями.",
+    "en_detail": "Average monthly salary deflated by the national CPI (2010=100). One row per sex/sector × economic activity × year × period. period_type separates quarterly rows from Geostat's annual rows, which use a different method (annual runs 3-5% below the mean of its quarters); never mix them. real_wage_index_2014 is 100 at the 2014 mean of the same period_type. YoY compares the same quarter (or year) one year earlier. Real values are NULL until every CPI month of the period is published."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "salaries_quarterly",
+    "cpi_index_monthly"
+   ],
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/Wages_Nace2.px/",
+     "path": "Social Statistics/Labour/Wages_Nace2.px",
+     "retrieved_at": "2026-10-26T18:24:57.867061+04:00"
+    },
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia_%282010%3D100%29_orenovani2.px/",
+     "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia_(2010=100)_orenovani2.px",
+     "retrieved_at": "2026-10-26T18:25:01.849810+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "sex_sectors",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Sex / sector",
+      "ka": "სქესი / სექტორი",
+      "ru": "Пол / сектор"
+     },
+     "values": [
+      {
+       "en": "Business sector",
+       "ka": "სამეწარმეო სფერო",
+       "ru": "Бизнес-сектор"
+      },
+      {
+       "en": "Female",
+       "ka": "ქალები",
+       "ru": "Женщины"
+      },
+      {
+       "en": "Male",
+       "ka": "მამაკაცები",
+       "ru": "Мужчины"
+      },
+      {
+       "en": "Non-business sector",
+       "ka": "არასამეწარმეო სფერო",
+       "ru": "Небизнес-сектор"
+      },
+      {
+       "en": "Non-public sector",
+       "ka": "არასახელმწიფო სექტორი",
+       "ru": "Негосударственный сектор"
+      },
+      {
+       "en": "Public sector",
+       "ka": "სახელმწიფო სექტორი",
+       "ru": "Государственный сектор"
+      },
+      {
+       "en": "Total in country",
+       "ka": "სულ ქვეყანაში",
+       "ru": "Всего по стране"
+      }
+     ]
+    },
+    {
+     "name": "economic_activity",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Economic activity",
+      "ka": "ეკონომიკური საქმიანობა",
+      "ru": "Вид деятельности"
+     },
+     "values": [
+      {
+       "en": "Accommodation and food service activities",
+       "ka": "განთავსების საშუალებებით უზრუნველყოფის და საკვების მიწოდების საქმიანობები",
+       "ru": "Гостиницы и общественное питание"
+      },
+      {
+       "en": "Administrative and support service activities",
+       "ka": "ადმინისტრაციული და დამხმარე მომსახურების საქმიანობები",
+       "ru": "Административная и вспомогательная деятельность"
+      },
+      {
+       "en": "Agriculture, forestry and fishing",
+       "ka": "სოფლის, სატყეო და თევზის მეურნეობა",
+       "ru": "Сельское, лесное и рыбное хозяйство"
+      },
+      {
+       "en": "Arts, entertainment and recreation",
+       "ka": "ხელოვნება, გართობა და დასვენება",
+       "ru": "Искусство, развлечения и отдых"
+      },
+      {
+       "en": "Construction",
+       "ka": "მშენებლობა",
+       "ru": "Строительство"
+      },
+      {
+       "en": "Education",
+       "ka": "განათლება",
+       "ru": "Образование"
+      },
+      {
+       "en": "Electricity, gas, steam and air conditioning supply",
+       "ka": "ელექტროენერგიის, აირის, ორთქლის და კონდიცირებული ჰაერის მიწოდება",
+       "ru": "Электроэнергия, газ, пар и кондиционирование воздуха"
+      },
+      {
+       "en": "Financial and insurance activities",
+       "ka": "საფინანსო და სადაზღვევო საქმიანობები",
+       "ru": "Финансовая и страховая деятельность"
+      },
+      {
+       "en": "Human health and social work activities",
+       "ka": "ჯანდაცვა და სოციალური მომსახურების საქმიანობები",
+       "ru": "Здравоохранение и социальные услуги"
+      },
+      {
+       "en": "Information and communication",
+       "ka": "ინფორმაცია და კომუნიკაცია",
+       "ru": "Информация и связь"
+      },
+      {
+       "en": "Manufacturing",
+       "ka": "დამამუშავებელი მრეწველობა",
+       "ru": "Обрабатывающая промышленность"
+      },
+      {
+       "en": "Mining and quarrying",
+       "ka": "სამთომოპოვებითი მრეწველობა და კარიერების დამუშავება",
+       "ru": "Добыча полезных ископаемых"
+      },
+      {
+       "en": "Other service activities",
+       "ka": "სხვა სახის მომსახურება",
+       "ru": "Прочие услуги"
+      },
+      {
+       "en": "Professional, scientific and technical activities",
+       "ka": "პროფესიული, სამეცნიერო და ტექნიკური საქმიანობები",
+       "ru": "Профессиональная, научная и техническая деятельность"
+      },
+      {
+       "en": "Public administration and defence; compulsory social security",
+       "ka": "სახელმწიფო მმართველობა და თავდაცვა; სავალდებულო სოციალური უსაფრთხოება",
+       "ru": "Госуправление и оборона; обязательное соцобеспечение"
+      },
+      {
+       "en": "Real estate activities",
+       "ka": "უძრავ ქონებასთან დაკავშირებული საქმიანობები",
+       "ru": "Операции с недвижимостью"
+      },
+      {
+       "en": "Total",
+       "ka": "სულ",
+       "ru": "Всего"
+      },
+      {
+       "en": "Transportation and storage",
+       "ka": "ტრანსპორტირება და დასაწყობება",
+       "ru": "Транспорт и складирование"
+      },
+      {
+       "en": "Water supply, sewerage, waste management and remediation activities",
+       "ka": "წყალმომარაგება; კანალიზაცია, ნარჩენების მართვა და დაბინძურებისაგან გასუფთავების საქმიანობები",
+       "ru": "Водоснабжение, канализация, утилизация отходов"
+      },
+      {
+       "en": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
+       "ka": "საბითუმო და საცალო ვაჭრობა; ავტომობილების და მოტოციკლების რემონტი",
+       "ru": "Оптовая и розничная торговля; ремонт автотранспорта"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "quarter",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Quarter",
+      "ka": "კვარტალი",
+      "ru": "Квартал"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "INTEGER",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "nominal_salary_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Nominal salary, GEL",
+      "ka": "ნომინალური ხელფასი, ლარი",
+      "ru": "Номинальная зарплата, лари"
+     }
+    },
+    {
+     "name": "cpi_2010_100",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "CPI (2010 = 100)",
+      "ka": "სფი (2010 = 100)",
+      "ru": "ИПЦ (2010 = 100)"
+     }
+    },
+    {
+     "name": "real_salary_gel_2010",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Real salary, GEL at 2010 prices",
+      "ka": "რეალური ხელფასი, ლარი 2010 წლის ფასებში",
+      "ru": "Реальная зарплата, лари в ценах 2010 г."
+     }
+    },
+    {
+     "name": "real_wage_index_2014",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Real wage index (2014 = 100)",
+      "ka": "რეალური ხელფასის ინდექსი (2014 = 100)",
+      "ru": "Индекс реальной зарплаты (2014 = 100)"
+     }
+    },
+    {
+     "name": "nominal_yoy_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Nominal growth, % YoY",
+      "ka": "ნომინალური ზრდა, % წლიური",
+      "ru": "Номинальный рост, % г/г"
+     }
+    },
+    {
+     "name": "real_yoy_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Real growth, % YoY",
+      "ka": "რეალური ზრდა, % წლიური",
+      "ru": "Реальный рост, % г/г"
+     }
+    },
+    {
+     "name": "cpi_yoy_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "CPI change, % YoY",
+      "ka": "სფი ცვლილება, % წლიური",
+      "ru": "Изменение ИПЦ, % г/г"
+     }
+    }
+   ],
+   "row_count": 5950,
+   "value_count": 5950,
+   "first_period": "2014-01-01",
+   "last_period": "2026-04-01",
+   "file": "real_wages_quarterly.parquet",
+   "bytes": 118232
+  },
+  {
+   "name": "inflation_monthly",
+   "kind": "view",
+   "dataset": null,
+   "topic": "prices",
+   "title": {
+    "en": "Headline inflation",
+    "ka": "ძირითადი ინფლაცია",
+    "ru": "Общая инфляция"
+   },
+   "description": {
+    "en": "National CPI level, monthly and annual inflation for all items.",
+    "ka": "სამომხმარებლო ფასების ინდექსი, თვიური და წლიური ინფლაცია.",
+    "ru": "Уровень ИПЦ по стране, месячная и годовая инфляция по всем товарам и услугам.",
+    "en_detail": "Headline national CPI by month: the 2010=100 level, month-over-month change, and Geostat's published year-over-year inflation (all items, Georgia)."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "inflation_yoy_monthly",
+    "cpi_index_monthly"
+   ],
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia%28same_month_of_the_previous_year%3D100_orenovani2.px/",
+     "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia(same_month_of_the_previous_year=100_orenovani2.px",
+     "retrieved_at": "2026-10-26T18:25:00.700672+04:00"
+    },
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia_%282010%3D100%29_orenovani2.px/",
+     "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia_(2010=100)_orenovani2.px",
+     "retrieved_at": "2026-10-26T18:25:01.849810+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "cpi_2010_100",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "CPI (2010 = 100)",
+      "ka": "სფი (2010 = 100)",
+      "ru": "ИПЦ (2010 = 100)"
+     }
+    },
+    {
+     "name": "inflation_mom_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Monthly inflation, %",
+      "ka": "თვიური ინფლაცია, %",
+      "ru": "Месячная инфляция, %"
+     }
+    },
+    {
+     "name": "inflation_yoy_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Annual inflation, %",
+      "ka": "წლიური ინფლაცია, %",
+      "ru": "Годовая инфляция, %"
+     }
+    }
+   ],
+   "row_count": 321,
+   "value_count": 321,
+   "first_period": "2000-01-01",
+   "last_period": "2026-09-01",
+   "file": "inflation_monthly.parquet",
+   "bytes": 7791
+  },
+  {
+   "name": "gdp_headline",
+   "kind": "view",
+   "dataset": null,
+   "topic": "economy",
+   "title": {
+    "en": "GDP headline indicators",
+    "ka": "მშპ-ის ძირითადი მაჩვენებლები",
+    "ru": "Основные показатели ВВП"
+   },
+   "description": {
+    "en": "Nominal GDP, per capita, exchange rate, real growth, deflator, and expenditure components incl. exports and imports.",
+    "ka": "ნომინალური მშპ, მშპ ერთ სულზე, გაცვლითი კურსი, რეალური ზრდა, დეფლატორი, ექსპორტი და იმპორტი.",
+    "ru": "Номинальный ВВП, ВВП на душу, курс, реальный рост, дефлятор и компоненты использования, включая экспорт и импорт.",
+    "en_detail": "One row per national-accounts period (quarter or year): nominal GDP (million GEL and USD), GDP per capita, average GEL per USD, real GDP growth and deflator (percent vs the same period a year earlier), and expenditure components including exports and imports of goods and services (million GEL). Keep period_type apart; is_preliminary marks figures Geostat may revise."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "gdp_current_prices",
+    "gdp_real_growth",
+    "gdp_by_use"
+   ],
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/03_GDP_at_current_prices.px/",
+     "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/03_GDP_at_current_prices.px",
+     "retrieved_at": "2026-10-26T18:25:03.809699+04:00"
+    },
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/06_Real_Growth.px/",
+     "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/06_Real_Growth.px",
+     "retrieved_at": "2026-10-26T18:25:04.748310+04:00"
+    },
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/09_GDP_by_categories_of_use.px/",
+     "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/09_GDP_by_categories_of_use.px",
+     "retrieved_at": "2026-10-26T18:25:05.396394+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    },
+    {
+     "name": "gdp_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "GDP, million GEL",
+      "ka": "მშპ, მლნ ლარი",
+      "ru": "ВВП, млн лари"
+     }
+    },
+    {
+     "name": "gdp_mln_usd",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "GDP, million USD",
+      "ka": "მშპ, მლნ აშშ დოლარი",
+      "ru": "ВВП, млн долл. США"
+     }
+    },
+    {
+     "name": "gdp_per_capita_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "GDP per capita, GEL",
+      "ka": "მშპ ერთ სულზე, ლარი",
+      "ru": "ВВП на душу, лари"
+     }
+    },
+    {
+     "name": "gdp_per_capita_usd",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "GDP per capita, USD",
+      "ka": "მშპ ერთ სულზე, აშშ დოლარი",
+      "ru": "ВВП на душу, долл. США"
+     }
+    },
+    {
+     "name": "gel_per_usd",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "GEL per USD",
+      "ka": "ლარი 1 აშშ დოლარზე",
+      "ru": "Лари за доллар США"
+     }
+    },
+    {
+     "name": "real_growth_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Real growth, % YoY",
+      "ka": "რეალური ზრდა, % წლიური",
+      "ru": "Реальный рост, % г/г"
+     }
+    },
+    {
+     "name": "deflator_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "GDP deflator, % YoY",
+      "ka": "მშპ დეფლატორი, % წლიური",
+      "ru": "Дефлятор ВВП, % г/г"
+     }
+    },
+    {
+     "name": "final_consumption_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Final consumption, million GEL",
+      "ka": "საბოლოო მოხმარება, მლნ ლარი",
+      "ru": "Конечное потребление, млн лари"
+     }
+    },
+    {
+     "name": "gross_capital_formation_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Gross capital formation, million GEL",
+      "ka": "მთლიანი კაპიტალის ფორმირება, მლნ ლარი",
+      "ru": "Валовое накопление, млн лари"
+     }
+    },
+    {
+     "name": "exports_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Exports of goods and services, million GEL",
+      "ka": "საქონლისა და მომსახურების ექსპორტი, მლნ ლარი",
+      "ru": "Экспорт товаров и услуг, млн лари"
+     }
+    },
+    {
+     "name": "exports_goods_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Exports of goods, million GEL",
+      "ka": "საქონლის ექსპორტი, მლნ ლარი",
+      "ru": "Экспорт товаров, млн лари"
+     }
+    },
+    {
+     "name": "exports_services_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Exports of services, million GEL",
+      "ka": "მომსახურების ექსპორტი, მლნ ლარი",
+      "ru": "Экспорт услуг, млн лари"
+     }
+    },
+    {
+     "name": "imports_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Imports of goods and services, million GEL",
+      "ka": "საქონლისა და მომსახურების იმპორტი, მლნ ლარი",
+      "ru": "Импорт товаров и услуг, млн лари"
+     }
+    },
+    {
+     "name": "imports_goods_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Imports of goods, million GEL",
+      "ka": "საქონლის იმპორტი, მლნ ლარი",
+      "ru": "Импорт товаров, млн лари"
+     }
+    },
+    {
+     "name": "imports_services_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Imports of services, million GEL",
+      "ka": "მომსახურების იმპორტი, მლნ ლარი",
+      "ru": "Импорт услуг, млн лари"
+     }
+    },
+    {
+     "name": "net_exports_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Net exports, million GEL",
+      "ka": "წმინდა ექსპორტი, მლნ ლარი",
+      "ru": "Чистый экспорт, млн лари"
+     }
+    }
+   ],
+   "row_count": 82,
+   "value_count": 82,
+   "first_period": "2010-01-01",
+   "last_period": "2026-04-01",
+   "file": "gdp_headline.parquet",
+   "bytes": 11825
+  },
+  {
+   "name": "gdp_by_activity",
+   "kind": "view",
+   "dataset": null,
+   "topic": "economy",
+   "title": {
+    "en": "GDP by economic activity",
+    "ka": "მშპ ეკონომიკური საქმიანობის მიხედვით",
+    "ru": "ВВП по видам деятельности"
+   },
+   "description": {
+    "en": "Gross value added by NACE section: level, share of the economy, and real growth.",
+    "ka": "დამატებული ღირებულება NACE სექციების მიხედვით: მოცულობა, წილი და რეალური ზრდა.",
+    "ru": "Валовая добавленная стоимость по разделам NACE: объём, доля в экономике и реальный рост.",
+    "en_detail": "Gross value added by NACE Rev. 2 section (A-T) per national-accounts period: value at current prices (million GEL), share of total GVA across sections, and real growth (percent vs the same period a year earlier)."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "gdp_current_prices",
+    "gdp_real_growth"
+   ],
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/03_GDP_at_current_prices.px/",
+     "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/03_GDP_at_current_prices.px",
+     "retrieved_at": "2026-10-26T18:25:03.809699+04:00"
+    },
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/06_Real_Growth.px/",
+     "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/06_Real_Growth.px",
+     "retrieved_at": "2026-10-26T18:25:04.748310+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "nace_section",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "NACE section",
+      "ka": "NACE სექცია",
+      "ru": "Раздел NACE"
+     },
+     "values": [
+      {
+       "en": "A",
+       "ka": "A",
+       "ru": "A"
+      },
+      {
+       "en": "B",
+       "ka": "B",
+       "ru": "B"
+      },
+      {
+       "en": "C",
+       "ka": "C",
+       "ru": "C"
+      },
+      {
+       "en": "D",
+       "ka": "D",
+       "ru": "D"
+      },
+      {
+       "en": "E",
+       "ka": "E",
+       "ru": "E"
+      },
+      {
+       "en": "F",
+       "ka": "F",
+       "ru": "F"
+      },
+      {
+       "en": "G",
+       "ka": "G",
+       "ru": "G"
+      },
+      {
+       "en": "H",
+       "ka": "H",
+       "ru": "H"
+      },
+      {
+       "en": "I",
+       "ka": "I",
+       "ru": "I"
+      },
+      {
+       "en": "J",
+       "ka": "J",
+       "ru": "J"
+      },
+      {
+       "en": "K",
+       "ka": "K",
+       "ru": "K"
+      },
+      {
+       "en": "L",
+       "ka": "L",
+       "ru": "L"
+      },
+      {
+       "en": "M",
+       "ka": "M",
+       "ru": "M"
+      },
+      {
+       "en": "N",
+       "ka": "N",
+       "ru": "N"
+      },
+      {
+       "en": "O",
+       "ka": "O",
+       "ru": "O"
+      },
+      {
+       "en": "P",
+       "ka": "P",
+       "ru": "P"
+      },
+      {
+       "en": "Q",
+       "ka": "Q",
+       "ru": "Q"
+      },
+      {
+       "en": "R",
+       "ka": "R",
+       "ru": "R"
+      },
+      {
+       "en": "S",
+       "ka": "S",
+       "ru": "S"
+      },
+      {
+       "en": "T",
+       "ka": "T",
+       "ru": "T"
+      }
+     ]
+    },
+    {
+     "name": "activity",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Economic activity",
+      "ka": "ეკონომიკური საქმიანობა",
+      "ru": "Вид деятельности"
+     },
+     "values": [
+      {
+       "en": "Accommodation and food service activities",
+       "ka": "განთავსების საშუალებებით უზრუნველყოფის და საკვების მიწოდების საქმიანობები",
+       "ru": "Гостиницы и общественное питание"
+      },
+      {
+       "en": "Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use",
+       "ka": "შინამეურნეობების, როგორც დამქირავებლის, საქმიანობები; არადიფერენცირებული საქონლის და მომსახურების წარმოება შინამეურნეობების მიერ საკუთარი მოხმარებისათვის",
+       "ru": "Деятельность домохозяйств как работодателей и для собственного потребления"
+      },
+      {
+       "en": "Administrative and support service activities",
+       "ka": "ადმინისტრაციული და დამხმარე მომსახურების საქმიანობები",
+       "ru": "Административная и вспомогательная деятельность"
+      },
+      {
+       "en": "Agriculture, forestry and fishing",
+       "ka": "სოფლის, სატყეო და თევზის მეურნეობა",
+       "ru": "Сельское, лесное и рыбное хозяйство"
+      },
+      {
+       "en": "Arts, entertainment and recreation",
+       "ka": "ხელოვნება, გართობა და დასვენება",
+       "ru": "Искусство, развлечения и отдых"
+      },
+      {
+       "en": "Construction",
+       "ka": "მშენებლობა",
+       "ru": "Строительство"
+      },
+      {
+       "en": "Education",
+       "ka": "განათლება",
+       "ru": "Образование"
+      },
+      {
+       "en": "Electricity, gas, steam and air conditioning supply",
+       "ka": "ელექტროენერგიის, აირის, ორთქლის და კონდიცირებული ჰაერის მიწოდება",
+       "ru": "Электроэнергия, газ, пар и кондиционирование воздуха"
+      },
+      {
+       "en": "Financial and insurance activities",
+       "ka": "საფინანსო და სადაზღვევო საქმიანობები",
+       "ru": "Финансовая и страховая деятельность"
+      },
+      {
+       "en": "Human health and social work activities",
+       "ka": "ჯანდაცვა და სოციალური მომსახურების საქმიანობები",
+       "ru": "Здравоохранение и социальные услуги"
+      },
+      {
+       "en": "Information and communication",
+       "ka": "ინფორმაცია და კომუნიკაცია",
+       "ru": "Информация и связь"
+      },
+      {
+       "en": "Manufacturing",
+       "ka": "დამამუშავებელი მრეწველობა",
+       "ru": "Обрабатывающая промышленность"
+      },
+      {
+       "en": "Mining and quarrying",
+       "ka": "სამთომოპოვებითი მრეწველობა და კარიერების დამუშავება",
+       "ru": "Добыча полезных ископаемых"
+      },
+      {
+       "en": "Other service activities",
+       "ka": "სხვა სახის მომსახურება",
+       "ru": "Прочие услуги"
+      },
+      {
+       "en": "Professional, scientific and technical activities",
+       "ka": "პროფესიული, სამეცნიერო და ტექნიკური საქმიანობები",
+       "ru": "Профессиональная, научная и техническая деятельность"
+      },
+      {
+       "en": "Public administration and defence; compulsory social security",
+       "ka": "სახელმწიფო მმართველობა და თავდაცვა; სავალდებულო სოციალური უსაფრთხოება",
+       "ru": "Госуправление и оборона; обязательное соцобеспечение"
+      },
+      {
+       "en": "Real estate activities",
+       "ka": "უძრავ ქონებასთან დაკავშირებული საქმიანობები",
+       "ru": "Операции с недвижимостью"
+      },
+      {
+       "en": "Transportation and storage",
+       "ka": "ტრანსპორტირება და დასაწყობება",
+       "ru": "Транспорт и складирование"
+      },
+      {
+       "en": "Water supply; sewerage, waste management and remediation activities",
+       "ka": "წყალმომარაგება; კანალიზაცია, ნარჩენების მართვა და დაბინძურებისაგან გასუფთავების საქმიანობები",
+       "ru": "Водоснабжение, канализация, утилизация отходов"
+      },
+      {
+       "en": "Wholesale and retail trade; repair of motor vehicles and motorcycles",
+       "ka": "საბითუმო და საცალო ვაჭრობა; ავტომობილების და მოტოციკლების რემონტი",
+       "ru": "Оптовая и розничная торговля; ремонт автотранспорта"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    },
+    {
+     "name": "gva_mln_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Gross value added, million GEL",
+      "ka": "მთლიანი დამატებული ღირებულება, მლნ ლარი",
+      "ru": "Валовая добавленная стоимость, млн лари"
+     }
+    },
+    {
+     "name": "share_of_gva_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Share of GVA, %",
+      "ka": "წილი დამატებულ ღირებულებაში, %",
+      "ru": "Доля в ВДС, %"
+     }
+    },
+    {
+     "name": "real_growth_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Real growth, % YoY",
+      "ka": "რეალური ზრდა, % წლიური",
+      "ru": "Реальный рост, % г/г"
+     }
+    }
+   ],
+   "row_count": 1640,
+   "value_count": 1640,
+   "first_period": "2010-01-01",
+   "last_period": "2026-04-01",
+   "file": "gdp_by_activity.parquet",
+   "bytes": 27698
+  },
+  {
+   "name": "labour_quarterly",
+   "kind": "view",
+   "dataset": null,
+   "topic": "labour",
+   "title": {
+    "en": "Labour market, quarterly",
+    "ka": "შრომის ბაზარი, კვარტალური",
+    "ru": "Рынок труда, ежеквартально"
+   },
+   "description": {
+    "en": "Unemployment, participation and employment rates and levels by sex and urban/rural area.",
+    "ka": "უმუშევრობის, აქტიურობისა და დასაქმების დონეები სქესისა და დასახლების ტიპის მიხედვით.",
+    "ru": "Уровни безработицы, участия и занятости по полу и типу поселения.",
+    "en_detail": "Quarterly (and annual) Labour Force Survey headline indicators, one row per population group (Total, Female, Male, Urban, Rural) and period: unemployment, participation and employment rates (percent) and levels (thousand persons)."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "labour_force_quarterly"
+   ],
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/LFS_by_sex_and_urban_%28Quarter_II%2C_2026%29.px/",
+     "path": "Social Statistics/Labour/LFS_by_sex_and_urban_(Quarter_II,_2026).px",
+     "retrieved_at": "2026-10-26T18:24:59.866470+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "population_group",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Population group",
+      "ka": "მოსახლეობის ჯგუფი",
+      "ru": "Группа населения"
+     },
+     "values": [
+      {
+       "en": "Female",
+       "ka": "ქალები",
+       "ru": "Женщины"
+      },
+      {
+       "en": "Male",
+       "ka": "მამაკაცები",
+       "ru": "Мужчины"
+      },
+      {
+       "en": "Rural",
+       "ka": "სოფელი",
+       "ru": "Село"
+      },
+      {
+       "en": "Total",
+       "ka": "სულ",
+       "ru": "Всего"
+      },
+      {
+       "en": "Urban",
+       "ka": "ქალაქი",
+       "ru": "Город"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "unemployment_rate_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Unemployment rate, %",
+      "ka": "უმუშევრობის დონე, %",
+      "ru": "Уровень безработицы, %"
+     }
+    },
+    {
+     "name": "participation_rate_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Participation rate, %",
+      "ka": "აქტიურობის დონე, %",
+      "ru": "Уровень участия, %"
+     }
+    },
+    {
+     "name": "employment_rate_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Employment rate, %",
+      "ka": "დასაქმების დონე, %",
+      "ru": "Уровень занятости, %"
+     }
+    },
+    {
+     "name": "population_15plus_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Population 15+, thousand",
+      "ka": "15+ მოსახლეობა, ათასი",
+      "ru": "Население 15+, тыс."
+     }
+    },
+    {
+     "name": "labour_force_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Labour force, thousand",
+      "ka": "სამუშაო ძალა, ათასი",
+      "ru": "Рабочая сила, тыс."
+     }
+    },
+    {
+     "name": "employed_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Employed, thousand",
+      "ka": "დასაქმებული, ათასი",
+      "ru": "Занятые, тыс."
+     }
+    },
+    {
+     "name": "hired_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Hired employees, thousand",
+      "ka": "დაქირავებული, ათასი",
+      "ru": "Наёмные, тыс."
+     }
+    },
+    {
+     "name": "self_employed_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Self-employed, thousand",
+      "ka": "თვითდასაქმებული, ათასი",
+      "ru": "Самозанятые, тыс."
+     }
+    },
+    {
+     "name": "unemployed_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Unemployed, thousand",
+      "ka": "უმუშევარი, ათასი",
+      "ru": "Безработные, тыс."
+     }
+    },
+    {
+     "name": "outside_labour_force_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Outside labour force, thousand",
+      "ka": "სამუშაო ძალის გარეთ, ათასი",
+      "ru": "Вне рабочей силы, тыс."
+     }
+    }
+   ],
+   "row_count": 310,
+   "value_count": 310,
+   "first_period": "1998-01-01",
+   "last_period": "2026-04-01",
+   "file": "labour_quarterly.parquet",
+   "bytes": 12696
+  },
+  {
+   "name": "labour_regional_annual",
+   "kind": "view",
+   "dataset": null,
+   "topic": "labour",
+   "title": {
+    "en": "Labour market by region",
+    "ka": "შრომის ბაზარი რეგიონების მიხედვით",
+    "ru": "Рынок труда по регионам"
+   },
+   "description": {
+    "en": "Annual unemployment, participation and employment rates and levels by region.",
+    "ka": "წლიური უმუშევრობის, აქტიურობისა და დასაქმების მაჩვენებლები რეგიონების მიხედვით.",
+    "ru": "Годовые уровни безработицы, участия и занятости по регионам.",
+    "en_detail": "Annual Labour Force Survey headline indicators by region: unemployment, participation and employment rates (percent) and levels (thousand persons). 'Georgia' is the national figure; do not add regions to it."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "employment_regional"
+   ],
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/LFS_by_regions.px/",
+     "path": "Social Statistics/Labour/LFS_by_regions.px",
+     "retrieved_at": "2026-10-26T18:24:59.111260+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "region",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region",
+      "ka": "რეგიონი",
+      "ru": "Регион"
+     },
+     "values": [
+      {
+       "en": "Adjara AR",
+       "ka": "აჭარის არ",
+       "ru": "Аджарская АР"
+      },
+      {
+       "en": "Georgia",
+       "ka": "საქართველო",
+       "ru": "Грузия"
+      },
+      {
+       "en": "Guria",
+       "ka": "გურია",
+       "ru": "Гурия"
+      },
+      {
+       "en": "Imereti",
+       "ka": "იმერეთი",
+       "ru": "Имеретия"
+      },
+      {
+       "en": "Kakheti",
+       "ka": "კახეთი",
+       "ru": "Кахетия"
+      },
+      {
+       "en": "Kvemo Kartli",
+       "ka": "ქვემო ქართლი",
+       "ru": "Квемо Картли"
+      },
+      {
+       "en": "Mtskheta-Mtianeti",
+       "ka": "მცხეთა-მთიანეთი",
+       "ru": "Мцхета-Мтианети"
+      },
+      {
+       "en": "Racha-Lechkhumi and Kvemo-Svaneti",
+       "ka": "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+       "ru": "Рача-Лечхуми и Квемо Сванети"
+      },
+      {
+       "en": "Samegrelo-Zemo Svaneti",
+       "ka": "სამეგრელო-ზემო სვანეთი",
+       "ru": "Самегрело-Земо Сванети"
+      },
+      {
+       "en": "Samtskhe-Javakheti",
+       "ka": "სამცხე-ჯავახეთი",
+       "ru": "Самцхе-Джавахети"
+      },
+      {
+       "en": "Shida Kartli",
+       "ka": "შიდა ქართლი",
+       "ru": "Шида Картли"
+      },
+      {
+       "en": "Tbilisi",
+       "ka": "ქ. თბილისი",
+       "ru": "Тбилиси"
+      },
+      {
+       "en": "The remaining regions",
+       "ka": "დანარჩენი რეგიონები",
+       "ru": "Остальные регионы"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "unemployment_rate_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Unemployment rate, %",
+      "ka": "უმუშევრობის დონე, %",
+      "ru": "Уровень безработицы, %"
+     }
+    },
+    {
+     "name": "participation_rate_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Participation rate, %",
+      "ka": "აქტიურობის დონე, %",
+      "ru": "Уровень участия, %"
+     }
+    },
+    {
+     "name": "employment_rate_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Employment rate, %",
+      "ka": "დასაქმების დონე, %",
+      "ru": "Уровень занятости, %"
+     }
+    },
+    {
+     "name": "population_15plus_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Population 15+, thousand",
+      "ka": "15+ მოსახლეობა, ათასი",
+      "ru": "Население 15+, тыс."
+     }
+    },
+    {
+     "name": "labour_force_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Labour force, thousand",
+      "ka": "სამუშაო ძალა, ათასი",
+      "ru": "Рабочая сила, тыс."
+     }
+    },
+    {
+     "name": "employed_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Employed, thousand",
+      "ka": "დასაქმებული, ათასი",
+      "ru": "Занятые, тыс."
+     }
+    },
+    {
+     "name": "hired_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Hired employees, thousand",
+      "ka": "დაქირავებული, ათასი",
+      "ru": "Наёмные, тыс."
+     }
+    },
+    {
+     "name": "self_employed_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Self-employed, thousand",
+      "ka": "თვითდასაქმებული, ათასი",
+      "ru": "Самозанятые, тыс."
+     }
+    },
+    {
+     "name": "unemployed_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Unemployed, thousand",
+      "ka": "უმუშევარი, ათასი",
+      "ru": "Безработные, тыс."
+     }
+    },
+    {
+     "name": "outside_labour_force_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Outside labour force, thousand",
+      "ka": "სამუშაო ძალის გარეთ, ათასი",
+      "ru": "Вне рабочей силы, тыс."
+     }
+    }
+   ],
+   "row_count": 239,
+   "value_count": 239,
+   "first_period": "2003-01-01",
+   "last_period": "2025-01-01",
+   "file": "labour_regional_annual.parquet",
+   "bytes": 10336
+  },
+  {
+   "name": "population_by_area",
+   "kind": "view",
+   "dataset": null,
+   "topic": "population",
+   "title": {
+    "en": "Population by area",
+    "ka": "მოსახლეობა ტერიტორიების მიხედვით",
+    "ru": "Население по территориям"
+   },
+   "description": {
+    "en": "Population on 1 January for the country, regions and municipalities, with each area's level and region.",
+    "ka": "მოსახლეობა 1 იანვრის მდგომარეობით: ქვეყანა, რეგიონები და მუნიციპალიტეტები.",
+    "ru": "Население на 1 января по стране, регионам и муниципалитетам с указанием уровня и региона.",
+    "en_detail": "Population on 1 January (thousand persons) by area with its level: 'country', 'region' (incl. Tbilisi and the autonomous republics), or 'municipality' with its parent region. Sum only within one level. Municipalities marked * or ** are included in another unit for some years (see Geostat notes)."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "population_regional"
+   ],
+   "sources": [
+    {
+     "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Demography/Population/01-population-by-self-governed-unit.px/",
+     "path": "Demography/Population/01-population-by-self-governed-unit.px",
+     "retrieved_at": "2026-10-26T18:25:06.686455+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "area",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Area",
+      "ka": "ტერიტორია",
+      "ru": "Территория"
+     },
+     "values": [
+      {
+       "en": "Abasha Municipality",
+       "ka": "აბაშის მუნიციპალიტეტი",
+       "ru": "Абашский муниципалитет"
+      },
+      {
+       "en": "Abkhazia A.R.",
+       "ka": "აფხაზეთის ა.რ.",
+       "ru": "Абхазская АР"
+      },
+      {
+       "en": "Adigeni Municipality",
+       "ka": "ადიგენის მუნიციპალიტეტი",
+       "ru": "Адигенский муниципалитет"
+      },
+      {
+       "en": "Adjara A.R.",
+       "ka": "აჭარის ა.რ.",
+       "ru": "Аджарская АР"
+      },
+      {
+       "en": "Ajara Municipality",
+       "ka": "აჟარის მუნიციპალიტეტი",
+       "ru": "Ажарский муниципалитет"
+      },
+      {
+       "en": "Akhalgori Municipality",
+       "ka": "ახალგორის მუნიციპალიტეტი",
+       "ru": "Ахалгорский муниципалитет"
+      },
+      {
+       "en": "Akhalkalaki Municipality",
+       "ka": "ახალქალაქის მუნიციპალიტეტი",
+       "ru": "Ахалкалакский муниципалитет"
+      },
+      {
+       "en": "Akhaltsikhe Municipality",
+       "ka": "ახალციხის მუნიციპალიტეტი",
+       "ru": "Ахалцихский муниципалитет"
+      },
+      {
+       "en": "Akhmeta Municipality",
+       "ka": "ახმეტის მუნიციპალიტეტი",
+       "ru": "Ахметский муниципалитет"
+      },
+      {
+       "en": "Ambrolauri Municipality",
+       "ka": "ამბროლაურის მუნიციპალიტეტი",
+       "ru": "Амбролаурский муниципалитет"
+      },
+      {
+       "en": "Aspindza Municipality",
+       "ka": "ასპინძის მუნიციპალიტეტი",
+       "ru": "Аспиндзский муниципалитет"
+      },
+      {
+       "en": "Baghdati Municipality",
+       "ka": "ბაღდათის მუნიციპალიტეტი",
+       "ru": "Багдатский муниципалитет"
+      },
+      {
+       "en": "Bolnisi Municipality",
+       "ka": "ბოლნისის მუნიციპალიტეტი",
+       "ru": "Болнисский муниципалитет"
+      },
+      {
+       "en": "Borjomi Municipality",
+       "ka": "ბორჯომის მუნიციპალიტეტი",
+       "ru": "Боржомский муниципалитет"
+      },
+      {
+       "en": "C. Akhaltsikhe*",
+       "ka": "ქ. ახალციხე*",
+       "ru": "г. Ахалцихе*"
+      },
+      {
+       "en": "C. Ambrolauri*",
+       "ka": "ქ. ამბროლაური*",
+       "ru": "г. Амбролаури*"
+      },
+      {
+       "en": "C. Batumi Municipality",
+       "ka": "ქ. ბათუმი",
+       "ru": "г. Батуми"
+      },
+      {
+       "en": "C. Gori*",
+       "ka": "ქ. გორი*",
+       "ru": "г. Гори*"
+      },
+      {
+       "en": "C. Kutaisi Municipality",
+       "ka": "ქ. ქუთაისი",
+       "ru": "г. Кутаиси"
+      },
+      {
+       "en": "C. Mtskheta*",
+       "ka": "ქ. მცხეთა*",
+       "ru": "г. Мцхета*"
+      },
+      {
+       "en": "C. Ozurgeti*",
+       "ka": "ქ. ოზურგეთი*",
+       "ru": "г. Озургети*"
+      },
+      {
+       "en": "C. Poti Municipality",
+       "ka": "ქ. ფოთი",
+       "ru": "г. Поти"
+      },
+      {
+       "en": "C. Rustavi Municipality",
+       "ka": "ქ. რუსთავი",
+       "ru": "г. Рустави"
+      },
+      {
+       "en": "C. Tbilisi Municipality",
+       "ka": "ქ. თბილისი",
+       "ru": "г. Тбилиси"
+      },
+      {
+       "en": "C. Telavi*",
+       "ka": "ქ. თელავი*",
+       "ru": "г. Телави*"
+      },
+      {
+       "en": "C. Zugdidi*",
+       "ka": "ქ. ზუგდიდი*",
+       "ru": "г. Зугдиди*"
+      },
+      {
+       "en": "Chiatura Municipality",
+       "ka": "ჭიათურის მუნიციპალიტეტი",
+       "ru": "Чиатурский муниципалитет"
+      },
+      {
+       "en": "Chkhorotsku Municipality",
+       "ka": "ჩხოროწყუს მუნიციპალიტეტი",
+       "ru": "Чхороцкуйский муниципалитет"
+      },
+      {
+       "en": "Chokhatauri Municipality",
+       "ka": "ჩოხატაურის მუნიციპალიტეტი",
+       "ru": "Чохатаурский муниципалитет"
+      },
+      {
+       "en": "Dedoplistsqaro Municipality",
+       "ka": "დედოფლისწყაროს მუნიციპალიტეტი",
+       "ru": "Дедоплисцкаройский муниципалитет"
+      },
+      {
+       "en": "Dmanisi Municipality",
+       "ka": "დმანისის მუნიციპალიტეტი",
+       "ru": "Дманисский муниципалитет"
+      },
+      {
+       "en": "Dusheti Municipality",
+       "ka": "დუშეთის მუნიციპალიტეტი",
+       "ru": "Душетский муниципалитет"
+      },
+      {
+       "en": "Eredvi Municipality**",
+       "ka": "ერედვის მუნიციპალიტეტი**",
+       "ru": "Эредвийский муниципалитет**"
+      },
+      {
+       "en": "Gardabani Municipality",
+       "ka": "გარდაბნის მუნიციპალიტეტი",
+       "ru": "Гардабанский муниципалитет"
+      },
+      {
+       "en": "Georgia",
+       "ka": "საქართველო",
+       "ru": "Грузия"
+      },
+      {
+       "en": "Gori Municipality",
+       "ka": "გორის მუნიციპალიტეტი",
+       "ru": "Горийский муниципалитет"
+      },
+      {
+       "en": "Guria Region",
+       "ka": "გურია",
+       "ru": "Гурия (регион)"
+      },
+      {
+       "en": "Gurjaani Municipality",
+       "ka": "გურჯაანის მუნიციპალიტეტი",
+       "ru": "Гурджаанский муниципалитет"
+      },
+      {
+       "en": "Imereti Region",
+       "ka": "იმერეთი",
+       "ru": "Имеретия (регион)"
+      },
+      {
+       "en": "Kakheti Region",
+       "ka": "კახეთი",
+       "ru": "Кахетия (регион)"
+      },
+      {
+       "en": "Kareli Municipality",
+       "ka": "ქარელის მუნიციპალიტეტი",
+       "ru": "Карельский муниципалитет"
+      },
+      {
+       "en": "Kaspi Municipality",
+       "ka": "კასპის მუნიციპალიტეტი",
+       "ru": "Каспский муниципалитет"
+      },
+      {
+       "en": "Kazbegi Municipality",
+       "ka": "ყაზბეგის მუნიციპალიტეტი",
+       "ru": "Казбегский муниципалитет"
+      },
+      {
+       "en": "Keda Municipality",
+       "ka": "ქედის მუნიციპალიტეტი",
+       "ru": "Кедский муниципалитет"
+      },
+      {
+       "en": "Kharagauli Municipality",
+       "ka": "ხარაგაულის მუნიციპალიტეტი",
+       "ru": "Харагаульский муниципалитет"
+      },
+      {
+       "en": "Khashuri Municipality",
+       "ka": "ხაშურის მუნიციპალიტეტი",
+       "ru": "Хашурский муниципалитет"
+      },
+      {
+       "en": "Khelvachauri Municipality",
+       "ka": "ხელვაჩაურის მუნიციპალიტეტი",
+       "ru": "Хелвачаурский муниципалитет"
+      },
+      {
+       "en": "Khobi Municipality",
+       "ka": "ხობის მუნიციპალიტეტი",
+       "ru": "Хобский муниципалитет"
+      },
+      {
+       "en": "Khoni Municipality",
+       "ka": "ხონის მუნიციპალიტეტი",
+       "ru": "Хонский муниципалитет"
+      },
+      {
+       "en": "Khulo Municipality",
+       "ka": "ხულოს მუნიციპალიტეტი",
+       "ru": "Хулойский муниципалитет"
+      },
+      {
+       "en": "Kobuleti Municipality",
+       "ka": "ქობულეთის მუნიციპალიტეტი",
+       "ru": "Кобулетский муниципалитет"
+      },
+      {
+       "en": "Kurta Municipality**",
+       "ka": "ქურთის მუნიციპალიტეტი**",
+       "ru": "Куртский муниципалитет**"
+      },
+      {
+       "en": "Kvareli Municipality",
+       "ka": "ყვარლის მუნიციპალიტეტი",
+       "ru": "Кварельский муниципалитет"
+      },
+      {
+       "en": "Kvemo Kartli Region",
+       "ka": "ქვემო ქართლი",
+       "ru": "Квемо Картли (регион)"
+      },
+      {
+       "en": "Lagodekhi Municipality",
+       "ka": "ლაგოდეხის მუნიციპალიტეტი",
+       "ru": "Лагодехский муниципалитет"
+      },
+      {
+       "en": "Lanchkhuti Municipality",
+       "ka": "ლანჩხუთის მუნიციპალიტეტი",
+       "ru": "Ланчхутский муниципалитет"
+      },
+      {
+       "en": "Lentekhi Municipality",
+       "ka": "ლენტეხის მუნიციპალიტეტი",
+       "ru": "Лентехский муниципалитет"
+      },
+      {
+       "en": "Marneuli Municipality",
+       "ka": "მარნეულის მუნიციპალიტეტი",
+       "ru": "Марнеульский муниципалитет"
+      },
+      {
+       "en": "Martvili Municipality",
+       "ka": "მარტვილის მუნიციპალიტეტი",
+       "ru": "Мартвильский муниципалитет"
+      },
+      {
+       "en": "Mestia Municipality",
+       "ka": "მესტიის მუნიციპალიტეტი",
+       "ru": "Местийский муниципалитет"
+      },
+      {
+       "en": "Mtskheta Municipality",
+       "ka": "მცხეთის მუნიციპალიტეტი",
+       "ru": "Мцхетский муниципалитет"
+      },
+      {
+       "en": "Mtskheta-Mtianeti Region",
+       "ka": "მცხეთა-მთიანეთი",
+       "ru": "Мцхета-Мтианети (регион)"
+      },
+      {
+       "en": "Ninotsminda Municipality",
+       "ka": "ნინოწმინდის მუნიციპალიტეტი",
+       "ru": "Ниноцминдский муниципалитет"
+      },
+      {
+       "en": "Oni Municipality",
+       "ka": "ონის მუნიციპალიტეტი",
+       "ru": "Онский муниципалитет"
+      },
+      {
+       "en": "Ozurgeti Municipality",
+       "ka": "ოზურგეთის მუნიციპალიტეტი",
+       "ru": "Озургетский муниципалитет"
+      },
+      {
+       "en": "Racha-Lechkhumi and Kvemo Svaneti Region",
+       "ka": "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+       "ru": "Рача-Лечхуми и Квемо Сванети (регион)"
+      },
+      {
+       "en": "Sachkhere Municipality",
+       "ka": "საჩხერის მუნიციპალიტეტი",
+       "ru": "Сачхерский муниципалитет"
+      },
+      {
+       "en": "Sagarejo Municipality",
+       "ka": "საგარეჯოს მუნიციპალიტეტი",
+       "ru": "Сагареджойский муниципалитет"
+      },
+      {
+       "en": "Samegrelo-Zemo Svaneti Region",
+       "ka": "სამეგრელო-ზემო სვანეთი",
+       "ru": "Самегрело-Земо Сванети (регион)"
+      },
+      {
+       "en": "Samtredia Municipality",
+       "ka": "სამტრედიის მუნიციპალიტეტი",
+       "ru": "Самтредский муниципалитет"
+      },
+      {
+       "en": "Samtskhe-Javakheti Region",
+       "ka": "სამცხე-ჯავახეთი",
+       "ru": "Самцхе-Джавахети (регион)"
+      },
+      {
+       "en": "Senaki Municipality",
+       "ka": "სენაკის მუნიციპალიტეტი",
+       "ru": "Сенакский муниципалитет"
+      },
+      {
+       "en": "Shida Kartli Region",
+       "ka": "შიდა ქართლი",
+       "ru": "Шида Картли (регион)"
+      },
+      {
+       "en": "Shuakhevi Municipality",
+       "ka": "შუახევის მუნიციპალიტეტი",
+       "ru": "Шуахевский муниципалитет"
+      },
+      {
+       "en": "Sighnagi Municipality",
+       "ka": "სიღნაღის მუნიციპალიტეტი",
+       "ru": "Сигнахский муниципалитет"
+      },
+      {
+       "en": "Telavi Municipality",
+       "ka": "თელავის მუნიციპალიტეტი",
+       "ru": "Телавский муниципалитет"
+      },
+      {
+       "en": "Terjola Municipality",
+       "ka": "თერჯოლის მუნიციპალიტეტი",
+       "ru": "Терджольский муниципалитет"
+      },
+      {
+       "en": "Tetritsqaro Municipality",
+       "ka": "თეთრიწყაროს მუნიციპალიტეტი",
+       "ru": "Тетрицкаройский муниципалитет"
+      },
+      {
+       "en": "Tianeti Municipality",
+       "ka": "თიანეთის მუნიციპალიტეტი",
+       "ru": "Тианетский муниципалитет"
+      },
+      {
+       "en": "Tighva Municipality**",
+       "ka": "თიღვის მუნიციპალიტეტი**",
+       "ru": "Тигвский муниципалитет**"
+      },
+      {
+       "en": "Tqibuli Municipality",
+       "ka": "ტყიბულის მუნიციპალიტეტი",
+       "ru": "Ткибульский муниципалитет"
+      },
+      {
+       "en": "Tsageri Municipality",
+       "ka": "ცაგერის მუნიციპალიტეტი",
+       "ru": "Цагерский муниципалитет"
+      },
+      {
+       "en": "Tsalenjikha Municipality",
+       "ka": "წალენჯიხის მუნიციპალიტეტი",
+       "ru": "Цаленджихский муниципалитет"
+      },
+      {
+       "en": "Tsalka Municipality",
+       "ka": "წალკის მუნიციპალიტეტი",
+       "ru": "Цалкский муниципалитет"
+      },
+      {
+       "en": "Tsqaltubo Municipality",
+       "ka": "წყალტუბოს მუნიციპალიტეტი",
+       "ru": "Цхалтубский муниципалитет"
+      },
+      {
+       "en": "Vani Municipality",
+       "ka": "ვანის მუნიციპალიტეტი",
+       "ru": "Ванский муниципалитет"
+      },
+      {
+       "en": "Zestaponi Municipality",
+       "ka": "ზესტაფონის მუნიციპალიტეტი",
+       "ru": "Зестафонский муниципалитет"
+      },
+      {
+       "en": "Zugdidi Municipality",
+       "ka": "ზუგდიდის მუნიციპალიტეტი",
+       "ru": "Зугдидский муниципалитет"
+      }
+     ]
+    },
+    {
+     "name": "area_level",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Area level",
+      "ka": "ტერიტორიის დონე",
+      "ru": "Уровень территории"
+     },
+     "values": [
+      {
+       "en": "country",
+       "ka": "ქვეყანა",
+       "ru": "Страна"
+      },
+      {
+       "en": "municipality",
+       "ka": "მუნიციპალიტეტი",
+       "ru": "Муниципалитет"
+      },
+      {
+       "en": "region",
+       "ka": "რეგიონი",
+       "ru": "Регион"
+      }
+     ]
+    },
+    {
+     "name": "region",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region",
+      "ka": "რეგიონი",
+      "ru": "Регион"
+     },
+     "values": [
+      {
+       "en": "Abkhazia A.R.",
+       "ka": "აფხაზეთის ა.რ.",
+       "ru": "Абхазская АР"
+      },
+      {
+       "en": "Adjara A.R.",
+       "ka": "აჭარის ა.რ.",
+       "ru": "Аджарская АР"
+      },
+      {
+       "en": "C. Tbilisi Municipality",
+       "ka": "ქ. თბილისი",
+       "ru": "г. Тбилиси"
+      },
+      {
+       "en": "Guria Region",
+       "ka": "გურია",
+       "ru": "Гурия (регион)"
+      },
+      {
+       "en": "Imereti Region",
+       "ka": "იმერეთი",
+       "ru": "Имеретия (регион)"
+      },
+      {
+       "en": "Kakheti Region",
+       "ka": "კახეთი",
+       "ru": "Кахетия (регион)"
+      },
+      {
+       "en": "Kvemo Kartli Region",
+       "ka": "ქვემო ქართლი",
+       "ru": "Квемо Картли (регион)"
+      },
+      {
+       "en": "Mtskheta-Mtianeti Region",
+       "ka": "მცხეთა-მთიანეთი",
+       "ru": "Мцхета-Мтианети (регион)"
+      },
+      {
+       "en": "Racha-Lechkhumi and Kvemo Svaneti Region",
+       "ka": "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+       "ru": "Рача-Лечхуми и Квемо Сванети (регион)"
+      },
+      {
+       "en": "Samegrelo-Zemo Svaneti Region",
+       "ka": "სამეგრელო-ზემო სვანეთი",
+       "ru": "Самегрело-Земо Сванети (регион)"
+      },
+      {
+       "en": "Samtskhe-Javakheti Region",
+       "ka": "სამცხე-ჯავახეთი",
+       "ru": "Самцхе-Джавахети (регион)"
+      },
+      {
+       "en": "Shida Kartli Region",
+       "ka": "შიდა ქართლი",
+       "ru": "Шида Картли (регион)"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "population_k",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Population, thousand",
+      "ka": "მოსახლეობა, ათასი",
+      "ru": "Население, тыс."
+     }
+    }
+   ],
+   "row_count": 2550,
+   "value_count": 2550,
+   "first_period": "1994-01-01",
+   "last_period": "2026-01-01",
+   "file": "population_by_area.parquet",
+   "bytes": 10526
+  }
+ ]
+}

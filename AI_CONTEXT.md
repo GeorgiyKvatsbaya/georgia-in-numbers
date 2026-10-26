@@ -4,18 +4,29 @@
 
 `data/geostat.duckdb` is a local analytical database sourced from the official Geostat
 PXWeb API. Use SQL for inspection and analysis. Never assume a dataset has been synced:
-check `metadata.datasets` first.
+check `metadata.datasets` first. The same tables and views are published as Parquet in
+`web/public/data/` (described by `catalog.json`) and are queryable in the web SQL console.
 
 ## Metadata contract
 
 - `metadata.datasets`: one row per loaded dataset, including table name, description,
   row grain, unit, exact API URL, source path, retrieval timestamp, and row count.
 - `metadata.dimensions`: source dimension codes, normalized SQL column names, value IDs,
-  and human-readable labels.
+  and labels in English (`language = 'en'`) and Georgian (`'ka'`). Data columns hold the
+  English labels.
 - `DESCRIBE <table>`: authoritative physical columns and types.
 
 All fact tables are tidy/long: dimension columns identify an observation and `value` is
-the published numeric measure. Missing values remain SQL `NULL`.
+the published numeric measure. Missing values remain SQL `NULL` (tables are dense grids, so
+future periods exist as NULL rows). Labels are trimmed with internal whitespace collapsed.
+
+Every table also carries uniform time columns, derived from whatever time encoding the
+source uses (Roman-numeral months, `Q I-IV`, `I 26*`, …):
+
+- `period_type`: `month`, `quarter`, or `annual`. Never mix types in one series.
+- `period_start`: first day of the period (annual = 1 January). Sort and join on this.
+- `quarter_num` (1–4), `month_num` (1–12): NULL when not applicable.
+- `is_preliminary`: national-accounts periods Geostat flags with `*` (subject to revision).
 
 ## Registered fact tables
 
@@ -45,6 +56,24 @@ CPI price level by `region`, `year`, and `month`, with the 2010 average = 100. U
 (not the YoY table) to deflate nominal values or to compare price levels across
 non-adjacent periods. Months are Roman numerals stored as text, so sort them explicitly.
 
+### Other registered tables
+
+| Table | Dimensions | Unit / notes |
+|---|---|---|
+| `salaries_regional` | `region`, year, `quarter` | GEL/month; `Total` = country; `Annual` rows compiled separately |
+| `labour_force_quarterly` | `sex_urban_rural_areas`, `economic_status`, year, `quarter` | as `employment_regional`; source table is renamed each quarter, sync resolves it |
+| `property_prices_quarterly` | `dwelling_type`, year, `quarter` | index, 2020 average = 100 |
+| `gdp_current_prices` | `activity`, `period` | million GEL; also per-capita rows (GEL, USD), `GDP in mil. USD`, and the average GEL per USD rate — not additive with sections |
+| `gdp_real_growth` | `activity`, `period` | index, same period of previous year = 100 (growth % = value − 100); includes `GDP deflator` |
+| `gdp_by_use` | `indicator`, `period` | million GEL; consumption, capital formation, exports/imports of goods and services; header rows are NULL |
+| `fdi_quarterly` | `sources`, year, `quarter` | **USD** (not millions); `Q I-IV` = annual |
+| `population_regional` | `area`, year | thousand persons on 1 January; mixes country/regions/municipalities and footnote rows |
+| `population_age_sex` | `age`, year, `sex` | thousand persons; `Total` / `Both Sexes` are aggregates |
+| `poverty_absolute` | `population_group`, year | percent below the absolute poverty line; groups overlap (area, age, sex) |
+
+External trade tables on the PXWeb API stop in 2020, so they are not registered. Use
+exports/imports of goods and services from `gdp_by_use` / `gdp_headline` instead.
+
 ## Derived views
 
 Views are rebuilt by every `geostat sync` once their source tables exist. `COMMENT` on
@@ -67,6 +96,19 @@ Same grain as `salaries_quarterly`. Columns:
 Geostat's annual salary figure is consistently 3–5% below the mean of its four quarters
 (different compilation method). Filter on one `period_type`; never mix them in a series.
 The `Public sector` / `Non-public sector` breakdowns by activity exist only as annual rows.
+
+### Other views
+
+- `inflation_monthly`: national CPI level, month-over-month and year-over-year inflation (%).
+- `gdp_headline`: one row per national-accounts period — GDP (million GEL/USD), per capita,
+  `gel_per_usd`, `real_growth_pct`, `deflator_pct`, consumption, capital formation,
+  exports/imports (goods, services) and `net_exports_mln_gel`.
+- `gdp_by_activity`: GVA by NACE section with `share_of_gva_pct` and `real_growth_pct`.
+- `labour_quarterly` / `labour_regional_annual`: LFS indicators pivoted to columns
+  (`unemployment_rate_pct`, `participation_rate_pct`, `employment_rate_pct`, levels in
+  thousands with `_k` suffix) by population group or region.
+- `population_by_area`: population with `area_level` (`country`/`region`/`municipality`)
+  and parent `region`; regions sum to the country, municipalities to their region.
 
 ## Analysis rules
 

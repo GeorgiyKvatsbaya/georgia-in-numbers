@@ -1,30 +1,306 @@
 {
   "salaries": {
     "table": "salaries_quarterly",
+    "topic": "wages",
     "path": "Social Statistics/Labour/Wages_Nace2.px",
-    "description": "Average monthly nominal salary in GEL, by sex or sector, NACE Rev. 2 economic activity, year, and quarter. Includes annual observations.",
+    "title": {
+      "en": "Average monthly salary by economic activity",
+      "ka": "საშუალო თვიური ხელფასი ეკონომიკური საქმიანობის სახეების მიხედვით",
+      "ru": "Средняя месячная зарплата по видам экономической деятельности"
+    },
+    "description": {
+      "en": "Average monthly nominal salary in GEL, by sex or sector, NACE Rev. 2 economic activity, year, and quarter. Includes annual observations.",
+      "ka": "დაქირავებით დასაქმებულთა საშუალო თვიური ნომინალური ხელფასი ლარში, სქესის ან სექტორის, ეკონომიკური საქმიანობის (NACE Rev. 2), წლისა და კვარტლის მიხედვით.",
+      "ru": "Средняя месячная номинальная зарплата наёмных работников в лари по полу или сектору, виду деятельности (NACE Rev. 2), году и кварталу. Включает годовые значения."
+    },
     "grain": "One row per sex/sector × economic activity × year × quarter",
-    "unit": "GEL per month"
+    "unit": {
+      "en": "GEL per month",
+      "ka": "ლარი თვეში",
+      "ru": "лари в месяц"
+    }
+  },
+  "salaries_region": {
+    "table": "salaries_regional",
+    "topic": "wages",
+    "path": "Social Statistics/Labour/Wages_Region.px",
+    "title": {
+      "en": "Average monthly salary by region",
+      "ka": "საშუალო თვიური ხელფასი რეგიონების მიხედვით",
+      "ru": "Средняя месячная зарплата по регионам"
+    },
+    "description": {
+      "en": "Average monthly nominal salary of employees in GEL by region, year, and quarter. 'Total' is the country figure; 'Annual' rows are compiled separately from the quarters.",
+      "ka": "დაქირავებით დასაქმებულთა საშუალო თვიური ნომინალური ხელფასი ლარში რეგიონის, წლისა და კვარტლის მიხედვით.",
+      "ru": "Средняя месячная номинальная зарплата наёмных работников в лари по регионам, годам и кварталам. «Total» — показатель по стране."
+    },
+    "grain": "One row per region × year × quarter",
+    "unit": {
+      "en": "GEL per month",
+      "ka": "ლარი თვეში",
+      "ru": "лари в месяц"
+    }
   },
   "employment": {
     "table": "employment_regional",
+    "topic": "labour",
     "path": "Social Statistics/Labour/LFS_by_regions.px",
-    "description": "Labour-force levels and rates by economic status, year, and region.",
+    "title": {
+      "en": "Labour force indicators by region",
+      "ka": "სამუშაო ძალის მაჩვენებლები რეგიონების მიხედვით",
+      "ru": "Показатели рабочей силы по регионам"
+    },
+    "description": {
+      "en": "Labour-force levels and rates by economic status, year, and region (annual Labour Force Survey).",
+      "ka": "სამუშაო ძალის რაოდენობრივი მაჩვენებლები და დონეები ეკონომიკური სტატუსის, წლისა და რეგიონის მიხედვით.",
+      "ru": "Численность и уровни рабочей силы по экономическому статусу, году и региону (годовое обследование рабочей силы)."
+    },
     "grain": "One row per economic status × year × region",
-    "unit": "Thousand persons for levels; percent for rates"
+    "unit": {
+      "en": "Thousand persons for levels; percent for rates",
+      "ka": "ათასი კაცი (რაოდენობა); პროცენტი (დონე)",
+      "ru": "Тыс. человек для численности; проценты для уровней"
+    }
+  },
+  "employment_quarterly": {
+    "table": "labour_force_quarterly",
+    "topic": "labour",
+    "folder": "Social Statistics/Labour",
+    "match": "^LFS_by_sex_and_urban_",
+    "title": {
+      "en": "Labour force indicators by sex and urban/rural area, quarterly",
+      "ka": "სამუშაო ძალის მაჩვენებლები სქესისა და დასახლების ტიპის მიხედვით, კვარტალური",
+      "ru": "Показатели рабочей силы по полу и типу поселения, ежеквартально"
+    },
+    "description": {
+      "en": "Quarterly Labour Force Survey: employment, unemployment and activity levels and rates by sex and urban/rural area. The source table is renamed every quarter; the sync finds the current one.",
+      "ka": "სამუშაო ძალის კვარტალური გამოკვლევა: დასაქმება, უმუშევრობა და აქტიურობა სქესისა და დასახლების ტიპის მიხედვით.",
+      "ru": "Квартальное обследование рабочей силы: занятость, безработица и активность по полу и типу поселения."
+    },
+    "grain": "One row per indicator × sex/area × year × quarter",
+    "unit": {
+      "en": "Thousand persons for levels; percent for rates",
+      "ka": "ათასი კაცი (რაოდენობა); პროცენტი (დონე)",
+      "ru": "Тыс. человек для численности; проценты для уровней"
+    }
   },
   "inflation": {
     "table": "inflation_yoy_monthly",
+    "topic": "prices",
     "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia(same_month_of_the_previous_year=100_orenovani2.px",
-    "description": "Consumer price index with the same month of the previous year equal to 100, by region, COICOP group, year, and month.",
+    "title": {
+      "en": "Annual inflation by consumption group",
+      "ka": "წლიური ინფლაცია მოხმარების ჯგუფების მიხედვით",
+      "ru": "Годовая инфляция по группам потребления"
+    },
+    "description": {
+      "en": "Consumer price index with the same month of the previous year equal to 100, by region, COICOP group, year, and month.",
+      "ka": "სამომხმარებლო ფასების ინდექსი (წინა წლის შესაბამისი თვე = 100) რეგიონის, COICOP ჯგუფის, წლისა და თვის მიხედვით.",
+      "ru": "Индекс потребительских цен (тот же месяц прошлого года = 100) по регионам, группам COICOP, годам и месяцам."
+    },
     "grain": "One row per region × consumption group × year × month",
-    "unit": "Index (same month of previous year = 100); year-over-year inflation rate is value - 100"
+    "unit": {
+      "en": "Index (same month of previous year = 100); year-over-year inflation rate is value - 100",
+      "ka": "ინდექსი (წინა წლის შესაბამისი თვე = 100)",
+      "ru": "Индекс (тот же месяц прошлого года = 100); годовая инфляция = value − 100"
+    }
   },
   "cpi": {
     "table": "cpi_index_monthly",
+    "topic": "prices",
     "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia_(2010=100)_orenovani2.px",
-    "description": "Consumer price index level with the 2010 average equal to 100, by region, year, and month. Use for deflating nominal values to constant prices.",
+    "title": {
+      "en": "Consumer price index (2010 = 100)",
+      "ka": "სამომხმარებლო ფასების ინდექსი (2010 = 100)",
+      "ru": "Индекс потребительских цен (2010 = 100)"
+    },
+    "description": {
+      "en": "Consumer price index level with the 2010 average equal to 100, by region, year, and month. Use for deflating nominal values to constant prices.",
+      "ka": "სამომხმარებლო ფასების ინდექსის დონე (2010 წლის საშუალო = 100) რეგიონის, წლისა და თვის მიხედვით.",
+      "ru": "Уровень индекса потребительских цен (среднее за 2010 год = 100) по регионам, годам и месяцам. Используется для пересчёта в постоянные цены."
+    },
     "grain": "One row per region × year × month",
-    "unit": "Index (2010 = 100)"
+    "unit": {
+      "en": "Index (2010 = 100)",
+      "ka": "ინდექსი (2010 = 100)",
+      "ru": "Индекс (2010 = 100)"
+    }
+  },
+  "rppi": {
+    "table": "property_prices_quarterly",
+    "topic": "prices",
+    "path": "Price Statistics/Residential Property Price Index/RPPI_2020_average=100.px",
+    "title": {
+      "en": "Residential property price index (2020 = 100)",
+      "ka": "საცხოვრებელი უძრავი ქონების ფასების ინდექსი (2020 = 100)",
+      "ru": "Индекс цен на жилую недвижимость (2020 = 100)"
+    },
+    "description": {
+      "en": "Residential property price index with the 2020 average equal to 100, for all dwellings, flats, and detached houses, by year and quarter.",
+      "ka": "საცხოვრებელი უძრავი ქონების ფასების ინდექსი (2020 წლის საშუალო = 100) — ყველა საცხოვრებელი, ბინები და ინდივიდუალური სახლები.",
+      "ru": "Индекс цен на жильё (среднее за 2020 год = 100): всё жильё, квартиры и частные дома, по годам и кварталам."
+    },
+    "grain": "One row per dwelling group × year × quarter",
+    "unit": {
+      "en": "Index (2020 = 100)",
+      "ka": "ინდექსი (2020 = 100)",
+      "ru": "Индекс (2020 = 100)"
+    },
+    "rename": {
+      "consumption_group": "dwelling_type"
+    }
+  },
+  "gdp": {
+    "table": "gdp_current_prices",
+    "topic": "economy",
+    "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/03_GDP_at_current_prices.px",
+    "title": {
+      "en": "GDP at current prices by economic activity",
+      "ka": "მშპ მიმდინარე ფასებში ეკონომიკური საქმიანობის სახეების მიხედვით",
+      "ru": "ВВП в текущих ценах по видам деятельности"
+    },
+    "description": {
+      "en": "Gross value added by NACE section and GDP at current prices, quarterly and annual. Also includes GDP per capita (GEL, USD), GDP in USD, and the average USD/GEL exchange rate. Periods marked preliminary may be revised.",
+      "ka": "მთლიანი დამატებული ღირებულება და მშპ მიმდინარე ფასებში, კვარტალური და წლიური; ასევე მშპ ერთ სულზე, მშპ აშშ დოლარში და ლარის საშუალო გაცვლითი კურსი.",
+      "ru": "Валовая добавленная стоимость по разделам NACE и ВВП в текущих ценах, поквартально и за год. Также ВВП на душу населения (лари, долл.), ВВП в долларах и средний курс USD/GEL."
+    },
+    "grain": "One row per activity or indicator × period",
+    "unit": {
+      "en": "Million GEL; per-capita rows in GEL or USD; exchange rate in GEL per USD",
+      "ka": "მილიონი ლარი; ერთ სულზე — ლარი ან აშშ დოლარი; კურსი — ლარი 1 დოლარზე",
+      "ru": "Млн лари; на душу населения — лари или доллары; курс — лари за доллар"
+    }
+  },
+  "gdp_growth": {
+    "table": "gdp_real_growth",
+    "topic": "economy",
+    "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/06_Real_Growth.px",
+    "title": {
+      "en": "Real GDP growth by economic activity",
+      "ka": "რეალური მშპ-ის ზრდა ეკონომიკური საქმიანობის სახეების მიხედვით",
+      "ru": "Реальный рост ВВП по видам деятельности"
+    },
+    "description": {
+      "en": "Real growth of gross value added by NACE section and of GDP, compared with the same period of the previous year, plus the GDP deflator. Quarterly and annual.",
+      "ka": "დამატებული ღირებულებისა და მშპ-ის რეალური ზრდა წინა წლის შესაბამის პერიოდთან შედარებით, ასევე მშპ-ის დეფლატორი.",
+      "ru": "Реальный рост добавленной стоимости по разделам NACE и ВВП к соответствующему периоду прошлого года, а также дефлятор ВВП."
+    },
+    "grain": "One row per activity × period",
+    "unit": {
+      "en": "Index (same period of previous year = 100); real growth rate is value - 100",
+      "ka": "ინდექსი (წინა წლის შესაბამისი პერიოდი = 100); რეალური ზრდა = value − 100",
+      "ru": "Индекс (тот же период прошлого года = 100); реальный рост = value − 100"
+    }
+  },
+  "gdp_use": {
+    "table": "gdp_by_use",
+    "topic": "economy",
+    "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/09_GDP_by_categories_of_use.px",
+    "title": {
+      "en": "GDP by expenditure, including exports and imports",
+      "ka": "მშპ გამოყენების კატეგორიების მიხედვით, მათ შორის ექსპორტი და იმპორტი",
+      "ru": "ВВП по направлениям использования, включая экспорт и импорт"
+    },
+    "description": {
+      "en": "GDP at current prices by category of use: final consumption, capital formation, and exports and imports of goods and services. Quarterly and annual. GDP at market prices appears in the source on both the production and use sides; identical duplicate rows are dropped.",
+      "ka": "მშპ მიმდინარე ფასებში გამოყენების კატეგორიების მიხედვით: საბოლოო მოხმარება, კაპიტალის ფორმირება, საქონლისა და მომსახურების ექსპორტი და იმპორტი.",
+      "ru": "ВВП в текущих ценах по направлениям использования: конечное потребление, накопление капитала, экспорт и импорт товаров и услуг."
+    },
+    "grain": "One row per indicator × period",
+    "unit": {
+      "en": "Million GEL",
+      "ka": "მილიონი ლარი",
+      "ru": "Млн лари"
+    }
+  },
+  "fdi": {
+    "table": "fdi_quarterly",
+    "topic": "economy",
+    "path": "FDI/9..px",
+    "title": {
+      "en": "Foreign direct investment in Georgia",
+      "ka": "პირდაპირი უცხოური ინვესტიციები საქართველოში",
+      "ru": "Прямые иностранные инвестиции в Грузию"
+    },
+    "description": {
+      "en": "Foreign direct investment inflows by information source, year, and quarter. 'Total' is the headline figure.",
+      "ka": "პირდაპირი უცხოური ინვესტიციები ინფორმაციის წყაროების, წლებისა და კვარტლების მიხედვით.",
+      "ru": "Прямые иностранные инвестиции по источникам информации, годам и кварталам. «Total» — итоговый показатель."
+    },
+    "grain": "One row per source × year × quarter",
+    "unit": {
+      "en": "USD",
+      "ka": "აშშ დოლარი",
+      "ru": "доллары США"
+    }
+  },
+  "population": {
+    "table": "population_regional",
+    "topic": "population",
+    "path": "Demography/Population/01-population-by-self-governed-unit.px",
+    "rename": {
+      "region_self_governed_unit": "area"
+    },
+    "title": {
+      "en": "Population by region and municipality",
+      "ka": "მოსახლეობა რეგიონებისა და მუნიციპალიტეტების მიხედვით",
+      "ru": "Население по регионам и муниципалитетам"
+    },
+    "description": {
+      "en": "Population as of 1 January by region and self-governed unit. 'area' mixes the country total, regions and municipalities; do not sum across levels. Footnote rows from the source have no values.",
+      "ka": "მოსახლეობის რიცხოვნობა 1 იანვრის მდგომარეობით რეგიონებისა და თვითმმართველი ერთეულების მიხედვით.",
+      "ru": "Численность населения на 1 января по регионам и муниципалитетам. Колонка area смешивает страну, регионы и муниципалитеты — не суммируйте уровни."
+    },
+    "grain": "One row per area × year",
+    "unit": {
+      "en": "Thousand persons",
+      "ka": "ათასი კაცი",
+      "ru": "Тыс. человек"
+    }
+  },
+  "population_age_sex": {
+    "table": "population_age_sex",
+    "topic": "population",
+    "path": "Demography/Population/02-population-by-age-groups-and-sex.px",
+    "title": {
+      "en": "Population by age group and sex",
+      "ka": "მოსახლეობა ასაკობრივი ჯგუფებისა და სქესის მიხედვით",
+      "ru": "Население по возрастным группам и полу"
+    },
+    "description": {
+      "en": "Population as of 1 January by 5-year age group and sex.",
+      "ka": "მოსახლეობის რიცხოვნობა 1 იანვრის მდგომარეობით 5-წლიანი ასაკობრივი ჯგუფებისა და სქესის მიხედვით.",
+      "ru": "Численность населения на 1 января по пятилетним возрастным группам и полу."
+    },
+    "grain": "One row per age group × year × sex",
+    "unit": {
+      "en": "Thousand persons",
+      "ka": "ათასი კაცი",
+      "ru": "Тыс. человек"
+    }
+  },
+  "poverty": {
+    "table": "poverty_absolute",
+    "topic": "population",
+    "path": "Social Statistics/Living Conditions, Subsistence Minimum/Absolute_poverty.px",
+    "rename": {
+      "target": "population_group"
+    },
+    "title": {
+      "en": "Share of population below the absolute poverty line",
+      "ka": "სიღარიბის აბსოლუტურ ზღვარს ქვევით მყოფი მოსახლეობის წილი",
+      "ru": "Доля населения за чертой абсолютной бедности"
+    },
+    "description": {
+      "en": "Share of population below the absolute poverty line by year and population group (urban/rural, age group, sex, or the whole country).",
+      "ka": "სიღარიბის აბსოლუტურ ზღვარს ქვევით მყოფი მოსახლეობის წილი წლისა და მოსახლეობის ჯგუფის მიხედვით.",
+      "ru": "Доля населения за чертой абсолютной бедности по годам и группам населения (город/село, возраст, пол, страна в целом)."
+    },
+    "grain": "One row per population group × year",
+    "unit": {
+      "en": "Percent of population",
+      "ka": "მოსახლეობის პროცენტი",
+      "ru": "% населения"
+    }
   }
 }
