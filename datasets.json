@@ -1,0 +1,30 @@
+{
+  "salaries": {
+    "table": "salaries_quarterly",
+    "path": "Social Statistics/Labour/Wages_Nace2.px",
+    "description": "Average monthly nominal salary in GEL, by sex or sector, NACE Rev. 2 economic activity, year, and quarter. Includes annual observations.",
+    "grain": "One row per sex/sector × economic activity × year × quarter",
+    "unit": "GEL per month"
+  },
+  "employment": {
+    "table": "employment_regional",
+    "path": "Social Statistics/Labour/LFS_by_regions.px",
+    "description": "Labour-force levels and rates by economic status, year, and region.",
+    "grain": "One row per economic status × year × region",
+    "unit": "Thousand persons for levels; percent for rates"
+  },
+  "inflation": {
+    "table": "inflation_yoy_monthly",
+    "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia(same_month_of_the_previous_year=100_orenovani2.px",
+    "description": "Consumer price index with the same month of the previous year equal to 100, by region, COICOP group, year, and month.",
+    "grain": "One row per region × consumption group × year × month",
+    "unit": "Index (same month of previous year = 100); year-over-year inflation rate is value - 100"
+  },
+  "cpi": {
+    "table": "cpi_index_monthly",
+    "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia_(2010=100)_orenovani2.px",
+    "description": "Consumer price index level with the 2010 average equal to 100, by region, year, and month. Use for deflating nominal values to constant prices.",
+    "grain": "One row per region × year × month",
+    "unit": "Index (2010 = 100)"
+  }
+}

@@ -1,0 +1,25 @@
+[project]
+name = "geostat-data"
+version = "0.1.0"
+description = "Reproducible extraction, analysis, and visualization of Geostat PXWeb data"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "duckdb>=1.2",
+  "pandas>=2.2",
+  "pytz>=2024.1",
+  "requests>=2.32",
+]
+
+[project.scripts]
+geostat = "geostat_data.cli:main"
+
+[tool.ruff]
+line-length = 100
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/geostat_data"]
