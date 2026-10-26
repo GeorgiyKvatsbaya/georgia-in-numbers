@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T14:25:09+00:00",
+ "generated_at": "2026-10-26T14:37:26+00:00",
  "source": {
   "name": {
    "en": "National Statistics Office of Georgia (Geostat)",
@@ -38,6 +38,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/Wages_Nace2.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Social%20Statistics__Labour/Wages_Nace2.px/",
      "path": "Social Statistics/Labour/Wages_Nace2.px",
      "retrieved_at": "2026-10-26T18:24:57.867061+04:00"
     }
@@ -283,6 +284,10 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 9100,
    "value_count": 5950,
    "first_period": "2014-01-01",
@@ -314,6 +319,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/Wages_Region.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Social%20Statistics__Labour/Wages_Region.px/",
      "path": "Social Statistics/Labour/Wages_Region.px",
      "retrieved_at": "2026-10-26T18:24:58.505322+04:00"
     }
@@ -472,6 +478,10 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 1020,
    "value_count": 984,
    "first_period": "2010-01-01",
@@ -503,6 +513,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/LFS_by_regions.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Social%20Statistics__Labour/LFS_by_regions.px/",
      "path": "Social Statistics/Labour/LFS_by_regions.px",
      "retrieved_at": "2026-10-26T18:24:59.111260+04:00"
     }
@@ -723,6 +734,9 @@
      }
     }
    ],
+   "period_types": [
+    "annual"
+   ],
    "row_count": 3289,
    "value_count": 2629,
    "first_period": "2003-01-01",
@@ -754,6 +768,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/LFS_by_sex_and_urban_%28Quarter_II%2C_2026%29.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Social%20Statistics__Labour/LFS_by_sex_and_urban_%28Quarter_II%2C_2026%29.px/",
      "path": "Social Statistics/Labour/LFS_by_sex_and_urban_(Quarter_II,_2026).px",
      "retrieved_at": "2026-10-26T18:24:59.866470+04:00"
     }
@@ -944,6 +959,10 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 7975,
    "value_count": 3410,
    "first_period": "1998-01-01",
@@ -975,6 +994,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia%28same_month_of_the_previous_year%3D100_orenovani2.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Price%20Statistics__CPI__National%20Consumer%20Price%20Index/CPI_in_Georgia%28same_month_of_the_previous_year%3D100_orenovani2.px/",
      "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia(same_month_of_the_previous_year=100_orenovani2.px",
      "retrieved_at": "2026-10-26T18:25:00.700672+04:00"
     }
@@ -1195,6 +1215,9 @@
      }
     }
    ],
+   "period_types": [
+    "month"
+   ],
    "row_count": 25116,
    "value_count": 21964,
    "first_period": "2004-01-01",
@@ -1226,6 +1249,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia_%282010%3D100%29_orenovani2.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Price%20Statistics__CPI__National%20Consumer%20Price%20Index/CPI_in_Georgia_%282010%3D100%29_orenovani2.px/",
      "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia_(2010=100)_orenovani2.px",
      "retrieved_at": "2026-10-26T18:25:01.849810+04:00"
     }
@@ -1354,6 +1378,9 @@
      }
     }
    ],
+   "period_types": [
+    "month"
+   ],
    "row_count": 1944,
    "value_count": 1926,
    "first_period": "2000-01-01",
@@ -1385,6 +1412,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/Residential%20Property%20Price%20Index/RPPI_2020_average%3D100.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Price%20Statistics__Residential%20Property%20Price%20Index/RPPI_2020_average%3D100.px/",
      "path": "Price Statistics/Residential Property Price Index/RPPI_2020_average=100.px",
      "retrieved_at": "2026-10-26T18:25:03.165676+04:00"
     }
@@ -1407,12 +1435,12 @@
       },
       {
        "en": "Flats",
-       "ka": "Flats",
+       "ka": "ბინები",
        "ru": "Квартиры"
       },
       {
        "en": "Detached houses",
-       "ka": "Detached houses",
+       "ka": "ინდივიდუალური სახლები",
        "ru": "Частные дома"
       }
      ]
@@ -1498,6 +1526,9 @@
      }
     }
    ],
+   "period_types": [
+    "quarter"
+   ],
    "row_count": 84,
    "value_count": 81,
    "first_period": "2020-01-01",
@@ -1529,6 +1560,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/03_GDP_at_current_prices.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__National%20Accounts__System%20of%20National%20Accounts%202008%20%28SNA%202008%29__Gross%20Domestic%20Product%20%28GDP%29/03_GDP_at_current_prices.px/",
      "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/03_GDP_at_current_prices.px",
      "retrieved_at": "2026-10-26T18:25:03.809699+04:00"
     }
@@ -1767,6 +1799,10 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 2296,
    "value_count": 2296,
    "first_period": "2010-01-01",
@@ -1798,6 +1834,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/06_Real_Growth.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__National%20Accounts__System%20of%20National%20Accounts%202008%20%28SNA%202008%29__Gross%20Domestic%20Product%20%28GDP%29/06_Real_Growth.px/",
      "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/06_Real_Growth.px",
      "retrieved_at": "2026-10-26T18:25:04.748310+04:00"
     }
@@ -2021,6 +2058,10 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 1925,
    "value_count": 1925,
    "first_period": "2011-01-01",
@@ -2052,6 +2093,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/09_GDP_by_categories_of_use.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__National%20Accounts__System%20of%20National%20Accounts%202008%20%28SNA%202008%29__Gross%20Domestic%20Product%20%28GDP%29/09_GDP_by_categories_of_use.px/",
      "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/09_GDP_by_categories_of_use.px",
      "retrieved_at": "2026-10-26T18:25:05.396394+04:00"
     }
@@ -2260,6 +2302,10 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 1804,
    "value_count": 1570,
    "first_period": "2010-01-01",
@@ -2291,6 +2337,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/FDI/9..px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__FDI/9..px/",
      "path": "FDI/9..px",
      "retrieved_at": "2026-10-26T18:25:06.008905+04:00"
     }
@@ -2409,6 +2456,10 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 400,
    "value_count": 382,
    "first_period": "2007-01-01",
@@ -2440,6 +2491,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Demography/Population/01-population-by-self-governed-unit.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Demography__Population/01-population-by-self-governed-unit.px/",
      "path": "Demography/Population/01-population-by-self-governed-unit.px",
      "retrieved_at": "2026-10-26T18:25:06.686455+04:00"
     }
@@ -2983,6 +3035,9 @@
      }
     }
    ],
+   "period_types": [
+    "annual"
+   ],
    "row_count": 3003,
    "value_count": 2550,
    "first_period": "1994-01-01",
@@ -3014,6 +3069,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Demography/Population/02-population-by-age-groups-and-sex.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Demography__Population/02-population-by-age-groups-and-sex.px/",
      "path": "Demography/Population/02-population-by-age-groups-and-sex.px",
      "retrieved_at": "2026-10-26T18:25:07.409800+04:00"
     }
@@ -3229,6 +3285,9 @@
      }
     }
    ],
+   "period_types": [
+    "annual"
+   ],
    "row_count": 1980,
    "value_count": 1980,
    "first_period": "1994-01-01",
@@ -3260,6 +3319,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Living%20Conditions%2C%20Subsistence%20Minimum/Absolute_poverty.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Social%20Statistics__Living%20Conditions%2C%20Subsistence%20Minimum/Absolute_poverty.px/",
      "path": "Social Statistics/Living Conditions, Subsistence Minimum/Absolute_poverty.px",
      "retrieved_at": "2026-10-26T18:25:08.161601+04:00"
     }
@@ -3388,6 +3448,9 @@
      }
     }
    ],
+   "period_types": [
+    "annual"
+   ],
    "row_count": 176,
    "value_count": 176,
    "first_period": "2004-01-01",
@@ -3420,11 +3483,13 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/Wages_Nace2.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Social%20Statistics__Labour/Wages_Nace2.px/",
      "path": "Social Statistics/Labour/Wages_Nace2.px",
      "retrieved_at": "2026-10-26T18:24:57.867061+04:00"
     },
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia_%282010%3D100%29_orenovani2.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Price%20Statistics__CPI__National%20Consumer%20Price%20Index/CPI_in_Georgia_%282010%3D100%29_orenovani2.px/",
      "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia_(2010=100)_orenovani2.px",
      "retrieved_at": "2026-10-26T18:25:01.849810+04:00"
     }
@@ -3710,12 +3775,16 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 5950,
    "value_count": 5950,
    "first_period": "2014-01-01",
    "last_period": "2026-04-01",
    "file": "real_wages_quarterly.parquet",
-   "bytes": 118232
+   "bytes": 118085
   },
   {
    "name": "inflation_monthly",
@@ -3742,11 +3811,13 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia%28same_month_of_the_previous_year%3D100_orenovani2.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Price%20Statistics__CPI__National%20Consumer%20Price%20Index/CPI_in_Georgia%28same_month_of_the_previous_year%3D100_orenovani2.px/",
      "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia(same_month_of_the_previous_year=100_orenovani2.px",
      "retrieved_at": "2026-10-26T18:25:00.700672+04:00"
     },
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Price%20Statistics/CPI/National%20Consumer%20Price%20Index/CPI_in_Georgia_%282010%3D100%29_orenovani2.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Price%20Statistics__CPI__National%20Consumer%20Price%20Index/CPI_in_Georgia_%282010%3D100%29_orenovani2.px/",
      "path": "Price Statistics/CPI/National Consumer Price Index/CPI_in_Georgia_(2010=100)_orenovani2.px",
      "retrieved_at": "2026-10-26T18:25:01.849810+04:00"
     }
@@ -3813,6 +3884,9 @@
      }
     }
    ],
+   "period_types": [
+    "month"
+   ],
    "row_count": 321,
    "value_count": 321,
    "first_period": "2000-01-01",
@@ -3846,16 +3920,19 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/03_GDP_at_current_prices.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__National%20Accounts__System%20of%20National%20Accounts%202008%20%28SNA%202008%29__Gross%20Domestic%20Product%20%28GDP%29/03_GDP_at_current_prices.px/",
      "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/03_GDP_at_current_prices.px",
      "retrieved_at": "2026-10-26T18:25:03.809699+04:00"
     },
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/06_Real_Growth.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__National%20Accounts__System%20of%20National%20Accounts%202008%20%28SNA%202008%29__Gross%20Domestic%20Product%20%28GDP%29/06_Real_Growth.px/",
      "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/06_Real_Growth.px",
      "retrieved_at": "2026-10-26T18:25:04.748310+04:00"
     },
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/09_GDP_by_categories_of_use.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__National%20Accounts__System%20of%20National%20Accounts%202008%20%28SNA%202008%29__Gross%20Domestic%20Product%20%28GDP%29/09_GDP_by_categories_of_use.px/",
      "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/09_GDP_by_categories_of_use.px",
      "retrieved_at": "2026-10-26T18:25:05.396394+04:00"
     }
@@ -4072,12 +4149,16 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 82,
    "value_count": 82,
    "first_period": "2010-01-01",
    "last_period": "2026-04-01",
    "file": "gdp_headline.parquet",
-   "bytes": 11825
+   "bytes": 11776
   },
   {
    "name": "gdp_by_activity",
@@ -4104,11 +4185,13 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/03_GDP_at_current_prices.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__National%20Accounts__System%20of%20National%20Accounts%202008%20%28SNA%202008%29__Gross%20Domestic%20Product%20%28GDP%29/03_GDP_at_current_prices.px/",
      "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/03_GDP_at_current_prices.px",
      "retrieved_at": "2026-10-26T18:25:03.809699+04:00"
     },
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/National%20Accounts/System%20of%20National%20Accounts%202008%20%28SNA%202008%29/Gross%20Domestic%20Product%20%28GDP%29/06_Real_Growth.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__National%20Accounts__System%20of%20National%20Accounts%202008%20%28SNA%202008%29__Gross%20Domestic%20Product%20%28GDP%29/06_Real_Growth.px/",
      "path": "National Accounts/System of National Accounts 2008 (SNA 2008)/Gross Domestic Product (GDP)/06_Real_Growth.px",
      "retrieved_at": "2026-10-26T18:25:04.748310+04:00"
     }
@@ -4419,12 +4502,16 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 1640,
    "value_count": 1640,
    "first_period": "2010-01-01",
    "last_period": "2026-04-01",
    "file": "gdp_by_activity.parquet",
-   "bytes": 27698
+   "bytes": 27594
   },
   {
    "name": "labour_quarterly",
@@ -4450,6 +4537,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/LFS_by_sex_and_urban_%28Quarter_II%2C_2026%29.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Social%20Statistics__Labour/LFS_by_sex_and_urban_%28Quarter_II%2C_2026%29.px/",
      "path": "Social Statistics/Labour/LFS_by_sex_and_urban_(Quarter_II,_2026).px",
      "retrieved_at": "2026-10-26T18:24:59.866470+04:00"
     }
@@ -4633,12 +4721,16 @@
      }
     }
    ],
+   "period_types": [
+    "annual",
+    "quarter"
+   ],
    "row_count": 310,
    "value_count": 310,
    "first_period": "1998-01-01",
    "last_period": "2026-04-01",
    "file": "labour_quarterly.parquet",
-   "bytes": 12696
+   "bytes": 12719
   },
   {
    "name": "labour_regional_annual",
@@ -4664,6 +4756,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Social%20Statistics/Labour/LFS_by_regions.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Social%20Statistics__Labour/LFS_by_regions.px/",
      "path": "Social Statistics/Labour/LFS_by_regions.px",
      "retrieved_at": "2026-10-26T18:24:59.111260+04:00"
     }
@@ -4877,12 +4970,15 @@
      }
     }
    ],
+   "period_types": [
+    "annual"
+   ],
    "row_count": 239,
    "value_count": 239,
    "first_period": "2003-01-01",
    "last_period": "2025-01-01",
    "file": "labour_regional_annual.parquet",
-   "bytes": 10336
+   "bytes": 10377
   },
   {
    "name": "population_by_area",
@@ -4908,6 +5004,7 @@
    "sources": [
     {
      "url": "https://pc-axis.geostat.ge/PXWeb/api/v1/en/Database/Demography/Population/01-population-by-self-governed-unit.px/",
+     "web_url": "https://pc-axis.geostat.ge/PXWeb/pxweb/en/Database/Database__Demography__Population/01-population-by-self-governed-unit.px/",
      "path": "Demography/Population/01-population-by-self-governed-unit.px",
      "retrieved_at": "2026-10-26T18:25:06.686455+04:00"
     }
@@ -5494,6 +5591,9 @@
       "ru": "Население, тыс."
      }
     }
+   ],
+   "period_types": [
+    "annual"
    ],
    "row_count": 2550,
    "value_count": 2550,

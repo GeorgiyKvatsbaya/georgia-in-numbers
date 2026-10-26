@@ -8,6 +8,7 @@ import re
 from datetime import UTC, date, datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
 import duckdb
 
@@ -239,6 +240,16 @@ def translate(value: str, maps: dict[str, dict[str, str]]) -> dict[str, str]:
     return {"en": value, **{lang: maps[lang].get(value, value) for lang in maps}}
 
 
+def geostat_web_url(source_path: str, language: str = "en") -> str:
+    """Human-facing PXWeb page for a table (the API URL returns JSON)."""
+    *folders, table = source_path.split("/")
+    folder_part = quote("__".join(["Database", *folders]), safe="_")
+    return (
+        f"https://pc-axis.geostat.ge/PXWeb/pxweb/{language}/Database/{folder_part}/"
+        f"{quote(table, safe='')}/"
+    )
+
+
 def json_value(value: Any) -> Any:
     if isinstance(value, (date, datetime)):
         return value.isoformat()
@@ -313,8 +324,19 @@ def describe_object(
         )
         + f"FROM {name}"
     ).fetchone()
+    names = {c["name"] for c in columns}
+    period_types = ["month"] if "month_num" in names else ["annual"] if "year" in names else []
+    if "period_type" in names:
+        period_types = [
+            row[0]
+            for row in connection.execute(
+                f"SELECT DISTINCT period_type FROM {name} "
+                f"WHERE period_type IS NOT NULL AND {measure or 'TRUE'} IS NOT NULL ORDER BY 1"
+            ).fetchall()
+        ]
     return {
         "columns": columns,
+        "period_types": period_types,
         "row_count": stats[0],
         "value_count": stats[1],
         "first_period": json_value(stats[2]),
@@ -366,7 +388,12 @@ def export(
                     "unit": definition["unit"],
                     "grain": definition["grain"],
                     "sources": [
-                        {"url": source_url, "path": source_path, "retrieved_at": json_value(retrieved_at)}
+                        {
+                            "url": source_url,
+                            "web_url": geostat_web_url(source_path),
+                            "path": source_path,
+                            "retrieved_at": json_value(retrieved_at),
+                        }
                     ],
                     **describe_object(connection, table, maps, column_labels, dataset),
                 }
