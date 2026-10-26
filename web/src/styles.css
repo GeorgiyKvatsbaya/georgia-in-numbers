@@ -2,15 +2,15 @@
    categorical order is fixed, dark steps are selected separately, never auto-flipped. */
 :root {
   color-scheme: light;
-  --page: #f9f9f7;
-  --surface: #fcfcfb;
-  --surface-2: #f2f1ed;
-  --ink: #0b0b0b;
-  --ink-2: #52514e;
-  --muted: #6c6b66;
-  --grid: #e1e0d9;
-  --axis: #c3c2b7;
-  --border: rgba(11, 11, 11, 0.1);
+  --page: #f8f3ea;
+  --surface: #fffcf6;
+  --surface-2: #f1ebdf;
+  --ink: #1e1b16;
+  --ink-2: #56504a;
+  --muted: #6b6459;
+  --grid: #e7dfd0;
+  --axis: #cfc5b1;
+  --border: rgba(60, 40, 10, 0.12);
   --accent: #2a78d6;
   --accent-strong: #1c5cab;
   --accent-ink: #1c5cab;
@@ -26,7 +26,7 @@
   --series-7: #6250d6;
   --series-8: #e34948;
   --diverging-neg: #e34948;
-  --diverging-mid: #f0efec;
+  --diverging-mid: #efe8db;
   --seq-low: #cde2fb;
   --seq-high: #104281;
   --radius: 10px;
@@ -38,15 +38,15 @@
 @media (prefers-color-scheme: dark) {
   :root:where(:not([data-theme="light"])) {
     color-scheme: dark;
-    --page: #0d0d0d;
-    --surface: #1a1a19;
-    --surface-2: #232321;
-    --ink: #f0efec;
-    --ink-2: #c3c2b7;
-    --muted: #898781;
-    --grid: #2c2c2a;
-    --axis: #383835;
-    --border: rgba(255, 255, 255, 0.1);
+    --page: #14120f;
+    --surface: #1f1c18;
+    --surface-2: #2a2621;
+    --ink: #f3eee5;
+    --ink-2: #cbc3b5;
+    --muted: #9b9384;
+    --grid: #332e28;
+    --axis: #443e35;
+    --border: rgba(255, 240, 215, 0.1);
     --accent: #3987e5;
     --accent-strong: #256abf;
     --accent-ink: #86b6ef;
@@ -62,7 +62,7 @@
     --series-7: #9085e9;
     --series-8: #e66767;
     --diverging-neg: #e66767;
-    --diverging-mid: #383835;
+    --diverging-mid: #443e35;
     --seq-low: #184f95;
     --seq-high: #b7d3f6;
   }
@@ -70,15 +70,15 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --page: #0d0d0d;
-  --surface: #1a1a19;
-  --surface-2: #232321;
-  --ink: #f0efec;
-  --ink-2: #c3c2b7;
-  --muted: #898781;
-  --grid: #2c2c2a;
-  --axis: #383835;
-  --border: rgba(255, 255, 255, 0.1);
+  --page: #14120f;
+  --surface: #1f1c18;
+  --surface-2: #2a2621;
+  --ink: #f3eee5;
+  --ink-2: #cbc3b5;
+  --muted: #9b9384;
+  --grid: #332e28;
+  --axis: #443e35;
+  --border: rgba(255, 240, 215, 0.1);
   --accent: #3987e5;
   --accent-strong: #256abf;
   --accent-ink: #86b6ef;
@@ -94,7 +94,7 @@
   --series-7: #9085e9;
   --series-8: #e66767;
   --diverging-neg: #e66767;
-  --diverging-mid: #383835;
+  --diverging-mid: #443e35;
   --seq-low: #184f95;
   --seq-high: #b7d3f6;
 }
