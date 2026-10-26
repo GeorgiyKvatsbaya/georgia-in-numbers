@@ -70,18 +70,23 @@ DASHBOARDS: dict[str, dict[str, str]] = {
             WHERE period_start >= DATE '2010-01-01'
             ORDER BY period_start""",
         "by_group": """
-            SELECT consumption_group, period_start, round(inflation_rate, 2) AS inflation_yoy_pct
+            SELECT region, consumption_group, period_start, round(inflation_rate, 2) AS inflation_yoy_pct
             FROM inflation_yoy_monthly
-            WHERE region = 'Georgia' AND value IS NOT NULL
-              AND period_start >= (SELECT max(period_start) FROM inflation_yoy_monthly
-                                   WHERE value IS NOT NULL) - INTERVAL 35 MONTH
-            ORDER BY consumption_group, period_start""",
+            WHERE value IS NOT NULL
+              AND period_start = (SELECT max(period_start) FROM inflation_yoy_monthly
+                                  WHERE value IS NOT NULL)
+            ORDER BY region, consumption_group""",
         "by_city": """
             SELECT region, period_start, round(inflation_rate, 2) AS inflation_yoy_pct
             FROM inflation_yoy_monthly
             WHERE consumption_group = 'Total' AND value IS NOT NULL
-              AND period_start >= DATE '2018-01-01'
+              AND period_start >= DATE '2010-01-01'
             ORDER BY region, period_start""",
+        "groups_history": """
+            SELECT region, consumption_group, period_start, round(inflation_rate, 2) AS inflation_yoy_pct
+            FROM inflation_yoy_monthly
+            WHERE value IS NOT NULL AND period_start >= DATE '2018-01-01'
+            ORDER BY region, consumption_group, period_start""",
         "property": """
             SELECT dwelling_type, period_start, value AS rppi_2020_100
             FROM property_prices_quarterly
@@ -164,6 +169,14 @@ DASHBOARDS: dict[str, dict[str, str]] = {
             WHERE sex_sectors = 'Total in country' AND economic_activity = 'Total'
               AND period_type = 'quarter'
             ORDER BY period_start""",
+        "history": """
+            SELECT sex_sectors, economic_activity, period_start, nominal_salary_gel,
+                   round(real_salary_gel_2010, 1) AS real_salary_gel_2010,
+                   round(real_wage_index_2014, 1) AS real_wage_index_2014,
+                   round(nominal_yoy_pct, 2) AS nominal_yoy_pct, round(real_yoy_pct, 2) AS real_yoy_pct
+            FROM real_wages_quarterly
+            WHERE period_type = 'quarter'
+            ORDER BY sex_sectors, economic_activity, period_start""",
         "by_activity": """
             WITH latest AS (
                 SELECT max(period_start) AS period_start FROM real_wages_quarterly
@@ -195,12 +208,11 @@ DASHBOARDS: dict[str, dict[str, str]] = {
             SELECT population_group, period_start, unemployment_rate_pct,
                    participation_rate_pct, employment_rate_pct, employed_k, unemployed_k
             FROM labour_quarterly
-            WHERE period_type = 'quarter' AND period_start >= DATE '2017-01-01'
+            WHERE period_type = 'quarter'
             ORDER BY population_group, period_start""",
         "by_region": """
             SELECT region, year, unemployment_rate_pct, participation_rate_pct, employment_rate_pct
             FROM labour_regional_annual
-            WHERE year >= 2017
             ORDER BY region, year""",
     },
     "economy": {
@@ -225,6 +237,12 @@ DASHBOARDS: dict[str, dict[str, str]] = {
             FROM gdp_by_activity JOIN latest USING (year)
             WHERE period_type = 'annual'
             ORDER BY gva_mln_gel DESC""",
+        "sector_growth": """
+            SELECT nace_section, period_type, period_start, is_preliminary,
+                   round(real_growth_pct, 2) AS real_growth_pct
+            FROM gdp_by_activity
+            WHERE real_growth_pct IS NOT NULL
+            ORDER BY nace_section, period_type, period_start""",
         "fdi": """
             SELECT year, period_type, quarter_num, period_start, round(value / 1e6, 2) AS fdi_mln_usd
             FROM fdi_quarterly
@@ -241,6 +259,7 @@ DASHBOARDS: dict[str, dict[str, str]] = {
             ORDER BY period_start""",
         "annual": """
             SELECT year, is_preliminary, exports_mln_gel, imports_mln_gel, net_exports_mln_gel,
+                   exports_goods_mln_gel, exports_services_mln_gel, gel_per_usd,
                    round(100 * exports_mln_gel / gdp_mln_gel, 2) AS exports_share_of_gdp_pct,
                    round(100 * imports_mln_gel / gdp_mln_gel, 2) AS imports_share_of_gdp_pct
             FROM gdp_headline
@@ -254,14 +273,11 @@ DASHBOARDS: dict[str, dict[str, str]] = {
         "by_region": """
             SELECT area AS region, year, population_k FROM population_by_area
             WHERE area_level = 'region'
-              AND year IN ((SELECT max(year) FROM population_by_area),
-                           (SELECT max(year) FROM population_by_area) - 10)
             ORDER BY source_order, year""",
         "pyramid": """
             SELECT age, sex, year, value AS population_k
             FROM population_age_sex
             WHERE age <> 'Total' AND sex <> 'Both Sexes' AND value IS NOT NULL
-              AND year IN ((SELECT max(year) FROM population_age_sex), 1994)
             ORDER BY year, sex, age""",
         "poverty": """
             SELECT population_group, year, value AS poverty_rate_pct

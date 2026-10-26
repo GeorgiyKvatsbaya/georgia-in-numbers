@@ -21,13 +21,15 @@ interface ChartCardProps {
   wide?: boolean;
   /** Explicit chart height in px, e.g. for long ranked lists. */
   chartHeight?: number;
+  /** Plain-language explanation shown under "How to read this". */
+  info?: string;
   /** Custom visual (e.g. a map) instead of `build`. */
   children?: ReactNode;
   controls?: ReactNode;
 }
 
 export function ChartCard(props: ChartCardProps) {
-  const { title, subtitle, build, rows, columns, period = "month", sources, filename, tall, wide, chartHeight, children, controls } = props;
+  const { title, subtitle, build, rows, columns, period = "month", sources, filename, tall, wide, chartHeight, info, children, controls } = props;
   const { lang, t } = useI18n();
   const label = useLabels();
   const columnLabel = useColumnLabels();
@@ -44,6 +46,12 @@ export function ChartCard(props: ChartCardProps) {
     <section className={`card chart-card${tall ? " tall" : ""}`} style={wide ? { gridColumn: "1 / -1" } : undefined}>
       <h3>{title}</h3>
       {subtitle && <p className="subtitle">{subtitle}</p>}
+      {info && (
+        <details className="chart-info">
+          <summary>{t("common.howToRead")}</summary>
+          <p>{info}</p>
+        </details>
+      )}
       {controls && <div className="chart-controls">{controls}</div>}
       {showTable ? (
         <div className="data-table-wrap">

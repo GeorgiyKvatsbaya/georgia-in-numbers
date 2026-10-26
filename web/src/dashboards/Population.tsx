@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { baseOption, categoryAxis, valueAxis, type ChartTheme } from "../components/Chart";
 import { ChartCard } from "../components/ChartCard";
+import { FilterBar, inRange, RangeFilter, SelectFilter, useParamState, useRange } from "../components/Filters";
 import { useI18n, type Lang } from "../i18n";
 import { rankedBarChart, timeSeriesChart, toSeries } from "../lib/charts";
 import type { Dashboard, Row } from "../lib/data";
@@ -31,42 +32,63 @@ function pyramidChart(lang: Lang, rows: Row[], label: (value: unknown) => string
 function PopulationBody({ dashboard }: { dashboard: Dashboard }) {
   const { lang, t } = useI18n();
   const label = useLabels();
+  const { range, setRange, start } = useRange("all");
+  const [region, setRegion] = useParamState("region", "C. Tbilisi Municipality");
+  const [yearParam, setYear] = useParamState("year", "");
   const total = useRows(dashboard, "total");
   const byRegion = useRows(dashboard, "by_region");
   const pyramid = useRows(dashboard, "pyramid");
   const poverty = useRows(dashboard, "poverty");
 
+  const regions = useMemo(() => [...new Set(byRegion.map((row) => String(row.region)))], [byRegion]);
+  const years = useMemo(() => [...new Set(pyramid.map((row) => String(row.year)))].sort().reverse(), [pyramid]);
+  const year = years.includes(yearParam) ? yearParam : years[0];
+
   const charts = useMemo(() => {
-    const latestYear = Math.max(...byRegion.map((row) => Number(row.year)));
-    const regionsLatest = byRegion.filter((row) => Number(row.year) === latestYear);
-    const pyramidYear = Math.max(...pyramid.map((row) => Number(row.year)));
-    const withStart = (rows: Row[]) => rows.map((row) => ({ ...row, period_start: `${row.year}-01-01` }));
+    const withStart = (rows: Row[]) => rows.map((row): Row => ({ ...row, period_start: `${row.year}-01-01` }));
+    const totalRows = inRange(withStart(total), start);
+    const regionsYear = byRegion.filter((row) => String(row.year) === year);
+    const regionRows = inRange(withStart(byRegion.filter((row) => row.region === region)), start);
+    const povertyRows = inRange(withStart(poverty), start);
     const groups = ["Georgia", "Urban", "Rural"];
     return {
-      total: timeSeriesChart({ lang, period: "annual", digits: 1, area: true, series: toSeries(withStart(total), "population_k") }),
-      latestYear,
-      regionsLatest,
-      regions: rankedBarChart({ lang, digits: 1, items: regionsLatest.map((row) => ({ label: label(row.region), value: row.population_k as number })) }),
-      pyramidYear,
-      pyramid: pyramidChart(lang, pyramid.filter((row) => Number(row.year) === pyramidYear), label),
+      totalRows,
+      total: timeSeriesChart({ lang, period: "annual", digits: 1, area: true, series: toSeries(totalRows, "population_k") }),
+      regionsYear,
+      regions: rankedBarChart({ lang, digits: 1, highlight: label(region), items: regionsYear.map((row) => ({ label: label(row.region), value: row.population_k as number })) }),
+      regionRows,
+      regionTrend: timeSeriesChart({ lang, period: "annual", digits: 1, area: true, series: toSeries(regionRows, "population_k") }),
+      pyramidRows: pyramid.filter((row) => String(row.year) === year),
+      pyramid: pyramidChart(lang, pyramid.filter((row) => String(row.year) === year), label),
+      povertyRows,
       poverty: timeSeriesChart({
         lang, period: "annual", unit: "%", label,
-        series: groups.flatMap((group) => toSeries(withStart(poverty.filter((row) => row.population_group === group)), "poverty_rate_pct", "population_group")),
+        series: groups.flatMap((group) => toSeries(povertyRows.filter((row) => row.population_group === group), "poverty_rate_pct", "population_group")),
       }),
     };
-  }, [lang, label, total, byRegion, pyramid, poverty]);
+  }, [lang, label, total, byRegion, pyramid, poverty, region, year, start]);
 
   return (
-    <div className="grid cols-2">
-      <ChartCard title={t("population.totalTitle")} subtitle={t("population.totalSub")} build={charts.total} period="annual"
-        rows={total} columns={["year", "population_k"]} sources={["population_by_area"]} filename="population" />
-      <ChartCard title={t("population.povertyTitle")} subtitle={t("population.povertySub")} build={charts.poverty} period="annual"
-        rows={poverty} columns={["population_group", "year", "poverty_rate_pct"]} sources={["poverty_absolute"]} filename="poverty" />
-      <ChartCard tall title={t("population.pyramidTitle")} subtitle={t("population.thousand", { year: String(charts.pyramidYear) })} build={charts.pyramid} period="annual"
-        rows={pyramid} columns={["year", "sex", "age", "population_k"]} sources={["population_age_sex"]} filename="population-age-sex" />
-      <ChartCard tall title={t("population.regionsTitle")} subtitle={t("population.thousand", { year: String(charts.latestYear) })} build={charts.regions} period="annual"
-        rows={byRegion} columns={["region", "year", "population_k"]} sources={["population_by_area"]} filename="population-by-region" />
-    </div>
+    <>
+      <FilterBar>
+        <RangeFilter range={range} setRange={setRange} />
+        <SelectFilter label={t("filters.region")} value={region} onChange={setRegion} options={regions.map((value) => ({ value, label: label(value) }))} />
+        <SelectFilter label={t("filters.year")} value={year} onChange={setYear} options={years.map((value) => ({ value, label: value }))} />
+      </FilterBar>
+      <div className="grid cols-2">
+        <ChartCard title={t("population.totalTitle")} subtitle={t("population.totalSub")} info={t("info.population")} build={charts.total} period="annual"
+          rows={charts.totalRows} columns={["year", "population_k"]} sources={["population_by_area"]} filename="population" />
+        <ChartCard title={t("population.regionTrendTitle", { region: label(region) })} subtitle={t("population.totalSub")} info={t("info.populationRegions")}
+          build={charts.regionTrend} period="annual" rows={charts.regionRows} columns={["region", "year", "population_k"]}
+          sources={["population_by_area"]} filename="population-region" />
+        <ChartCard tall title={t("population.pyramidTitle")} subtitle={t("population.thousand", { year })} info={t("info.pyramid")} build={charts.pyramid} period="annual"
+          rows={charts.pyramidRows} columns={["year", "sex", "age", "population_k"]} sources={["population_age_sex"]} filename="population-age-sex" />
+        <ChartCard tall title={t("population.regionsTitle")} subtitle={t("population.thousand", { year })} info={t("info.populationRegions")} build={charts.regions} period="annual"
+          rows={charts.regionsYear} columns={["region", "year", "population_k"]} sources={["population_by_area"]} filename="population-by-region" />
+        <ChartCard wide title={t("population.povertyTitle")} subtitle={t("population.povertySub")} info={t("info.poverty")} build={charts.poverty} period="annual"
+          rows={charts.povertyRows} columns={["population_group", "year", "poverty_rate_pct"]} sources={["poverty_absolute"]} filename="poverty" />
+      </div>
+    </>
   );
 }
 

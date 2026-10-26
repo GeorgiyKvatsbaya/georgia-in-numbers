@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { LANG_NAMES, LANGS, useI18n, type MessageKey } from "../i18n";
 import { latestRetrieval, useCatalog } from "../lib/data";
 import { formatDate } from "../lib/format";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { setTheme, useTheme } from "../lib/theme";
 
 export const TOPICS = ["prices", "wages", "labour", "economy", "trade", "population", "regions"] as const;
@@ -78,6 +79,7 @@ function LanguageSwitch() {
 
 export function Layout() {
   const { lang, t, pick } = useI18n();
+  const location = useLocation();
   const { data: catalog } = useCatalog();
   const retrieved = latestRetrieval(catalog);
 
@@ -113,7 +115,9 @@ export function Layout() {
       </header>
       <main id="main">
         <div className="container">
-          <Outlet />
+          <ErrorBoundary resetKey={location.pathname} fallback={<p className="notice">{t("common.error")}</p>}>
+            <Outlet />
+          </ErrorBoundary>
         </div>
       </main>
       <footer className="site-footer">

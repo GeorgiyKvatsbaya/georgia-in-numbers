@@ -7,15 +7,16 @@
   --surface-2: #f2f1ed;
   --ink: #0b0b0b;
   --ink-2: #52514e;
-  --muted: #898781;
+  --muted: #6c6b66;
   --grid: #e1e0d9;
   --axis: #c3c2b7;
   --border: rgba(11, 11, 11, 0.1);
   --accent: #2a78d6;
+  --accent-strong: #1c5cab;
   --accent-ink: #1c5cab;
   --accent-wash: rgba(42, 120, 214, 0.1);
   --good: #006300;
-  --bad: #d03b3b;
+  --bad: #b42a2a;
   --series-1: #2a78d6;
   --series-2: #eb6834;
   --series-3: #1baf7a;
@@ -47,6 +48,7 @@
     --axis: #383835;
     --border: rgba(255, 255, 255, 0.1);
     --accent: #3987e5;
+    --accent-strong: #256abf;
     --accent-ink: #86b6ef;
     --accent-wash: rgba(57, 135, 229, 0.14);
     --good: #0ca30c;
@@ -78,6 +80,7 @@
   --axis: #383835;
   --border: rgba(255, 255, 255, 0.1);
   --accent: #3987e5;
+  --accent-strong: #256abf;
   --accent-ink: #86b6ef;
   --accent-wash: rgba(57, 135, 229, 0.14);
   --good: #0ca30c;
@@ -422,8 +425,9 @@ a.card:hover {
 }
 
 .button.primary {
-  background: var(--accent);
-  border-color: var(--accent);
+  /* A darker step than --accent so white text clears 4.5:1 in both themes. */
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
   color: #fff;
 }
 
@@ -678,8 +682,9 @@ input.input {
   vertical-align: middle;
 }
 
-.product-table tr.active td {
-  background: var(--accent-wash);
+/* Selected row: an accent bar, not a tint, so text keeps its contrast. */
+.product-table tr.active td:first-child {
+  box-shadow: inset 3px 0 0 var(--accent);
 }
 
 .product-table th.num {
@@ -698,4 +703,101 @@ input.input {
   .hide-sm {
     display: none;
   }
+}
+
+.filter-row {
+  position: sticky;
+  top: 96px;
+  z-index: 4;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--page) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.filter .select {
+  min-width: 0;
+  /* Long option labels (sector names) must not widen the page. */
+  max-width: min(100%, 360px);
+  text-overflow: ellipsis;
+}
+
+.filter-label {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.chart-info {
+  margin: -6px 0 10px;
+  font-size: 0.88rem;
+  color: var(--ink-2);
+}
+
+.chart-info summary {
+  cursor: pointer;
+  color: var(--accent-ink);
+  width: fit-content;
+}
+
+.chart-info summary::marker {
+  content: "ⓘ ";
+}
+
+.chart-info[open] summary::marker {
+  content: "ⓘ ";
+}
+
+.chart-info p {
+  margin: 6px 0 0;
+  padding: 8px 10px;
+  background: var(--surface-2);
+  border-radius: 8px;
+  max-width: 70ch;
+}
+
+@media (max-width: 640px) {
+  .filter-row {
+    position: static;
+  }
+  .filter {
+    width: 100%;
+  }
+  .filter .select {
+    flex: 1;
+    max-width: 100%;
+  }
+  .filter .segmented {
+    flex-wrap: wrap;
+  }
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.chip {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--accent);
 }

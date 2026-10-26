@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T15:26:38+00:00",
+ "generated_at": "2026-10-26T16:10:07+00:00",
  "source": {
   "name": {
    "en": "National Statistics Office of Georgia (Geostat)",
@@ -7042,7 +7042,7 @@
    "first_period": "2014-01-01",
    "last_period": "2026-04-01",
    "file": "real_wages_quarterly.parquet",
-   "bytes": 118316
+   "bytes": 118162
   },
   {
    "name": "inflation_monthly",
@@ -7416,7 +7416,7 @@
    "first_period": "2010-01-01",
    "last_period": "2026-04-01",
    "file": "gdp_headline.parquet",
-   "bytes": 11801
+   "bytes": 11775
   },
   {
    "name": "gdp_by_activity",
@@ -7769,7 +7769,7 @@
    "first_period": "2010-01-01",
    "last_period": "2026-04-01",
    "file": "gdp_by_activity.parquet",
-   "bytes": 27474
+   "bytes": 27421
   },
   {
    "name": "labour_quarterly",
@@ -7988,7 +7988,7 @@
    "first_period": "1998-01-01",
    "last_period": "2026-04-01",
    "file": "labour_quarterly.parquet",
-   "bytes": 12716
+   "bytes": 12699
   },
   {
    "name": "labour_regional_annual",
@@ -8236,7 +8236,7 @@
    "first_period": "2003-01-01",
    "last_period": "2025-01-01",
    "file": "labour_regional_annual.parquet",
-   "bytes": 10320
+   "bytes": 10339
   },
   {
    "name": "population_by_area",
@@ -11003,7 +11003,7 @@
    "first_period": "2006-01-01",
    "last_period": "2022-01-01",
    "file": "business_by_area.parquet",
-   "bytes": 45437
+   "bytes": 45517
   }
  ]
 }

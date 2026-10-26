@@ -38,5 +38,17 @@ export function useColumnLabels(): (column: string) => string {
     }
     return labels;
   }, [catalog, lang]);
-  return (column: string) => map.get(column) ?? column;
+  return (column: string) => {
+    if (map.has(column)) return map.get(column)!;
+    // Derived USD columns (e.g. exports_mln_usd) reuse the GEL label with the currency swapped.
+    const gel = map.get(column.replace(/_usd$/, "_gel"));
+    if (gel && column.endsWith("_usd")) return gel.replace(USD_SWAP[lang][0], USD_SWAP[lang][1]);
+    return column;
+  };
 }
+
+const USD_SWAP: Record<string, [RegExp, string]> = {
+  en: [/GEL/, "USD"],
+  ka: [/ლარი/, "აშშ დოლარი"],
+  ru: [/лари/, "долл. США"],
+};

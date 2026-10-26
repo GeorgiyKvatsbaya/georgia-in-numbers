@@ -18,8 +18,9 @@ interface GeoFeature {
 
 const registered = new Set<string>();
 
+/** Features of `layer` once its boundaries are registered; null while another layer is shown. */
 function useRegisteredMap(layer: MapLayer) {
-  const [features, setFeatures] = useState<GeoFeature[] | null>(null);
+  const [loaded, setLoaded] = useState<{ layer: MapLayer; features: GeoFeature[] } | null>(null);
   useEffect(() => {
     let active = true;
     fetchJson<{ features: GeoFeature[] }>(`geo/${layer}.json`).then((geojson) => {
@@ -27,13 +28,14 @@ function useRegisteredMap(layer: MapLayer) {
         echarts.registerMap(layer, geojson as never);
         registered.add(layer);
       }
-      if (active) setFeatures(geojson.features);
+      if (active) setLoaded({ layer, features: geojson.features });
     });
     return () => {
       active = false;
     };
   }, [layer]);
-  return features;
+  // Never hand ECharts a layer whose boundaries are not registered yet (it throws).
+  return loaded?.layer === layer ? loaded.features : null;
 }
 
 interface MapChartProps {
@@ -117,5 +119,6 @@ export function MapChart({ layer, values, nameOf, label, digits = 0, unit = "" }
   );
 
   if (!features) return <div className="map" aria-busy="true" />;
-  return <Chart build={build} label={label} className="map" />;
+  // A new key per layer gives ECharts a fresh instance instead of morphing between maps.
+  return <Chart key={layer} build={build} label={label} className="map" />;
 }
