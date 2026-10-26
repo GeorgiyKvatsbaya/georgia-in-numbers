@@ -1,1 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#2a78d6"/><rect x="7" y="17" width="4" height="8" rx="1.5" fill="#fff"/><rect x="14" y="11" width="4" height="14" rx="1.5" fill="#fff"/><rect x="21" y="6" width="4" height="19" rx="1.5" fill="#fff"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Georgia in Numbers: the Georgian flag (white field, red St George's cross) with the four
+       small crosses replaced by lari signs. Lari glyph outline from Noto Sans Bold (SIL OFL 1.1). -->
+  <defs>
+    <clipPath id="r"><rect width="32" height="32" rx="7"/></clipPath>
+    <path id="lari" fill="#da291c" d="M95 0V106L190 116V120Q120 163 88.5 232.0Q57 301 57 383Q57 500 117.5 584.5Q178 669 295 697V770H370V707Q384 708 398 708Q412 708 425 707V770H500V697Q620 669 678.5 577.0Q737 485 737 350H583Q583 434 564.0 490.0Q545 546 500 573V350H425V595Q412 596 398 596Q383 596 370 595V350H295V573Q251 548 231.5 496.5Q212 445 212 370Q212 294 238.5 238.5Q265 183 312.5 153.5Q360 124 423 124H695V0Z"/>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="32" height="32" fill="#fff"/>
+    <rect x="13.9" width="4.2" height="32" fill="#da291c"/>
+    <rect y="13.9" width="32" height="4.2" fill="#da291c"/>
+    <use href="#lari" transform="translate(6.95 6.95) scale(0.0108 -0.0108) translate(-397 -385)"/>
+    <use href="#lari" transform="translate(6.95 25.05) scale(0.0108 -0.0108) translate(-397 -385)"/>
+    <use href="#lari" transform="translate(25.05 6.95) scale(0.0108 -0.0108) translate(-397 -385)"/>
+    <use href="#lari" transform="translate(25.05 25.05) scale(0.0108 -0.0108) translate(-397 -385)"/>
+  </g>
+  <rect x=".3" y=".3" width="31.4" height="31.4" rx="6.7" fill="none" stroke="#000" stroke-opacity=".12" stroke-width=".6"/>
+</svg>
