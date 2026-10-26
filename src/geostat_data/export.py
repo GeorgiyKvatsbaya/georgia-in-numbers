@@ -87,6 +87,74 @@ DASHBOARDS: dict[str, dict[str, str]] = {
             FROM property_prices_quarterly
             WHERE value IS NOT NULL
             ORDER BY dwelling_type, period_start""",
+        "measures": """
+            SELECT measure, period_start, inflation_yoy_pct
+            FROM inflation_breakdown_monthly
+            WHERE measure_type = 'measure'
+            ORDER BY measure, period_start""",
+        "components": """
+            SELECT measure AS component, period_start, inflation_yoy_pct
+            FROM inflation_breakdown_monthly
+            WHERE measure_type = 'component'
+            ORDER BY component, period_start""",
+        "producer": """
+            SELECT series, period_start, round(value, 2) AS index_2020_100
+            FROM producer_prices_monthly
+            WHERE value IS NOT NULL
+            ORDER BY series, period_start""",
+        "construction": """
+            SELECT component, period_start, round(value, 2) AS index_feb2022_100
+            FROM construction_costs_monthly
+            WHERE value IS NOT NULL
+            ORDER BY component, period_start""",
+        "agro": """
+            SELECT period_start, value AS change_yoy_pct
+            FROM agro_prices_quarterly
+            WHERE measure LIKE 'Change vs same quarter%' AND value IS NOT NULL
+            ORDER BY period_start""",
+        "basket": """
+            SELECT classification, item, value AS weight_pct
+            FROM cpi_basket_weights_annual
+            WHERE year = (SELECT max(year) FROM cpi_basket_weights_annual)
+            ORDER BY classification, value DESC""",
+        "basket_year": """
+            SELECT max(year) AS year FROM cpi_basket_weights_annual""",
+    },
+    "housing": {
+        "districts": """
+            SELECT district, dwelling_type, period_start, value AS median_price_gel_m2
+            FROM tbilisi_property_quarterly
+            WHERE value IS NOT NULL
+            ORDER BY dwelling_type, district, period_start""",
+        "latest": """
+            SELECT district, dwelling_type, period_start, median_price_gel_m2, change_yoy_pct
+            FROM tbilisi_property_latest
+            ORDER BY dwelling_type, median_price_gel_m2 DESC""",
+        "national": """
+            SELECT dwelling_type, period_start, value AS rppi_2020_100
+            FROM property_prices_quarterly
+            WHERE value IS NOT NULL
+            ORDER BY dwelling_type, period_start""",
+    },
+    "products": {
+        "latest": """
+            SELECT product, product_group, unit_of_measure, period_start, price_gel,
+                   change_yoy_pct, change_since_2020_pct, low_12m_gel, high_12m_gel
+            FROM retail_prices_latest
+            ORDER BY product_group, product""",
+        "history": """
+            SELECT product, period_start, round(value, 3) AS price_gel
+            FROM retail_prices_monthly
+            WHERE value IS NOT NULL
+            ORDER BY product, period_start""",
+    },
+    "regions": {
+        "by_area": """
+            SELECT area_level, area_code, area, region_code, indicator, year,
+                   round(value, 2) AS value
+            FROM business_by_area
+            WHERE year >= 2010
+            ORDER BY area_level, indicator, area_code, year""",
     },
     "wages": {
         "headline": """

@@ -77,7 +77,7 @@ export function Datasets() {
       {error && <p className="notice">{t("common.error")}</p>}
       {!catalog && !error && <p className="loading">{t("common.loading")}</p>}
       {catalog &&
-        TOPICS.filter((topic) => topic !== "trade").map((topic) => {
+        TOPICS.map((topic) => {
           const entries = catalog.objects.filter((entry) => entry.topic === topic);
           if (!entries.length) return null;
           return (

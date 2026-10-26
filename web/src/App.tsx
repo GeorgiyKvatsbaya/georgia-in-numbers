@@ -11,6 +11,7 @@ import { TopicPage } from "./pages/TopicPage";
 // Heavy pages (DuckDB-WASM, editor) load only when visited.
 const Explore = lazy(() => import("./pages/Explore"));
 const Sql = lazy(() => import("./pages/Sql"));
+const Products = lazy(() => import("./pages/Products"));
 
 function LanguageRoot() {
   const { lang } = useParams();
@@ -51,6 +52,14 @@ export function App() {
           {TOPICS.map((topic) => (
             <Route key={topic} path={topic} element={<TopicPage topic={topic} />} />
           ))}
+          <Route
+            path="prices/products"
+            element={
+              <Lazy>
+                <Products />
+              </Lazy>
+            }
+          />
           <Route path="data" element={<Datasets />} />
           <Route
             path="data/:name"

@@ -5,12 +5,14 @@ import { latestRetrieval, useCatalog } from "../lib/data";
 import { formatDate } from "../lib/format";
 import { setTheme, useTheme } from "../lib/theme";
 
-export const TOPICS = ["prices", "wages", "labour", "economy", "trade", "population"] as const;
+export const TOPICS = ["prices", "wages", "labour", "economy", "trade", "population", "regions"] as const;
 export type Topic = (typeof TOPICS)[number];
 
 const NAV: { path: string; key: MessageKey }[] = [
   { path: "", key: "nav.overview" },
-  ...TOPICS.map((topic) => ({ path: topic, key: `nav.${topic}` as MessageKey })),
+  { path: "prices", key: "nav.prices" },
+  { path: "prices/products", key: "nav.products" },
+  ...TOPICS.filter((topic) => topic !== "prices").map((topic) => ({ path: topic, key: `nav.${topic}` as MessageKey })),
   { path: "data", key: "nav.data" },
   { path: "sql", key: "nav.sql" },
   { path: "about", key: "nav.about" },
@@ -102,7 +104,7 @@ export function Layout() {
           </div>
           <nav className="nav" aria-label="Main">
             {NAV.map(({ path, key }) => (
-              <NavLink key={key} to={`/${lang}${path ? `/${path}` : ""}`} end={path === ""}>
+              <NavLink key={key} to={`/${lang}${path ? `/${path}` : ""}`} end={path === "" || path === "prices"}>
                 {t(key)}
               </NavLink>
             ))}

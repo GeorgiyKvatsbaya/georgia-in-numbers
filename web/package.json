@@ -2,7 +2,7 @@
   "name": "georgia-in-numbers",
   "private": true,
   "version": "0.1.0",
-  "description": "Georgia in Numbers — open analytics over official Geostat statistics (EN/KA/RU)",
+  "description": "Georgia in Numbers \u2014 open analytics over official Geostat statistics (EN/KA/RU)",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -12,7 +12,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "smoke": "node scripts/smoke.mjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "1.33.1-dev57.0",

@@ -22,8 +22,13 @@ echarts.use([
   CanvasRenderer,
 ]);
 
+export { echarts };
+
 export interface ChartTheme {
   surface: string;
+  surface2: string;
+  seqLow: string;
+  seqHigh: string;
   ink: string;
   ink2: string;
   muted: string;
@@ -37,6 +42,9 @@ export interface ChartTheme {
 export function readChartTheme(): ChartTheme {
   return {
     surface: cssVar("--surface"),
+    surface2: cssVar("--surface-2"),
+    seqLow: cssVar("--seq-low"),
+    seqHigh: cssVar("--seq-high"),
     ink: cssVar("--ink"),
     ink2: cssVar("--ink-2"),
     muted: cssVar("--muted"),
@@ -52,12 +60,13 @@ export type OptionBuilder = (theme: ChartTheme) => echarts.EChartsCoreOption;
 
 interface ChartProps {
   build: OptionBuilder;
+  height?: number;
   /** Accessible description of what the chart shows. */
   label: string;
   className?: string;
 }
 
-export function Chart({ build, label, className = "chart" }: ChartProps) {
+export function Chart({ build, label, className = "chart", height }: ChartProps) {
   const element = useRef<HTMLDivElement>(null);
   const instance = useRef<echarts.ECharts | null>(null);
   const theme = useTheme();
@@ -81,7 +90,9 @@ export function Chart({ build, label, className = "chart" }: ChartProps) {
     instance.current?.setOption(build(readChartTheme()), { notMerge: true });
   }, [build, theme]);
 
-  return <div ref={element} className={className} role="img" aria-label={label} />;
+  return (
+    <div ref={element} className={className} role="img" aria-label={label} style={height ? { height } : undefined} />
+  );
 }
 
 /** Shared chrome: recessive axes and grid, crosshair tooltip, legend only when needed. */
@@ -95,8 +106,13 @@ export function baseOption(theme: ChartTheme, seriesCount: number): echarts.ECha
     legend:
       seriesCount > 1
         ? {
+            // One scrolling row: a wrapped legend would overlap the plot.
+            type: "scroll",
             top: 0,
             left: 0,
+            right: 0,
+            pageIconColor: theme.ink2,
+            pageTextStyle: { color: theme.muted },
             icon: "roundRect",
             itemWidth: 14,
             itemHeight: 4,
@@ -114,12 +130,20 @@ export function baseOption(theme: ChartTheme, seriesCount: number): echarts.ECha
   };
 }
 
-export function timeAxis(theme: ChartTheme, formatter?: (value: number) => string) {
+const YEAR_MS = 365.25 * 24 * 3600 * 1000;
+
+/** Yearly ticks labelled with the year: language-neutral and uncluttered. */
+export function timeAxis(theme: ChartTheme) {
   return {
     type: "time",
+    minInterval: YEAR_MS,
     axisLine: { lineStyle: { color: theme.axis } },
     axisTick: { show: false },
-    axisLabel: { color: theme.muted, hideOverlap: true, formatter },
+    axisLabel: {
+      color: theme.muted,
+      hideOverlap: true,
+      formatter: (value: number) => String(new Date(value).getUTCFullYear()),
+    },
     splitLine: { show: false },
   };
 }

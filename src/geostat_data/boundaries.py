@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 from shapely import make_valid, set_precision
-from shapely.geometry import mapping, shape
+from shapely.geometry import MultiPolygon, Polygon, mapping, shape
 from shapely.ops import unary_union
 
 from .database import PROJECT_ROOT
@@ -45,9 +45,23 @@ def fetch_layer(client: PoliteClient, layer: str) -> list[dict[str, Any]]:
     return client.get_json("", params)["features"]
 
 
+def polygonal(geometry):
+    """Keep only polygon parts: make_valid / set_precision can emit GeometryCollections with
+    stray lines or points, which web map renderers reject."""
+    if isinstance(geometry, Polygon | MultiPolygon):
+        return geometry
+    parts = [
+        part
+        for item in getattr(geometry, "geoms", [])
+        for part in (item.geoms if isinstance(item, MultiPolygon) else [item])
+        if isinstance(part, Polygon) and not part.is_empty
+    ]
+    return parts[0] if len(parts) == 1 else MultiPolygon(parts)
+
+
 def simplify(geometry, tolerance: float):
     geometry = make_valid(geometry).simplify(tolerance, preserve_topology=True)
-    return set_precision(geometry, PRECISION)
+    return polygonal(set_precision(polygonal(geometry), PRECISION))
 
 
 def feature(geometry, properties: dict[str, Any]) -> dict[str, Any]:

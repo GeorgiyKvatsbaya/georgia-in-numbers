@@ -122,6 +122,16 @@ class BoundaryTests(unittest.TestCase):
         self.assertAlmostEqual(shape(features["2325"]["geometry"]).area, 2.0, places=3)
         self.assertAlmostEqual(shape(features["11"]["geometry"]).area, 2.0, places=3)
 
+    def test_only_polygon_geometries(self) -> None:
+        from shapely.geometry import GeometryCollection, LineString
+
+        from geostat_data.boundaries import polygonal
+
+        mixed = GeometryCollection([box(0, 0, 1, 1), LineString([(2, 2), (3, 3)]), box(4, 4, 5, 5)])
+        self.assertEqual(polygonal(mixed).geom_type, "MultiPolygon")
+        for feature in build_municipalities(_municipal_layer())["features"]:
+            self.assertIn(feature["geometry"]["type"], {"Polygon", "MultiPolygon"})
+
     def test_tbilisi_districts_use_prices_api_names(self) -> None:
         ids = [f["properties"]["id"] for f in build_tbilisi_districts(_municipal_layer())["features"]]
         self.assertEqual(ids, ["Gldani", "Vake"])
