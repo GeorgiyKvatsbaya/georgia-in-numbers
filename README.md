@@ -2,9 +2,11 @@
 
 This project builds a small, local [DuckDB](https://duckdb.org/) database from the
 [National Statistics Office of Georgia (Geostat)](https://www.geostat.ge/) PXWeb API.
-It registers 14 Geostat tables (wages, labour force, prices, GDP, FDI, population, poverty)
-plus derived views such as inflation-adjusted wages, and publishes them as static files for
-the **Georgia in Numbers** web app (`web/`).
+It registers 24 tables from three Geostat sources — the PXWeb statistical database, the price
+statistics portal API (shop prices, inflation breakdown, producer and construction prices,
+Tbilisi housing) and the GeoMap API (business statistics by region and municipality) — plus
+derived views such as inflation-adjusted wages, and publishes them as static files for the
+**Georgia in Numbers** web app (`web/`). Each entry in `datasets.json` names its `source`.
 
 No dataset is downloaded automatically. You choose exactly what to sync.
 
@@ -32,10 +34,22 @@ geostat sync all
 The result is `data/geostat.duckdb`. Re-running a sync atomically replaces only that
 dataset's table and refreshes its metadata.
 
+GeoMap datasets refresh at most every 30 days (`max_age_days`) and a failure there keeps the
+previous table instead of stopping the refresh. `geostat sync all --force` ignores the age limit.
+
+## Map boundaries
+
+```bash
+geostat boundaries   # Geostat GeoServer -> simplified GeoJSON in web/public/data/geo/
+```
+
+Run it only when boundaries change; the output is committed.
+
 ## Publish for the web app
 
 ```bash
 geostat check    # data-quality gates vs the last export (row drops, stale periods, identities)
+geostat check --cross-source   # also compare GeoMap figures with PXWeb (network)
 geostat export   # Parquet + catalog.json + dashboards/*.json -> web/public/data/
 ```
 

@@ -390,7 +390,7 @@ def export(
                     "sources": [
                         {
                             "url": source_url,
-                            "web_url": geostat_web_url(source_path),
+                            "web_url": definition.get("web_url") or geostat_web_url(source_path),
                             "path": source_path,
                             "retrieved_at": json_value(retrieved_at),
                         }

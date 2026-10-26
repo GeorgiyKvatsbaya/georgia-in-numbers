@@ -7,5 +7,9 @@
   "region": "რეგიონი",
   "municipality": "მუნიციპალიტეტი",
   "Flats": "ბინები",
-  "Detached houses": "ინდივიდუალური სახლები"
+  "Detached houses": "ინდივიდუალური სახლები",
+  "component": "კომპონენტი",
+  "measure": "მაჩვენებელი",
+  "Turnover per person employed, thousand GEL": "ბრუნვა ერთ დასაქმებულზე, ათასი ლარი",
+  "Value added per person employed, thousand GEL": "დამატებული ღირებულება ერთ დასაქმებულზე, ათასი ლარი"
 }

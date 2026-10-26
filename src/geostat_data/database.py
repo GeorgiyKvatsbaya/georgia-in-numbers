@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -9,6 +10,7 @@ import duckdb
 import pandas as pd
 
 from .client import GeostatClient
+from .sources import gis_api, prices_api
 from .views import refresh_views
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -74,12 +76,18 @@ def parse_period(row: dict[str, Any]) -> tuple[Any, ...]:
         return None, None, None, None, False
     if row.get("month") is not None:
         label = str(row["month"]).strip()
-        month = ROMAN_NUMERALS.get(label) or MONTH_NAMES.get(label.lower())
+        month = (
+            ROMAN_NUMERALS.get(label)
+            or MONTH_NAMES.get(label.lower())
+            or (int(label) if label.isdigit() and 1 <= int(label) <= 12 else None)
+        )
         if month:
             return int(year), "month", (month + 2) // 3, month, False
         return int(year), ("annual" if label.lower() in ANNUAL_LABELS else None), None, None, False
     if row.get("quarter") is not None:
         label = re.sub(r"^Q\s*", "", str(row["quarter"]).strip())
+        if label in ("1", "2", "3", "4"):
+            return int(year), "quarter", int(label), None, False
         if label in ROMAN_NUMERALS and ROMAN_NUMERALS[label] <= 4:
             return int(year), "quarter", ROMAN_NUMERALS[label], None, False
         if label.lower() in ANNUAL_LABELS or str(row["quarter"]).strip().lower() in ANNUAL_LABELS:
@@ -199,6 +207,67 @@ def resolve_path(definition: dict[str, Any], client: GeostatClient) -> str:
     return f"{definition['folder']}/{matches[0]}"
 
 
+SOURCE_NAME = "National Statistics Office of Georgia (Geostat)"
+
+
+def fetch_dataset(
+    definition: dict[str, Any], language: str = "en"
+) -> tuple[pd.DataFrame, dict[str, Any], list[list[Any]]]:
+    """Download one registered dataset from its source.
+
+    Returns the raw frame, provenance for `metadata.datasets`, and label rows
+    (source_code, column, label, value_id, value_label, language) for `metadata.dimensions`.
+    """
+    source = definition.get("source", "pxweb")
+    retrieved_at = datetime.now(UTC).isoformat()
+    if source == "pxweb":
+        client = GeostatClient(language=language)
+        path = resolve_path(definition, client)
+        metadata = client.metadata(path)
+        # Georgian labels share value IDs and dimension order with the English metadata.
+        metadata_ka = GeostatClient(language="ka").metadata(path)
+        frame, provenance = client.fetch(path)
+        renames = definition.get("rename", {})
+        labels: list[list[Any]] = []
+        for variable, variable_ka in zip(metadata["variables"], metadata_ka["variables"]):
+            column = sql_name(variable["code"])
+            column = renames.get(column, column)
+            for meta, lang in [(variable, "en"), (variable_ka, "ka")]:
+                for value_id, value_label in zip(meta["values"], meta["valueTexts"]):
+                    labels.append(
+                        [variable["code"], column, meta["text"], value_id, clean_label(value_label), lang]
+                    )
+        info = {
+            "title": metadata.get("title"),
+            "title_ka": metadata_ka.get("title"),
+            "source_url": provenance["source_url"],
+            "source_path": path,
+            "retrieved_at": provenance["retrieved_at"],
+        }
+        return frame, info, labels
+
+    if source == "prices_api":
+        result = prices_api.fetch(definition["resource"])
+    elif source == "gis_api":
+        result = gis_api.fetch(definition["level"])
+    else:
+        raise ValueError(f"Unknown source {source!r}")
+    labels = []
+    # Adapters may emit the same label once per row (e.g. a product group); keep one each.
+    for column, value_id, english, georgian in dict.fromkeys(result.labels):
+        labels.append([column, column, column, value_id, clean_label(english), "en"])
+        labels.append([column, column, column, value_id, clean_label(georgian), "ka"])
+    title = definition.get("title", {})
+    info = {
+        "title": localized(definition, "title"),
+        "title_ka": title.get("ka") if isinstance(title, dict) else None,
+        "source_url": result.source_url,
+        "source_path": result.source_path,
+        "retrieved_at": retrieved_at,
+    }
+    return result.frame, info, labels
+
+
 def sync_dataset(
     dataset: str,
     database: Path = DEFAULT_DATABASE,
@@ -209,12 +278,7 @@ def sync_dataset(
     if dataset not in registry:
         raise KeyError(f"Unknown dataset {dataset!r}. Choose from: {', '.join(registry)}")
     definition = registry[dataset]
-    client = GeostatClient(language=language)
-    path = resolve_path(definition, client)
-    metadata = client.metadata(path)
-    # Georgian labels share value IDs and dimension order with the English metadata.
-    metadata_ka = GeostatClient(language="ka").metadata(path)
-    frame, provenance = client.fetch(path)
+    frame, info, labels = fetch_dataset(definition, language)
     frame = prepare_frame(frame, dataset, definition.get("rename"))
 
     database.parent.mkdir(parents=True, exist_ok=True)
@@ -233,39 +297,44 @@ def sync_dataset(
             [
                 dataset,
                 definition["table"],
-                metadata.get("title"),
+                info["title"],
                 localized(definition, "description"),
                 definition["grain"],
                 localized(definition, "unit"),
-                provenance["source"],
-                provenance["source_url"],
-                path,
+                SOURCE_NAME,
+                info["source_url"],
+                info["source_path"],
                 language,
-                provenance["retrieved_at"],
+                info["retrieved_at"],
                 len(frame),
                 definition.get("topic"),
-                metadata_ka.get("title"),
+                info["title_ka"],
             ],
         )
         connection.execute("DELETE FROM metadata.dimensions WHERE dataset = ?", [dataset])
-        renames = definition.get("rename", {})
-        dimension_rows: list[list[Any]] = []
-        for variable, variable_ka in zip(metadata["variables"], metadata_ka["variables"]):
-            column = sql_name(variable["code"])
-            column = renames.get(column, column)
-            for source, lang in [(variable, "en"), (variable_ka, "ka")]:
-                for value_id, value_label in zip(source["values"], source["valueTexts"]):
-                    dimension_rows.append(
-                        [dataset, variable["code"], column, source["text"], value_id,
-                         clean_label(value_label), lang]
-                    )
         connection.executemany(
             "INSERT INTO metadata.dimensions (dataset, source_code, column_name, label, value_id, "
             "value_label, language) VALUES (?, ?, ?, ?, ?, ?, ?)",
-            dimension_rows,
+            [[dataset, *row] for row in labels],
         )
         refresh_views(connection)
     return len(frame)
+
+
+def dataset_age_days(dataset: str, database: Path = DEFAULT_DATABASE) -> float | None:
+    """Days since the dataset was last synced, or None if it never was."""
+    if not database.exists():
+        return None
+    with duckdb.connect(str(database), read_only=True) as connection:
+        try:
+            row = connection.execute(
+                "SELECT retrieved_at FROM metadata.datasets WHERE dataset = ?", [dataset]
+            ).fetchone()
+        except duckdb.CatalogException:
+            return None
+    if not row or row[0] is None:
+        return None
+    return (datetime.now(UTC) - row[0]).total_seconds() / 86400
 
 
 def database_overview(database: Path = DEFAULT_DATABASE) -> str:

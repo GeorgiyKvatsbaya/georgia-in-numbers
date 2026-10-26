@@ -71,6 +71,29 @@ non-adjacent periods. Months are Roman numerals stored as text, so sort them exp
 | `population_age_sex` | `age`, year, `sex` | thousand persons; `Total` / `Both Sexes` are aggregates |
 | `poverty_absolute` | `population_group`, year | percent below the absolute poverty line; groups overlap (area, age, sex) |
 
+### Prices portal tables (source `prices_api`, https://prices-api.geostat.ge)
+
+| Table | Dimensions | Unit / notes |
+|---|---|---|
+| `retail_prices_monthly` | `product`, `product_group`, `unit_of_measure`, year, `month` | average shop price, GEL per `unit_of_measure` (101 products, 2020+) |
+| `inflation_measures_monthly` | `measure`, year, `month` | % YoY: headline CPI, core, HICP, durable / semi-durable / non-durable goods, services |
+| `inflation_components_monthly` | `component`, year, `month` | index, December 2020 = 100 (food, energy, non-energy goods, services) |
+| `cpi_basket_weights_annual` | `classification`, `item`, year | % of the CPI basket; each classification sums to 100 per year |
+| `producer_prices_monthly` | `series`, year, `month` | index, 2020 average = 100 (PPI, export, import, services PPI) |
+| `construction_costs_monthly` | `component`, year, `month` | index, February 2022 = 100 |
+| `agro_prices_quarterly` | `measure`, year, `quarter` | % change of the agricultural unit value index |
+| `tbilisi_property_quarterly` | `district`, `dwelling_type`, year, `quarter` | median GEL per m², 10 Tbilisi districts, 2021+ |
+
+The headline CPI here equals PXWeb `inflation_monthly` (PXWeb rounds older months to 0.1).
+
+### GeoMap tables (source `gis_api`, https://gis-api.geostat.ge — data end in 2022)
+
+`business_regional_annual` (`indicator`, `region`, `region_code`, year) and
+`business_municipal_annual` (`indicator`, `municipality`, `municipality_code`, `region_code`,
+year). The unit is part of each `indicator` label (million GEL, GEL per month, or persons).
+Figures equal PXWeb Business Statistics. The municipal table omits Tbilisi's values — use the
+`business_by_area` view. Codes match the map files in `web/public/data/geo/`.
+
 External trade tables on the PXWeb API stop in 2020, so they are not registered. Use
 exports/imports of goods and services from `gdp_by_use` / `gdp_headline` instead.
 
@@ -109,6 +132,14 @@ The `Public sector` / `Non-public sector` breakdowns by activity exist only as a
   thousands with `_k` suffix) by population group or region.
 - `population_by_area`: population with `area_level` (`country`/`region`/`municipality`)
   and parent `region`; regions sum to the country, municipalities to their region.
+
+- `retail_prices_latest`: one row per product with latest price, YoY %, change since Jan 2020,
+  12-month low/high.
+- `inflation_breakdown_monthly`: YoY % for every inflation measure and CPI component
+  (`measure_type` = `measure` or `component`; "Services" exists in both and agrees).
+- `tbilisi_property_latest`: latest quarter by district and dwelling type with YoY change.
+- `business_by_area`: regions and municipalities (`area_level`) with Tbilisi filled in for
+  municipalities, plus turnover and value added per person employed (thousand GEL).
 
 ## Analysis rules
 

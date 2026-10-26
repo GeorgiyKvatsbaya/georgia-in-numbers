@@ -6,7 +6,13 @@ from pathlib import Path
 
 from .checks import run_checks
 from .client import GeostatClient
-from .database import DEFAULT_DATABASE, database_overview, load_registry, sync_dataset
+from .database import (
+    DEFAULT_DATABASE,
+    database_overview,
+    dataset_age_days,
+    load_registry,
+    sync_dataset,
+)
 from .export import DEFAULT_OUTPUT, export
 
 
@@ -35,6 +41,9 @@ def parser() -> argparse.ArgumentParser:
     sync = subparsers.add_parser("sync", help="Load selected registered datasets into DuckDB")
     sync.add_argument("datasets", nargs="+", help="Names from datasets.json, or 'all'")
     sync.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
+    sync.add_argument(
+        "--force", action="store_true", help="Ignore max_age_days and refresh every dataset"
+    )
 
     overview = subparsers.add_parser("describe-db", help="Print LLM-friendly database context")
     overview.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
@@ -42,6 +51,15 @@ def parser() -> argparse.ArgumentParser:
     check = subparsers.add_parser("check", help="Run data-quality gates against the last export")
     check.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
     check.add_argument("--out", type=Path, default=DEFAULT_OUTPUT)
+    check.add_argument(
+        "--cross-source",
+        action="store_true",
+        help="Also compare GeoMap API figures with PXWeb (makes network requests)",
+    )
+
+    subparsers.add_parser(
+        "boundaries", help="Download and simplify map boundaries into web/public/data/geo"
+    )
 
     publish = subparsers.add_parser("export", help="Write Parquet, catalog and dashboard JSON")
     publish.add_argument("--database", type=Path, default=DEFAULT_DATABASE)
@@ -72,19 +90,45 @@ def main() -> None:
         )
         print(f"Saved {csv_path}\nSaved {metadata_path}")
     elif args.command == "sync":
-        names = list(load_registry()) if args.datasets == ["all"] else args.datasets
+        registry = load_registry()
+        sync_all = args.datasets == ["all"]
+        names = list(registry) if sync_all else args.datasets
+        failed = []
         for name in names:
-            rows = sync_dataset(name, args.database, language=args.language)
+            definition = registry.get(name, {})
+            max_age = definition.get("max_age_days")
+            age = dataset_age_days(name, args.database)
+            if sync_all and not args.force and max_age and age is not None and age < max_age:
+                print(f"Skipped {name}: synced {age:.0f} days ago (max_age_days={max_age})")
+                continue
+            try:
+                rows = sync_dataset(name, args.database, language=args.language)
+            except Exception as error:
+                if not definition.get("tolerate_failure"):
+                    raise
+                # Fragile sources keep their previous table; the refresh carries on.
+                failed.append(name)
+                print(f"WARN {name}: sync failed, keeping previous data ({error})")
+                continue
             print(f"Synced {name}: {rows:,} rows -> {args.database}")
+        if failed:
+            print(f"Finished with {len(failed)} tolerated failure(s): {', '.join(failed)}")
     elif args.command == "describe-db":
         print(database_overview(args.database))
     elif args.command == "check":
-        failures = run_checks(args.database, args.out / "catalog.json")
+        failures = run_checks(
+            args.database, args.out / "catalog.json", cross_source=args.cross_source
+        )
         for failure in failures:
             print(f"FAIL {failure}")
         if failures:
             raise SystemExit(1)
         print("All checks passed")
+    elif args.command == "boundaries":
+        from .boundaries import build_boundaries  # shapely is only needed here
+
+        for name, size in build_boundaries().items():
+            print(f"Wrote {name}.json ({size / 1024:,.0f} KiB)")
     elif args.command == "export":
         catalog = export(args.database, args.out)
         size = sum(entry["bytes"] for entry in catalog["objects"])

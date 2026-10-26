@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T14:37:26+00:00",
+ "generated_at": "2026-10-26T15:24:24+00:00",
  "source": {
   "name": {
    "en": "National Statistics Office of Georgia (Geostat)",
@@ -3459,6 +3459,3264 @@
    "bytes": 2200
   },
   {
+   "name": "retail_prices_monthly",
+   "kind": "table",
+   "dataset": "retail_prices",
+   "topic": "prices",
+   "title": {
+    "en": "Average shop prices of 101 products",
+    "ka": "101 პროდუქტის საშუალო ფასები",
+    "ru": "Средние цены на 101 товар"
+   },
+   "description": {
+    "en": "Average monthly retail price of 101 everyday products (bread, dairy, meat, fruit and vegetables, fuel, drinks…) since 2020, from Geostat's price statistics portal.",
+    "ka": "101 ყოველდღიური პროდუქტის (პური, რძის ნაწარმი, ხორცი, ხილი და ბოსტნეული, საწვავი, სასმელები…) საშუალო თვიური საცალო ფასი 2020 წლიდან.",
+    "ru": "Средняя месячная розничная цена 101 повседневного товара (хлеб, молочные продукты, мясо, овощи и фрукты, топливо, напитки…) с 2020 года."
+   },
+   "unit": {
+    "en": "GEL per unit shown in unit_of_measure",
+    "ka": "ლარი unit_of_measure-ში მითითებულ ერთეულზე",
+    "ru": "Лари за единицу, указанную в unit_of_measure"
+   },
+   "grain": "One row per product × month",
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/avg-prices?lang=en",
+     "path": "avg-prices; product-history/{product_id}",
+     "retrieved_at": "2026-10-26T19:17:26.701670+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "product",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Product",
+      "ka": "პროდუქტი",
+      "ru": "Товар"
+     },
+     "values": [
+      {
+       "en": "Rice",
+       "ka": "ბრინჯი",
+       "ru": "Рис"
+      },
+      {
+       "en": "Buckwheat",
+       "ka": "წიწიბურა",
+       "ru": "Гречка"
+      },
+      {
+       "en": "Manna-croup",
+       "ka": "მანანის ბურღული",
+       "ru": "Манная крупа"
+      },
+      {
+       "en": "Wheat bread",
+       "ka": "ხორბლის პური",
+       "ru": "Пшеничный хлеб"
+      },
+      {
+       "en": "Macaroni products",
+       "ka": "მაკარონი და მაკარონის ნაწარმი",
+       "ru": "Макаронные изделия"
+      },
+      {
+       "en": "Vermicelli",
+       "ka": "ვერმიშელი",
+       "ru": "Вермишель"
+      },
+      {
+       "en": "Cookies",
+       "ka": "ნამცხვარი",
+       "ru": "Печенье"
+      },
+      {
+       "en": "Waffle",
+       "ka": "ვაფლი კრემით",
+       "ru": "Вафли"
+      },
+      {
+       "en": "Rusk",
+       "ka": "ორცხობილა",
+       "ru": "Сухари"
+      },
+      {
+       "en": "Khachapuri at a bakery",
+       "ka": "ხაჭაპური საცხობში",
+       "ru": "Хачапури в пекарне"
+      },
+      {
+       "en": "Wheat flour",
+       "ka": "ხორბლის ფქვილი",
+       "ru": "Пшеничная мука"
+      },
+      {
+       "en": "Corn flour",
+       "ka": "სიმინდის ფქვილი",
+       "ru": "Кукурузная мука"
+      },
+      {
+       "en": "Beef",
+       "ka": "ძროხის ხორცი",
+       "ru": "Говядина"
+      },
+      {
+       "en": "Mincemeat",
+       "ka": "ძროხის ხორცის ფარში",
+       "ru": "Фарш"
+      },
+      {
+       "en": "Pork",
+       "ka": "ღორის ხორცი",
+       "ru": "Свинина"
+      },
+      {
+       "en": "Chicken meat",
+       "ka": "ქათმის ხორცი",
+       "ru": "Курятина"
+      },
+      {
+       "en": "Frozen chicken meat",
+       "ka": "გაყინული ქათმის ხორცი",
+       "ru": "Замороженная курятина"
+      },
+      {
+       "en": "Chicken legs",
+       "ka": "ქათმის ბარკლები",
+       "ru": "Куриные окорочка"
+      },
+      {
+       "en": "Smoked meat",
+       "ka": "შებოლილი ხორცი",
+       "ru": "Копчёное мясо"
+      },
+      {
+       "en": "Meat dumplings (semi-prepared food)",
+       "ka": "პელმენი (ნახევარფაბრიკატი)",
+       "ru": "Пельмени (полуфабрикат)"
+      },
+      {
+       "en": "Canned stew meat",
+       "ka": "მოშუშული ხორცის კონსერვი",
+       "ru": "Тушёнка"
+      },
+      {
+       "en": "Smoked sausage",
+       "ka": "შებოლილი ძეხვი",
+       "ru": "Копчёная колбаса"
+      },
+      {
+       "en": "Boiled sausage",
+       "ka": "მოხარშული ძეხვი",
+       "ru": "Варёная колбаса"
+      },
+      {
+       "en": "Sausage (frankfurter)",
+       "ka": "სოსისი",
+       "ru": "Сосиски"
+      },
+      {
+       "en": "Fresh fish",
+       "ka": "ახალი თევზი",
+       "ru": "Свежая рыба"
+      },
+      {
+       "en": "Frozen fish",
+       "ka": "გაყინული თევზი",
+       "ru": "Замороженная рыба"
+      },
+      {
+       "en": "Smoked fish",
+       "ka": "შებოლილი თევზი",
+       "ru": "Копчёная рыба"
+      },
+      {
+       "en": "Canned fish",
+       "ka": "თევზის კონსერვი",
+       "ru": "Рыбные консервы"
+      },
+      {
+       "en": "Manufactured milk",
+       "ka": "ქარხნული რძე",
+       "ru": "Молоко заводское"
+      },
+      {
+       "en": "Condensed milk and milk containing product",
+       "ka": "შესქელებული რძე და რძის შემცველი პროდუქტი",
+       "ru": "Сгущённое молоко и молокосодержащие продукты"
+      },
+      {
+       "en": "Matsoni (fermented milk)",
+       "ka": "მაწონი",
+       "ru": "Мацони"
+      },
+      {
+       "en": "Yogurt",
+       "ka": "იოგურტი",
+       "ru": "Йогурт"
+      },
+      {
+       "en": "Cheese Imeruli",
+       "ka": "იმერული ყველი",
+       "ru": "Сыр имерули"
+      },
+      {
+       "en": "Cheese Sulguni",
+       "ka": "სულგუნი",
+       "ru": "Сыр сулугуни"
+      },
+      {
+       "en": "Cottage cheese",
+       "ka": "ხაჭო",
+       "ru": "Творог"
+      },
+      {
+       "en": "Sour cream",
+       "ka": "არაჟანი",
+       "ru": "Сметана"
+      },
+      {
+       "en": "Egg",
+       "ka": "კვერცხი",
+       "ru": "Яйца"
+      },
+      {
+       "en": "Butter and spread",
+       "ka": "კარაქი და სპრედი",
+       "ru": "Сливочное масло и спреды"
+      },
+      {
+       "en": "Margarine",
+       "ka": "მარგარინი",
+       "ru": "Маргарин"
+      },
+      {
+       "en": "Mayonnaise",
+       "ka": "მაიონეზი",
+       "ru": "Майонез"
+      },
+      {
+       "en": "Sunflower oil",
+       "ka": "მზესუმზირის ზეთი",
+       "ru": "Подсолнечное масло"
+      },
+      {
+       "en": "Walnuts",
+       "ka": "ნიგოზი",
+       "ru": "Грецкие орехи"
+      },
+      {
+       "en": "Tangerine",
+       "ka": "მანდარინი",
+       "ru": "Мандарины"
+      },
+      {
+       "en": "Orange",
+       "ka": "ფორთოხალი",
+       "ru": "Апельсины"
+      },
+      {
+       "en": "Lemon",
+       "ka": "ლიმონი",
+       "ru": "Лимоны"
+      },
+      {
+       "en": "Kiwi",
+       "ka": "კივი",
+       "ru": "Киви"
+      },
+      {
+       "en": "Banana",
+       "ka": "ბანანი",
+       "ru": "Бананы"
+      },
+      {
+       "en": "Apple",
+       "ka": "ვაშლი",
+       "ru": "Яблоки"
+      },
+      {
+       "en": "Pear",
+       "ka": "მსხალი",
+       "ru": "Груши"
+      },
+      {
+       "en": "Grapes",
+       "ka": "ყურძენი",
+       "ru": "Виноград"
+      },
+      {
+       "en": "Plum",
+       "ka": "ქლიავი",
+       "ru": "Сливы"
+      },
+      {
+       "en": "Peach",
+       "ka": "ატამი",
+       "ru": "Персики"
+      },
+      {
+       "en": "Raisin",
+       "ka": "ქიშმიში",
+       "ru": "Изюм"
+      },
+      {
+       "en": "Greens (herb)",
+       "ka": "მწვანილი",
+       "ru": "Зелень"
+      },
+      {
+       "en": "Green beans",
+       "ka": "მწვანე ლობიო",
+       "ru": "Стручковая фасоль"
+      },
+      {
+       "en": "Cabbage",
+       "ka": "კომბოსტო",
+       "ru": "Капуста"
+      },
+      {
+       "en": "Cucumber",
+       "ka": "კიტრი",
+       "ru": "Огурцы"
+      },
+      {
+       "en": "Tomato",
+       "ka": "პომიდორი",
+       "ru": "Помидоры"
+      },
+      {
+       "en": "Eggplant",
+       "ka": "ბადრიჯანი",
+       "ru": "Баклажаны"
+      },
+      {
+       "en": "Pepper",
+       "ka": "წიწაკა",
+       "ru": "Перец"
+      },
+      {
+       "en": "Carrot",
+       "ka": "სტაფილო",
+       "ru": "Морковь"
+      },
+      {
+       "en": "Beet",
+       "ka": "ჭარხალი",
+       "ru": "Свёкла"
+      },
+      {
+       "en": "Onion",
+       "ka": "ხახვი",
+       "ru": "Лук"
+      },
+      {
+       "en": "Garlic",
+       "ka": "ნიორი",
+       "ru": "Чеснок"
+      },
+      {
+       "en": "Watermelon",
+       "ka": "საზამთრო",
+       "ru": "Арбузы"
+      },
+      {
+       "en": "Canned vegetables",
+       "ka": "ბოსტნეულის კონსერვი",
+       "ru": "Овощные консервы"
+      },
+      {
+       "en": "Tomato paste",
+       "ka": "ტომატ-პასტა",
+       "ru": "Томатная паста"
+      },
+      {
+       "en": "Pickled cucumber",
+       "ka": "კიტრის მწნილი",
+       "ru": "Солёные огурцы"
+      },
+      {
+       "en": "Potatoes",
+       "ka": "კარტოფილი",
+       "ru": "Картофель"
+      },
+      {
+       "en": "Dry beans",
+       "ka": "ლობიო ხმელი",
+       "ru": "Сухая фасоль"
+      },
+      {
+       "en": "Spices",
+       "ka": "სანელებლები",
+       "ru": "Специи"
+      },
+      {
+       "en": "Sugar",
+       "ka": "შაქარი",
+       "ru": "Сахар"
+      },
+      {
+       "en": "Honey",
+       "ka": "თაფლი",
+       "ru": "Мёд"
+      },
+      {
+       "en": "Chocolate bar",
+       "ka": "შოკოლადის ფილა",
+       "ru": "Шоколадный батончик"
+      },
+      {
+       "en": "Caramel",
+       "ka": "კარამელი",
+       "ru": "Карамель"
+      },
+      {
+       "en": "Chewing gum",
+       "ka": "საღეჭი რეზინა",
+       "ru": "Жевательная резинка"
+      },
+      {
+       "en": "Ice-cream",
+       "ka": "ნაყინი",
+       "ru": "Мороженое"
+      },
+      {
+       "en": "Baby food",
+       "ka": "ბავშვის საკვები",
+       "ru": "Детское питание"
+      },
+      {
+       "en": "Ketchup",
+       "ka": "კეტჩუპი",
+       "ru": "Кетчуп"
+      },
+      {
+       "en": "Mustard",
+       "ka": "მდოგვი",
+       "ru": "Горчица"
+      },
+      {
+       "en": "Salt",
+       "ka": "მარილი",
+       "ru": "Соль"
+      },
+      {
+       "en": "Yeast",
+       "ka": "საფუარი",
+       "ru": "Дрожжи"
+      },
+      {
+       "en": "Ground coffee",
+       "ka": "ყავა დაფქული",
+       "ru": "Молотый кофе"
+      },
+      {
+       "en": "Instant coffee",
+       "ka": "ხსნადი ყავა",
+       "ru": "Растворимый кофе"
+      },
+      {
+       "en": "Tea leaves",
+       "ka": "ფოთლოვანი ჩაი",
+       "ru": "Листовой чай"
+      },
+      {
+       "en": "Tea bags",
+       "ka": "ჩაი ერთჯერად პაკეტებში",
+       "ru": "Чай в пакетиках"
+      },
+      {
+       "en": "Cocoa",
+       "ka": "კაკაო",
+       "ru": "Какао"
+      },
+      {
+       "en": "Mineral water (sparkling)",
+       "ka": "მინერალური წყალი (გაზირებული)",
+       "ru": "Минеральная вода (газированная)"
+      },
+      {
+       "en": "Mineral water (still)",
+       "ka": "მინერალური წყალი (არაგაზირებული)",
+       "ru": "Минеральная вода (негазированная)"
+      },
+      {
+       "en": "Lemonade",
+       "ka": "ლიმონათი",
+       "ru": "Лимонад"
+      },
+      {
+       "en": "Drinks of Coca-cola type",
+       "ka": "კოლას ტიპის სასმელები",
+       "ru": "Напитки типа кока-колы"
+      },
+      {
+       "en": "Fruit juice",
+       "ka": "ხილის წვენები",
+       "ru": "Фруктовый сок"
+      },
+      {
+       "en": "Vodka",
+       "ka": "არაყი",
+       "ru": "Водка"
+      },
+      {
+       "en": "Brandy",
+       "ka": "კონიაკი",
+       "ru": "Коньяк"
+      },
+      {
+       "en": "Non-bottled wine",
+       "ka": "ღვინო ჩამოსასხმელი",
+       "ru": "Разливное вино"
+      },
+      {
+       "en": "Bottled wine",
+       "ka": "ღვინო ბოთლებში ჩამოსხმული",
+       "ru": "Вино в бутылках"
+      },
+      {
+       "en": "Beer",
+       "ka": "ლუდი",
+       "ru": "Пиво"
+      },
+      {
+       "en": "Imported filtered cigarette",
+       "ka": "იმპორტული წარმოების ფილტრიანი სიგარეტი",
+       "ru": "Импортные сигареты с фильтром"
+      },
+      {
+       "en": "Gasoline",
+       "ka": "ბენზინი",
+       "ru": "Бензин"
+      },
+      {
+       "en": "Diesel fuel",
+       "ka": "დიზელის საწვავი",
+       "ru": "Дизельное топливо"
+      },
+      {
+       "en": "Gas fuel",
+       "ka": "გაზის საწვავი",
+       "ru": "Газовое топливо"
+      }
+     ]
+    },
+    {
+     "name": "product_group",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Product group",
+      "ka": "სასაქონლო ჯგუფი",
+      "ru": "Группа товаров"
+     },
+     "values": [
+      {
+       "en": "Alcoholic Beverages and Tobacco",
+       "ka": "ალკოჰოლური სასმელები და თამბაქო",
+       "ru": "Алкогольные напитки и табак"
+      },
+      {
+       "en": "Bread and Grain Products",
+       "ka": "პური და პურპროდუქტები",
+       "ru": "Хлеб и крупы"
+      },
+      {
+       "en": "Coffee, Tea and Soft Drinks",
+       "ka": "ყავა, ჩაი, გამაგრილებელი სასმელები",
+       "ru": "Кофе, чай и безалкогольные напитки"
+      },
+      {
+       "en": "Fats and Oils",
+       "ka": "ცხიმები და ზეთები",
+       "ru": "Жиры и масла"
+      },
+      {
+       "en": "Fish and Fish Products",
+       "ka": "თევზი და თევზის პროდუქტები",
+       "ru": "Рыба и рыбные продукты"
+      },
+      {
+       "en": "Fruits and Vegetables",
+       "ka": "ხილი და ბოსტნეული",
+       "ru": "Фрукты и овощи"
+      },
+      {
+       "en": "Fuel",
+       "ka": "საწვავი",
+       "ru": "Топливо"
+      },
+      {
+       "en": "Meat and Meat Products",
+       "ka": "ხორცი და ხორცპროდუქტები",
+       "ru": "Мясо и мясные продукты"
+      },
+      {
+       "en": "Milk, Dairy and Eggs",
+       "ka": "რძე, ყველი, კვერცხი",
+       "ru": "Молоко, молочные продукты и яйца"
+      },
+      {
+       "en": "Sugar, Jams, Confectionery and others",
+       "ka": "შაქარი, ჯემი, საკონდიტრო და სხვა",
+       "ru": "Сахар, варенье, кондитерские изделия и прочее"
+      }
+     ]
+    },
+    {
+     "name": "unit_of_measure",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Unit",
+      "ka": "ერთეული",
+      "ru": "Единица"
+     },
+     "values": [
+      {
+       "en": "0.05 kilogram",
+       "ka": "0.05 კილოგრამი",
+       "ru": "0,05 кг"
+      },
+      {
+       "en": "0.1 kilogram",
+       "ka": "0.1 კილოგრამი",
+       "ru": "0,1 кг"
+      },
+      {
+       "en": "0.25 kilogram",
+       "ka": "0.25 კილოგრამი",
+       "ru": "0,25 кг"
+      },
+      {
+       "en": "0.4 kilogram",
+       "ka": "0.4 კილოგრამი",
+       "ru": "0,4 кг"
+      },
+      {
+       "en": "0.5 kilogram",
+       "ka": "0.5 კილოგრამი",
+       "ru": "0,5 кг"
+      },
+      {
+       "en": "0.5 litre",
+       "ka": "0.5 ლიტრი",
+       "ru": "0,5 л"
+      },
+      {
+       "en": "0.75 litre",
+       "ka": "0.75 ლიტრი",
+       "ru": "0,75 л"
+      },
+      {
+       "en": "1 bundle",
+       "ka": "1 შეკვრა",
+       "ru": "1 пучок"
+      },
+      {
+       "en": "1 kilogram",
+       "ka": "1 კილოგრამი",
+       "ru": "1 кг"
+      },
+      {
+       "en": "1 litre",
+       "ka": "1 ლიტრი",
+       "ru": "1 л"
+      },
+      {
+       "en": "1 m³",
+       "ka": "1 მ3",
+       "ru": "1 м³"
+      },
+      {
+       "en": "1 pack",
+       "ka": "1 კოლოფი",
+       "ru": "1 пачка"
+      },
+      {
+       "en": "1 piece",
+       "ka": "1 ცალი",
+       "ru": "1 шт."
+      },
+      {
+       "en": "1.5 litre",
+       "ka": "1.5 ლიტრი",
+       "ru": "1,5 л"
+      },
+      {
+       "en": "10 piece",
+       "ka": "10 ცალი",
+       "ru": "10 шт."
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "month",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month",
+      "ka": "თვე",
+      "ru": "Месяц"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "month"
+   ],
+   "row_count": 7940,
+   "value_count": 7940,
+   "first_period": "2020-01-01",
+   "last_period": "2026-09-01",
+   "file": "retail_prices_monthly.parquet",
+   "bytes": 40404
+  },
+  {
+   "name": "inflation_measures_monthly",
+   "kind": "table",
+   "dataset": "inflation_measures",
+   "topic": "prices",
+   "title": {
+    "en": "Headline, core and harmonised inflation",
+    "ka": "ძირითადი, საბაზო და ჰარმონიზებული ინფლაცია",
+    "ru": "Общая, базовая и гармонизированная инфляция"
+   },
+   "description": {
+    "en": "Annual inflation (% vs the same month a year earlier): headline CPI, core inflation, HICP, and inflation of durable, semi-durable and non-durable goods and services.",
+    "ka": "წლიური ინფლაცია (%): ძირითადი, საბაზო, ჰარმონიზებული, ასევე ხანგრძლივი, საშუალო ხანგრძლივობის და არა ხანგრძლივი მოხმარების საქონლისა და მომსახურების ინფლაცია.",
+    "ru": "Годовая инфляция (% к тому же месяцу прошлого года): общая (ИПЦ), базовая, ИГПЦ, а также по товарам длительного, среднего и краткосрочного пользования и услугам."
+   },
+   "unit": {
+    "en": "Percent, year over year",
+    "ka": "პროცენტი, წლიური",
+    "ru": "%, год к году"
+   },
+   "grain": "One row per measure × month",
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/?lang=en",
+     "path": "inflation; inflation-by-classification?type=DURABILITY",
+     "retrieved_at": "2026-10-26T19:17:50.873636+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "measure",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Measure",
+      "ka": "მაჩვენებელი",
+      "ru": "Показатель"
+     },
+     "values": [
+      {
+       "en": "Core inflation",
+       "ka": "საბაზო ინფლაცია",
+       "ru": "Базовая инфляция"
+      },
+      {
+       "en": "Durable goods",
+       "ka": "ხანგრძლივი მოხმარების საქონელი",
+       "ru": "Товары длительного пользования"
+      },
+      {
+       "en": "Harmonised CPI (HICP)",
+       "ka": "ჰარმონიზებული სამომხმარებლო ფასების ინდექსი",
+       "ru": "Гармонизированный ИПЦ (ГИПЦ)"
+      },
+      {
+       "en": "Headline CPI inflation",
+       "ka": "სამომხმარებლო ფასების ინდექსი (ინფლაცია)",
+       "ru": "Общая инфляция (ИПЦ)"
+      },
+      {
+       "en": "Non-durable goods",
+       "ka": "არა ხანგრძლივი მოხმარების საქონელი",
+       "ru": "Товары краткосрочного пользования"
+      },
+      {
+       "en": "Semi-durable goods",
+       "ka": "საშუალო ხანგრძლივობის მოხმარების საქონელი",
+       "ru": "Товары среднесрочного пользования"
+      },
+      {
+       "en": "Services",
+       "ka": "მომსახურება",
+       "ru": "Услуги"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "month",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month",
+      "ka": "თვე",
+      "ru": "Месяц"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "month"
+   ],
+   "row_count": 302,
+   "value_count": 302,
+   "first_period": "2022-01-01",
+   "last_period": "2026-09-01",
+   "file": "inflation_measures_monthly.parquet",
+   "bytes": 4855
+  },
+  {
+   "name": "inflation_components_monthly",
+   "kind": "table",
+   "dataset": "inflation_components",
+   "topic": "prices",
+   "title": {
+    "en": "Consumer prices: food, energy, goods and services",
+    "ka": "სამომხმარებლო ფასები: სურსათი, ენერგია, საქონელი და მომსახურება",
+    "ru": "Потребительские цены: продукты, энергия, товары и услуги"
+   },
+   "description": {
+    "en": "Price indices for the main CPI components — food, alcohol and tobacco; energy; non-energy industrial goods; services — with December 2020 = 100.",
+    "ka": "სამომხმარებლო ფასების ინდექსის ძირითადი კომპონენტები — სურსათი, ენერგია, არასასურსათო საქონელი და მომსახურება (2020 წლის დეკემბერი = 100).",
+    "ru": "Индексы цен основных компонентов ИПЦ — продукты, алкоголь и табак; энергия; непродовольственные товары; услуги (декабрь 2020 = 100)."
+   },
+   "unit": {
+    "en": "Index (December 2020 = 100)",
+    "ka": "ინდექსი (2020 წლის დეკემბერი = 100)",
+    "ru": "Индекс (декабрь 2020 = 100)"
+   },
+   "grain": "One row per component × month",
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/?lang=en",
+     "path": "inflation-index",
+     "retrieved_at": "2026-10-26T19:17:51.707029+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "component",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Component",
+      "ka": "კომპონენტი",
+      "ru": "Компонент"
+     },
+     "values": [
+      {
+       "en": "Energy",
+       "ka": "ენერგია",
+       "ru": "Энергия"
+      },
+      {
+       "en": "Food, Alcohol & Tobacco",
+       "ka": "სურსათი, სასმელები, თამბაქო",
+       "ru": "Продукты, алкоголь и табак"
+      },
+      {
+       "en": "Non-Energy Industrial Goods",
+       "ka": "არასასურსათო საქონელი (ენერგიის გარეშე)",
+       "ru": "Непродовольственные товары (без энергии)"
+      },
+      {
+       "en": "Services",
+       "ka": "მომსახურება",
+       "ru": "Услуги"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "month",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month",
+      "ka": "თვე",
+      "ru": "Месяц"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "month"
+   ],
+   "row_count": 276,
+   "value_count": 276,
+   "first_period": "2021-01-01",
+   "last_period": "2026-09-01",
+   "file": "inflation_components_monthly.parquet",
+   "bytes": 4280
+  },
+  {
+   "name": "cpi_basket_weights_annual",
+   "kind": "table",
+   "dataset": "basket_weights",
+   "topic": "prices",
+   "title": {
+    "en": "Consumer basket weights",
+    "ka": "სამომხმარებლო კალათის წონები",
+    "ru": "Структура потребительской корзины"
+   },
+   "description": {
+    "en": "Share of each COICOP division, durability class and origin (imported vs local) in the CPI basket, by year since 2012.",
+    "ka": "COICOP განყოფილებების, ხანგრძლივობის კლასებისა და წარმოშობის წილი სამომხმარებლო კალათაში, წლების მიხედვით 2012 წლიდან.",
+    "ru": "Доля разделов COICOP, классов по длительности пользования и происхождению (импорт или местное) в корзине ИПЦ по годам с 2012."
+   },
+   "unit": {
+    "en": "Percent of the basket",
+    "ka": "კალათის პროცენტი",
+    "ru": "% корзины"
+   },
+   "grain": "One row per classification × item × year",
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/?lang=en",
+     "path": "basket-weights?year={year}",
+     "retrieved_at": "2026-10-26T19:17:52.269003+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "classification",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Classification",
+      "ka": "კლასიფიკაცია",
+      "ru": "Классификация"
+     },
+     "values": [
+      {
+       "en": "COICOP division",
+       "ka": "COICOP განყოფილება",
+       "ru": "Раздел COICOP"
+      },
+      {
+       "en": "Durability",
+       "ka": "ხანგრძლივობა",
+       "ru": "Длительность пользования"
+      },
+      {
+       "en": "Origin",
+       "ka": "წარმოშობა",
+       "ru": "Происхождение"
+      }
+     ]
+    },
+    {
+     "name": "item",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Item",
+      "ka": "ელემენტი",
+      "ru": "Элемент"
+     },
+     "values": [
+      {
+       "en": "Alcoholic beverages and tobacco",
+       "ka": "ალკოჰოლური სასმელები და თამბაქო",
+       "ru": "Алкогольные напитки и табак"
+      },
+      {
+       "en": "Clothing and footwear",
+       "ka": "ტანსაცმელი და ფეხსაცმელი",
+       "ru": "Одежда и обувь"
+      },
+      {
+       "en": "Communication",
+       "ka": "კავშირგაბმულობა",
+       "ru": "Связь"
+      },
+      {
+       "en": "Durable goods",
+       "ka": "ხანგრძლივი მოხმარების საქონელი",
+       "ru": "Товары длительного пользования"
+      },
+      {
+       "en": "Education",
+       "ka": "განათლება",
+       "ru": "Образование"
+      },
+      {
+       "en": "Food and non-alcoholic beverages",
+       "ka": "სურსათი და უალკოჰოლო სასმელები",
+       "ru": "Продукты питания и безалкогольные напитки"
+      },
+      {
+       "en": "Furnishings, household equipment and routine household maintenance",
+       "ka": "ავეჯი, საოჯახო ნივთები და მორთულობა, სახლის მოვლა-შეკეთება",
+       "ru": "Мебель, бытовая техника и уход за домом"
+      },
+      {
+       "en": "Health",
+       "ka": "ჯანმრთელობის დაცვა",
+       "ru": "Здравоохранение"
+      },
+      {
+       "en": "Housing, water, electricity, gas and other fuels",
+       "ka": "საცხოვრებელი სახლი, წყალი, ელექტროენერგია, აირი და სათბობის სხვა სახეები",
+       "ru": "Жильё, вода, электроэнергия, газ и топливо"
+      },
+      {
+       "en": "Imported",
+       "ka": "იმპორტული",
+       "ru": "Импортные"
+      },
+      {
+       "en": "Locally produced",
+       "ka": "ადგილობრივად წარმოებული",
+       "ru": "Местного производства"
+      },
+      {
+       "en": "Miscellaneous goods and services",
+       "ka": "სხვადასხვა საქონელი და მომსახურება",
+       "ru": "Прочие товары и услуги"
+      },
+      {
+       "en": "Mixed",
+       "ka": "შერეული",
+       "ru": "Смешанные"
+      },
+      {
+       "en": "Non-durable goods",
+       "ka": "არა ხანგრძლივი მოხმარების საქონელი",
+       "ru": "Товары краткосрочного пользования"
+      },
+      {
+       "en": "Recreation and culture",
+       "ka": "დასვენება, გართობა და კულტურა",
+       "ru": "Отдых и культура"
+      },
+      {
+       "en": "Restaurants and hotels",
+       "ka": "სასტუმროები, კაფეები და რესტორნები",
+       "ru": "Рестораны и гостиницы"
+      },
+      {
+       "en": "Semi-durable goods",
+       "ka": "საშუალო ხანგრძლივობის მოხმარების საქონელი",
+       "ru": "Товары среднесрочного пользования"
+      },
+      {
+       "en": "Services",
+       "ka": "მომსახურება",
+       "ru": "Услуги"
+      },
+      {
+       "en": "Transport",
+       "ka": "ტრანსპორტი",
+       "ru": "Транспорт"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "annual"
+   ],
+   "row_count": 285,
+   "value_count": 285,
+   "first_period": "2012-01-01",
+   "last_period": "2026-01-01",
+   "file": "cpi_basket_weights_annual.parquet",
+   "bytes": 4316
+  },
+  {
+   "name": "producer_prices_monthly",
+   "kind": "table",
+   "dataset": "producer_prices",
+   "topic": "prices",
+   "title": {
+    "en": "Producer, export and import prices",
+    "ka": "მწარმოებელთა, ექსპორტისა და იმპორტის ფასები",
+    "ru": "Цены производителей, экспорта и импорта"
+   },
+   "description": {
+    "en": "Producer price index for industrial products, domestic and domestic-supply PPI, export and import price indices, and services PPI (transport, accommodation and food, telecom). 2020 average = 100.",
+    "ka": "მწარმოებელთა ფასების ინდექსი, ექსპორტისა და იმპორტის ფასების ინდექსები და მომსახურების PPI (2020 წლის საშუალო = 100).",
+    "ru": "Индекс цен производителей промышленной продукции, внутренний PPI, индексы цен экспорта и импорта, PPI услуг (транспорт, гостиницы и питание, связь). Среднее за 2020 = 100."
+   },
+   "unit": {
+    "en": "Index (2020 average = 100)",
+    "ka": "ინდექსი (2020 წლის საშუალო = 100)",
+    "ru": "Индекс (среднее за 2020 = 100)"
+   },
+   "grain": "One row per series × month",
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/producer-prices?lang=en",
+     "path": "ppi-breakdown",
+     "retrieved_at": "2026-10-26T19:17:56.288041+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "series",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Series",
+      "ka": "რიგი",
+      "ru": "Ряд"
+     },
+     "values": [
+      {
+       "en": "Domestic producer price index",
+       "ka": "ადგილობრივი მწარმოებელთა ფასების ინდექსი",
+       "ru": "Индекс цен производителей на внутреннем рынке"
+      },
+      {
+       "en": "Domestic supply price index",
+       "ka": "ადგილობრივი მიწოდების ფასების ინდექსი",
+       "ru": "Индекс цен внутренних поставок"
+      },
+      {
+       "en": "Export price index",
+       "ka": "ექსპორტის ფასების ინდექსი",
+       "ru": "Индекс экспортных цен"
+      },
+      {
+       "en": "Import price index",
+       "ka": "იმპორტის ფასების ინდექსი",
+       "ru": "Индекс импортных цен"
+      },
+      {
+       "en": "Producer price index, industrial products",
+       "ka": "მწარმოებელთა ფასების ინდექსი, სამრეწველო პროდუქცია",
+       "ru": "Индекс цен производителей промышленной продукции"
+      },
+      {
+       "en": "Services PPI: accommodation and food",
+       "ka": "მომსახურების PPI: განთავსება და კვება",
+       "ru": "PPI услуг: гостиницы и питание"
+      },
+      {
+       "en": "Services PPI: telecommunication",
+       "ka": "მომსახურების PPI: ტელეკომუნიკაცია",
+       "ru": "PPI услуг: телекоммуникации"
+      },
+      {
+       "en": "Services PPI: transport and storage",
+       "ka": "მომსახურების PPI: ტრანსპორტი და დასაწყობება",
+       "ru": "PPI услуг: транспорт и складирование"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "month",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month",
+      "ka": "თვე",
+      "ru": "Месяц"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "month"
+   ],
+   "row_count": 640,
+   "value_count": 640,
+   "first_period": "2020-01-01",
+   "last_period": "2026-08-01",
+   "file": "producer_prices_monthly.parquet",
+   "bytes": 7520
+  },
+  {
+   "name": "construction_costs_monthly",
+   "kind": "table",
+   "dataset": "construction_costs",
+   "topic": "prices",
+   "title": {
+    "en": "Construction cost index",
+    "ka": "მშენებლობის ღირებულების ინდექსი",
+    "ru": "Индекс стоимости строительства"
+   },
+   "description": {
+    "en": "Construction cost index, total and by component (materials, wages, machinery, transport and energy, other), with February 2022 = 100.",
+    "ka": "მშენებლობის ღირებულების ინდექსი, სულ და კომპონენტების მიხედვით (2022 წლის თებერვალი = 100).",
+    "ru": "Индекс стоимости строительства, всего и по компонентам (материалы, зарплата, техника, транспорт и энергия, прочее), февраль 2022 = 100."
+   },
+   "unit": {
+    "en": "Index (February 2022 = 100)",
+    "ka": "ინდექსი (2022 წლის თებერვალი = 100)",
+    "ru": "Индекс (февраль 2022 = 100)"
+   },
+   "grain": "One row per component × month",
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/construction?lang=en",
+     "path": "cci-breakdown",
+     "retrieved_at": "2026-10-26T19:17:56.828515+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "component",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Component",
+      "ka": "კომპონენტი",
+      "ru": "Компонент"
+     },
+     "values": [
+      {
+       "en": "CCI Total",
+       "ka": "ჯამური CCI",
+       "ru": "Индекс стоимости строительства, всего"
+      },
+      {
+       "en": "Construction Materials",
+       "ka": "სამშენებლო მასალები",
+       "ru": "Строительные материалы"
+      },
+      {
+       "en": "Machinery & Equipment",
+       "ka": "მანქანა-დანადგარები",
+       "ru": "Машины и оборудование"
+      },
+      {
+       "en": "Other Costs",
+       "ka": "სხვა ხარჯები",
+       "ru": "Прочие расходы"
+      },
+      {
+       "en": "Transport, Fuel & Electricity",
+       "ka": "ტრანსპორტირება, საწვავი, ელექტროენერგია",
+       "ru": "Транспорт, топливо и электроэнергия"
+      },
+      {
+       "en": "Wages",
+       "ka": "ხელფასები",
+       "ru": "Заработная плата"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "month",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month",
+      "ka": "თვე",
+      "ru": "Месяц"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "month"
+   ],
+   "row_count": 330,
+   "value_count": 330,
+   "first_period": "2022-02-01",
+   "last_period": "2026-08-01",
+   "file": "construction_costs_monthly.parquet",
+   "bytes": 4868
+  },
+  {
+   "name": "agro_prices_quarterly",
+   "kind": "table",
+   "dataset": "agro_prices",
+   "topic": "prices",
+   "title": {
+    "en": "Agricultural producer prices",
+    "ka": "სოფლის მეურნეობის პროდუქციის ფასები",
+    "ru": "Цены сельхозпроизводителей"
+   },
+   "description": {
+    "en": "Unit value index of agricultural products: percent change versus the previous quarter and the same quarter a year earlier.",
+    "ka": "სოფლის მეურნეობის პროდუქციის ერთეულის ღირებულების ინდექსი: ცვლილება წინა კვარტალთან და წინა წლის შესაბამის კვარტალთან.",
+    "ru": "Индекс удельной стоимости сельхозпродукции: изменение к предыдущему кварталу и к тому же кварталу прошлого года, %."
+   },
+   "unit": {
+    "en": "Percent change",
+    "ka": "პროცენტული ცვლილება",
+    "ru": "Изменение, %"
+   },
+   "grain": "One row per measure × quarter",
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/?lang=en",
+     "path": "agro-chart",
+     "retrieved_at": "2026-10-26T19:17:57.365915+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "measure",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Measure",
+      "ka": "მაჩვენებელი",
+      "ru": "Показатель"
+     },
+     "values": [
+      {
+       "en": "Change vs previous quarter, %",
+       "ka": "ცვლილება წინა კვარტალთან, %",
+       "ru": "Изменение к предыдущему кварталу, %"
+      },
+      {
+       "en": "Change vs same quarter of previous year, %",
+       "ka": "ცვლილება წინა წლის შესაბამის კვარტალთან, %",
+       "ru": "Изменение к тому же кварталу прошлого года, %"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "quarter",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter",
+      "ka": "კვარტალი",
+      "ru": "Квартал"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "quarter"
+   ],
+   "row_count": 52,
+   "value_count": 48,
+   "first_period": "2020-01-01",
+   "last_period": "2026-04-01",
+   "file": "agro_prices_quarterly.parquet",
+   "bytes": 2293
+  },
+  {
+   "name": "tbilisi_property_quarterly",
+   "kind": "table",
+   "dataset": "tbilisi_property",
+   "topic": "prices",
+   "title": {
+    "en": "Tbilisi housing prices by district",
+    "ka": "საცხოვრებლის ფასები თბილისის რაიონების მიხედვით",
+    "ru": "Цены на жильё по районам Тбилиси"
+   },
+   "description": {
+    "en": "Median price per square metre of residential property in Tbilisi's 10 districts, for flats and detached houses, quarterly since 2021.",
+    "ka": "საცხოვრებელი უძრავი ქონების 1 მ²-ის მედიანური ფასი თბილისის 10 რაიონში, ბინებისა და სახლების მიხედვით, კვარტალურად 2021 წლიდან.",
+    "ru": "Медианная цена квадратного метра жилья в 10 районах Тбилиси, для квартир и частных домов, ежеквартально с 2021 года."
+   },
+   "unit": {
+    "en": "GEL per m² (median)",
+    "ka": "ლარი 1 მ²-ზე (მედიანა)",
+    "ru": "Лари за м² (медиана)"
+   },
+   "grain": "One row per district × dwelling type × quarter",
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/construction?lang=en",
+     "path": "tbilisi-district-prices?category=APARTMENT|HOUSE",
+     "retrieved_at": "2026-10-26T19:17:57.867604+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "district",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "District",
+      "ka": "რაიონი",
+      "ru": "Район"
+     },
+     "values": [
+      {
+       "en": "Chughureti",
+       "ka": "ჩუღურეთის რაიონი",
+       "ru": "Чугурети"
+      },
+      {
+       "en": "Didube",
+       "ka": "დიდუბის რაიონი",
+       "ru": "Дидубе"
+      },
+      {
+       "en": "Gldani",
+       "ka": "გლდანის რაიონი",
+       "ru": "Глдани"
+      },
+      {
+       "en": "Isani",
+       "ka": "ისნის რაიონი",
+       "ru": "Исани"
+      },
+      {
+       "en": "Krtsanisi",
+       "ka": "კრწანისის რაიონი",
+       "ru": "Крцаниси"
+      },
+      {
+       "en": "Mtatsminda",
+       "ka": "მთაწმინდის რაიონი",
+       "ru": "Мтацминда"
+      },
+      {
+       "en": "Nadzaladevi",
+       "ka": "ნაძალადევის რაიონი",
+       "ru": "Надзаладеви"
+      },
+      {
+       "en": "Saburtalo",
+       "ka": "საბურთალოს რაიონი",
+       "ru": "Сабуртало"
+      },
+      {
+       "en": "Samgori",
+       "ka": "სამგორის რაიონი",
+       "ru": "Самгори"
+      },
+      {
+       "en": "Vake",
+       "ka": "ვაკის რაიონი",
+       "ru": "Ваке"
+      }
+     ]
+    },
+    {
+     "name": "dwelling_type",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Dwelling type",
+      "ka": "საცხოვრებლის ტიპი",
+      "ru": "Тип жилья"
+     },
+     "values": [
+      {
+       "en": "Detached houses",
+       "ka": "ინდივიდუალური სახლები",
+       "ru": "Частные дома"
+      },
+      {
+       "en": "Flats",
+       "ka": "ბინები",
+       "ru": "Квартиры"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "quarter",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter",
+      "ka": "კვარტალი",
+      "ru": "Квартал"
+     }
+    },
+    {
+     "name": "value",
+     "type": "BIGINT",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "quarter"
+   ],
+   "row_count": 460,
+   "value_count": 460,
+   "first_period": "2021-01-01",
+   "last_period": "2026-07-01",
+   "file": "tbilisi_property_quarterly.parquet",
+   "bytes": 3364
+  },
+  {
+   "name": "business_regional_annual",
+   "kind": "table",
+   "dataset": "business_regions",
+   "topic": "regions",
+   "title": {
+    "en": "Business statistics by region",
+    "ka": "ბიზნეს სტატისტიკა რეგიონების მიხედვით",
+    "ru": "Статистика предприятий по регионам"
+   },
+   "description": {
+    "en": "Annual business statistics for Georgia's regions: turnover, value added, production value, purchases, intermediate consumption, investment, personnel costs, average remuneration, persons employed and employees. Latest year available: 2022.",
+    "ka": "წლიური ბიზნეს სტატისტიკა რეგიონების მიხედვით: ბრუნვა, დამატებული ღირებულება, გამოშვება, შესყიდვები, ინვესტიციები, შრომის ანაზღაურება, დასაქმება. ბოლო ხელმისაწვდომი წელი: 2022.",
+    "ru": "Годовая статистика предприятий по регионам: оборот, добавленная стоимость, выпуск, закупки, промежуточное потребление, инвестиции, расходы на персонал, средняя оплата труда, занятые и наёмные работники. Последний год: 2022."
+   },
+   "unit": {
+    "en": "Varies by indicator (named in the indicator): million GEL, GEL per month, or persons",
+    "ka": "დამოკიდებულია მაჩვენებელზე: მლნ ლარი, ლარი თვეში ან კაცი",
+    "ru": "Зависит от показателя: млн лари, лари в месяц или человек"
+   },
+   "grain": "One row per indicator × region × year",
+   "sources": [
+    {
+     "url": "https://gis-api.geostat.ge/api/",
+     "web_url": "https://gis-api.geostat.ge/",
+     "path": "getRegBrunva, getValAdded, getRegProdVal, getRegPurchases, getRegResale, getRegIntConsumption, getRegInvestment, getRegCosts, getRegRemuneration, getRegEmployees, getRegEmployed ?year=YYYY",
+     "retrieved_at": "2026-10-26T19:18:11.883227+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "indicator",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Indicator",
+      "ka": "მაჩვენებელი",
+      "ru": "Показатель"
+     },
+     "values": [
+      {
+       "en": "Average monthly remuneration, GEL",
+       "ka": "საშუალო თვიური შრომის ანაზღაურება, ლარი",
+       "ru": "Средняя месячная оплата труда, лари"
+      },
+      {
+       "en": "Employees",
+       "ka": "დაქირავებულთა რაოდენობა",
+       "ru": "Наёмные работники"
+      },
+      {
+       "en": "Intermediate consumption, million GEL",
+       "ka": "შუალედური მოხმარება, მლნ ლარი",
+       "ru": "Промежуточное потребление, млн лари"
+      },
+      {
+       "en": "Investment in fixed assets, million GEL",
+       "ka": "ინვესტიციები ძირითად საშუალებებში, მლნ ლარი",
+       "ru": "Инвестиции в основные средства, млн лари"
+      },
+      {
+       "en": "Personnel costs, million GEL",
+       "ka": "პერსონალის ხარჯები, მლნ ლარი",
+       "ru": "Расходы на персонал, млн лари"
+      },
+      {
+       "en": "Persons employed",
+       "ka": "დასაქმებულთა რაოდენობა",
+       "ru": "Занятые"
+      },
+      {
+       "en": "Production value, million GEL",
+       "ka": "პროდუქციის გამოშვება, მლნ ლარი",
+       "ru": "Выпуск продукции, млн лари"
+      },
+      {
+       "en": "Purchases for resale, million GEL",
+       "ka": "გადასაყიდად შესყიდული საქონელი და მომსახურება, მლნ ლარი",
+       "ru": "Закупки для перепродажи, млн лари"
+      },
+      {
+       "en": "Purchases of goods and services, million GEL",
+       "ka": "საქონლისა და მომსახურების შესყიდვები, მლნ ლარი",
+       "ru": "Закупки товаров и услуг, млн лари"
+      },
+      {
+       "en": "Turnover, million GEL",
+       "ka": "ბრუნვა, მლნ ლარი",
+       "ru": "Оборот, млн лари"
+      },
+      {
+       "en": "Value added, million GEL",
+       "ka": "დამატებული ღირებულება, მლნ ლარი",
+       "ru": "Добавленная стоимость, млн лари"
+      }
+     ]
+    },
+    {
+     "name": "region",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region",
+      "ka": "რეგიონი",
+      "ru": "Регион"
+     },
+     "values": [
+      {
+       "en": "Adjara A.R.",
+       "ka": "აჭარის ა.რ.",
+       "ru": "Аджарская АР"
+      },
+      {
+       "en": "Guria",
+       "ka": "გურია",
+       "ru": "Гурия"
+      },
+      {
+       "en": "Imereti",
+       "ka": "იმერეთი",
+       "ru": "Имеретия"
+      },
+      {
+       "en": "Kakheti",
+       "ka": "კახეთი",
+       "ru": "Кахетия"
+      },
+      {
+       "en": "Kvemo Kartli",
+       "ka": "ქვემო ქართლი",
+       "ru": "Квемо Картли"
+      },
+      {
+       "en": "Mtskheta-Mtianeti",
+       "ka": "მცხეთა-მთიანეთი",
+       "ru": "Мцхета-Мтианети"
+      },
+      {
+       "en": "Racha-Lechkhumi and Kvemo Svaneti",
+       "ka": "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+       "ru": "Рача-Лечхуми и Квемо Сванети"
+      },
+      {
+       "en": "Samegrelo-Zemo Svaneti",
+       "ka": "სამეგრელო-ზემო სვანეთი",
+       "ru": "Самегрело-Земо Сванети"
+      },
+      {
+       "en": "Samtskhe-Javakheti",
+       "ka": "სამცხე-ჯავახეთი",
+       "ru": "Самцхе-Джавахети"
+      },
+      {
+       "en": "Shida Kartli",
+       "ka": "შიდა ქართლი",
+       "ru": "Шида Картли"
+      },
+      {
+       "en": "Tbilisi",
+       "ka": "ქ. თბილისი",
+       "ru": "Тбилиси"
+      }
+     ]
+    },
+    {
+     "name": "region_code",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region code",
+      "ka": "რეგიონის კოდი",
+      "ru": "Код региона"
+     },
+     "values": [
+      {
+       "en": "11",
+       "ka": "11",
+       "ru": "11"
+      },
+      {
+       "en": "15",
+       "ka": "15",
+       "ru": "15"
+      },
+      {
+       "en": "23",
+       "ka": "23",
+       "ru": "23"
+      },
+      {
+       "en": "26",
+       "ka": "26",
+       "ru": "26"
+      },
+      {
+       "en": "29",
+       "ka": "29",
+       "ru": "29"
+      },
+      {
+       "en": "32",
+       "ka": "32",
+       "ru": "32"
+      },
+      {
+       "en": "35",
+       "ka": "35",
+       "ru": "35"
+      },
+      {
+       "en": "38",
+       "ka": "38",
+       "ru": "38"
+      },
+      {
+       "en": "41",
+       "ka": "41",
+       "ru": "41"
+      },
+      {
+       "en": "44",
+       "ka": "44",
+       "ru": "44"
+      },
+      {
+       "en": "47",
+       "ka": "47",
+       "ru": "47"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "annual"
+   ],
+   "row_count": 2024,
+   "value_count": 2024,
+   "first_period": "2006-01-01",
+   "last_period": "2022-01-01",
+   "file": "business_regional_annual.parquet",
+   "bytes": 9369
+  },
+  {
+   "name": "business_municipal_annual",
+   "kind": "table",
+   "dataset": "business_municipalities",
+   "topic": "regions",
+   "title": {
+    "en": "Business statistics by municipality",
+    "ka": "ბიზნეს სტატისტიკა მუნიციპალიტეტების მიხედვით",
+    "ru": "Статистика предприятий по муниципалитетам"
+   },
+   "description": {
+    "en": "The same business indicators as the regional table for 66 municipalities and self-governing cities, with each municipality's region code. Latest year available: 2022.",
+    "ka": "იგივე ბიზნეს მაჩვენებლები 66 მუნიციპალიტეტისა და თვითმმართველი ქალაქისთვის. ბოლო ხელმისაწვდომი წელი: 2022.",
+    "ru": "Те же показатели предприятий для 66 муниципалитетов и самоуправляемых городов, с кодом региона. Последний год: 2022."
+   },
+   "unit": {
+    "en": "Varies by indicator (named in the indicator): million GEL, GEL per month, or persons",
+    "ka": "დამოკიდებულია მაჩვენებელზე: მლნ ლარი, ლარი თვეში ან კაცი",
+    "ru": "Зависит от показателя: млн лари, лари в месяц или человек"
+   },
+   "grain": "One row per indicator × municipality × year",
+   "sources": [
+    {
+     "url": "https://gis-api.geostat.ge/api/",
+     "web_url": "https://gis-api.geostat.ge/",
+     "path": "getMunBrunva, getMunValAdded, getMunProdVal, getMunPurchases, getMunResale, getMunIntConsumption, getMunInvestment, getMunCosts, getMunRemuneration, getMunEmployees, getMunEmployed ?year=YYYY",
+     "retrieved_at": "2026-10-26T19:19:29.531226+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "indicator",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Indicator",
+      "ka": "მაჩვენებელი",
+      "ru": "Показатель"
+     },
+     "values": [
+      {
+       "en": "Average monthly remuneration, GEL",
+       "ka": "საშუალო თვიური შრომის ანაზღაურება, ლარი",
+       "ru": "Средняя месячная оплата труда, лари"
+      },
+      {
+       "en": "Employees",
+       "ka": "დაქირავებულთა რაოდენობა",
+       "ru": "Наёмные работники"
+      },
+      {
+       "en": "Intermediate consumption, million GEL",
+       "ka": "შუალედური მოხმარება, მლნ ლარი",
+       "ru": "Промежуточное потребление, млн лари"
+      },
+      {
+       "en": "Investment in fixed assets, million GEL",
+       "ka": "ინვესტიციები ძირითად საშუალებებში, მლნ ლარი",
+       "ru": "Инвестиции в основные средства, млн лари"
+      },
+      {
+       "en": "Personnel costs, million GEL",
+       "ka": "პერსონალის ხარჯები, მლნ ლარი",
+       "ru": "Расходы на персонал, млн лари"
+      },
+      {
+       "en": "Persons employed",
+       "ka": "დასაქმებულთა რაოდენობა",
+       "ru": "Занятые"
+      },
+      {
+       "en": "Production value, million GEL",
+       "ka": "პროდუქციის გამოშვება, მლნ ლარი",
+       "ru": "Выпуск продукции, млн лари"
+      },
+      {
+       "en": "Purchases for resale, million GEL",
+       "ka": "გადასაყიდად შესყიდული საქონელი და მომსახურება, მლნ ლარი",
+       "ru": "Закупки для перепродажи, млн лари"
+      },
+      {
+       "en": "Purchases of goods and services, million GEL",
+       "ka": "საქონლისა და მომსახურების შესყიდვები, მლნ ლარი",
+       "ru": "Закупки товаров и услуг, млн лари"
+      },
+      {
+       "en": "Turnover, million GEL",
+       "ka": "ბრუნვა, მლნ ლარი",
+       "ru": "Оборот, млн лари"
+      },
+      {
+       "en": "Value added, million GEL",
+       "ka": "დამატებული ღირებულება, მლნ ლარი",
+       "ru": "Добавленная стоимость, млн лари"
+      }
+     ]
+    },
+    {
+     "name": "municipality",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Municipality",
+      "ka": "მუნიციპალიტეტი",
+      "ru": "Муниципалитет"
+     },
+     "values": [
+      {
+       "en": "Abasha",
+       "ka": "აბაშა",
+       "ru": "Абаша"
+      },
+      {
+       "en": "Adigeni",
+       "ka": "ადიგენი",
+       "ru": "Адигени"
+      },
+      {
+       "en": "Akhalkalaki",
+       "ka": "ახალქალაქი",
+       "ru": "Ахалкалаки"
+      },
+      {
+       "en": "Akhaltsikhe",
+       "ka": "ახალციხე",
+       "ru": "Ахалцихе"
+      },
+      {
+       "en": "Akhmeta",
+       "ka": "ახმეტა",
+       "ru": "Ахмета"
+      },
+      {
+       "en": "Ambrolauri",
+       "ka": "ამბროლაური",
+       "ru": "Амбролаури"
+      },
+      {
+       "en": "Aspindza",
+       "ka": "ასპინძა",
+       "ru": "Аспиндза"
+      },
+      {
+       "en": "Baghdati",
+       "ka": "ბაღდათი",
+       "ru": "Багдати"
+      },
+      {
+       "en": "Bolnisi",
+       "ka": "ბოლნისი",
+       "ru": "Болниси"
+      },
+      {
+       "en": "Borjomi",
+       "ka": "ბორჯომი",
+       "ru": "Боржоми"
+      },
+      {
+       "en": "C. Batumi",
+       "ka": "ქ. ბათუმი",
+       "ru": "г. Батуми"
+      },
+      {
+       "en": "C. Kutaisi",
+       "ka": "ქ. ქუთაისი",
+       "ru": "г. Кутаиси"
+      },
+      {
+       "en": "C. Poti",
+       "ka": "ქ. ფოთი",
+       "ru": "г. Поти"
+      },
+      {
+       "en": "C. Rustavi",
+       "ka": "ქ. რსუთავი",
+       "ru": "г. Рустави"
+      },
+      {
+       "en": "C. Tbilisi",
+       "ka": "თბილისი",
+       "ru": "г. Тбилиси"
+      },
+      {
+       "en": "Chiatura",
+       "ka": "ჭიათურა",
+       "ru": "Чиатура"
+      },
+      {
+       "en": "Chkhorotsku",
+       "ka": "ჩხოროწყუ",
+       "ru": "Чхороцку"
+      },
+      {
+       "en": "Chokhatauri",
+       "ka": "ჩოხატაური",
+       "ru": "Чохатаури"
+      },
+      {
+       "en": "Dedoplistskaro",
+       "ka": "დედოფლისწყარო",
+       "ru": "Дедоплисцкаро"
+      },
+      {
+       "en": "Dmanisi",
+       "ka": "დმანისი",
+       "ru": "Дманиси"
+      },
+      {
+       "en": "Dusheti",
+       "ka": "დუშეთი",
+       "ru": "Душети"
+      },
+      {
+       "en": "Gardabani",
+       "ka": "გარდაბანი",
+       "ru": "Гардабани"
+      },
+      {
+       "en": "Gori",
+       "ka": "გორი",
+       "ru": "Гори"
+      },
+      {
+       "en": "Gurjaani",
+       "ka": "გურჯაანი",
+       "ru": "Гурджаани"
+      },
+      {
+       "en": "Kareli",
+       "ka": "ქარელი",
+       "ru": "Карели"
+      },
+      {
+       "en": "Kaspi",
+       "ka": "კასპი",
+       "ru": "Каспи"
+      },
+      {
+       "en": "Kazbegi",
+       "ka": "ყაზბეგი",
+       "ru": "Казбеги"
+      },
+      {
+       "en": "Keda",
+       "ka": "ქედა",
+       "ru": "Кеда"
+      },
+      {
+       "en": "Kharagauli",
+       "ka": "ხარაგაული",
+       "ru": "Харагаули"
+      },
+      {
+       "en": "Khashuri",
+       "ka": "ხაშური",
+       "ru": "Хашури"
+      },
+      {
+       "en": "Khelvachauri",
+       "ka": "ხელვაჩაური",
+       "ru": "Хелвачаури"
+      },
+      {
+       "en": "Khobi",
+       "ka": "ხობი",
+       "ru": "Хоби"
+      },
+      {
+       "en": "Khoni",
+       "ka": "ხონი",
+       "ru": "Хони"
+      },
+      {
+       "en": "Khulo",
+       "ka": "ხულო",
+       "ru": "Хуло"
+      },
+      {
+       "en": "Kobuleti",
+       "ka": "ქობულეთი",
+       "ru": "Кобулети"
+      },
+      {
+       "en": "Kvareli",
+       "ka": "ყვარელი",
+       "ru": "Кварели"
+      },
+      {
+       "en": "Lagodekhi",
+       "ka": "ლაგოდეხი",
+       "ru": "Лагодехи"
+      },
+      {
+       "en": "Lanchkhuti",
+       "ka": "ლანჩხუთი",
+       "ru": "Ланчхути"
+      },
+      {
+       "en": "Lentekhi",
+       "ka": "ლენტეხი",
+       "ru": "Лентехи"
+      },
+      {
+       "en": "Marneuli",
+       "ka": "მარნეული",
+       "ru": "Марнеули"
+      },
+      {
+       "en": "Martvili",
+       "ka": "მარტვილი",
+       "ru": "Мартвили"
+      },
+      {
+       "en": "Mestia",
+       "ka": "მესტია",
+       "ru": "Местиа"
+      },
+      {
+       "en": "Mtskheta",
+       "ka": "მცხეთა",
+       "ru": "Мцхета"
+      },
+      {
+       "en": "Ninotsminda",
+       "ka": "ნინოწმინდა",
+       "ru": "Ниноцминда"
+      },
+      {
+       "en": "Oni",
+       "ka": "ონი",
+       "ru": "Они"
+      },
+      {
+       "en": "Ozurgeti",
+       "ka": "ოზურგეთი",
+       "ru": "Озургети"
+      },
+      {
+       "en": "Sachkhere",
+       "ka": "საჩხერე",
+       "ru": "Сачхере"
+      },
+      {
+       "en": "Sagarejo",
+       "ka": "საგარეჯო",
+       "ru": "Сагареджо"
+      },
+      {
+       "en": "Samtredia",
+       "ka": "სამტრედია",
+       "ru": "Самтредиа"
+      },
+      {
+       "en": "Senaki",
+       "ka": "სენაკი",
+       "ru": "Сенаки"
+      },
+      {
+       "en": "Shuakhevi",
+       "ka": "შუახევი",
+       "ru": "Шуахеви"
+      },
+      {
+       "en": "Sighnaghi",
+       "ka": "სიღნაღი",
+       "ru": "Сигнахи"
+      },
+      {
+       "en": "Telavi",
+       "ka": "თელავი",
+       "ru": "Телави"
+      },
+      {
+       "en": "Terjola",
+       "ka": "თერჯოლა",
+       "ru": "Терджола"
+      },
+      {
+       "en": "Tetritskaro",
+       "ka": "თეთრუწყარო",
+       "ru": "Тетрицкаро"
+      },
+      {
+       "en": "Tianeti",
+       "ka": "თიანეთი",
+       "ru": "Тианети"
+      },
+      {
+       "en": "Tkibuli",
+       "ka": "ტყიბული",
+       "ru": "Ткибули"
+      },
+      {
+       "en": "Tsageri",
+       "ka": "ცაგერი",
+       "ru": "Цагери"
+      },
+      {
+       "en": "Tsalenjikha",
+       "ka": "წალენჯიხა",
+       "ru": "Цаленджиха"
+      },
+      {
+       "en": "Tsalka",
+       "ka": "წალკა",
+       "ru": "Цалка"
+      },
+      {
+       "en": "Tskaltubo",
+       "ka": "წყალტუბო",
+       "ru": "Цхалтубо"
+      },
+      {
+       "en": "Vani",
+       "ka": "ვანი",
+       "ru": "Вани"
+      },
+      {
+       "en": "Zestaponi",
+       "ka": "ზესტაფონი",
+       "ru": "Зестафони"
+      },
+      {
+       "en": "Zugdidi",
+       "ka": "ზუგდიდი",
+       "ru": "Зугдиди"
+      }
+     ]
+    },
+    {
+     "name": "municipality_code",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Municipality code",
+      "ka": "მუნიციპალიტეტის კოდი",
+      "ru": "Код муниципалитета"
+     },
+     "values": [
+      {
+       "en": "11",
+       "ka": "11",
+       "ru": "11"
+      },
+      {
+       "en": "1511",
+       "ka": "1511",
+       "ru": "1511"
+      },
+      {
+       "en": "1523",
+       "ka": "1523",
+       "ru": "1523"
+      },
+      {
+       "en": "1525",
+       "ka": "1525",
+       "ru": "1525"
+      },
+      {
+       "en": "1529",
+       "ka": "1529",
+       "ru": "1529"
+      },
+      {
+       "en": "1532",
+       "ka": "1532",
+       "ru": "1532"
+      },
+      {
+       "en": "1535",
+       "ka": "1535",
+       "ru": "1535"
+      },
+      {
+       "en": "2323",
+       "ka": "2323",
+       "ru": "2323"
+      },
+      {
+       "en": "2325",
+       "ka": "2325",
+       "ru": "2325"
+      },
+      {
+       "en": "2327",
+       "ka": "2327",
+       "ru": "2327"
+      },
+      {
+       "en": "2611",
+       "ka": "2611",
+       "ru": "2611"
+      },
+      {
+       "en": "2623",
+       "ka": "2623",
+       "ru": "2623"
+      },
+      {
+       "en": "2627",
+       "ka": "2627",
+       "ru": "2627"
+      },
+      {
+       "en": "2629",
+       "ka": "2629",
+       "ru": "2629"
+      },
+      {
+       "en": "2631",
+       "ka": "2631",
+       "ru": "2631"
+      },
+      {
+       "en": "2633",
+       "ka": "2633",
+       "ru": "2633"
+      },
+      {
+       "en": "2635",
+       "ka": "2635",
+       "ru": "2635"
+      },
+      {
+       "en": "2636",
+       "ka": "2636",
+       "ru": "2636"
+      },
+      {
+       "en": "2638",
+       "ka": "2638",
+       "ru": "2638"
+      },
+      {
+       "en": "2640",
+       "ka": "2640",
+       "ru": "2640"
+      },
+      {
+       "en": "2642",
+       "ka": "2642",
+       "ru": "2642"
+      },
+      {
+       "en": "2644",
+       "ka": "2644",
+       "ru": "2644"
+      },
+      {
+       "en": "2924",
+       "ka": "2924",
+       "ru": "2924"
+      },
+      {
+       "en": "2926",
+       "ka": "2926",
+       "ru": "2926"
+      },
+      {
+       "en": "2928",
+       "ka": "2928",
+       "ru": "2928"
+      },
+      {
+       "en": "2930",
+       "ka": "2930",
+       "ru": "2930"
+      },
+      {
+       "en": "2932",
+       "ka": "2932",
+       "ru": "2932"
+      },
+      {
+       "en": "2934",
+       "ka": "2934",
+       "ru": "2934"
+      },
+      {
+       "en": "2936",
+       "ka": "2936",
+       "ru": "2936"
+      },
+      {
+       "en": "2938",
+       "ka": "2938",
+       "ru": "2938"
+      },
+      {
+       "en": "3225",
+       "ka": "3225",
+       "ru": "3225"
+      },
+      {
+       "en": "3227",
+       "ka": "3227",
+       "ru": "3227"
+      },
+      {
+       "en": "3229",
+       "ka": "3229",
+       "ru": "3229"
+      },
+      {
+       "en": "3231",
+       "ka": "3231",
+       "ru": "3231"
+      },
+      {
+       "en": "3523",
+       "ka": "3523",
+       "ru": "3523"
+      },
+      {
+       "en": "3526",
+       "ka": "3526",
+       "ru": "3526"
+      },
+      {
+       "en": "3529",
+       "ka": "3529",
+       "ru": "3529"
+      },
+      {
+       "en": "3531",
+       "ka": "3531",
+       "ru": "3531"
+      },
+      {
+       "en": "3814",
+       "ka": "3814",
+       "ru": "3814"
+      },
+      {
+       "en": "3823",
+       "ka": "3823",
+       "ru": "3823"
+      },
+      {
+       "en": "3825",
+       "ka": "3825",
+       "ru": "3825"
+      },
+      {
+       "en": "3828",
+       "ka": "3828",
+       "ru": "3828"
+      },
+      {
+       "en": "3830",
+       "ka": "3830",
+       "ru": "3830"
+      },
+      {
+       "en": "3832",
+       "ka": "3832",
+       "ru": "3832"
+      },
+      {
+       "en": "3834",
+       "ka": "3834",
+       "ru": "3834"
+      },
+      {
+       "en": "3836",
+       "ka": "3836",
+       "ru": "3836"
+      },
+      {
+       "en": "3838",
+       "ka": "3838",
+       "ru": "3838"
+      },
+      {
+       "en": "4123",
+       "ka": "4123",
+       "ru": "4123"
+      },
+      {
+       "en": "4125",
+       "ka": "4125",
+       "ru": "4125"
+      },
+      {
+       "en": "4127",
+       "ka": "4127",
+       "ru": "4127"
+      },
+      {
+       "en": "4129",
+       "ka": "4129",
+       "ru": "4129"
+      },
+      {
+       "en": "4131",
+       "ka": "4131",
+       "ru": "4131"
+      },
+      {
+       "en": "4133",
+       "ka": "4133",
+       "ru": "4133"
+      },
+      {
+       "en": "4411",
+       "ka": "4411",
+       "ru": "4411"
+      },
+      {
+       "en": "4424",
+       "ka": "4424",
+       "ru": "4424"
+      },
+      {
+       "en": "4426",
+       "ka": "4426",
+       "ru": "4426"
+      },
+      {
+       "en": "4428",
+       "ka": "4428",
+       "ru": "4428"
+      },
+      {
+       "en": "4430",
+       "ka": "4430",
+       "ru": "4430"
+      },
+      {
+       "en": "4432",
+       "ka": "4432",
+       "ru": "4432"
+      },
+      {
+       "en": "4434",
+       "ka": "4434",
+       "ru": "4434"
+      },
+      {
+       "en": "4724",
+       "ka": "4724",
+       "ru": "4724"
+      },
+      {
+       "en": "4726",
+       "ka": "4726",
+       "ru": "4726"
+      },
+      {
+       "en": "4728",
+       "ka": "4728",
+       "ru": "4728"
+      },
+      {
+       "en": "4731",
+       "ka": "4731",
+       "ru": "4731"
+      }
+     ]
+    },
+    {
+     "name": "region_code",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region code",
+      "ka": "რეგიონის კოდი",
+      "ru": "Код региона"
+     },
+     "values": [
+      {
+       "en": "11",
+       "ka": "11",
+       "ru": "11"
+      },
+      {
+       "en": "15",
+       "ka": "15",
+       "ru": "15"
+      },
+      {
+       "en": "23",
+       "ka": "23",
+       "ru": "23"
+      },
+      {
+       "en": "26",
+       "ka": "26",
+       "ru": "26"
+      },
+      {
+       "en": "29",
+       "ka": "29",
+       "ru": "29"
+      },
+      {
+       "en": "32",
+       "ka": "32",
+       "ru": "32"
+      },
+      {
+       "en": "35",
+       "ka": "35",
+       "ru": "35"
+      },
+      {
+       "en": "38",
+       "ka": "38",
+       "ru": "38"
+      },
+      {
+       "en": "41",
+       "ka": "41",
+       "ru": "41"
+      },
+      {
+       "en": "44",
+       "ka": "44",
+       "ru": "44"
+      },
+      {
+       "en": "47",
+       "ka": "47",
+       "ru": "47"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    },
+    {
+     "name": "period_type",
+     "type": "VARCHAR",
+     "role": "time",
+     "label": {
+      "en": "Period type",
+      "ka": "პერიოდის ტიპი",
+      "ru": "Тип периода"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "is_preliminary",
+     "type": "BOOLEAN",
+     "role": "time",
+     "label": {
+      "en": "Preliminary",
+      "ka": "წინასწარი",
+      "ru": "Предварительные"
+     }
+    }
+   ],
+   "period_types": [
+    "annual"
+   ],
+   "row_count": 6316,
+   "value_count": 6316,
+   "first_period": "2014-01-01",
+   "last_period": "2022-01-01",
+   "file": "business_municipal_annual.parquet",
+   "bytes": 27548
+  },
+  {
    "name": "real_wages_quarterly",
    "kind": "view",
    "dataset": null,
@@ -3784,7 +7042,7 @@
    "first_period": "2014-01-01",
    "last_period": "2026-04-01",
    "file": "real_wages_quarterly.parquet",
-   "bytes": 118085
+   "bytes": 118428
   },
   {
    "name": "inflation_monthly",
@@ -4158,7 +7416,7 @@
    "first_period": "2010-01-01",
    "last_period": "2026-04-01",
    "file": "gdp_headline.parquet",
-   "bytes": 11776
+   "bytes": 11748
   },
   {
    "name": "gdp_by_activity",
@@ -4511,7 +7769,7 @@
    "first_period": "2010-01-01",
    "last_period": "2026-04-01",
    "file": "gdp_by_activity.parquet",
-   "bytes": 27594
+   "bytes": 27585
   },
   {
    "name": "labour_quarterly",
@@ -4730,7 +7988,7 @@
    "first_period": "1998-01-01",
    "last_period": "2026-04-01",
    "file": "labour_quarterly.parquet",
-   "bytes": 12719
+   "bytes": 12732
   },
   {
    "name": "labour_regional_annual",
@@ -4978,7 +8236,7 @@
    "first_period": "2003-01-01",
    "last_period": "2025-01-01",
    "file": "labour_regional_annual.parquet",
-   "bytes": 10377
+   "bytes": 10323
   },
   {
    "name": "population_by_area",
@@ -5601,6 +8859,2151 @@
    "last_period": "2026-01-01",
    "file": "population_by_area.parquet",
    "bytes": 10526
+  },
+  {
+   "name": "retail_prices_latest",
+   "kind": "view",
+   "dataset": null,
+   "topic": "prices",
+   "title": {
+    "en": "Latest shop prices",
+    "ka": "ბოლო საცალო ფასები",
+    "ru": "Последние розничные цены"
+   },
+   "description": {
+    "en": "Latest average price of each product with its change over a year and since 2020.",
+    "ka": "თითოეული პროდუქტის ბოლო საშუალო ფასი და მისი ცვლილება წლის განმავლობაში და 2020 წლიდან.",
+    "ru": "Последняя средняя цена каждого товара и её изменение за год и с 2020 года.",
+    "en_detail": "One row per product: latest average shop price (GEL per unit_of_measure), the price a year earlier and in January 2020, percent changes, and the 12-month low and high. Source: Geostat price statistics portal."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "retail_prices_monthly"
+   ],
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/avg-prices?lang=en",
+     "path": "avg-prices; product-history/{product_id}",
+     "retrieved_at": "2026-10-26T19:17:26.701670+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "product",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Product",
+      "ka": "პროდუქტი",
+      "ru": "Товар"
+     },
+     "values": [
+      {
+       "en": "Apple",
+       "ka": "ვაშლი",
+       "ru": "Яблоки"
+      },
+      {
+       "en": "Baby food",
+       "ka": "ბავშვის საკვები",
+       "ru": "Детское питание"
+      },
+      {
+       "en": "Banana",
+       "ka": "ბანანი",
+       "ru": "Бананы"
+      },
+      {
+       "en": "Beef",
+       "ka": "ძროხის ხორცი",
+       "ru": "Говядина"
+      },
+      {
+       "en": "Beer",
+       "ka": "ლუდი",
+       "ru": "Пиво"
+      },
+      {
+       "en": "Beet",
+       "ka": "ჭარხალი",
+       "ru": "Свёкла"
+      },
+      {
+       "en": "Boiled sausage",
+       "ka": "მოხარშული ძეხვი",
+       "ru": "Варёная колбаса"
+      },
+      {
+       "en": "Bottled wine",
+       "ka": "ღვინო ბოთლებში ჩამოსხმული",
+       "ru": "Вино в бутылках"
+      },
+      {
+       "en": "Brandy",
+       "ka": "კონიაკი",
+       "ru": "Коньяк"
+      },
+      {
+       "en": "Buckwheat",
+       "ka": "წიწიბურა",
+       "ru": "Гречка"
+      },
+      {
+       "en": "Butter and spread",
+       "ka": "კარაქი და სპრედი",
+       "ru": "Сливочное масло и спреды"
+      },
+      {
+       "en": "Cabbage",
+       "ka": "კომბოსტო",
+       "ru": "Капуста"
+      },
+      {
+       "en": "Canned fish",
+       "ka": "თევზის კონსერვი",
+       "ru": "Рыбные консервы"
+      },
+      {
+       "en": "Canned stew meat",
+       "ka": "მოშუშული ხორცის კონსერვი",
+       "ru": "Тушёнка"
+      },
+      {
+       "en": "Canned vegetables",
+       "ka": "ბოსტნეულის კონსერვი",
+       "ru": "Овощные консервы"
+      },
+      {
+       "en": "Caramel",
+       "ka": "კარამელი",
+       "ru": "Карамель"
+      },
+      {
+       "en": "Carrot",
+       "ka": "სტაფილო",
+       "ru": "Морковь"
+      },
+      {
+       "en": "Cheese Imeruli",
+       "ka": "იმერული ყველი",
+       "ru": "Сыр имерули"
+      },
+      {
+       "en": "Cheese Sulguni",
+       "ka": "სულგუნი",
+       "ru": "Сыр сулугуни"
+      },
+      {
+       "en": "Chewing gum",
+       "ka": "საღეჭი რეზინა",
+       "ru": "Жевательная резинка"
+      },
+      {
+       "en": "Chicken legs",
+       "ka": "ქათმის ბარკლები",
+       "ru": "Куриные окорочка"
+      },
+      {
+       "en": "Chicken meat",
+       "ka": "ქათმის ხორცი",
+       "ru": "Курятина"
+      },
+      {
+       "en": "Chocolate bar",
+       "ka": "შოკოლადის ფილა",
+       "ru": "Шоколадный батончик"
+      },
+      {
+       "en": "Cocoa",
+       "ka": "კაკაო",
+       "ru": "Какао"
+      },
+      {
+       "en": "Condensed milk and milk containing product",
+       "ka": "შესქელებული რძე და რძის შემცველი პროდუქტი",
+       "ru": "Сгущённое молоко и молокосодержащие продукты"
+      },
+      {
+       "en": "Cookies",
+       "ka": "ნამცხვარი",
+       "ru": "Печенье"
+      },
+      {
+       "en": "Corn flour",
+       "ka": "სიმინდის ფქვილი",
+       "ru": "Кукурузная мука"
+      },
+      {
+       "en": "Cottage cheese",
+       "ka": "ხაჭო",
+       "ru": "Творог"
+      },
+      {
+       "en": "Cucumber",
+       "ka": "კიტრი",
+       "ru": "Огурцы"
+      },
+      {
+       "en": "Diesel fuel",
+       "ka": "დიზელის საწვავი",
+       "ru": "Дизельное топливо"
+      },
+      {
+       "en": "Drinks of Coca-cola type",
+       "ka": "კოლას ტიპის სასმელები",
+       "ru": "Напитки типа кока-колы"
+      },
+      {
+       "en": "Dry beans",
+       "ka": "ლობიო ხმელი",
+       "ru": "Сухая фасоль"
+      },
+      {
+       "en": "Egg",
+       "ka": "კვერცხი",
+       "ru": "Яйца"
+      },
+      {
+       "en": "Eggplant",
+       "ka": "ბადრიჯანი",
+       "ru": "Баклажаны"
+      },
+      {
+       "en": "Fresh fish",
+       "ka": "ახალი თევზი",
+       "ru": "Свежая рыба"
+      },
+      {
+       "en": "Frozen chicken meat",
+       "ka": "გაყინული ქათმის ხორცი",
+       "ru": "Замороженная курятина"
+      },
+      {
+       "en": "Frozen fish",
+       "ka": "გაყინული თევზი",
+       "ru": "Замороженная рыба"
+      },
+      {
+       "en": "Fruit juice",
+       "ka": "ხილის წვენები",
+       "ru": "Фруктовый сок"
+      },
+      {
+       "en": "Garlic",
+       "ka": "ნიორი",
+       "ru": "Чеснок"
+      },
+      {
+       "en": "Gas fuel",
+       "ka": "გაზის საწვავი",
+       "ru": "Газовое топливо"
+      },
+      {
+       "en": "Gasoline",
+       "ka": "ბენზინი",
+       "ru": "Бензин"
+      },
+      {
+       "en": "Grapes",
+       "ka": "ყურძენი",
+       "ru": "Виноград"
+      },
+      {
+       "en": "Green beans",
+       "ka": "მწვანე ლობიო",
+       "ru": "Стручковая фасоль"
+      },
+      {
+       "en": "Greens (herb)",
+       "ka": "მწვანილი",
+       "ru": "Зелень"
+      },
+      {
+       "en": "Ground coffee",
+       "ka": "ყავა დაფქული",
+       "ru": "Молотый кофе"
+      },
+      {
+       "en": "Honey",
+       "ka": "თაფლი",
+       "ru": "Мёд"
+      },
+      {
+       "en": "Ice-cream",
+       "ka": "ნაყინი",
+       "ru": "Мороженое"
+      },
+      {
+       "en": "Imported filtered cigarette",
+       "ka": "იმპორტული წარმოების ფილტრიანი სიგარეტი",
+       "ru": "Импортные сигареты с фильтром"
+      },
+      {
+       "en": "Instant coffee",
+       "ka": "ხსნადი ყავა",
+       "ru": "Растворимый кофе"
+      },
+      {
+       "en": "Ketchup",
+       "ka": "კეტჩუპი",
+       "ru": "Кетчуп"
+      },
+      {
+       "en": "Khachapuri at a bakery",
+       "ka": "ხაჭაპური საცხობში",
+       "ru": "Хачапури в пекарне"
+      },
+      {
+       "en": "Kiwi",
+       "ka": "კივი",
+       "ru": "Киви"
+      },
+      {
+       "en": "Lemon",
+       "ka": "ლიმონი",
+       "ru": "Лимоны"
+      },
+      {
+       "en": "Lemonade",
+       "ka": "ლიმონათი",
+       "ru": "Лимонад"
+      },
+      {
+       "en": "Macaroni products",
+       "ka": "მაკარონი და მაკარონის ნაწარმი",
+       "ru": "Макаронные изделия"
+      },
+      {
+       "en": "Manna-croup",
+       "ka": "მანანის ბურღული",
+       "ru": "Манная крупа"
+      },
+      {
+       "en": "Manufactured milk",
+       "ka": "ქარხნული რძე",
+       "ru": "Молоко заводское"
+      },
+      {
+       "en": "Margarine",
+       "ka": "მარგარინი",
+       "ru": "Маргарин"
+      },
+      {
+       "en": "Matsoni (fermented milk)",
+       "ka": "მაწონი",
+       "ru": "Мацони"
+      },
+      {
+       "en": "Mayonnaise",
+       "ka": "მაიონეზი",
+       "ru": "Майонез"
+      },
+      {
+       "en": "Meat dumplings (semi-prepared food)",
+       "ka": "პელმენი (ნახევარფაბრიკატი)",
+       "ru": "Пельмени (полуфабрикат)"
+      },
+      {
+       "en": "Mincemeat",
+       "ka": "ძროხის ხორცის ფარში",
+       "ru": "Фарш"
+      },
+      {
+       "en": "Mineral water (sparkling)",
+       "ka": "მინერალური წყალი (გაზირებული)",
+       "ru": "Минеральная вода (газированная)"
+      },
+      {
+       "en": "Mineral water (still)",
+       "ka": "მინერალური წყალი (არაგაზირებული)",
+       "ru": "Минеральная вода (негазированная)"
+      },
+      {
+       "en": "Mustard",
+       "ka": "მდოგვი",
+       "ru": "Горчица"
+      },
+      {
+       "en": "Non-bottled wine",
+       "ka": "ღვინო ჩამოსასხმელი",
+       "ru": "Разливное вино"
+      },
+      {
+       "en": "Onion",
+       "ka": "ხახვი",
+       "ru": "Лук"
+      },
+      {
+       "en": "Orange",
+       "ka": "ფორთოხალი",
+       "ru": "Апельсины"
+      },
+      {
+       "en": "Peach",
+       "ka": "ატამი",
+       "ru": "Персики"
+      },
+      {
+       "en": "Pear",
+       "ka": "მსხალი",
+       "ru": "Груши"
+      },
+      {
+       "en": "Pepper",
+       "ka": "წიწაკა",
+       "ru": "Перец"
+      },
+      {
+       "en": "Pickled cucumber",
+       "ka": "კიტრის მწნილი",
+       "ru": "Солёные огурцы"
+      },
+      {
+       "en": "Plum",
+       "ka": "ქლიავი",
+       "ru": "Сливы"
+      },
+      {
+       "en": "Pork",
+       "ka": "ღორის ხორცი",
+       "ru": "Свинина"
+      },
+      {
+       "en": "Potatoes",
+       "ka": "კარტოფილი",
+       "ru": "Картофель"
+      },
+      {
+       "en": "Raisin",
+       "ka": "ქიშმიში",
+       "ru": "Изюм"
+      },
+      {
+       "en": "Rice",
+       "ka": "ბრინჯი",
+       "ru": "Рис"
+      },
+      {
+       "en": "Rusk",
+       "ka": "ორცხობილა",
+       "ru": "Сухари"
+      },
+      {
+       "en": "Salt",
+       "ka": "მარილი",
+       "ru": "Соль"
+      },
+      {
+       "en": "Sausage (frankfurter)",
+       "ka": "სოსისი",
+       "ru": "Сосиски"
+      },
+      {
+       "en": "Smoked fish",
+       "ka": "შებოლილი თევზი",
+       "ru": "Копчёная рыба"
+      },
+      {
+       "en": "Smoked meat",
+       "ka": "შებოლილი ხორცი",
+       "ru": "Копчёное мясо"
+      },
+      {
+       "en": "Smoked sausage",
+       "ka": "შებოლილი ძეხვი",
+       "ru": "Копчёная колбаса"
+      },
+      {
+       "en": "Sour cream",
+       "ka": "არაჟანი",
+       "ru": "Сметана"
+      },
+      {
+       "en": "Spices",
+       "ka": "სანელებლები",
+       "ru": "Специи"
+      },
+      {
+       "en": "Sugar",
+       "ka": "შაქარი",
+       "ru": "Сахар"
+      },
+      {
+       "en": "Sunflower oil",
+       "ka": "მზესუმზირის ზეთი",
+       "ru": "Подсолнечное масло"
+      },
+      {
+       "en": "Tangerine",
+       "ka": "მანდარინი",
+       "ru": "Мандарины"
+      },
+      {
+       "en": "Tea bags",
+       "ka": "ჩაი ერთჯერად პაკეტებში",
+       "ru": "Чай в пакетиках"
+      },
+      {
+       "en": "Tea leaves",
+       "ka": "ფოთლოვანი ჩაი",
+       "ru": "Листовой чай"
+      },
+      {
+       "en": "Tomato",
+       "ka": "პომიდორი",
+       "ru": "Помидоры"
+      },
+      {
+       "en": "Tomato paste",
+       "ka": "ტომატ-პასტა",
+       "ru": "Томатная паста"
+      },
+      {
+       "en": "Vermicelli",
+       "ka": "ვერმიშელი",
+       "ru": "Вермишель"
+      },
+      {
+       "en": "Vodka",
+       "ka": "არაყი",
+       "ru": "Водка"
+      },
+      {
+       "en": "Waffle",
+       "ka": "ვაფლი კრემით",
+       "ru": "Вафли"
+      },
+      {
+       "en": "Walnuts",
+       "ka": "ნიგოზი",
+       "ru": "Грецкие орехи"
+      },
+      {
+       "en": "Watermelon",
+       "ka": "საზამთრო",
+       "ru": "Арбузы"
+      },
+      {
+       "en": "Wheat bread",
+       "ka": "ხორბლის პური",
+       "ru": "Пшеничный хлеб"
+      },
+      {
+       "en": "Wheat flour",
+       "ka": "ხორბლის ფქვილი",
+       "ru": "Пшеничная мука"
+      },
+      {
+       "en": "Yeast",
+       "ka": "საფუარი",
+       "ru": "Дрожжи"
+      },
+      {
+       "en": "Yogurt",
+       "ka": "იოგურტი",
+       "ru": "Йогурт"
+      }
+     ]
+    },
+    {
+     "name": "product_group",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Product group",
+      "ka": "სასაქონლო ჯგუფი",
+      "ru": "Группа товаров"
+     },
+     "values": [
+      {
+       "en": "Alcoholic Beverages and Tobacco",
+       "ka": "ალკოჰოლური სასმელები და თამბაქო",
+       "ru": "Алкогольные напитки и табак"
+      },
+      {
+       "en": "Bread and Grain Products",
+       "ka": "პური და პურპროდუქტები",
+       "ru": "Хлеб и крупы"
+      },
+      {
+       "en": "Coffee, Tea and Soft Drinks",
+       "ka": "ყავა, ჩაი, გამაგრილებელი სასმელები",
+       "ru": "Кофе, чай и безалкогольные напитки"
+      },
+      {
+       "en": "Fats and Oils",
+       "ka": "ცხიმები და ზეთები",
+       "ru": "Жиры и масла"
+      },
+      {
+       "en": "Fish and Fish Products",
+       "ka": "თევზი და თევზის პროდუქტები",
+       "ru": "Рыба и рыбные продукты"
+      },
+      {
+       "en": "Fruits and Vegetables",
+       "ka": "ხილი და ბოსტნეული",
+       "ru": "Фрукты и овощи"
+      },
+      {
+       "en": "Fuel",
+       "ka": "საწვავი",
+       "ru": "Топливо"
+      },
+      {
+       "en": "Meat and Meat Products",
+       "ka": "ხორცი და ხორცპროდუქტები",
+       "ru": "Мясо и мясные продукты"
+      },
+      {
+       "en": "Milk, Dairy and Eggs",
+       "ka": "რძე, ყველი, კვერცხი",
+       "ru": "Молоко, молочные продукты и яйца"
+      },
+      {
+       "en": "Sugar, Jams, Confectionery and others",
+       "ka": "შაქარი, ჯემი, საკონდიტრო და სხვა",
+       "ru": "Сахар, варенье, кондитерские изделия и прочее"
+      }
+     ]
+    },
+    {
+     "name": "unit_of_measure",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Unit",
+      "ka": "ერთეული",
+      "ru": "Единица"
+     },
+     "values": [
+      {
+       "en": "0.05 kilogram",
+       "ka": "0.05 კილოგრამი",
+       "ru": "0,05 кг"
+      },
+      {
+       "en": "0.1 kilogram",
+       "ka": "0.1 კილოგრამი",
+       "ru": "0,1 кг"
+      },
+      {
+       "en": "0.25 kilogram",
+       "ka": "0.25 კილოგრამი",
+       "ru": "0,25 кг"
+      },
+      {
+       "en": "0.4 kilogram",
+       "ka": "0.4 კილოგრამი",
+       "ru": "0,4 кг"
+      },
+      {
+       "en": "0.5 kilogram",
+       "ka": "0.5 კილოგრამი",
+       "ru": "0,5 кг"
+      },
+      {
+       "en": "0.5 litre",
+       "ka": "0.5 ლიტრი",
+       "ru": "0,5 л"
+      },
+      {
+       "en": "0.75 litre",
+       "ka": "0.75 ლიტრი",
+       "ru": "0,75 л"
+      },
+      {
+       "en": "1 bundle",
+       "ka": "1 შეკვრა",
+       "ru": "1 пучок"
+      },
+      {
+       "en": "1 kilogram",
+       "ka": "1 კილოგრამი",
+       "ru": "1 кг"
+      },
+      {
+       "en": "1 litre",
+       "ka": "1 ლიტრი",
+       "ru": "1 л"
+      },
+      {
+       "en": "1 m³",
+       "ka": "1 მ3",
+       "ru": "1 м³"
+      },
+      {
+       "en": "1 pack",
+       "ka": "1 კოლოფი",
+       "ru": "1 пачка"
+      },
+      {
+       "en": "1 piece",
+       "ka": "1 ცალი",
+       "ru": "1 шт."
+      },
+      {
+       "en": "1.5 litre",
+       "ka": "1.5 ლიტრი",
+       "ru": "1,5 л"
+      },
+      {
+       "en": "10 piece",
+       "ka": "10 ცალი",
+       "ru": "10 шт."
+      }
+     ]
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "price_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Price, GEL",
+      "ka": "ფასი, ლარი",
+      "ru": "Цена, лари"
+     }
+    },
+    {
+     "name": "price_year_ago_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Price a year earlier, GEL",
+      "ka": "ფასი ერთი წლის წინ, ლარი",
+      "ru": "Цена годом ранее, лари"
+     }
+    },
+    {
+     "name": "change_yoy_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Change over a year, %",
+      "ka": "წლიური ცვლილება, %",
+      "ru": "Изменение за год, %"
+     }
+    },
+    {
+     "name": "change_since_2020_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Change since Jan 2020, %",
+      "ka": "ცვლილება 2020 წლის იანვრიდან, %",
+      "ru": "Изменение с января 2020, %"
+     }
+    },
+    {
+     "name": "low_12m_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "12-month low, GEL",
+      "ka": "12-თვიანი მინიმუმი, ლარი",
+      "ru": "Минимум за 12 мес., лари"
+     }
+    },
+    {
+     "name": "high_12m_gel",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "12-month high, GEL",
+      "ka": "12-თვიანი მაქსიმუმი, ლარი",
+      "ru": "Максимум за 12 мес., лари"
+     }
+    }
+   ],
+   "period_types": [],
+   "row_count": 101,
+   "value_count": 101,
+   "first_period": "2026-05-01",
+   "last_period": "2026-09-01",
+   "file": "retail_prices_latest.parquet",
+   "bytes": 7183
+  },
+  {
+   "name": "inflation_breakdown_monthly",
+   "kind": "view",
+   "dataset": null,
+   "topic": "prices",
+   "title": {
+    "en": "Inflation breakdown",
+    "ka": "ინფლაციის სტრუქტურა",
+    "ru": "Структура инфляции"
+   },
+   "description": {
+    "en": "Annual inflation by measure: headline, core, HICP, goods by durability, food, energy and services.",
+    "ka": "წლიური ინფლაცია: ძირითადი, საბაზო, ჰარმონიზებული, საქონელი ხანგრძლივობის მიხედვით, სურსათი, ენერგია და მომსახურება.",
+    "ru": "Годовая инфляция по показателям: общая, базовая, ИГПЦ, товары по длительности пользования, продукты, энергия и услуги.",
+    "en_detail": "Year-over-year inflation (%) by measure in one place: headline, core and HICP, durability classes, and the CPI components food, energy, non-energy goods and services (computed from their Dec 2020 = 100 indices)."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "inflation_measures_monthly",
+    "inflation_components_monthly"
+   ],
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/?lang=en",
+     "path": "inflation; inflation-by-classification?type=DURABILITY",
+     "retrieved_at": "2026-10-26T19:17:50.873636+04:00"
+    },
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/?lang=en",
+     "path": "inflation-index",
+     "retrieved_at": "2026-10-26T19:17:51.707029+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "measure",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Measure",
+      "ka": "მაჩვენებელი",
+      "ru": "Показатель"
+     },
+     "values": [
+      {
+       "en": "Core inflation",
+       "ka": "საბაზო ინფლაცია",
+       "ru": "Базовая инфляция"
+      },
+      {
+       "en": "Durable goods",
+       "ka": "ხანგრძლივი მოხმარების საქონელი",
+       "ru": "Товары длительного пользования"
+      },
+      {
+       "en": "Energy",
+       "ka": "ენერგია",
+       "ru": "Энергия"
+      },
+      {
+       "en": "Food, Alcohol & Tobacco",
+       "ka": "სურსათი, სასმელები, თამბაქო",
+       "ru": "Продукты, алкоголь и табак"
+      },
+      {
+       "en": "Harmonised CPI (HICP)",
+       "ka": "ჰარმონიზებული სამომხმარებლო ფასების ინდექსი",
+       "ru": "Гармонизированный ИПЦ (ГИПЦ)"
+      },
+      {
+       "en": "Headline CPI inflation",
+       "ka": "სამომხმარებლო ფასების ინდექსი (ინფლაცია)",
+       "ru": "Общая инфляция (ИПЦ)"
+      },
+      {
+       "en": "Non-Energy Industrial Goods",
+       "ka": "არასასურსათო საქონელი (ენერგიის გარეშე)",
+       "ru": "Непродовольственные товары (без энергии)"
+      },
+      {
+       "en": "Non-durable goods",
+       "ka": "არა ხანგრძლივი მოხმარების საქონელი",
+       "ru": "Товары краткосрочного пользования"
+      },
+      {
+       "en": "Semi-durable goods",
+       "ka": "საშუალო ხანგრძლივობის მოხმარების საქონელი",
+       "ru": "Товары среднесрочного пользования"
+      },
+      {
+       "en": "Services",
+       "ka": "მომსახურება",
+       "ru": "Услуги"
+      }
+     ]
+    },
+    {
+     "name": "measure_type",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Measure type",
+      "ka": "მაჩვენებლის ტიპი",
+      "ru": "Тип показателя"
+     },
+     "values": [
+      {
+       "en": "component",
+       "ka": "კომპონენტი",
+       "ru": "Компонент"
+      },
+      {
+       "en": "measure",
+       "ka": "მაჩვენებელი",
+       "ru": "Показатель"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "month_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Month number",
+      "ka": "თვის ნომერი",
+      "ru": "Номер месяца"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "inflation_yoy_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Annual inflation, %",
+      "ka": "წლიური ინფლაცია, %",
+      "ru": "Годовая инфляция, %"
+     }
+    }
+   ],
+   "period_types": [
+    "month"
+   ],
+   "row_count": 530,
+   "value_count": 530,
+   "first_period": "2022-01-01",
+   "last_period": "2026-09-01",
+   "file": "inflation_breakdown_monthly.parquet",
+   "bytes": 5444
+  },
+  {
+   "name": "tbilisi_property_latest",
+   "kind": "view",
+   "dataset": null,
+   "topic": "prices",
+   "title": {
+    "en": "Tbilisi housing prices, latest quarter",
+    "ka": "თბილისის საცხოვრებლის ფასები, ბოლო კვარტალი",
+    "ru": "Цены на жильё в Тбилиси, последний квартал"
+   },
+   "description": {
+    "en": "Median price per m² by district for flats and houses, with the change over a year.",
+    "ka": "1 მ²-ის მედიანური ფასი რაიონების მიხედვით ბინებისა და სახლებისთვის, წლიური ცვლილებით.",
+    "ru": "Медианная цена м² по районам для квартир и домов и её изменение за год.",
+    "en_detail": "Latest quarter of median residential property prices per m² (GEL) by Tbilisi district and dwelling type, with the change versus the same quarter a year earlier."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "tbilisi_property_quarterly"
+   ],
+   "sources": [
+    {
+     "url": "https://prices-api.geostat.ge/api/",
+     "web_url": "https://prices.geostat.ge/construction?lang=en",
+     "path": "tbilisi-district-prices?category=APARTMENT|HOUSE",
+     "retrieved_at": "2026-10-26T19:17:57.867604+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "district",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "District",
+      "ka": "რაიონი",
+      "ru": "Район"
+     },
+     "values": [
+      {
+       "en": "Chughureti",
+       "ka": "ჩუღურეთის რაიონი",
+       "ru": "Чугурети"
+      },
+      {
+       "en": "Didube",
+       "ka": "დიდუბის რაიონი",
+       "ru": "Дидубе"
+      },
+      {
+       "en": "Gldani",
+       "ka": "გლდანის რაიონი",
+       "ru": "Глдани"
+      },
+      {
+       "en": "Isani",
+       "ka": "ისნის რაიონი",
+       "ru": "Исани"
+      },
+      {
+       "en": "Krtsanisi",
+       "ka": "კრწანისის რაიონი",
+       "ru": "Крцаниси"
+      },
+      {
+       "en": "Mtatsminda",
+       "ka": "მთაწმინდის რაიონი",
+       "ru": "Мтацминда"
+      },
+      {
+       "en": "Nadzaladevi",
+       "ka": "ნაძალადევის რაიონი",
+       "ru": "Надзаладеви"
+      },
+      {
+       "en": "Saburtalo",
+       "ka": "საბურთალოს რაიონი",
+       "ru": "Сабуртало"
+      },
+      {
+       "en": "Samgori",
+       "ka": "სამგორის რაიონი",
+       "ru": "Самгори"
+      },
+      {
+       "en": "Vake",
+       "ka": "ვაკის რაიონი",
+       "ru": "Ваке"
+      }
+     ]
+    },
+    {
+     "name": "dwelling_type",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Dwelling type",
+      "ka": "საცხოვრებლის ტიპი",
+      "ru": "Тип жилья"
+     },
+     "values": [
+      {
+       "en": "Detached houses",
+       "ka": "ინდივიდუალური სახლები",
+       "ru": "Частные дома"
+      },
+      {
+       "en": "Flats",
+       "ka": "ბინები",
+       "ru": "Квартиры"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "quarter_num",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Quarter number",
+      "ka": "კვარტლის ნომერი",
+      "ru": "Номер квартала"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "median_price_gel_m2",
+     "type": "BIGINT",
+     "role": "measure",
+     "label": {
+      "en": "Median price, GEL per m²",
+      "ka": "მედიანური ფასი, ლარი 1 მ²-ზე",
+      "ru": "Медианная цена, лари за м²"
+     }
+    },
+    {
+     "name": "year_ago_gel_m2",
+     "type": "BIGINT",
+     "role": "measure",
+     "label": {
+      "en": "A year earlier, GEL per m²",
+      "ka": "ერთი წლის წინ, ლარი 1 მ²-ზე",
+      "ru": "Годом ранее, лари за м²"
+     }
+    },
+    {
+     "name": "change_yoy_pct",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Change over a year, %",
+      "ka": "წლიური ცვლილება, %",
+      "ru": "Изменение за год, %"
+     }
+    }
+   ],
+   "period_types": [
+    "annual"
+   ],
+   "row_count": 20,
+   "value_count": 20,
+   "first_period": "2026-07-01",
+   "last_period": "2026-07-01",
+   "file": "tbilisi_property_latest.parquet",
+   "bytes": 1989
+  },
+  {
+   "name": "business_by_area",
+   "kind": "view",
+   "dataset": null,
+   "topic": "regions",
+   "title": {
+    "en": "Business statistics by area",
+    "ka": "ბიზნეს სტატისტიკა ტერიტორიების მიხედვით",
+    "ru": "Статистика предприятий по территориям"
+   },
+   "description": {
+    "en": "Regions and municipalities in one table, with productivity per person employed. Latest year 2022.",
+    "ka": "რეგიონები და მუნიციპალიტეტები ერთ ცხრილში, მწარმოებლურობით ერთ დასაქმებულზე. ბოლო წელი 2022.",
+    "ru": "Регионы и муниципалитеты в одной таблице, с производительностью на одного занятого. Последний год 2022.",
+    "en_detail": "Business statistics for regions and municipalities in one long table. area_code matches the map files (web/public/data/geo). The municipal source omits Tbilisi's values, so Tbilisi's municipal rows come from the regional table. Adds turnover and value added per person employed (thousand GEL). Latest year: 2022."
+   },
+   "unit": null,
+   "grain": null,
+   "requires": [
+    "business_regional_annual",
+    "business_municipal_annual"
+   ],
+   "sources": [
+    {
+     "url": "https://gis-api.geostat.ge/api/",
+     "web_url": "https://gis-api.geostat.ge/",
+     "path": "getRegBrunva, getValAdded, getRegProdVal, getRegPurchases, getRegResale, getRegIntConsumption, getRegInvestment, getRegCosts, getRegRemuneration, getRegEmployees, getRegEmployed ?year=YYYY",
+     "retrieved_at": "2026-10-26T19:18:11.883227+04:00"
+    },
+    {
+     "url": "https://gis-api.geostat.ge/api/",
+     "web_url": "https://gis-api.geostat.ge/",
+     "path": "getMunBrunva, getMunValAdded, getMunProdVal, getMunPurchases, getMunResale, getMunIntConsumption, getMunInvestment, getMunCosts, getMunRemuneration, getMunEmployees, getMunEmployed ?year=YYYY",
+     "retrieved_at": "2026-10-26T19:19:29.531226+04:00"
+    }
+   ],
+   "columns": [
+    {
+     "name": "area_level",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Area level",
+      "ka": "ტერიტორიის დონე",
+      "ru": "Уровень территории"
+     },
+     "values": [
+      {
+       "en": "municipality",
+       "ka": "მუნიციპალიტეტი",
+       "ru": "Муниципалитет"
+      },
+      {
+       "en": "region",
+       "ka": "რეგიონი",
+       "ru": "Регион"
+      }
+     ]
+    },
+    {
+     "name": "area",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Area",
+      "ka": "ტერიტორია",
+      "ru": "Территория"
+     },
+     "values": [
+      {
+       "en": "Abasha",
+       "ka": "აბაშა",
+       "ru": "Абаша"
+      },
+      {
+       "en": "Adigeni",
+       "ka": "ადიგენი",
+       "ru": "Адигени"
+      },
+      {
+       "en": "Adjara A.R.",
+       "ka": "აჭარის ა.რ.",
+       "ru": "Аджарская АР"
+      },
+      {
+       "en": "Akhalkalaki",
+       "ka": "ახალქალაქი",
+       "ru": "Ахалкалаки"
+      },
+      {
+       "en": "Akhaltsikhe",
+       "ka": "ახალციხე",
+       "ru": "Ахалцихе"
+      },
+      {
+       "en": "Akhmeta",
+       "ka": "ახმეტა",
+       "ru": "Ахмета"
+      },
+      {
+       "en": "Ambrolauri",
+       "ka": "ამბროლაური",
+       "ru": "Амбролаури"
+      },
+      {
+       "en": "Aspindza",
+       "ka": "ასპინძა",
+       "ru": "Аспиндза"
+      },
+      {
+       "en": "Baghdati",
+       "ka": "ბაღდათი",
+       "ru": "Багдати"
+      },
+      {
+       "en": "Bolnisi",
+       "ka": "ბოლნისი",
+       "ru": "Болниси"
+      },
+      {
+       "en": "Borjomi",
+       "ka": "ბორჯომი",
+       "ru": "Боржоми"
+      },
+      {
+       "en": "C. Batumi",
+       "ka": "ქ. ბათუმი",
+       "ru": "г. Батуми"
+      },
+      {
+       "en": "C. Kutaisi",
+       "ka": "ქ. ქუთაისი",
+       "ru": "г. Кутаиси"
+      },
+      {
+       "en": "C. Poti",
+       "ka": "ქ. ფოთი",
+       "ru": "г. Поти"
+      },
+      {
+       "en": "C. Rustavi",
+       "ka": "ქ. რსუთავი",
+       "ru": "г. Рустави"
+      },
+      {
+       "en": "C. Tbilisi",
+       "ka": "თბილისი",
+       "ru": "г. Тбилиси"
+      },
+      {
+       "en": "Chiatura",
+       "ka": "ჭიათურა",
+       "ru": "Чиатура"
+      },
+      {
+       "en": "Chkhorotsku",
+       "ka": "ჩხოროწყუ",
+       "ru": "Чхороцку"
+      },
+      {
+       "en": "Chokhatauri",
+       "ka": "ჩოხატაური",
+       "ru": "Чохатаури"
+      },
+      {
+       "en": "Dedoplistskaro",
+       "ka": "დედოფლისწყარო",
+       "ru": "Дедоплисцкаро"
+      },
+      {
+       "en": "Dmanisi",
+       "ka": "დმანისი",
+       "ru": "Дманиси"
+      },
+      {
+       "en": "Dusheti",
+       "ka": "დუშეთი",
+       "ru": "Душети"
+      },
+      {
+       "en": "Gardabani",
+       "ka": "გარდაბანი",
+       "ru": "Гардабани"
+      },
+      {
+       "en": "Gori",
+       "ka": "გორი",
+       "ru": "Гори"
+      },
+      {
+       "en": "Guria",
+       "ka": "გურია",
+       "ru": "Гурия"
+      },
+      {
+       "en": "Gurjaani",
+       "ka": "გურჯაანი",
+       "ru": "Гурджаани"
+      },
+      {
+       "en": "Imereti",
+       "ka": "იმერეთი",
+       "ru": "Имеретия"
+      },
+      {
+       "en": "Kakheti",
+       "ka": "კახეთი",
+       "ru": "Кахетия"
+      },
+      {
+       "en": "Kareli",
+       "ka": "ქარელი",
+       "ru": "Карели"
+      },
+      {
+       "en": "Kaspi",
+       "ka": "კასპი",
+       "ru": "Каспи"
+      },
+      {
+       "en": "Kazbegi",
+       "ka": "ყაზბეგი",
+       "ru": "Казбеги"
+      },
+      {
+       "en": "Keda",
+       "ka": "ქედა",
+       "ru": "Кеда"
+      },
+      {
+       "en": "Kharagauli",
+       "ka": "ხარაგაული",
+       "ru": "Харагаули"
+      },
+      {
+       "en": "Khashuri",
+       "ka": "ხაშური",
+       "ru": "Хашури"
+      },
+      {
+       "en": "Khelvachauri",
+       "ka": "ხელვაჩაური",
+       "ru": "Хелвачаури"
+      },
+      {
+       "en": "Khobi",
+       "ka": "ხობი",
+       "ru": "Хоби"
+      },
+      {
+       "en": "Khoni",
+       "ka": "ხონი",
+       "ru": "Хони"
+      },
+      {
+       "en": "Khulo",
+       "ka": "ხულო",
+       "ru": "Хуло"
+      },
+      {
+       "en": "Kobuleti",
+       "ka": "ქობულეთი",
+       "ru": "Кобулети"
+      },
+      {
+       "en": "Kvareli",
+       "ka": "ყვარელი",
+       "ru": "Кварели"
+      },
+      {
+       "en": "Kvemo Kartli",
+       "ka": "ქვემო ქართლი",
+       "ru": "Квемо Картли"
+      },
+      {
+       "en": "Lagodekhi",
+       "ka": "ლაგოდეხი",
+       "ru": "Лагодехи"
+      },
+      {
+       "en": "Lanchkhuti",
+       "ka": "ლანჩხუთი",
+       "ru": "Ланчхути"
+      },
+      {
+       "en": "Lentekhi",
+       "ka": "ლენტეხი",
+       "ru": "Лентехи"
+      },
+      {
+       "en": "Marneuli",
+       "ka": "მარნეული",
+       "ru": "Марнеули"
+      },
+      {
+       "en": "Martvili",
+       "ka": "მარტვილი",
+       "ru": "Мартвили"
+      },
+      {
+       "en": "Mestia",
+       "ka": "მესტია",
+       "ru": "Местиа"
+      },
+      {
+       "en": "Mtskheta",
+       "ka": "მცხეთა",
+       "ru": "Мцхета"
+      },
+      {
+       "en": "Mtskheta-Mtianeti",
+       "ka": "მცხეთა-მთიანეთი",
+       "ru": "Мцхета-Мтианети"
+      },
+      {
+       "en": "Ninotsminda",
+       "ka": "ნინოწმინდა",
+       "ru": "Ниноцминда"
+      },
+      {
+       "en": "Oni",
+       "ka": "ონი",
+       "ru": "Они"
+      },
+      {
+       "en": "Ozurgeti",
+       "ka": "ოზურგეთი",
+       "ru": "Озургети"
+      },
+      {
+       "en": "Racha-Lechkhumi and Kvemo Svaneti",
+       "ka": "რაჭა-ლეჩხუმი და ქვემო სვანეთი",
+       "ru": "Рача-Лечхуми и Квемо Сванети"
+      },
+      {
+       "en": "Sachkhere",
+       "ka": "საჩხერე",
+       "ru": "Сачхере"
+      },
+      {
+       "en": "Sagarejo",
+       "ka": "საგარეჯო",
+       "ru": "Сагареджо"
+      },
+      {
+       "en": "Samegrelo-Zemo Svaneti",
+       "ka": "სამეგრელო-ზემო სვანეთი",
+       "ru": "Самегрело-Земо Сванети"
+      },
+      {
+       "en": "Samtredia",
+       "ka": "სამტრედია",
+       "ru": "Самтредиа"
+      },
+      {
+       "en": "Samtskhe-Javakheti",
+       "ka": "სამცხე-ჯავახეთი",
+       "ru": "Самцхе-Джавахети"
+      },
+      {
+       "en": "Senaki",
+       "ka": "სენაკი",
+       "ru": "Сенаки"
+      },
+      {
+       "en": "Shida Kartli",
+       "ka": "შიდა ქართლი",
+       "ru": "Шида Картли"
+      },
+      {
+       "en": "Shuakhevi",
+       "ka": "შუახევი",
+       "ru": "Шуахеви"
+      },
+      {
+       "en": "Sighnaghi",
+       "ka": "სიღნაღი",
+       "ru": "Сигнахи"
+      },
+      {
+       "en": "Tbilisi",
+       "ka": "ქ. თბილისი",
+       "ru": "Тбилиси"
+      },
+      {
+       "en": "Telavi",
+       "ka": "თელავი",
+       "ru": "Телави"
+      },
+      {
+       "en": "Terjola",
+       "ka": "თერჯოლა",
+       "ru": "Терджола"
+      },
+      {
+       "en": "Tetritskaro",
+       "ka": "თეთრუწყარო",
+       "ru": "Тетрицкаро"
+      },
+      {
+       "en": "Tianeti",
+       "ka": "თიანეთი",
+       "ru": "Тианети"
+      },
+      {
+       "en": "Tkibuli",
+       "ka": "ტყიბული",
+       "ru": "Ткибули"
+      },
+      {
+       "en": "Tsageri",
+       "ka": "ცაგერი",
+       "ru": "Цагери"
+      },
+      {
+       "en": "Tsalenjikha",
+       "ka": "წალენჯიხა",
+       "ru": "Цаленджиха"
+      },
+      {
+       "en": "Tsalka",
+       "ka": "წალკა",
+       "ru": "Цалка"
+      },
+      {
+       "en": "Tskaltubo",
+       "ka": "წყალტუბო",
+       "ru": "Цхалтубо"
+      },
+      {
+       "en": "Vani",
+       "ka": "ვანი",
+       "ru": "Вани"
+      },
+      {
+       "en": "Zestaponi",
+       "ka": "ზესტაფონი",
+       "ru": "Зестафони"
+      },
+      {
+       "en": "Zugdidi",
+       "ka": "ზუგდიდი",
+       "ru": "Зугдиди"
+      }
+     ]
+    },
+    {
+     "name": "area_code",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Area code",
+      "ka": "ტერიტორიის კოდი",
+      "ru": "Код территории"
+     },
+     "values": [
+      {
+       "en": "11",
+       "ka": "11",
+       "ru": "11"
+      },
+      {
+       "en": "15",
+       "ka": "15",
+       "ru": "15"
+      },
+      {
+       "en": "1511",
+       "ka": "1511",
+       "ru": "1511"
+      },
+      {
+       "en": "1523",
+       "ka": "1523",
+       "ru": "1523"
+      },
+      {
+       "en": "1525",
+       "ka": "1525",
+       "ru": "1525"
+      },
+      {
+       "en": "1529",
+       "ka": "1529",
+       "ru": "1529"
+      },
+      {
+       "en": "1532",
+       "ka": "1532",
+       "ru": "1532"
+      },
+      {
+       "en": "1535",
+       "ka": "1535",
+       "ru": "1535"
+      },
+      {
+       "en": "23",
+       "ka": "23",
+       "ru": "23"
+      },
+      {
+       "en": "2323",
+       "ka": "2323",
+       "ru": "2323"
+      },
+      {
+       "en": "2325",
+       "ka": "2325",
+       "ru": "2325"
+      },
+      {
+       "en": "2327",
+       "ka": "2327",
+       "ru": "2327"
+      },
+      {
+       "en": "26",
+       "ka": "26",
+       "ru": "26"
+      },
+      {
+       "en": "2611",
+       "ka": "2611",
+       "ru": "2611"
+      },
+      {
+       "en": "2623",
+       "ka": "2623",
+       "ru": "2623"
+      },
+      {
+       "en": "2627",
+       "ka": "2627",
+       "ru": "2627"
+      },
+      {
+       "en": "2629",
+       "ka": "2629",
+       "ru": "2629"
+      },
+      {
+       "en": "2631",
+       "ka": "2631",
+       "ru": "2631"
+      },
+      {
+       "en": "2633",
+       "ka": "2633",
+       "ru": "2633"
+      },
+      {
+       "en": "2635",
+       "ka": "2635",
+       "ru": "2635"
+      },
+      {
+       "en": "2636",
+       "ka": "2636",
+       "ru": "2636"
+      },
+      {
+       "en": "2638",
+       "ka": "2638",
+       "ru": "2638"
+      },
+      {
+       "en": "2640",
+       "ka": "2640",
+       "ru": "2640"
+      },
+      {
+       "en": "2642",
+       "ka": "2642",
+       "ru": "2642"
+      },
+      {
+       "en": "2644",
+       "ka": "2644",
+       "ru": "2644"
+      },
+      {
+       "en": "29",
+       "ka": "29",
+       "ru": "29"
+      },
+      {
+       "en": "2924",
+       "ka": "2924",
+       "ru": "2924"
+      },
+      {
+       "en": "2926",
+       "ka": "2926",
+       "ru": "2926"
+      },
+      {
+       "en": "2928",
+       "ka": "2928",
+       "ru": "2928"
+      },
+      {
+       "en": "2930",
+       "ka": "2930",
+       "ru": "2930"
+      },
+      {
+       "en": "2932",
+       "ka": "2932",
+       "ru": "2932"
+      },
+      {
+       "en": "2934",
+       "ka": "2934",
+       "ru": "2934"
+      },
+      {
+       "en": "2936",
+       "ka": "2936",
+       "ru": "2936"
+      },
+      {
+       "en": "2938",
+       "ka": "2938",
+       "ru": "2938"
+      },
+      {
+       "en": "32",
+       "ka": "32",
+       "ru": "32"
+      },
+      {
+       "en": "3225",
+       "ka": "3225",
+       "ru": "3225"
+      },
+      {
+       "en": "3227",
+       "ka": "3227",
+       "ru": "3227"
+      },
+      {
+       "en": "3229",
+       "ka": "3229",
+       "ru": "3229"
+      },
+      {
+       "en": "3231",
+       "ka": "3231",
+       "ru": "3231"
+      },
+      {
+       "en": "35",
+       "ka": "35",
+       "ru": "35"
+      },
+      {
+       "en": "3523",
+       "ka": "3523",
+       "ru": "3523"
+      },
+      {
+       "en": "3526",
+       "ka": "3526",
+       "ru": "3526"
+      },
+      {
+       "en": "3529",
+       "ka": "3529",
+       "ru": "3529"
+      },
+      {
+       "en": "3531",
+       "ka": "3531",
+       "ru": "3531"
+      },
+      {
+       "en": "38",
+       "ka": "38",
+       "ru": "38"
+      },
+      {
+       "en": "3814",
+       "ka": "3814",
+       "ru": "3814"
+      },
+      {
+       "en": "3823",
+       "ka": "3823",
+       "ru": "3823"
+      },
+      {
+       "en": "3825",
+       "ka": "3825",
+       "ru": "3825"
+      },
+      {
+       "en": "3828",
+       "ka": "3828",
+       "ru": "3828"
+      },
+      {
+       "en": "3830",
+       "ka": "3830",
+       "ru": "3830"
+      },
+      {
+       "en": "3832",
+       "ka": "3832",
+       "ru": "3832"
+      },
+      {
+       "en": "3834",
+       "ka": "3834",
+       "ru": "3834"
+      },
+      {
+       "en": "3836",
+       "ka": "3836",
+       "ru": "3836"
+      },
+      {
+       "en": "3838",
+       "ka": "3838",
+       "ru": "3838"
+      },
+      {
+       "en": "41",
+       "ka": "41",
+       "ru": "41"
+      },
+      {
+       "en": "4123",
+       "ka": "4123",
+       "ru": "4123"
+      },
+      {
+       "en": "4125",
+       "ka": "4125",
+       "ru": "4125"
+      },
+      {
+       "en": "4127",
+       "ka": "4127",
+       "ru": "4127"
+      },
+      {
+       "en": "4129",
+       "ka": "4129",
+       "ru": "4129"
+      },
+      {
+       "en": "4131",
+       "ka": "4131",
+       "ru": "4131"
+      },
+      {
+       "en": "4133",
+       "ka": "4133",
+       "ru": "4133"
+      },
+      {
+       "en": "44",
+       "ka": "44",
+       "ru": "44"
+      },
+      {
+       "en": "4411",
+       "ka": "4411",
+       "ru": "4411"
+      },
+      {
+       "en": "4424",
+       "ka": "4424",
+       "ru": "4424"
+      },
+      {
+       "en": "4426",
+       "ka": "4426",
+       "ru": "4426"
+      },
+      {
+       "en": "4428",
+       "ka": "4428",
+       "ru": "4428"
+      },
+      {
+       "en": "4430",
+       "ka": "4430",
+       "ru": "4430"
+      },
+      {
+       "en": "4432",
+       "ka": "4432",
+       "ru": "4432"
+      },
+      {
+       "en": "4434",
+       "ka": "4434",
+       "ru": "4434"
+      },
+      {
+       "en": "47",
+       "ka": "47",
+       "ru": "47"
+      },
+      {
+       "en": "4724",
+       "ka": "4724",
+       "ru": "4724"
+      },
+      {
+       "en": "4726",
+       "ka": "4726",
+       "ru": "4726"
+      },
+      {
+       "en": "4728",
+       "ka": "4728",
+       "ru": "4728"
+      },
+      {
+       "en": "4731",
+       "ka": "4731",
+       "ru": "4731"
+      }
+     ]
+    },
+    {
+     "name": "region_code",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Region code",
+      "ka": "რეგიონის კოდი",
+      "ru": "Код региона"
+     },
+     "values": [
+      {
+       "en": "11",
+       "ka": "11",
+       "ru": "11"
+      },
+      {
+       "en": "15",
+       "ka": "15",
+       "ru": "15"
+      },
+      {
+       "en": "23",
+       "ka": "23",
+       "ru": "23"
+      },
+      {
+       "en": "26",
+       "ka": "26",
+       "ru": "26"
+      },
+      {
+       "en": "29",
+       "ka": "29",
+       "ru": "29"
+      },
+      {
+       "en": "32",
+       "ka": "32",
+       "ru": "32"
+      },
+      {
+       "en": "35",
+       "ka": "35",
+       "ru": "35"
+      },
+      {
+       "en": "38",
+       "ka": "38",
+       "ru": "38"
+      },
+      {
+       "en": "41",
+       "ka": "41",
+       "ru": "41"
+      },
+      {
+       "en": "44",
+       "ka": "44",
+       "ru": "44"
+      },
+      {
+       "en": "47",
+       "ka": "47",
+       "ru": "47"
+      }
+     ]
+    },
+    {
+     "name": "indicator",
+     "type": "VARCHAR",
+     "role": "dimension",
+     "label": {
+      "en": "Indicator",
+      "ka": "მაჩვენებელი",
+      "ru": "Показатель"
+     },
+     "values": [
+      {
+       "en": "Average monthly remuneration, GEL",
+       "ka": "საშუალო თვიური შრომის ანაზღაურება, ლარი",
+       "ru": "Средняя месячная оплата труда, лари"
+      },
+      {
+       "en": "Employees",
+       "ka": "დაქირავებულთა რაოდენობა",
+       "ru": "Наёмные работники"
+      },
+      {
+       "en": "Intermediate consumption, million GEL",
+       "ka": "შუალედური მოხმარება, მლნ ლარი",
+       "ru": "Промежуточное потребление, млн лари"
+      },
+      {
+       "en": "Investment in fixed assets, million GEL",
+       "ka": "ინვესტიციები ძირითად საშუალებებში, მლნ ლარი",
+       "ru": "Инвестиции в основные средства, млн лари"
+      },
+      {
+       "en": "Personnel costs, million GEL",
+       "ka": "პერსონალის ხარჯები, მლნ ლარი",
+       "ru": "Расходы на персонал, млн лари"
+      },
+      {
+       "en": "Persons employed",
+       "ka": "დასაქმებულთა რაოდენობა",
+       "ru": "Занятые"
+      },
+      {
+       "en": "Production value, million GEL",
+       "ka": "პროდუქციის გამოშვება, მლნ ლარი",
+       "ru": "Выпуск продукции, млн лари"
+      },
+      {
+       "en": "Purchases for resale, million GEL",
+       "ka": "გადასაყიდად შესყიდული საქონელი და მომსახურება, მლნ ლარი",
+       "ru": "Закупки для перепродажи, млн лари"
+      },
+      {
+       "en": "Purchases of goods and services, million GEL",
+       "ka": "საქონლისა და მომსახურების შესყიდვები, მლნ ლარი",
+       "ru": "Закупки товаров и услуг, млн лари"
+      },
+      {
+       "en": "Turnover per person employed, thousand GEL",
+       "ka": "ბრუნვა ერთ დასაქმებულზე, ათასი ლარი",
+       "ru": "Оборот на одного занятого, тыс. лари"
+      },
+      {
+       "en": "Turnover, million GEL",
+       "ka": "ბრუნვა, მლნ ლარი",
+       "ru": "Оборот, млн лари"
+      },
+      {
+       "en": "Value added per person employed, thousand GEL",
+       "ka": "დამატებული ღირებულება ერთ დასაქმებულზე, ათასი ლარი",
+       "ru": "Добавленная стоимость на одного занятого, тыс. лари"
+      },
+      {
+       "en": "Value added, million GEL",
+       "ka": "დამატებული ღირებულება, მლნ ლარი",
+       "ru": "Добавленная стоимость, млн лари"
+      }
+     ]
+    },
+    {
+     "name": "year",
+     "type": "BIGINT",
+     "role": "time",
+     "label": {
+      "en": "Year",
+      "ka": "წელი",
+      "ru": "Год"
+     }
+    },
+    {
+     "name": "period_start",
+     "type": "DATE",
+     "role": "time",
+     "label": {
+      "en": "Period start",
+      "ka": "პერიოდის დასაწყისი",
+      "ru": "Начало периода"
+     }
+    },
+    {
+     "name": "value",
+     "type": "DOUBLE",
+     "role": "measure",
+     "label": {
+      "en": "Value",
+      "ka": "მნიშვნელობა",
+      "ru": "Значение"
+     }
+    }
+   ],
+   "period_types": [
+    "annual"
+   ],
+   "row_count": 9987,
+   "value_count": 9987,
+   "first_period": "2006-01-01",
+   "last_period": "2022-01-01",
+   "file": "business_by_area.parquet",
+   "bytes": 45270
   }
  ]
 }

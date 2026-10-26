@@ -302,5 +302,239 @@
       "ka": "მოსახლეობის პროცენტი",
       "ru": "% населения"
     }
+  },
+  "retail_prices": {
+    "table": "retail_prices_monthly",
+    "topic": "prices",
+    "source": "prices_api",
+    "resource": "retail_prices",
+    "web_url": "https://prices.geostat.ge/avg-prices?lang=en",
+    "title": {
+      "en": "Average shop prices of 101 products",
+      "ka": "101 პროდუქტის საშუალო ფასები",
+      "ru": "Средние цены на 101 товар"
+    },
+    "description": {
+      "en": "Average monthly retail price of 101 everyday products (bread, dairy, meat, fruit and vegetables, fuel, drinks…) since 2020, from Geostat's price statistics portal.",
+      "ka": "101 ყოველდღიური პროდუქტის (პური, რძის ნაწარმი, ხორცი, ხილი და ბოსტნეული, საწვავი, სასმელები…) საშუალო თვიური საცალო ფასი 2020 წლიდან.",
+      "ru": "Средняя месячная розничная цена 101 повседневного товара (хлеб, молочные продукты, мясо, овощи и фрукты, топливо, напитки…) с 2020 года."
+    },
+    "grain": "One row per product × month",
+    "unit": {
+      "en": "GEL per unit shown in unit_of_measure",
+      "ka": "ლარი unit_of_measure-ში მითითებულ ერთეულზე",
+      "ru": "Лари за единицу, указанную в unit_of_measure"
+    }
+  },
+  "inflation_measures": {
+    "table": "inflation_measures_monthly",
+    "topic": "prices",
+    "source": "prices_api",
+    "resource": "inflation_measures",
+    "web_url": "https://prices.geostat.ge/?lang=en",
+    "title": {
+      "en": "Headline, core and harmonised inflation",
+      "ka": "ძირითადი, საბაზო და ჰარმონიზებული ინფლაცია",
+      "ru": "Общая, базовая и гармонизированная инфляция"
+    },
+    "description": {
+      "en": "Annual inflation (% vs the same month a year earlier): headline CPI, core inflation, HICP, and inflation of durable, semi-durable and non-durable goods and services.",
+      "ka": "წლიური ინფლაცია (%): ძირითადი, საბაზო, ჰარმონიზებული, ასევე ხანგრძლივი, საშუალო ხანგრძლივობის და არა ხანგრძლივი მოხმარების საქონლისა და მომსახურების ინფლაცია.",
+      "ru": "Годовая инфляция (% к тому же месяцу прошлого года): общая (ИПЦ), базовая, ИГПЦ, а также по товарам длительного, среднего и краткосрочного пользования и услугам."
+    },
+    "grain": "One row per measure × month",
+    "unit": {
+      "en": "Percent, year over year",
+      "ka": "პროცენტი, წლიური",
+      "ru": "%, год к году"
+    }
+  },
+  "inflation_components": {
+    "table": "inflation_components_monthly",
+    "topic": "prices",
+    "source": "prices_api",
+    "resource": "inflation_components",
+    "web_url": "https://prices.geostat.ge/?lang=en",
+    "title": {
+      "en": "Consumer prices: food, energy, goods and services",
+      "ka": "სამომხმარებლო ფასები: სურსათი, ენერგია, საქონელი და მომსახურება",
+      "ru": "Потребительские цены: продукты, энергия, товары и услуги"
+    },
+    "description": {
+      "en": "Price indices for the main CPI components — food, alcohol and tobacco; energy; non-energy industrial goods; services — with December 2020 = 100.",
+      "ka": "სამომხმარებლო ფასების ინდექსის ძირითადი კომპონენტები — სურსათი, ენერგია, არასასურსათო საქონელი და მომსახურება (2020 წლის დეკემბერი = 100).",
+      "ru": "Индексы цен основных компонентов ИПЦ — продукты, алкоголь и табак; энергия; непродовольственные товары; услуги (декабрь 2020 = 100)."
+    },
+    "grain": "One row per component × month",
+    "unit": {
+      "en": "Index (December 2020 = 100)",
+      "ka": "ინდექსი (2020 წლის დეკემბერი = 100)",
+      "ru": "Индекс (декабрь 2020 = 100)"
+    }
+  },
+  "basket_weights": {
+    "table": "cpi_basket_weights_annual",
+    "topic": "prices",
+    "source": "prices_api",
+    "resource": "basket_weights",
+    "web_url": "https://prices.geostat.ge/?lang=en",
+    "title": {
+      "en": "Consumer basket weights",
+      "ka": "სამომხმარებლო კალათის წონები",
+      "ru": "Структура потребительской корзины"
+    },
+    "description": {
+      "en": "Share of each COICOP division, durability class and origin (imported vs local) in the CPI basket, by year since 2012.",
+      "ka": "COICOP განყოფილებების, ხანგრძლივობის კლასებისა და წარმოშობის წილი სამომხმარებლო კალათაში, წლების მიხედვით 2012 წლიდან.",
+      "ru": "Доля разделов COICOP, классов по длительности пользования и происхождению (импорт или местное) в корзине ИПЦ по годам с 2012."
+    },
+    "grain": "One row per classification × item × year",
+    "unit": {
+      "en": "Percent of the basket",
+      "ka": "კალათის პროცენტი",
+      "ru": "% корзины"
+    }
+  },
+  "producer_prices": {
+    "table": "producer_prices_monthly",
+    "topic": "prices",
+    "source": "prices_api",
+    "resource": "producer_prices",
+    "web_url": "https://prices.geostat.ge/producer-prices?lang=en",
+    "title": {
+      "en": "Producer, export and import prices",
+      "ka": "მწარმოებელთა, ექსპორტისა და იმპორტის ფასები",
+      "ru": "Цены производителей, экспорта и импорта"
+    },
+    "description": {
+      "en": "Producer price index for industrial products, domestic and domestic-supply PPI, export and import price indices, and services PPI (transport, accommodation and food, telecom). 2020 average = 100.",
+      "ka": "მწარმოებელთა ფასების ინდექსი, ექსპორტისა და იმპორტის ფასების ინდექსები და მომსახურების PPI (2020 წლის საშუალო = 100).",
+      "ru": "Индекс цен производителей промышленной продукции, внутренний PPI, индексы цен экспорта и импорта, PPI услуг (транспорт, гостиницы и питание, связь). Среднее за 2020 = 100."
+    },
+    "grain": "One row per series × month",
+    "unit": {
+      "en": "Index (2020 average = 100)",
+      "ka": "ინდექსი (2020 წლის საშუალო = 100)",
+      "ru": "Индекс (среднее за 2020 = 100)"
+    }
+  },
+  "construction_costs": {
+    "table": "construction_costs_monthly",
+    "topic": "prices",
+    "source": "prices_api",
+    "resource": "construction_costs",
+    "web_url": "https://prices.geostat.ge/construction?lang=en",
+    "title": {
+      "en": "Construction cost index",
+      "ka": "მშენებლობის ღირებულების ინდექსი",
+      "ru": "Индекс стоимости строительства"
+    },
+    "description": {
+      "en": "Construction cost index, total and by component (materials, wages, machinery, transport and energy, other), with February 2022 = 100.",
+      "ka": "მშენებლობის ღირებულების ინდექსი, სულ და კომპონენტების მიხედვით (2022 წლის თებერვალი = 100).",
+      "ru": "Индекс стоимости строительства, всего и по компонентам (материалы, зарплата, техника, транспорт и энергия, прочее), февраль 2022 = 100."
+    },
+    "grain": "One row per component × month",
+    "unit": {
+      "en": "Index (February 2022 = 100)",
+      "ka": "ინდექსი (2022 წლის თებერვალი = 100)",
+      "ru": "Индекс (февраль 2022 = 100)"
+    }
+  },
+  "agro_prices": {
+    "table": "agro_prices_quarterly",
+    "topic": "prices",
+    "source": "prices_api",
+    "resource": "agro_prices",
+    "web_url": "https://prices.geostat.ge/?lang=en",
+    "title": {
+      "en": "Agricultural producer prices",
+      "ka": "სოფლის მეურნეობის პროდუქციის ფასები",
+      "ru": "Цены сельхозпроизводителей"
+    },
+    "description": {
+      "en": "Unit value index of agricultural products: percent change versus the previous quarter and the same quarter a year earlier.",
+      "ka": "სოფლის მეურნეობის პროდუქციის ერთეულის ღირებულების ინდექსი: ცვლილება წინა კვარტალთან და წინა წლის შესაბამის კვარტალთან.",
+      "ru": "Индекс удельной стоимости сельхозпродукции: изменение к предыдущему кварталу и к тому же кварталу прошлого года, %."
+    },
+    "grain": "One row per measure × quarter",
+    "unit": {
+      "en": "Percent change",
+      "ka": "პროცენტული ცვლილება",
+      "ru": "Изменение, %"
+    }
+  },
+  "tbilisi_property": {
+    "table": "tbilisi_property_quarterly",
+    "topic": "prices",
+    "source": "prices_api",
+    "resource": "tbilisi_property",
+    "web_url": "https://prices.geostat.ge/construction?lang=en",
+    "title": {
+      "en": "Tbilisi housing prices by district",
+      "ka": "საცხოვრებლის ფასები თბილისის რაიონების მიხედვით",
+      "ru": "Цены на жильё по районам Тбилиси"
+    },
+    "description": {
+      "en": "Median price per square metre of residential property in Tbilisi's 10 districts, for flats and detached houses, quarterly since 2021.",
+      "ka": "საცხოვრებელი უძრავი ქონების 1 მ²-ის მედიანური ფასი თბილისის 10 რაიონში, ბინებისა და სახლების მიხედვით, კვარტალურად 2021 წლიდან.",
+      "ru": "Медианная цена квадратного метра жилья в 10 районах Тбилиси, для квартир и частных домов, ежеквартально с 2021 года."
+    },
+    "grain": "One row per district × dwelling type × quarter",
+    "unit": {
+      "en": "GEL per m² (median)",
+      "ka": "ლარი 1 მ²-ზე (მედიანა)",
+      "ru": "Лари за м² (медиана)"
+    }
+  },
+  "business_regions": {
+    "table": "business_regional_annual",
+    "topic": "regions",
+    "source": "gis_api",
+    "level": "region",
+    "max_age_days": 30,
+    "tolerate_failure": true,
+    "web_url": "https://gis-api.geostat.ge/",
+    "title": {
+      "en": "Business statistics by region",
+      "ka": "ბიზნეს სტატისტიკა რეგიონების მიხედვით",
+      "ru": "Статистика предприятий по регионам"
+    },
+    "description": {
+      "en": "Annual business statistics for Georgia's regions: turnover, value added, production value, purchases, intermediate consumption, investment, personnel costs, average remuneration, persons employed and employees. Latest year available: 2022.",
+      "ka": "წლიური ბიზნეს სტატისტიკა რეგიონების მიხედვით: ბრუნვა, დამატებული ღირებულება, გამოშვება, შესყიდვები, ინვესტიციები, შრომის ანაზღაურება, დასაქმება. ბოლო ხელმისაწვდომი წელი: 2022.",
+      "ru": "Годовая статистика предприятий по регионам: оборот, добавленная стоимость, выпуск, закупки, промежуточное потребление, инвестиции, расходы на персонал, средняя оплата труда, занятые и наёмные работники. Последний год: 2022."
+    },
+    "grain": "One row per indicator × region × year",
+    "unit": {
+      "en": "Varies by indicator (named in the indicator): million GEL, GEL per month, or persons",
+      "ka": "დამოკიდებულია მაჩვენებელზე: მლნ ლარი, ლარი თვეში ან კაცი",
+      "ru": "Зависит от показателя: млн лари, лари в месяц или человек"
+    }
+  },
+  "business_municipalities": {
+    "table": "business_municipal_annual",
+    "topic": "regions",
+    "source": "gis_api",
+    "level": "municipality",
+    "max_age_days": 30,
+    "tolerate_failure": true,
+    "web_url": "https://gis-api.geostat.ge/",
+    "title": {
+      "en": "Business statistics by municipality",
+      "ka": "ბიზნეს სტატისტიკა მუნიციპალიტეტების მიხედვით",
+      "ru": "Статистика предприятий по муниципалитетам"
+    },
+    "description": {
+      "en": "The same business indicators as the regional table for 66 municipalities and self-governing cities, with each municipality's region code. Latest year available: 2022.",
+      "ka": "იგივე ბიზნეს მაჩვენებლები 66 მუნიციპალიტეტისა და თვითმმართველი ქალაქისთვის. ბოლო ხელმისაწვდომი წელი: 2022.",
+      "ru": "Те же показатели предприятий для 66 муниципалитетов и самоуправляемых городов, с кодом региона. Последний год: 2022."
+    },
+    "grain": "One row per indicator × municipality × year",
+    "unit": {
+      "en": "Varies by indicator (named in the indicator): million GEL, GEL per month, or persons",
+      "ka": "დამოკიდებულია მაჩვენებელზე: მლნ ლარი, ლარი თვეში ან კაცი",
+      "ru": "Зависит от показателя: млн лари, лари в месяц или человек"
+    }
   }
 }

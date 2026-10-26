@@ -1,74 +1,447 @@
 {
-  "dataset": {"en": "Dataset", "ka": "მონაცემთა ნაკრები", "ru": "Набор данных"},
-  "value": {"en": "Value", "ka": "მნიშვნელობა", "ru": "Значение"},
-  "year": {"en": "Year", "ka": "წელი", "ru": "Год"},
-  "quarter": {"en": "Quarter", "ka": "კვარტალი", "ru": "Квартал"},
-  "month": {"en": "Month", "ka": "თვე", "ru": "Месяц"},
-  "period": {"en": "Period", "ka": "პერიოდი", "ru": "Период"},
-  "period_type": {"en": "Period type", "ka": "პერიოდის ტიპი", "ru": "Тип периода"},
-  "period_start": {"en": "Period start", "ka": "პერიოდის დასაწყისი", "ru": "Начало периода"},
-  "quarter_num": {"en": "Quarter number", "ka": "კვარტლის ნომერი", "ru": "Номер квартала"},
-  "month_num": {"en": "Month number", "ka": "თვის ნომერი", "ru": "Номер месяца"},
-  "is_preliminary": {"en": "Preliminary", "ka": "წინასწარი", "ru": "Предварительные"},
-  "source_order": {"en": "Source order", "ka": "წყაროს რიგი", "ru": "Порядок в источнике"},
-
-  "region": {"en": "Region", "ka": "რეგიონი", "ru": "Регион"},
-  "area": {"en": "Area", "ka": "ტერიტორია", "ru": "Территория"},
-  "area_level": {"en": "Area level", "ka": "ტერიტორიის დონე", "ru": "Уровень территории"},
-  "sex": {"en": "Sex", "ka": "სქესი", "ru": "Пол"},
-  "age": {"en": "Age group", "ka": "ასაკობრივი ჯგუფი", "ru": "Возрастная группа"},
-  "sex_sectors": {"en": "Sex / sector", "ka": "სქესი / სექტორი", "ru": "Пол / сектор"},
-  "sex_urban_rural_areas": {"en": "Sex / urban–rural", "ka": "სქესი / ქალაქი–სოფელი", "ru": "Пол / город–село"},
-  "population_group": {"en": "Population group", "ka": "მოსახლეობის ჯგუფი", "ru": "Группа населения"},
-  "economic_activity": {"en": "Economic activity", "ka": "ეკონომიკური საქმიანობა", "ru": "Вид деятельности"},
-  "activity": {"en": "Economic activity", "ka": "ეკონომიკური საქმიანობა", "ru": "Вид деятельности"},
-  "nace_section": {"en": "NACE section", "ka": "NACE სექცია", "ru": "Раздел NACE"},
-  "economic_status": {"en": "Economic status", "ka": "ეკონომიკური სტატუსი", "ru": "Экономический статус"},
-  "consumption_group": {"en": "Consumption group", "ka": "მოხმარების ჯგუფი", "ru": "Группа потребления"},
-  "dwelling_type": {"en": "Dwelling type", "ka": "საცხოვრებლის ტიპი", "ru": "Тип жилья"},
-  "indicator": {"en": "Indicator", "ka": "მაჩვენებელი", "ru": "Показатель"},
-  "sources": {"en": "Source", "ka": "წყარო", "ru": "Источник"},
-
-  "inflation_rate": {"en": "Annual inflation, %", "ka": "წლიური ინფლაცია, %", "ru": "Годовая инфляция, %"},
-  "inflation_yoy_pct": {"en": "Annual inflation, %", "ka": "წლიური ინფლაცია, %", "ru": "Годовая инфляция, %"},
-  "inflation_mom_pct": {"en": "Monthly inflation, %", "ka": "თვიური ინფლაცია, %", "ru": "Месячная инфляция, %"},
-  "cpi_2010_100": {"en": "CPI (2010 = 100)", "ka": "სფი (2010 = 100)", "ru": "ИПЦ (2010 = 100)"},
-  "cpi_yoy_pct": {"en": "CPI change, % YoY", "ka": "სფი ცვლილება, % წლიური", "ru": "Изменение ИПЦ, % г/г"},
-
-  "nominal_salary_gel": {"en": "Nominal salary, GEL", "ka": "ნომინალური ხელფასი, ლარი", "ru": "Номинальная зарплата, лари"},
-  "real_salary_gel_2010": {"en": "Real salary, GEL at 2010 prices", "ka": "რეალური ხელფასი, ლარი 2010 წლის ფასებში", "ru": "Реальная зарплата, лари в ценах 2010 г."},
-  "real_wage_index_2014": {"en": "Real wage index (2014 = 100)", "ka": "რეალური ხელფასის ინდექსი (2014 = 100)", "ru": "Индекс реальной зарплаты (2014 = 100)"},
-  "nominal_yoy_pct": {"en": "Nominal growth, % YoY", "ka": "ნომინალური ზრდა, % წლიური", "ru": "Номинальный рост, % г/г"},
-  "real_yoy_pct": {"en": "Real growth, % YoY", "ka": "რეალური ზრდა, % წლიური", "ru": "Реальный рост, % г/г"},
-
-  "gdp_mln_gel": {"en": "GDP, million GEL", "ka": "მშპ, მლნ ლარი", "ru": "ВВП, млн лари"},
-  "gdp_mln_usd": {"en": "GDP, million USD", "ka": "მშპ, მლნ აშშ დოლარი", "ru": "ВВП, млн долл. США"},
-  "gdp_per_capita_gel": {"en": "GDP per capita, GEL", "ka": "მშპ ერთ სულზე, ლარი", "ru": "ВВП на душу, лари"},
-  "gdp_per_capita_usd": {"en": "GDP per capita, USD", "ka": "მშპ ერთ სულზე, აშშ დოლარი", "ru": "ВВП на душу, долл. США"},
-  "gel_per_usd": {"en": "GEL per USD", "ka": "ლარი 1 აშშ დოლარზე", "ru": "Лари за доллар США"},
-  "real_growth_pct": {"en": "Real growth, % YoY", "ka": "რეალური ზრდა, % წლიური", "ru": "Реальный рост, % г/г"},
-  "deflator_pct": {"en": "GDP deflator, % YoY", "ka": "მშპ დეფლატორი, % წლიური", "ru": "Дефлятор ВВП, % г/г"},
-  "final_consumption_mln_gel": {"en": "Final consumption, million GEL", "ka": "საბოლოო მოხმარება, მლნ ლარი", "ru": "Конечное потребление, млн лари"},
-  "gross_capital_formation_mln_gel": {"en": "Gross capital formation, million GEL", "ka": "მთლიანი კაპიტალის ფორმირება, მლნ ლარი", "ru": "Валовое накопление, млн лари"},
-  "exports_mln_gel": {"en": "Exports of goods and services, million GEL", "ka": "საქონლისა და მომსახურების ექსპორტი, მლნ ლარი", "ru": "Экспорт товаров и услуг, млн лари"},
-  "exports_goods_mln_gel": {"en": "Exports of goods, million GEL", "ka": "საქონლის ექსპორტი, მლნ ლარი", "ru": "Экспорт товаров, млн лари"},
-  "exports_services_mln_gel": {"en": "Exports of services, million GEL", "ka": "მომსახურების ექსპორტი, მლნ ლარი", "ru": "Экспорт услуг, млн лари"},
-  "imports_mln_gel": {"en": "Imports of goods and services, million GEL", "ka": "საქონლისა და მომსახურების იმპორტი, მლნ ლარი", "ru": "Импорт товаров и услуг, млн лари"},
-  "imports_goods_mln_gel": {"en": "Imports of goods, million GEL", "ka": "საქონლის იმპორტი, მლნ ლარი", "ru": "Импорт товаров, млн лари"},
-  "imports_services_mln_gel": {"en": "Imports of services, million GEL", "ka": "მომსახურების იმპორტი, მლნ ლარი", "ru": "Импорт услуг, млн лари"},
-  "net_exports_mln_gel": {"en": "Net exports, million GEL", "ka": "წმინდა ექსპორტი, მლნ ლარი", "ru": "Чистый экспорт, млн лари"},
-  "gva_mln_gel": {"en": "Gross value added, million GEL", "ka": "მთლიანი დამატებული ღირებულება, მლნ ლარი", "ru": "Валовая добавленная стоимость, млн лари"},
-  "share_of_gva_pct": {"en": "Share of GVA, %", "ka": "წილი დამატებულ ღირებულებაში, %", "ru": "Доля в ВДС, %"},
-
-  "unemployment_rate_pct": {"en": "Unemployment rate, %", "ka": "უმუშევრობის დონე, %", "ru": "Уровень безработицы, %"},
-  "participation_rate_pct": {"en": "Participation rate, %", "ka": "აქტიურობის დონე, %", "ru": "Уровень участия, %"},
-  "employment_rate_pct": {"en": "Employment rate, %", "ka": "დასაქმების დონე, %", "ru": "Уровень занятости, %"},
-  "population_15plus_k": {"en": "Population 15+, thousand", "ka": "15+ მოსახლეობა, ათასი", "ru": "Население 15+, тыс."},
-  "labour_force_k": {"en": "Labour force, thousand", "ka": "სამუშაო ძალა, ათასი", "ru": "Рабочая сила, тыс."},
-  "employed_k": {"en": "Employed, thousand", "ka": "დასაქმებული, ათასი", "ru": "Занятые, тыс."},
-  "hired_k": {"en": "Hired employees, thousand", "ka": "დაქირავებული, ათასი", "ru": "Наёмные, тыс."},
-  "self_employed_k": {"en": "Self-employed, thousand", "ka": "თვითდასაქმებული, ათასი", "ru": "Самозанятые, тыс."},
-  "unemployed_k": {"en": "Unemployed, thousand", "ka": "უმუშევარი, ათასი", "ru": "Безработные, тыс."},
-  "outside_labour_force_k": {"en": "Outside labour force, thousand", "ka": "სამუშაო ძალის გარეთ, ათასი", "ru": "Вне рабочей силы, тыс."},
-  "population_k": {"en": "Population, thousand", "ka": "მოსახლეობა, ათასი", "ru": "Население, тыс."}
+ "dataset": {
+  "en": "Dataset",
+  "ka": "მონაცემთა ნაკრები",
+  "ru": "Набор данных"
+ },
+ "value": {
+  "en": "Value",
+  "ka": "მნიშვნელობა",
+  "ru": "Значение"
+ },
+ "year": {
+  "en": "Year",
+  "ka": "წელი",
+  "ru": "Год"
+ },
+ "quarter": {
+  "en": "Quarter",
+  "ka": "კვარტალი",
+  "ru": "Квартал"
+ },
+ "month": {
+  "en": "Month",
+  "ka": "თვე",
+  "ru": "Месяц"
+ },
+ "period": {
+  "en": "Period",
+  "ka": "პერიოდი",
+  "ru": "Период"
+ },
+ "period_type": {
+  "en": "Period type",
+  "ka": "პერიოდის ტიპი",
+  "ru": "Тип периода"
+ },
+ "period_start": {
+  "en": "Period start",
+  "ka": "პერიოდის დასაწყისი",
+  "ru": "Начало периода"
+ },
+ "quarter_num": {
+  "en": "Quarter number",
+  "ka": "კვარტლის ნომერი",
+  "ru": "Номер квартала"
+ },
+ "month_num": {
+  "en": "Month number",
+  "ka": "თვის ნომერი",
+  "ru": "Номер месяца"
+ },
+ "is_preliminary": {
+  "en": "Preliminary",
+  "ka": "წინასწარი",
+  "ru": "Предварительные"
+ },
+ "source_order": {
+  "en": "Source order",
+  "ka": "წყაროს რიგი",
+  "ru": "Порядок в источнике"
+ },
+ "region": {
+  "en": "Region",
+  "ka": "რეგიონი",
+  "ru": "Регион"
+ },
+ "area": {
+  "en": "Area",
+  "ka": "ტერიტორია",
+  "ru": "Территория"
+ },
+ "area_level": {
+  "en": "Area level",
+  "ka": "ტერიტორიის დონე",
+  "ru": "Уровень территории"
+ },
+ "sex": {
+  "en": "Sex",
+  "ka": "სქესი",
+  "ru": "Пол"
+ },
+ "age": {
+  "en": "Age group",
+  "ka": "ასაკობრივი ჯგუფი",
+  "ru": "Возрастная группа"
+ },
+ "sex_sectors": {
+  "en": "Sex / sector",
+  "ka": "სქესი / სექტორი",
+  "ru": "Пол / сектор"
+ },
+ "sex_urban_rural_areas": {
+  "en": "Sex / urban–rural",
+  "ka": "სქესი / ქალაქი–სოფელი",
+  "ru": "Пол / город–село"
+ },
+ "population_group": {
+  "en": "Population group",
+  "ka": "მოსახლეობის ჯგუფი",
+  "ru": "Группа населения"
+ },
+ "economic_activity": {
+  "en": "Economic activity",
+  "ka": "ეკონომიკური საქმიანობა",
+  "ru": "Вид деятельности"
+ },
+ "activity": {
+  "en": "Economic activity",
+  "ka": "ეკონომიკური საქმიანობა",
+  "ru": "Вид деятельности"
+ },
+ "nace_section": {
+  "en": "NACE section",
+  "ka": "NACE სექცია",
+  "ru": "Раздел NACE"
+ },
+ "economic_status": {
+  "en": "Economic status",
+  "ka": "ეკონომიკური სტატუსი",
+  "ru": "Экономический статус"
+ },
+ "consumption_group": {
+  "en": "Consumption group",
+  "ka": "მოხმარების ჯგუფი",
+  "ru": "Группа потребления"
+ },
+ "dwelling_type": {
+  "en": "Dwelling type",
+  "ka": "საცხოვრებლის ტიპი",
+  "ru": "Тип жилья"
+ },
+ "indicator": {
+  "en": "Indicator",
+  "ka": "მაჩვენებელი",
+  "ru": "Показатель"
+ },
+ "sources": {
+  "en": "Source",
+  "ka": "წყარო",
+  "ru": "Источник"
+ },
+ "inflation_rate": {
+  "en": "Annual inflation, %",
+  "ka": "წლიური ინფლაცია, %",
+  "ru": "Годовая инфляция, %"
+ },
+ "inflation_yoy_pct": {
+  "en": "Annual inflation, %",
+  "ka": "წლიური ინფლაცია, %",
+  "ru": "Годовая инфляция, %"
+ },
+ "inflation_mom_pct": {
+  "en": "Monthly inflation, %",
+  "ka": "თვიური ინფლაცია, %",
+  "ru": "Месячная инфляция, %"
+ },
+ "cpi_2010_100": {
+  "en": "CPI (2010 = 100)",
+  "ka": "სფი (2010 = 100)",
+  "ru": "ИПЦ (2010 = 100)"
+ },
+ "cpi_yoy_pct": {
+  "en": "CPI change, % YoY",
+  "ka": "სფი ცვლილება, % წლიური",
+  "ru": "Изменение ИПЦ, % г/г"
+ },
+ "nominal_salary_gel": {
+  "en": "Nominal salary, GEL",
+  "ka": "ნომინალური ხელფასი, ლარი",
+  "ru": "Номинальная зарплата, лари"
+ },
+ "real_salary_gel_2010": {
+  "en": "Real salary, GEL at 2010 prices",
+  "ka": "რეალური ხელფასი, ლარი 2010 წლის ფასებში",
+  "ru": "Реальная зарплата, лари в ценах 2010 г."
+ },
+ "real_wage_index_2014": {
+  "en": "Real wage index (2014 = 100)",
+  "ka": "რეალური ხელფასის ინდექსი (2014 = 100)",
+  "ru": "Индекс реальной зарплаты (2014 = 100)"
+ },
+ "nominal_yoy_pct": {
+  "en": "Nominal growth, % YoY",
+  "ka": "ნომინალური ზრდა, % წლიური",
+  "ru": "Номинальный рост, % г/г"
+ },
+ "real_yoy_pct": {
+  "en": "Real growth, % YoY",
+  "ka": "რეალური ზრდა, % წლიური",
+  "ru": "Реальный рост, % г/г"
+ },
+ "gdp_mln_gel": {
+  "en": "GDP, million GEL",
+  "ka": "მშპ, მლნ ლარი",
+  "ru": "ВВП, млн лари"
+ },
+ "gdp_mln_usd": {
+  "en": "GDP, million USD",
+  "ka": "მშპ, მლნ აშშ დოლარი",
+  "ru": "ВВП, млн долл. США"
+ },
+ "gdp_per_capita_gel": {
+  "en": "GDP per capita, GEL",
+  "ka": "მშპ ერთ სულზე, ლარი",
+  "ru": "ВВП на душу, лари"
+ },
+ "gdp_per_capita_usd": {
+  "en": "GDP per capita, USD",
+  "ka": "მშპ ერთ სულზე, აშშ დოლარი",
+  "ru": "ВВП на душу, долл. США"
+ },
+ "gel_per_usd": {
+  "en": "GEL per USD",
+  "ka": "ლარი 1 აშშ დოლარზე",
+  "ru": "Лари за доллар США"
+ },
+ "real_growth_pct": {
+  "en": "Real growth, % YoY",
+  "ka": "რეალური ზრდა, % წლიური",
+  "ru": "Реальный рост, % г/г"
+ },
+ "deflator_pct": {
+  "en": "GDP deflator, % YoY",
+  "ka": "მშპ დეფლატორი, % წლიური",
+  "ru": "Дефлятор ВВП, % г/г"
+ },
+ "final_consumption_mln_gel": {
+  "en": "Final consumption, million GEL",
+  "ka": "საბოლოო მოხმარება, მლნ ლარი",
+  "ru": "Конечное потребление, млн лари"
+ },
+ "gross_capital_formation_mln_gel": {
+  "en": "Gross capital formation, million GEL",
+  "ka": "მთლიანი კაპიტალის ფორმირება, მლნ ლარი",
+  "ru": "Валовое накопление, млн лари"
+ },
+ "exports_mln_gel": {
+  "en": "Exports of goods and services, million GEL",
+  "ka": "საქონლისა და მომსახურების ექსპორტი, მლნ ლარი",
+  "ru": "Экспорт товаров и услуг, млн лари"
+ },
+ "exports_goods_mln_gel": {
+  "en": "Exports of goods, million GEL",
+  "ka": "საქონლის ექსპორტი, მლნ ლარი",
+  "ru": "Экспорт товаров, млн лари"
+ },
+ "exports_services_mln_gel": {
+  "en": "Exports of services, million GEL",
+  "ka": "მომსახურების ექსპორტი, მლნ ლარი",
+  "ru": "Экспорт услуг, млн лари"
+ },
+ "imports_mln_gel": {
+  "en": "Imports of goods and services, million GEL",
+  "ka": "საქონლისა და მომსახურების იმპორტი, მლნ ლარი",
+  "ru": "Импорт товаров и услуг, млн лари"
+ },
+ "imports_goods_mln_gel": {
+  "en": "Imports of goods, million GEL",
+  "ka": "საქონლის იმპორტი, მლნ ლარი",
+  "ru": "Импорт товаров, млн лари"
+ },
+ "imports_services_mln_gel": {
+  "en": "Imports of services, million GEL",
+  "ka": "მომსახურების იმპორტი, მლნ ლარი",
+  "ru": "Импорт услуг, млн лари"
+ },
+ "net_exports_mln_gel": {
+  "en": "Net exports, million GEL",
+  "ka": "წმინდა ექსპორტი, მლნ ლარი",
+  "ru": "Чистый экспорт, млн лари"
+ },
+ "gva_mln_gel": {
+  "en": "Gross value added, million GEL",
+  "ka": "მთლიანი დამატებული ღირებულება, მლნ ლარი",
+  "ru": "Валовая добавленная стоимость, млн лари"
+ },
+ "share_of_gva_pct": {
+  "en": "Share of GVA, %",
+  "ka": "წილი დამატებულ ღირებულებაში, %",
+  "ru": "Доля в ВДС, %"
+ },
+ "unemployment_rate_pct": {
+  "en": "Unemployment rate, %",
+  "ka": "უმუშევრობის დონე, %",
+  "ru": "Уровень безработицы, %"
+ },
+ "participation_rate_pct": {
+  "en": "Participation rate, %",
+  "ka": "აქტიურობის დონე, %",
+  "ru": "Уровень участия, %"
+ },
+ "employment_rate_pct": {
+  "en": "Employment rate, %",
+  "ka": "დასაქმების დონე, %",
+  "ru": "Уровень занятости, %"
+ },
+ "population_15plus_k": {
+  "en": "Population 15+, thousand",
+  "ka": "15+ მოსახლეობა, ათასი",
+  "ru": "Население 15+, тыс."
+ },
+ "labour_force_k": {
+  "en": "Labour force, thousand",
+  "ka": "სამუშაო ძალა, ათასი",
+  "ru": "Рабочая сила, тыс."
+ },
+ "employed_k": {
+  "en": "Employed, thousand",
+  "ka": "დასაქმებული, ათასი",
+  "ru": "Занятые, тыс."
+ },
+ "hired_k": {
+  "en": "Hired employees, thousand",
+  "ka": "დაქირავებული, ათასი",
+  "ru": "Наёмные, тыс."
+ },
+ "self_employed_k": {
+  "en": "Self-employed, thousand",
+  "ka": "თვითდასაქმებული, ათასი",
+  "ru": "Самозанятые, тыс."
+ },
+ "unemployed_k": {
+  "en": "Unemployed, thousand",
+  "ka": "უმუშევარი, ათასი",
+  "ru": "Безработные, тыс."
+ },
+ "outside_labour_force_k": {
+  "en": "Outside labour force, thousand",
+  "ka": "სამუშაო ძალის გარეთ, ათასი",
+  "ru": "Вне рабочей силы, тыс."
+ },
+ "population_k": {
+  "en": "Population, thousand",
+  "ka": "მოსახლეობა, ათასი",
+  "ru": "Население, тыс."
+ },
+ "product": {
+  "en": "Product",
+  "ka": "პროდუქტი",
+  "ru": "Товар"
+ },
+ "product_group": {
+  "en": "Product group",
+  "ka": "სასაქონლო ჯგუფი",
+  "ru": "Группа товаров"
+ },
+ "unit_of_measure": {
+  "en": "Unit",
+  "ka": "ერთეული",
+  "ru": "Единица"
+ },
+ "price_gel": {
+  "en": "Price, GEL",
+  "ka": "ფასი, ლარი",
+  "ru": "Цена, лари"
+ },
+ "price_year_ago_gel": {
+  "en": "Price a year earlier, GEL",
+  "ka": "ფასი ერთი წლის წინ, ლარი",
+  "ru": "Цена годом ранее, лари"
+ },
+ "change_yoy_pct": {
+  "en": "Change over a year, %",
+  "ka": "წლიური ცვლილება, %",
+  "ru": "Изменение за год, %"
+ },
+ "change_since_2020_pct": {
+  "en": "Change since Jan 2020, %",
+  "ka": "ცვლილება 2020 წლის იანვრიდან, %",
+  "ru": "Изменение с января 2020, %"
+ },
+ "low_12m_gel": {
+  "en": "12-month low, GEL",
+  "ka": "12-თვიანი მინიმუმი, ლარი",
+  "ru": "Минимум за 12 мес., лари"
+ },
+ "high_12m_gel": {
+  "en": "12-month high, GEL",
+  "ka": "12-თვიანი მაქსიმუმი, ლარი",
+  "ru": "Максимум за 12 мес., лари"
+ },
+ "measure": {
+  "en": "Measure",
+  "ka": "მაჩვენებელი",
+  "ru": "Показатель"
+ },
+ "measure_type": {
+  "en": "Measure type",
+  "ka": "მაჩვენებლის ტიპი",
+  "ru": "Тип показателя"
+ },
+ "component": {
+  "en": "Component",
+  "ka": "კომპონენტი",
+  "ru": "Компонент"
+ },
+ "classification": {
+  "en": "Classification",
+  "ka": "კლასიფიკაცია",
+  "ru": "Классификация"
+ },
+ "item": {
+  "en": "Item",
+  "ka": "ელემენტი",
+  "ru": "Элемент"
+ },
+ "series": {
+  "en": "Series",
+  "ka": "რიგი",
+  "ru": "Ряд"
+ },
+ "district": {
+  "en": "District",
+  "ka": "რაიონი",
+  "ru": "Район"
+ },
+ "median_price_gel_m2": {
+  "en": "Median price, GEL per m²",
+  "ka": "მედიანური ფასი, ლარი 1 მ²-ზე",
+  "ru": "Медианная цена, лари за м²"
+ },
+ "year_ago_gel_m2": {
+  "en": "A year earlier, GEL per m²",
+  "ka": "ერთი წლის წინ, ლარი 1 მ²-ზე",
+  "ru": "Годом ранее, лари за м²"
+ },
+ "municipality": {
+  "en": "Municipality",
+  "ka": "მუნიციპალიტეტი",
+  "ru": "Муниципалитет"
+ },
+ "municipality_code": {
+  "en": "Municipality code",
+  "ka": "მუნიციპალიტეტის კოდი",
+  "ru": "Код муниципалитета"
+ },
+ "region_code": {
+  "en": "Region code",
+  "ka": "რეგიონის კოდი",
+  "ru": "Код региона"
+ },
+ "area_code": {
+  "en": "Area code",
+  "ka": "ტერიტორიის კოდი",
+  "ru": "Код территории"
+ }
 }

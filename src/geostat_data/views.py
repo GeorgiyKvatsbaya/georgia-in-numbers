@@ -349,6 +349,138 @@ DERIVED_VIEWS: dict[str, dict[str, Any]] = {
             WHERE w.area_level <> 'note' AND p.value IS NOT NULL
         """,
     },
+    "retail_prices_latest": {
+        "requires": ["retail_prices_monthly"],
+        "description": (
+            "One row per product: latest average shop price (GEL per unit_of_measure), the "
+            "price a year earlier and in January 2020, percent changes, and the 12-month low "
+            "and high. Source: Geostat price statistics portal."
+        ),
+        "sql": """
+            WITH latest AS (
+                SELECT product, max(period_start) AS period_start
+                FROM retail_prices_monthly WHERE value IS NOT NULL GROUP BY product
+            )
+            SELECT
+                p.product,
+                p.product_group,
+                p.unit_of_measure,
+                l.period_start,
+                round(p.value, 4) AS price_gel,
+                round(y.value, 4) AS price_year_ago_gel,
+                round(100 * (p.value / y.value - 1), 2) AS change_yoy_pct,
+                round(100 * (p.value / b.value - 1), 2) AS change_since_2020_pct,
+                round(w.low, 4) AS low_12m_gel,
+                round(w.high, 4) AS high_12m_gel
+            FROM latest AS l
+            JOIN retail_prices_monthly AS p USING (product, period_start)
+            LEFT JOIN retail_prices_monthly AS y
+                ON y.product = l.product AND y.period_start = l.period_start - INTERVAL 1 YEAR
+            LEFT JOIN retail_prices_monthly AS b
+                ON b.product = l.product AND b.period_start = DATE '2020-01-01'
+            LEFT JOIN (
+                SELECT r.product, min(r.value) AS low, max(r.value) AS high
+                FROM retail_prices_monthly AS r JOIN latest AS x USING (product)
+                WHERE r.period_start > x.period_start - INTERVAL 12 MONTH
+                GROUP BY r.product
+            ) AS w ON w.product = l.product
+        """,
+    },
+    "inflation_breakdown_monthly": {
+        "requires": ["inflation_measures_monthly", "inflation_components_monthly"],
+        "description": (
+            "Year-over-year inflation (%) by measure in one place: headline, core and HICP, "
+            "durability classes, and the CPI components food, energy, non-energy goods and "
+            "services (computed from their Dec 2020 = 100 indices)."
+        ),
+        "sql": """
+            SELECT measure, 'measure' AS measure_type, year, month_num, period_start,
+                   round(value, 4) AS inflation_yoy_pct
+            FROM inflation_measures_monthly
+            WHERE value IS NOT NULL
+            UNION ALL
+            SELECT c.component, 'component', c.year, c.month_num, c.period_start,
+                   round(100 * (c.value / p.value - 1), 4)
+            FROM inflation_components_monthly AS c
+            JOIN inflation_components_monthly AS p
+                ON p.component = c.component
+                AND p.period_start = c.period_start - INTERVAL 1 YEAR
+            WHERE c.value IS NOT NULL AND p.value IS NOT NULL
+        """,
+    },
+    "tbilisi_property_latest": {
+        "requires": ["tbilisi_property_quarterly"],
+        "description": (
+            "Latest quarter of median residential property prices per m² (GEL) by Tbilisi "
+            "district and dwelling type, with the change versus the same quarter a year earlier."
+        ),
+        "sql": """
+            WITH latest AS (
+                SELECT dwelling_type, max(period_start) AS period_start
+                FROM tbilisi_property_quarterly WHERE value IS NOT NULL GROUP BY dwelling_type
+            )
+            SELECT
+                t.district,
+                t.dwelling_type,
+                t.year,
+                t.quarter_num,
+                t.period_start,
+                t.value AS median_price_gel_m2,
+                y.value AS year_ago_gel_m2,
+                round(100 * (t.value / y.value - 1), 2) AS change_yoy_pct
+            FROM tbilisi_property_quarterly AS t
+            JOIN latest USING (dwelling_type, period_start)
+            LEFT JOIN tbilisi_property_quarterly AS y
+                ON y.district = t.district AND y.dwelling_type = t.dwelling_type
+                AND y.period_start = t.period_start - INTERVAL 1 YEAR
+        """,
+    },
+    "business_by_area": {
+        "requires": ["business_regional_annual", "business_municipal_annual"],
+        "description": (
+            "Business statistics for regions and municipalities in one long table. "
+            "area_code matches the map files (web/public/data/geo). The municipal source omits "
+            "Tbilisi's values, so Tbilisi's municipal rows come from the regional table. Adds "
+            "turnover and value added per person employed (thousand GEL). Latest year: 2022."
+        ),
+        "sql": """
+            WITH combined AS (
+                SELECT 'region' AS area_level, region AS area, region_code AS area_code,
+                       region_code, indicator, year, period_start, value
+                FROM business_regional_annual
+                UNION ALL
+                SELECT 'municipality', municipality, municipality_code, region_code, indicator,
+                       year, period_start, value
+                FROM business_municipal_annual
+                WHERE municipality_code <> '11'
+                UNION ALL
+                SELECT 'municipality', 'C. Tbilisi', '11', '11', indicator, year,
+                       period_start, value
+                FROM business_regional_annual
+                WHERE region_code = '11'
+            ),
+            ratios AS (
+                SELECT
+                    area_level, area, area_code, region_code, year, period_start,
+                    max(value) FILTER (WHERE indicator = 'Turnover, million GEL') AS turnover,
+                    max(value) FILTER (WHERE indicator = 'Value added, million GEL') AS value_added,
+                    max(value) FILTER (WHERE indicator = 'Persons employed') AS employed
+                FROM combined
+                GROUP BY ALL
+            )
+            SELECT * FROM combined WHERE value IS NOT NULL
+            UNION ALL
+            SELECT area_level, area, area_code, region_code,
+                   'Turnover per person employed, thousand GEL', year, period_start,
+                   round(1000 * turnover / employed, 2)
+            FROM ratios WHERE employed > 0 AND turnover IS NOT NULL
+            UNION ALL
+            SELECT area_level, area, area_code, region_code,
+                   'Value added per person employed, thousand GEL', year, period_start,
+                   round(1000 * value_added / employed, 2)
+            FROM ratios WHERE employed > 0 AND value_added IS NOT NULL
+        """,
+    },
 }
 
 # Shared pivot of Labour Force Survey "economic status" rows into columns.
@@ -460,6 +592,42 @@ VIEW_META: dict[str, dict[str, Any]] = {
             "en": "Population on 1 January for the country, regions and municipalities, with each area's level and region.",
             "ka": "მოსახლეობა 1 იანვრის მდგომარეობით: ქვეყანა, რეგიონები და მუნიციპალიტეტები.",
             "ru": "Население на 1 января по стране, регионам и муниципалитетам с указанием уровня и региона.",
+        },
+    },
+    "retail_prices_latest": {
+        "topic": "prices",
+        "title": {"en": "Latest shop prices", "ka": "ბოლო საცალო ფასები", "ru": "Последние розничные цены"},
+        "summary": {
+            "en": "Latest average price of each product with its change over a year and since 2020.",
+            "ka": "თითოეული პროდუქტის ბოლო საშუალო ფასი და მისი ცვლილება წლის განმავლობაში და 2020 წლიდან.",
+            "ru": "Последняя средняя цена каждого товара и её изменение за год и с 2020 года.",
+        },
+    },
+    "inflation_breakdown_monthly": {
+        "topic": "prices",
+        "title": {"en": "Inflation breakdown", "ka": "ინფლაციის სტრუქტურა", "ru": "Структура инфляции"},
+        "summary": {
+            "en": "Annual inflation by measure: headline, core, HICP, goods by durability, food, energy and services.",
+            "ka": "წლიური ინფლაცია: ძირითადი, საბაზო, ჰარმონიზებული, საქონელი ხანგრძლივობის მიხედვით, სურსათი, ენერგია და მომსახურება.",
+            "ru": "Годовая инфляция по показателям: общая, базовая, ИГПЦ, товары по длительности пользования, продукты, энергия и услуги.",
+        },
+    },
+    "tbilisi_property_latest": {
+        "topic": "prices",
+        "title": {"en": "Tbilisi housing prices, latest quarter", "ka": "თბილისის საცხოვრებლის ფასები, ბოლო კვარტალი", "ru": "Цены на жильё в Тбилиси, последний квартал"},
+        "summary": {
+            "en": "Median price per m² by district for flats and houses, with the change over a year.",
+            "ka": "1 მ²-ის მედიანური ფასი რაიონების მიხედვით ბინებისა და სახლებისთვის, წლიური ცვლილებით.",
+            "ru": "Медианная цена м² по районам для квартир и домов и её изменение за год.",
+        },
+    },
+    "business_by_area": {
+        "topic": "regions",
+        "title": {"en": "Business statistics by area", "ka": "ბიზნეს სტატისტიკა ტერიტორიების მიხედვით", "ru": "Статистика предприятий по территориям"},
+        "summary": {
+            "en": "Regions and municipalities in one table, with productivity per person employed. Latest year 2022.",
+            "ka": "რეგიონები და მუნიციპალიტეტები ერთ ცხრილში, მწარმოებლურობით ერთ დასაქმებულზე. ბოლო წელი 2022.",
+            "ru": "Регионы и муниципалитеты в одной таблице, с производительностью на одного занятого. Последний год 2022.",
         },
     },
 }
